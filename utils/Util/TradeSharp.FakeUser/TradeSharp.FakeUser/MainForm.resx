@@ -1,0 +1,375 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <metadata name="imageList.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <data name="imageList.ImageStream" mimetype="application/x-microsoft.net.object.binary.base64">
+    <value>
+        AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
+        LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
+        ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAADg
+        BQAAAk1TRnQBSQFMAwEBAAHQAQAB0AEAARABAAEQAQAE/wEhAQAI/wFCAU0BNgcAATYDAAEoAwABQAMA
+        ARADAAEBAQABIAYAARD/ABMAAVsBhAGPAf8BTAGAAY8B/wFGAV8BhwH/AT0BVAFhAf8BNAFIAVUB/wEq
+        ATwBRwH/AR8BLgE4Af8BFAEgASkB/wELARQBGwH/AQEBCAEPAf8CAAEEAf8DAAH/AwAB/8wAAV0BhwGS
+        Af8BiQGhAasB/wFQAbIB1AH/AQABjwHNAf8BAAGPAc0B/wEAAY8BzQH/AQABjAHHAf8BAAGIAb4B/wEA
+        AYIBtAH/AQABYgGpAf8BAQFdAZ8B/wEFAVgBlgH/AQgBMQFCAf/MAAFgAYoBlQH/AWQBvgHTAf8BigGk
+        Aa4B/wFkAdwC/wFFAc8C/wE7AcsC/wEyAcQB+gH/AScBvAH1Af8BHQGzAfAB/wEUAaoB6wH/AQoBoAHl
+        Af8BAAGMAdQB/wEJAU0BgAH/ATkCPwH/yAABYwGOAZgB/wFfAdIB7AH/AYsBpAGtAf8BiQHCAc4B/wFX
+        AdgC/wFLAdMC/wFCAc4C/wE3AckB/gH/AS8BwQH6Af8BJQG5AfUB/wEaAbAB7gH/AQ8BqAHpAf8BAAGF
+        Ac0B/wEIATEBQQH/yAABgAGRAZwB/wGBAdcB7wH/AWMBxQHgAf8BjAGmAbAB/wGAAd0B/gH/AU4B0wL/
+        AU0B1AL/AUgB0QL/AT4BzQL/ATQBxwH8Af8BLAG+AfcB/wEhAbYB8gH/ARcBrAHsAf8BCwFPAYEB/wFP
+        AWMBhAH/xAABgwGVAZ8B/wGJAdwB8QH/AYwB4gL/AY0BqAGxAf8BjAG6AccB/wFaAdgC/wFNAdQC/wFN
+        AdQC/wFNAdQC/wFFAdAC/wE6Ac0C/wExAcUB/AH/AScBuwH3Af8BFAGiAdsB/wE1AUoBVgH/xAABhgGa
+        AaMB/wGSAeEB8gH/AZgB6AH9Af8BgAHEAd4B/wGOAacBsAH/AYEB3gH9Af8BhAHgAv8BhAHgAv8BhAHg
+        Av8BhAHgAv8BgQHfAv8BYQHdAv8BWgHYAv8BUQHWAv8BPAGpAdEB/wGBAYcBjAH/wAABiAGcAaUB/wGa
+        AeYB8wH/AZ8B6wH7Af8BmAHoAf4B/wGLAawBuQH/AYsBrAG5Af8BigGqAbcB/wGIAaYBswH/AYYBowGv
+        Af8BgwGfAaoB/wGBAZoBpgH/AWUBlQGhAf8BYgGRAZ0B/wFgAY4BmQH/AV8BiwGVAf8BXQGIAZMB/8AA
+        AYsBoAGoAf8BoAHqAfYB/wGmAe4B+QH/AZ8B6wH7Af8BmAHoAf4B/wFgAdoC/wFNAdQC/wFNAdQC/wFN
+        AdQC/wFNAdQC/wFNAdQC/wFNAdQC/wFdAYgBkwH/zAABjgGiAasB/wGnAe4B9gH/AasB8AH3Af8BpgHu
+        AfkB/wGfAesB+wH/AZgB6AH9Af8BVwHUAfsB/wGJAZ4BpwH/AYYBmQGjAf8BggGUAZ8B/wFkAZABmgH/
+        AWABjAGXAf8BXQGIAZMB/wMSARgDIwEzAxwBJ8AAAY8BpAGsAf8BoAHSAdoB/wGrAfAB9wH/AasB8AH3
+        Af8BpgHuAfkB/wGfAesB+wH/AY0BoQGqAf8BrQK2Af8UAAFiAkgB9gGIASsBIgH/AWgCKwH8xAABjwGk
+        AawB/wGPAaQBrAH/AY8BpAGsAf8BjwGkAawB/wGPAaQBrAH/AawBtgG5Af8IAAMUARsMAAMLAQ8BXgJa
+        AdUBiAJAAf3gAAMCAQMBXQJZAdIDSgGNAwIBAwMHAQkBXAJZAckDSwGOAWgCTQH65AADEAEVAVoCVwG9
+        AV0CWQHXAV0CWgHTAVICUAGj9AADIQEwAxoBJMwAAUIBTQE+BwABPgMAASgDAAFAAwABEAMAAQEBAAEB
+        BQABgBcAA/8BAAL/BwABBwcAAQcHAAEDBwABAwcAAQEHAAEBFwABBw8AAfgGAAGBAbgGAAH/BwAB/wGD
+        BgAB/wHnBgAL
+</value>
+  </data>
+  <metadata name="portfolioDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>120, 17</value>
+  </metadata>
+  <metadata name="saveFarmsetsDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>254, 17</value>
+  </metadata>
+  <metadata name="openFarmSetsDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>413, 17</value>
+  </metadata>
+  <data name="tbUserNames.Text" xml:space="preserve">
+    <value>Кривкова Валерия Aralak
+Корнейчука Наталья Bladewind
+Клиев Ираклий Kazrashakar
+Лягушов Вадим Moonstone
+Хмельнова Алиса Cosius
+Дорога Татьяна Voodookazahn
+Лаврентьев Евдоким Dozragore
+Бобрикова Алла Fendis
+Ерастов Виктор Kiganris
+Ясаков Серафим Pegelv
+Кадыров Андрей Umjurus
+Приемский Евсей Mazulrajas
+Карандашов Михаил Thorne
+Сазонова Елена Adrienrad
+Манина Евдокия Dawnbeard
+Никулин Авдей Nikojind
+Казарезов Фома Taukora
+Кахадзе Карл Stonesong
+Думановский Эммануил Lightmane
+Еркулаева Татьяна Yozshule
+Кубланов Виктор Burilsa
+Галыгин Пимен Tulabar
+Воронин Вадим Zolokus
+Шульгина Евгения Tygomi
+Гусарова Лариса Dorilmeena
+Ясевича Татьяна Kelas
+Набиуллина Анна Whisperrunner
+Ханинов Родион Puresong
+Серёгина Нина Centri
+Яранцев Никита Mavelas
+Аронова Арина Molanim
+Маринов Ярослав Gargas
+Царицына ﻿Агата Anawield
+Унковский Поликарп Moogurg
+Герций Руслан Keranaya
+Ростов Руслан Hugisius
+Гандельсман Феофан Doomweaver
+Боньча Клавдий Aurige
+Запорожец Евгений Nigami
+Шитов Денис Saithidi
+Ягуткин Степан Goltigis
+Сметанин Анатолий Daira
+Лобачёва Александра Galkis
+Нустрова Клара Darim
+Емельянов Петр Huge
+Бендлин Виктор Gavinrawyn
+Чичеринова Екатерина Burirad
+Калганов Ираклий Nalmegelv
+Казьмин Ян Sajar
+Шевелёк Порфирий Laigas
+Шибалова Ольга Conju
+Койначёнок Глеб Arazius
+Цорн Вячеслав Shaktikasa
+Садовничий Дарья Mnerdin
+Каширина Екатерина Andromajurus
+Царско Алексей Centriwyn
+Эзрин Остап Voodoogami
+Кудрявцев Павел Blackbreaker
+Каналина Анна Malarius
+Сопов Денис Nikok
+Бабанов Владимир Drelamath
+Бажанова Наталья Yggginn
+Юрьева Мария Ariu
+Беляева Валентина Yozshukree
+Сёмина Галина Flamemaster
+Крупин Максим Kanris
+Дубков Николай Gavilmeena
+Газинский Ким Cothris
+Калдярв Святослав Rockhammer
+Ябров Владилен Mana
+Султанова Ефросиния Malagor
+Волынкин Артемий Karin
+Колганов Никита Grarad
+Моисеева Арина Opidwyn
+Кольцова Арина Bralmaran
+Шестакова Виктория Fearlessbreaker
+Свалова Евдокия Aura
+Вольпова Нона Masius
+Давыдова Наталья Voodoolabar
+Набатов Артём Nikosho
+Чаадаев Ростислав Nalmegas
+Махнера Ксения Vukree
+Малюгина Татьяна Mokus
+Стиплин Кир Dagdagas
+Буков Артур Direseeker
+Сёмина Ирина Voodoocage
+Гришкина Инесса Keledi
+Карпенцева Валентина Moonblade
+Проничев Егор Kijind
+Трухина Ева Alsalv
+Конаков Роман Shaktigis
+Коротаева Полина Conjuntrius
+Нардин Дмитрий Bara
+Берлунова Татьяна Anaswyn
+Комбаров Александр Forcecrusher
+Ткаченко Остап Gavinrasius
+Лукина Роза Adorawield
+Мамкин Дмитрий Karn
+Курышина Диана Mohuginn
+Курчатов Виктор Maura
+Горелов Артём Swordwood
+Зимин Платон Drelalhala
+Коржаева Евгения Mikalkree
+Дубинина Яна Kegar
+Яшагин Николай Fomeena
+Сапожников Максим Gagar
+Тихонова Ирина Cethris
+Колотушкина Алла Managar
+Чучанов Илья Gardataur
+Пишенин Виктор Kekus
+Суботина Полина Alsalbine
+Шкригунова Бронислава Ghozius
+Самсонов Максим Gholore
+Яфаров Кир Fodwyn
+Ян Ким Spellsmasher
+Садков Леонид Rockpick
+Кадетова Нина Ironwarden
+Ассоров Роман Aurilak
+Шапцев Вячеслав Pekelv
+Фастер Герасим Dianari
+Зинченко Михаил Nith
+Кочкорбаева Марина Akikora
+Мухова Ольга Thetalar
+Гавриленкова Варвара Nikoshura
+Янков Артём Garisar
+Савинков Данила Gavigda
+Чичерин Алексей Kall
+Носов Вячеслав Lairil
+Овечкина Кристина Centrikelv
+Забабурин Константин Landalis
+Канунникова Нина Zulujinn
+Дуванов Филимон Bluefist
+Рудавин Николай Drelarim
+Белоусова Мария Pureflame
+Перевёртов Михаил Kathrilore
+Толкачёва Юлия Dulrajas
+Чилаева Оксана Bloodsmasher
+Баландина Александра Kajora
+Другаль Герман Zulkit
+Виноградов Самсон Delalsa
+Жжёнова Любава Neshicage
+Хуснутдинов Трофим Tugal
+Килиса Валерия Kigagar
+Карпюка Василиса Nightstone
+Анникова Елена Kashicage
+Янчевский Бронислав Pelanim
+Елисеева Ирина Oghmahelm
+Комяхова Нина Vogul
+Сочеванова Лиана Dujin
+Терехова Ульяна Sari
+Юшаков Андрей Alsantrius
+Яблонева Таисия Grolrajas
+Караулова Юлия Kerdin
+Щавлева Нина Malanim
+Луковников Александр Gajar
+Пугачёва Валентина Anarabor
+Мукосеева Анна Namuro
+Грефа Марианна Kigazuru
+Осипова Татьяна Nilanadar
+Попырин Бронислав Whitebinder
+Свалова Наталья Analas
+Куроптев Михаил Moragamand
+Швечиков Всеслав Malagal
+Арсеньева Оксана Arador
+Голубова Антонина Karis
+Слепцова Раиса Granirius
+Дябина Вероника Cordazius
+Коракова Арина Faushura
+Кузарин Евгений Matius
+Большаков Трофим Vile
+Бондарчук Никита Aunadar
+Перехваткин Максимильян Bazius
+Куделин Герасим Magami
+Шеповалов Кирилл Tojahn
+Абушаева Юлия Gralar
+Хабалова Анна Burius
+Яматин Борислав Kajilkree
+Шеркова Агафья Buzanis
+Лещёва Варвара Nalmenara
+Пыжалов Сергей Murisar
+Радченко Анна Ghodi
+Луговой Кира Akitaur
+Русинова Анна Kakasa
+Банин Эрнст Mnezius
+Михайличенко Валентина Laizel
+Ямбушева Оксана Kulalmeena
+Танкова Кристина Bloodscar
+Копейкина Лилия Blackhammer
+Бранта Елена Bandilar
+Золотов Василий Kigara
+Борцова Алиса Yozshukinos
+Торопов Бронислав Maridwyn
+Деменков Леонид Morardred
+Танкова Светлана Darkseeker
+Хмельнов Павел Nightterror
+Казаков Ярослав Bloodhammer
+Хромова Юлия Yoll
+Мерзляков Илья Dalabandis
+Кожухова Екатерина Drelathris
+Другаль Семен Samugal</value>
+  </data>
+  <data name="richTextBoxAccountIds.Text" xml:space="preserve">
+    <value>397, 398, 399, 400, 401, 402, 403, 404, 405, 406, 407, 408, 409, 410, 411, 412, 413, 414, 415, 416, 417, 418, 419, 420, 421, 422, 423, 424, 425, 426, 427, 428, 429, 430, 431, 432, 433, 434, 435, 436, 437, 438, 439, 440, 441, 442, 443, 444, 445, 446, 447, 448, 449, 450, 451, 452, 453, 454, 455, 456, 457, 458, 459, 460, 461, 462, 463, 464, 465, 466, 467, 468, 469, 470, 471, 472, 473, 474, 475, 476,
+477, 478, 479, 480, 481, 482, 483, 484, 485, 486, 487, 488, 489, 490, 491, 492, 493, 494, 495, 496, 497, 498, 499, 500, 501, 502, 503, 504, 505, 506, 507, 508, 509, 510, 511, 512, 513, 514, 515, 516, 517, 518, 519, 520, 521, 522, 523, 524, 525, 526, 527, 528, 529, 530, 531, 532, 533, 534, 535, 536, 537, 538, 539, 540, 541, 542, 543, 544, 545, 546, 547, 548, 549, 550, 551, 552, 553, 554, 555, 556,
+557, 558, 559, 560, 561, 562, 563, 564, 565, 566, 567, 568, 569, 570, 571, 572, 573, 574, 575, 576, 577, 578, 579, 580, 581, 582, 583, 584, 585, 586, 587, 588, 589, 590, 591, 592, 593, 594, 595, 596</value>
+  </data>
+  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>82</value>
+  </metadata>
+</root>

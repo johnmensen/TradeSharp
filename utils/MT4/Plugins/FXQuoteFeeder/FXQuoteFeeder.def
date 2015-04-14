@@ -1,0 +1,6 @@
+LIBRARY DealerHelper
+
+EXPORTS
+    DsCreate
+    DsDestroy
+    DsVersion 

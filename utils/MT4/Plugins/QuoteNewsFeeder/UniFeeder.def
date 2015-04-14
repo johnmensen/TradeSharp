@@ -1,0 +1,6 @@
+LIBRARY UniFeeder
+
+EXPORTS
+    DsCreate      @1
+    DsDestroy     @2
+    DsVersion     @3

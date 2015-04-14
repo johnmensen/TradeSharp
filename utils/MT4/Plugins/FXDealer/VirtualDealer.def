@@ -1,0 +1,24 @@
+LIBRARY VirtualDealer
+
+EXPORTS
+    MtSrvAbout
+    MtSrvStartup
+    MtSrvPluginCfgAdd
+    MtSrvPluginCfgSet
+    MtSrvPluginCfgGet
+    MtSrvPluginCfgNext
+    MtSrvPluginCfgDelete
+    MtSrvPluginCfgTotal
+    MtSrvTradeRequestApply
+    MtSrvTradePendingsFilter
+    MtSrvTradePendingsApply
+    MtSrvTradeStopsFilter
+    MtSrvTradeStopsApply    
+    MtSrvTradeStopsApply
+	MtSrvTradesAdd
+	MtSrvTradesUpdate
+	MtSrvTradesAddExt
+	MtSrvTradeRollover	
+	MtSrvTradeStopoutsFilter
+    MtSrvTradeStopoutsApply    
+	

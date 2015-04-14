@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RobotsPortfolio>
+  <robot>
+    <Robot.TakeRange value="50" />
+    <Robot.CloseDeal value="True" />
+    <Robot.StopLossPoints value="110" />
+    <Robot.TakeProfitPoints value="0" />
+    <Robot.TypeName value="Двойная вершина" />
+    <Robot.Magic value="1" />
+    <Leverage value="0.5" />
+    <Robot.FixedVolume value="0" />
+    <Robot.TimeSeries value="EURUSD:H1" />
+    <Robot.NewsChannels value="" />
+    <Robot.RoundType value="Ближайшее" />
+    <Robot.RoundMinVolume value="100" />
+    <Robot.RoundVolumeStep value="100" />
+  </robot>
+  <robot>
+    <Robot.TakeRange value="45" />
+    <Robot.CloseDeal value="False" />
+    <Robot.StopLossPoints value="55" />
+    <Robot.TakeProfitPoints value="35" />
+    <Robot.TypeName value="Двойная вершина" />
+    <Robot.Magic value="2" />
+    <Leverage value="1" />
+    <Robot.FixedVolume value="0" />
+    <Robot.TimeSeries value="GBPUSD:H1" />
+    <Robot.NewsChannels value="" />
+    <Robot.RoundType value="Ближайшее" />
+    <Robot.RoundMinVolume value="1000" />
+    <Robot.RoundVolumeStep value="1000" />
+  </robot>
+  <robot>
+    <Robot.StopLossPoints value="250" />
+    <Robot.TakeProfitPoints value="250" />
+    <Robot.FirstSubTimeFrame value="D1" />
+    <Robot.SecondSubTimeFrame value="H4" />
+    <Robot.TypeName value="Ишимоку" />
+    <Robot.Magic value="4" />
+    <Leverage value="1" />
+    <Robot.FixedVolume value="1000" />
+    <Robot.TimeSeries value="EURUSD:H1" />
+    <Robot.NewsChannels value="" />
+    <Robot.RoundType value="Ближайшее" />
+    <Robot.RoundMinVolume value="1000" />
+    <Robot.RoundVolumeStep value="1000" />
+  </robot>
+  <robot>
+    <Robot.StopLossPoints value="250" />
+    <Robot.TakeProfitPoints value="250" />
+    <Robot.FirstSubTimeFrame value="D1" />
+    <Robot.SecondSubTimeFrame value="H4" />
+    <Robot.TypeName value="Ишимоку" />
+    <Robot.Magic value="3" />
+    <Leverage value="0.2" />
+    <Robot.FixedVolume value="100" />
+    <Robot.TimeSeries value="EURUSD:H4" />
+    <Robot.NewsChannels value="" />
+    <Robot.RoundType value="Ближайшее" />
+    <Robot.RoundMinVolume value="100" />
+    <Robot.RoundVolumeStep value="100" />
+  </robot>
+  <robot>
+    <CloseOpposite value="True" />
+    <RoundDigits value="2" />
+    <Robot.StopLossPoints value="100" />
+    <Robot.TakeProfitPoints value="200" />
+    <Robot.TypeName value="Круглые цены" />
+    <Robot.Magic value="6" />
+    <Leverage value="2" />
+    <Robot.FixedVolume value="0" />
+    <Robot.TimeSeries value="EURUSD:H1 AUDUSD:M15 GBPUSD:M30" />
+    <Robot.NewsChannels value="" />
+    <Robot.RoundType value="Ближайшее" />
+    <Robot.RoundMinVolume value="1000" />
+    <Robot.RoundVolumeStep value="1000" />
+  </robot>
+  <robot>
+    <Robot.StopLossPoints value="500" />
+    <Robot.TakeProfitPoints value="500" />
+    <Robot.BrickSize value="50" />
+    <Robot.AutoBrickSize value="True" />
+    <Robot.AutoScale value="1" />
+    <Robot.AutosizePeriod value="30" />
+    <Robot.VolatilityType value="Размах" />
+    <Robot.TypeName value="Ренко" />
+    <Robot.Magic value="5" />
+    <Leverage value="0.6" />
+    <Robot.FixedVolume value="0" />
+    <Robot.TimeSeries value="EURUSD:H1" />
+    <Robot.NewsChannels value="" />
+    <Robot.RoundType value="Ближайшее" />
+    <Robot.RoundMinVolume value="100" />
+    <Robot.RoundVolumeStep value="100" />
+  </robot>
+  <robot>
+    <Robot.StopLossPoints value="250" />
+    <Robot.TakeProfitPoints value="250" />
+    <Robot.RangeSlowMA value="14" />
+    <Robot.RangeFastMA value="5" />
+    <Robot.DeriveSiteFromHistory value="True" />
+    <Robot.CountCandelToDerive value="200" />
+    <Robot.UnknownUnitProfit value="5" />
+    <Robot.PeriodVirtualResults value="15" />
+    <Robot.TypeName value="Скользящие средние" />
+    <Robot.Magic value="8" />
+    <Leverage value="0.2" />
+    <Robot.FixedVolume value="1000" />
+    <Robot.TimeSeries value="EURUSD:H1" />
+    <Robot.NewsChannels value="" />
+    <Robot.RoundType value="Ближайшее" />
+    <Robot.RoundMinVolume value="10000" />
+    <Robot.RoundVolumeStep value="10000" />
+  </robot>
+  <robot>
+    <Robot.StopLossPoints value="110" />
+    <Robot.TakeProfitPoints value="120" />
+    <Robot.RangeSlowMA value="14" />
+    <Robot.RangeFastMA value="5" />
+    <Robot.DeriveSiteFromHistory value="True" />
+    <Robot.CountCandelToDerive value="200" />
+    <Robot.UnknownUnitProfit value="5" />
+    <Robot.PeriodVirtualResults value="15" />
+    <Robot.TypeName value="Скользящие средние" />
+    <Robot.Magic value="9" />
+    <Leverage value="1.4" />
+    <Robot.FixedVolume value="0" />
+    <Robot.TimeSeries value="EURUSD:H4" />
+    <Robot.NewsChannels value="" />
+    <Robot.RoundType value="Ближайшее" />
+    <Robot.RoundMinVolume value="100" />
+    <Robot.RoundVolumeStep value="100" />
+  </robot>
+  <robot>
+    <Robot.StopLossPoints value="50" />
+    <Robot.TakeProfitPoints value="100" />
+    <Robot.RangeSlowMA value="21" />
+    <Robot.RangeFastMA value="5" />
+    <Robot.DeriveSiteFromHistory value="False" />
+    <Robot.CountCandelToDerive value="200" />
+    <Robot.UnknownUnitProfit value="5" />
+    <Robot.PeriodVirtualResults value="15" />
+    <Robot.TypeName value="Скользящие средние" />
+    <Robot.Magic value="7" />
+    <Leverage value="1.7" />
+    <Robot.FixedVolume value="0" />
+    <Robot.TimeSeries value="EURUSD:M15" />
+    <Robot.NewsChannels value="" />
+    <Robot.RoundType value="Ближайшее" />
+    <Robot.RoundMinVolume value="100" />
+    <Robot.RoundVolumeStep value="100" />
+  </robot>
+</RobotsPortfolio>

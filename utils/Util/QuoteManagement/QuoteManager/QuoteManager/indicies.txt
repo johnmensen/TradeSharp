@@ -1,0 +1,18 @@
+USDX, ID: 101
+50.14348112*eurusd^-0.3349*usdjpy^0.1652*gbpusd^-0.082*usdcad^0.2887*usdchf^0.027*usdsek^0.0189
+
+
+EURX, ID: 102
+34.38805726*eurusd^0.3155*eurgbp^0.3056*eurjpy^0.1891*eursek^0.0785*eurchf^0.1113
+
+
+JPYX, ID: 103
+100*usdjpy^-0.578*eurjpy^-0.264*gbpjpy^-0.06*audjpy^-0.055*cadjpy^-0.043
+
+
+GBPX, ID: 104
+gbpusd^0.167*eurgbp^-0.743*gbpjpy^0.043*gbpcad^0.024*gbpchf^0.023
+
+
+CHFX, ID: 105
+usdchf^-0.115*eurchf^-0.69*gbpchf^-0.195

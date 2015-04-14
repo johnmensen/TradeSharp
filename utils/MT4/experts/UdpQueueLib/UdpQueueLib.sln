@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "QueueLibTest", "QueueLibTest\QueueLibTest.vcxproj", "{47D6B749-95A6-4DCD-8D7A-0CB7D35BF8A4}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UdpQueueLib", "UdpQueueLib\UdpQueueLib.vcxproj", "{DCC2F733-AFB8-4EB5-AF89-3A5145FD3AEC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{47D6B749-95A6-4DCD-8D7A-0CB7D35BF8A4}.Debug|Win32.ActiveCfg = Debug|Win32
+		{47D6B749-95A6-4DCD-8D7A-0CB7D35BF8A4}.Debug|Win32.Build.0 = Debug|Win32
+		{47D6B749-95A6-4DCD-8D7A-0CB7D35BF8A4}.Release|Win32.ActiveCfg = Release|Win32
+		{47D6B749-95A6-4DCD-8D7A-0CB7D35BF8A4}.Release|Win32.Build.0 = Release|Win32
+		{DCC2F733-AFB8-4EB5-AF89-3A5145FD3AEC}.Debug|Win32.ActiveCfg = Debug|Win32
+		{DCC2F733-AFB8-4EB5-AF89-3A5145FD3AEC}.Debug|Win32.Build.0 = Debug|Win32
+		{DCC2F733-AFB8-4EB5-AF89-3A5145FD3AEC}.Release|Win32.ActiveCfg = Release|Win32
+		{DCC2F733-AFB8-4EB5-AF89-3A5145FD3AEC}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

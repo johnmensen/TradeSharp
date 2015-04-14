@@ -1,0 +1,11 @@
+Hello {username}!
+
+Thanks for registration at the our MetaTrader Server.
+
+Please note that you must confirm your registration.
+
+Use the following link to activate your account:
+{url}
+
+
+
