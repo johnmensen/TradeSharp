@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3AFD072C-DD5D-4BAB-A6F8-09510AC06EF5}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TradeSharp.DbMigration</RootNamespace>
+    <AssemblyName>TradeSharp.DbMigration</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ECM7.Migrator">
+      <HintPath>..\packages\ECM7Migrator.2.8.0.0\tools\ECM7.Migrator.dll</HintPath>
+    </Reference>
+    <Reference Include="ECM7.Migrator.Framework">
+      <HintPath>..\packages\ECM7Migrator.2.8.0.0\lib\net40\ECM7.Migrator.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="ECM7.Migrator.Providers.SqlServer">
+      <HintPath>..\packages\ECM7Migrator.2.8.0.0\tools\ECM7.Migrator.Providers.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Entity">
+      <HintPath>..\..\..\Common\Entity\bin\Debug\Entity.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\..\..\Libraries\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="NLog">
+      <HintPath>..\packages\NLog.2.0.1.2\lib\net40\NLog.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="TradeSharp.Util">
+      <HintPath>..\..\..\TradeSharp.Util\bin\Debug\TradeSharp.Util.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Core\BaseMigrator.cs" />
+    <Compile Include="Core\IMyMigrator.cs" />
+    <Compile Include="Core\TradeSharpMigrator.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TradeSharp.DbMigration.Hub\TradeSharp.DbMigration.Hub.csproj">
+      <Project>{6f869f8b-5000-4553-ab7e-6baeaa06d027}</Project>
+      <Name>TradeSharp.DbMigration.Hub</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TradeSharp.DbMigration.TradeSharp\TradeSharp.DbMigration.TradeSharp.csproj">
+      <Project>{c5fbb9b1-b582-48a6-b594-080f69a6c656}</Project>
+      <Name>TradeSharp.DbMigration.TradeSharp</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

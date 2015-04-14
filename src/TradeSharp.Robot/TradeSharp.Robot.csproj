@@ -1,0 +1,189 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4A03E10A-86E8-4E73-8536-0969F30B803D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TradeSharp.Robot</RootNamespace>
+    <AssemblyName>TradeSharp.Robot</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>../Libraries/tradesharp.pfx</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FastChart, Version=1.0.0.0, Culture=neutral, PublicKeyToken=e9433adc0478c5d9, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\FastChart.dll</HintPath>
+    </Reference>
+    <Reference Include="FastGrid, Version=1.0.0.0, Culture=neutral, PublicKeyToken=e9433adc0478c5d9, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libraries\FastGrid.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="TradeSharp.UpdateContract">
+      <HintPath>..\TradeSharp.UpdateContract\bin\Debug\TradeSharp.UpdateContract.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BacktestServerProxy\BacktestTickerCursor.cs" />
+    <Compile Include="BacktestServerProxy\BacktestTickerCursorStream.cs" />
+    <Compile Include="BacktestServerProxy\RobotContext.cs" />
+    <Compile Include="BacktestServerProxy\RobotContextBacktest.cs" />
+    <Compile Include="BacktestServerProxy\RobotContextBacktest.EquityLeverage.cs" />
+    <Compile Include="BacktestServerProxy\RobotContextBacktest.Log.cs" />
+    <Compile Include="BacktestServerProxy\RobotContextLive.cs" />
+    <Compile Include="BacktestServerProxy\RobotContextTrade.cs" />
+    <Compile Include="BL\IndexDivergencyInfo.cs" />
+    <Compile Include="BL\MarketOrderSafeStorage.cs" />
+    <Compile Include="BL\Mt4RobotEditorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BL\Mt4RobotEditorForm.Designer.cs">
+      <DependentUpon>Mt4RobotEditorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BL\RobotTimeframesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BL\RobotTimeframesForm.Designer.cs">
+      <DependentUpon>RobotTimeframesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BL\RuntimeAccessAttribute.cs" />
+    <Compile Include="BL\SymbolTimeframeUITypeEditor.cs" />
+    <Compile Include="BL\TimeframeSettingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BL\TimeframeSettingsForm.Designer.cs">
+      <DependentUpon>TimeframeSettingsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BL\TimeframeUITypeEditor.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Robot\AtracotesRobot.cs" />
+    <Compile Include="Robot\BaseRobot.cs" />
+    <Compile Include="Robot\DoubleTopRobot.cs" />
+    <Compile Include="Robot\DrawDownStopoutChecker.cs" />
+    <Compile Include="Robot\FiboLevelRobot.cs" />
+    <Compile Include="Robot\FibonacciRobot.cs" />
+    <Compile Include="Robot\ForexSignalRobot.cs" />
+    <Compile Include="Robot\ForexSignalRobot.DiversByTimeframe.cs" />
+    <Compile Include="Robot\IchimokuRobot.cs" />
+    <Compile Include="Robot\IndexCalculator.cs" />
+    <Compile Include="Robot\Mt4Robot.cs" />
+    <Compile Include="Robot\MultiIndexRobot.cs" />
+    <Compile Include="Robot\OptionTraderRobot.cs" />
+    <Compile Include="Robot\RandomRobot.cs" />
+    <Compile Include="Robot\RencoRobot.cs" />
+    <Compile Include="Robot\RobotHint.cs" />
+    <Compile Include="Robot\RobotList.cs" />
+    <Compile Include="Robot\RobotMA.cs" />
+    <Compile Include="Robot\RobotMark.cs" />
+    <Compile Include="Robot\RobotMarkClear.cs" />
+    <Compile Include="Robot\RoundPriceRobot.cs" />
+    <Compile Include="Robot\SimpleTradeMachineRobot.cs" />
+    <Compile Include="Robot\SimpleTrendRobot.cs" />
+    <Compile Include="Robot\SlideChannelRobot.cs" />
+    <Compile Include="Robot\StopRobot.cs" />
+    <Compile Include="Robot\UserIndexFilter.cs" />
+    <Compile Include="Robot.Debug\IchimokuRobot.Debug.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Common\Candlechart\Candlechart.csproj">
+      <Project>{7753653B-2D5D-4FBB-80A7-5B643127DCDC}</Project>
+      <Name>Candlechart</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common\Entity\Entity.csproj">
+      <Project>{33517AEB-576A-429E-B651-EA87B54242E7}</Project>
+      <Name>Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TradeSharp.Contract.Util\TradeSharp.Contract.Util.csproj">
+      <Project>{7DA33D58-6B7A-4551-93D6-488D31369D7A}</Project>
+      <Name>TradeSharp.Contract.Util</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TradeSharp.Contract\TradeSharp.Contract.csproj">
+      <Project>{168F1CAC-77C9-4847-B6C1-138E4373CCEA}</Project>
+      <Name>TradeSharp.Contract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TradeSharp.TradeLib\TradeSharp.TradeLib.csproj">
+      <Project>{DD2485D6-3C3A-4F4D-91E1-362B015B2F68}</Project>
+      <Name>TradeSharp.TradeLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TradeSharp.UI.Util\TradeSharp.UI.Util.csproj">
+      <Project>{386DDB6B-D707-4ADC-A0BC-08448D144A8D}</Project>
+      <Name>TradeSharp.UI.Util</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TradeSharp.Util\TradeSharp.Util.csproj">
+      <Project>{4B406C3D-89C3-4C9F-A677-C3114D93B8F9}</Project>
+      <Name>TradeSharp.Util</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="BL\Mt4RobotEditorForm.resx">
+      <DependentUpon>Mt4RobotEditorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BL\RobotTimeframesForm.resx">
+      <DependentUpon>RobotTimeframesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BL\TimeframeSettingsForm.resx">
+      <DependentUpon>TimeframeSettingsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="tradesharp.pfx" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

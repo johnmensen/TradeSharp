@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Управление счетами</title>
+</head>
+<body>
+    <h1>Управление счетами (добавление, редактирование)</h1>
+    <div style="text-align: justify">
+        <p data-description="Accounts">На этой странице осуществляется обзор и управление всеми зарегистрированными 
+            в системе <span style="font-weight:bold; font-style: italic">Trade#</span> счетами. 
+            С неё осуществляются переходы на все основные страницы управления счетами.</p>
+        <div style="text-align:center"><img alt="Счета" src="../images/HelpSection/Management_Accounts.png" /></div>
+    </div>
+
+    <h2>Описание функций основных элементов управления страницы «Счета»</h2>
+    <div style="text-align: justify">
+        <p data-description="Accounts-NewAccount"><b>В шапке</b> таблицы расположены следующие элементы управления:</p>
+        <ol>
+            <li>Кнопка «Обновить» - обновить содержимое таблицы «Счета».</li>
+            <li><span data-description="Accounts-NewAccount">Кнопка «Новый счёт» - осуществляет перенаправление на страницу добавления нового счёта.</span>
+                <div style="text-align:center"><img alt="Добавить счёт" src="../images/HelpSection/Avatars/NewAccount.png" /></div>
+            </li>
+            <li><span data-description="Accounts-Position">Кнопка «Позиции счётов» - осуществляет перенаправление на страницу обзора совершённых сделок.</span></li>
+        </ol>
+        
+        <p >
+            <span data-description="NewAccount">
+            При добавлении нового счёта на сайте администратора, вместе со счётом создаётся новый пользователь. 
+            В связи с этим каждый счёт имеет среди обязательных полей ФИО владельца счёта, логин и пароль. 
+            Учётная запись этого владельца создаётся вместе со счётом.  В дальнейшем, пользователь может открыть новые счета, 
+            используя клиентское приложение. Кроме того, можно передать под управление пользователя новые счета / счета других пользователей платформы.</span> 
+            Кнопка «Позиции счетов» - осуществляет перенаправление на страницу управления сделками. Функционал этой страницы будет рассмотрен <a href="#" data-item="PositionPage.html" style="display: inline">далее</a>.
+        </p>
+    
+        <p>В столбцах таблицы так же расположены элементы управления:</p>
+        
+        <ol>
+            <li><span data-description="Accounts-AccountItem">Cтолбец «№ счёта» - ссылка осуществляет перенаправление на страницу «Детали счёта». </span>  
+                На этой странице осуществляется обзор и редактирование параметров соответствующего счёта. 
+                В частности, с этой страницы так же можно перейти на страницу управления сделками (на которой уже будет 
+                включён фильтр по соответствующему счёту). Подробнее страница будет рассмотрена <a href="#" data-item="AccountItemPage.html" style="display: inline">далее</a>.</li>
+            <li><span data-description="Accounts-OwnerDetails">Столбец «Владельцы» содержит ссылки на страницы с учетными данными каждого из владельцев счёта.</span> Подробнее страница будет рассмотрена <a href="#" data-item="AccountItemPage.html" style="display: inline">далее</a>.
+                <div style="text-align:center"><img alt="" src="../images/HelpSection/Avatars/OwnerDetails.png" /></div> </li>
+            <li>Столбец «Управление» содержит выпадающий список с основными возможностями управления счётом: пополнение счёта, настройка торговых сигналов и деактивация счёта.
+                <div style="text-align:center"><img alt="" src="../images/HelpSection/Management_AccountManage.png" /></div>
+            </li>
+        </ol>
+        
+        <p><span style="font-style: italic">Пополнить счёт</span> – открывает всплывающее окно управления средствами счёта. Выпадающий список «Тип операции» предоставляет возможность провести следующие операции со счётом:</p>
+        <ul>
+            <li>Пополнение</li>
+            <li>Списание</li>
+            <li>Прибыль по сделке</li>
+            <li>Убыток по сделке</li>
+            <li>Своп</li>
+        </ul>
+
+        <div style="text-align:center"><img alt="" src="../images/HelpSection/Management_AccountManage_Add.png" /></div>
+        <p data-description="Accounts-TradeSignal">
+            <span style="font-style: italic">Торг. сигналы</span> – ссылка, перенаправляет на страницу управления подписками соответствующего счёта на торговые сигналы.
+        </p>
+        <div style="text-align:center"><img alt="" src="../images/HelpSection/Management_AccountManage_Subscription.png" /></div> 
+        <p data-description="TradeSignal">На этой странице можно подписать счёт на чьи либо торговые сигналы, изменить уже существующую подписку или отписаться от сигналов.</p>
+        
+        <div style="text-align:center"><img alt="" src="../images/HelpSection/Management_AccountManage_Subscription_Add.png" /></div>
+        <p>Сами Торговые сигналы добавляются на странице «Менеджмент → Настройки → Сигналы». Подробнее это описано <a href="#" data-item="OptionsPage.html" style="display: inline">на этой странице</a>.</p>
+        <p><span style="font-style: italic">Деактивация</span> – деактивирует счёт, но не удаляет его. После отключения счета совершение любых операций по счету (торговых или балансовых) невозможно.</p>
+    </div>
+</body>
+</html>

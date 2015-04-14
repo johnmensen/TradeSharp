@@ -1,0 +1,409 @@
+<html>
+<head>
+    <title>Разработка пользовательского индикатора</title>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+
+    <style type="text/css">
+        .centrAling
+        {
+	        text-align:center;	
+        }
+        .centrAling img
+        {
+	        width:600px; 
+	        height:400px;
+        }
+
+        .scClass
+        {
+	        color:#2b91af;
+        }
+
+        .scOperator
+        {
+	        color:#0000ff;
+	
+        }
+    </style>
+
+</head>
+<body>
+    <img src="picts\main_logo.png" alt=""/>
+    <h1>
+        Разработка пользовательского индикатора "Прогноз модели случайного блуждания"</h1>
+    <h2>
+        Вступление
+    </h2>
+    <p>
+        В данной статье мы рассмотрим разработку пользовательского индикатора для системы
+        <b><i>Trade #</i></b>. Вы можете разрабатывать собственные индикаторы, основываясь на торговых
+        идеях, описанных в трудах по техническому анализу и биржевой торговле. Используя
+        эти индикаторы Вы, например, можете придумать свою собственную стратегию торговли
+        или улучшить её.
+    </p>
+    <p>
+        Рассмотрение будет производиться на примере разработки индикатора «Прогноз модели
+        случайного блуждания» (далее RWR - Random Walk Range). Этот индикатор простой, но
+        является весьма показательным.</p>
+    <p>
+        В данной статье описывается разработка индикатора с использованием MS Visual Studio
+        2010. Так же предполагается, что читатель владеет языком программирования Visual
+        C#.
+    </p>
+    <h2>
+        Цель
+    </h2>
+    <p>Нашей целью является разработка собственного индикатора, отвечающего следующим требованиям:</p>
+    <ul>
+        <li>индикатор должен представлять собой одну (или несколько) кривых (далее перцентиль),
+            рассчитанных в соответствии с теорией RWR.</li>
+        <li>каждая перцентиль в каждый момент должна соответствовать актуальному состоянию цены
+            закрытия крайней свечи.</li>
+        <li>должен быть реализован функционал, который позволяет из GUI настраивать основные
+            свойства индикатора (такие как количество перцентилей и их уровни, толщина линий
+            прорисовки и их цвет и т.п.).</li>
+    </ul>
+
+
+
+    <p>В результате должен получиться индикатор, аналогичный тому, что представлен на рисунке 1.</p>
+    <div class="centrAling">
+    <img src="picts\api\indicator_rwr\MainScreen.png" alt="" /><br/>Рисунок 1 - общий вид RWR</div>
+
+    <h2>Разработка индикатора.</h2>
+    <p>Основным классом, в котором будет реализована логика индикатора, будет открытый класс <b>IndicatorRandomWalk</b></p>
+    <h3>Предварительные замечания о классе.</h3>
+    <p>Перед тем как приниматься за разработку класса, добавим к нему несколько атрибутов. Что бы это сделать необходимо, подключить пространство имён:</p>
+
+    <p class="excerpt">using System.ComponentModel;</p>
+    <p>После этого можно добавлять атрибуты:</p>
+    <p class="excerpt">
+    [DisplayName("Прогноз модели RW")]<br/>
+    [Category("Трендовые")]<br/>
+    public class IndicatorRandomWalk<br/>
+    {<br/>
+    }
+    </p>
+    <p>Первые два атрибута, добавленные к классу, это метаданные, которые будут отображаться в GUI, в списке всех индикаторов.</p>
+    <div class="centrAling">
+    <img src="picts\api\indicator_rwr\MenuSelectionIndicator.png" style="width:400px" alt="" /><br/>Рисунок 2 - Список индикаторов</div>
+
+    <p>Наш класс мы унаследует от базового класса <b class="scClass">BaseChartIndicator</b>, а так же реализуем в нём интерфейс <b class="scClass">IChartIndicator</b>.</p>
+    <p class="excerpt">
+    [DisplayName("Прогноз модели RW")]<br/>
+    [Category("Трендовые")]<br/>
+    [TypeConverter(typeof(PropertySorter))]<br/>
+    public class IndicatorRandomWalk : BaseChartIndicator, IChartIndicator<br/>
+    {<br/>
+    }<br/>
+    </p>
+    <p>Из методов и свойств интерфейса и базового класса нас в первую очередь будут интересовать:</p>
+    <ul>
+        <li><p class="excerpt">void BuildSeries(ChartControl chart)</p></li>
+        <li><p class="excerpt">void Add(ChartControl chart, Pane ownerPane)</p></li>
+        <li><p class="excerpt">void Remove()</p></li>
+        <li><p class="excerpt">void AcceptSettings()</p></li>
+        <li><p class="excerpt">void OnCandleUpdated(CandleData updatedCandle, List&lt;CandleData&gt; newCandles)</p></li>
+        <li><p class="excerpt">List&lt;Series.<b class="scClass">Series</b>&gt; SeriesSources { get; set; }</p></li>
+        <li><p class="excerpt">List&lt;Series.<b class="scClass">Series</b>&gt; SeriesResult { get; }</p></li>
+    </ul>
+
+
+    <p>Так же нам потребуется переопределить реализацию методов <b>Copy()</b> и <b>Copy(BaseChartIndicator indi)</b> базового абстрактного класса <b class="scClass">BaseChartIndicator</b>.</p>
+    
+    <h2>Небольшое, но важное пояснение об этапах разработки индикатора</h2>
+    <p>Приведённые выше методы интерфейса <b class="scClass">IChartIndicator</b> и базового абстрактного класса <b class="scClass">BaseChartIndicator</b> являются необходимыми для добавления, удаления, изменения свойств индикатора, его прорисовки. Было бы неудобно реализовывать прямо в них логику математических вычислений нашего индикатора.</p>
+    <p>Поэтому, для удобства, в нашем классе мы реализуем вспомогательные методы, которые будут выполнять математические расчёты. </p>
+    <p>С этих методов мы и начнём разработку, а реализация методов <b class="scClass">IChartIndicator</b> и <b class="scClass">BaseChartIndicator</b> будет описана позднее, в подразделе <a href="#implementationInterfaceAndMethods">«Реализация методов интерфейса и абстрактных методов базового класса»</a>.</p>
+    
+    
+    <h2>Поля</h2>
+
+
+    <p>Сначала добавим в наш класс <b class="scClass">IndicatorRandomWalk</b> свойства, необходимые для реализации логики нашего индикатора. </p>
+    <p>Свойство <b>Period</b> определяет, какое количество свечей будет использовано при расчёте <b>RWR</b>.</p>
+    <p class="excerpt">
+    private int period = 100;<br/>
+    [DisplayName("Количество свечей")]<br/>
+    [Description("Количесво свечей для расчета волатильности")]<br/>
+    [Category("Основные")]<br/>
+    public int Period<br/>
+    {<br/>
+        &nbsp; get { return period; }<br/>
+        &nbsp; set { period = value; }<br/>
+    }<br/>
+    </p>
+    <div class="centrAling">
+    <img src="picts\api\indicator_rwr\Period.png" alt="" "/><br/>Рисунок 3 - период RWR</div>
+    <p>Свойство <b>ClLine</b> хранит массив цветов. Значения элементов этого массива будут присваиваться поочерёдно, каждой последующей добавляемой в индикатор квантили.</p>
+    <p class="excerpt">
+    private Color[] clLine = {Color.DarkBlue, Color.DarkGreen, Color.DarkOrange}; <br/>
+    [DisplayName("Цвета")]<br/>
+    [Description("Цвета линий")]<br/>
+    [Category("Визуальные")]<br/>
+    public Color[] ClLine<br/>
+    {<br/>
+       &nbsp; get { return clLine; }<br/>
+       &nbsp; set { clLine = value; }<br/>
+    }
+    </p>
+
+    <p>Свойство <b>ForwardSteps</b> будет хранить информацию о том, на сколько шагов вперёд должен быть произведён расчёт RWR (рисунок 4).</p>
+    <p class="excerpt">
+    private int forwardSteps = 10;<br/>
+    [DisplayName("Свеч вперед")]<br/>
+    [Description("На сколько свеч строить вперед")]<br/>
+    [Category("Основные")]<br/>
+    public int ForwardSteps<br/>
+    {<br/>
+        &nbsp;get { return forwardSteps; }<br/>
+       &nbsp;set { forwardSteps = value; }<br/>
+    }
+    </p>
+    <div class="centrAling">
+    <img src="picts\api\indicator_rwr\ForwardSteps.png" alt="" "/><br/>Рисунок 4 - ForwardSteps  RWR</div>
+
+
+    <p>Основное свойство, которое необходимо добавить к нашему классу – это массив перцентилей, по которым необходимо рассчитать RWR.  </p>
+    <p class="excerpt">private int[] percentile = { 90, 70 };<br/>
+    [DisplayName("Перцентили")]<br/>
+    [Description("Перцентили")]<br/>
+    [Category("Основные")]<br/>
+    public string Percentile<br/>
+    {<br/>
+          &nbsp;get<br/>
+          &nbsp;{<br/>
+          &nbsp;&nbsp;  return string.Join(" ", percentile);<br/>
+          &nbsp;}<br/>
+    }<br/>
+    set<br/>
+       &nbsp; {<br/>
+         &nbsp;&nbsp;   var percs = value.ToIntArrayUniform();<br/>
+         &nbsp;&nbsp;   if (percs.Length == 0) return;<br/>
+         &nbsp;&nbsp;   if (percs.Any(p => p &lt;= 0 || p &gt;= 100)) return;<br/>
+         &nbsp;&nbsp;   percentile = percs;<br/>
+        &nbsp;}<br/>
+    }
+    </p>
+    <p>Для удобства задания значения в GUI, это свойство имеет тип <b class="scOperator">string</b>, но связанная с ним переменная <b>percentile</b> это массив целых чисел 
+    (такой тип удобнее использовать в коде при расчётах).  
+    Для  преобразования данных между этими типами используется Extension метод <b>ToIntArrayUniform</b> и статический метод <b>Join</b>.</p>
+    <p>Условия <b class="scOperator">if</b> в сетере свойства ограничивают возможность задать значение этого свойства пустым массивом или массивом, в котором есть элементы выходящие за диапазон допустимых значений перцентили.</p>
+    <p>Приведённые свойства будут нужны для выполнения математических расчётов. Но прежде чем начинать расчёты, нам понадобятся входные данные – информация о ценах открытия, закрытия и т.п. свечей графика, для которого мы строим наш индикатор. </p>
+    <p>Все эти данные хранятся в свойстве  <b>SeriesSources</b>,  описанном в интерфейсе <b>IChartIndicator</b>, который реализует наш класс.</p>
+    <p>Свойство <b>SeriesSources</b> это список элементов абстрактного типа <b class="scClass">Series</b>. 
+    В рассматриваемом  случае индикатора RWR строящегося на примере рыночной цены, по умолчанию в этом списке будет всего один элемент - свечной график торгуемого инструмента,
+     объект класса <b class="scClass">CandlestickSeries</b>. Однако это не является обязательным. 
+     Разрабатываемый вами индикатор может строиться на основе нескольких источников данных. 
+     Например, источниками данных могут одновременно являться график и другой индикатор или несколько других индикаторов. 
+     В этом случае список  <b>SeriesSources</b> будет содержать уже несколько элементов.</p>
+
+
+
+    <p>Тип <b class="scClass">Series</b> является базовым для таких классов как <b class="scClass">CandlestickSeries</b> или <b class="scClass">LineSeries</b>. Оба эти производных класса, с некоторыми отличиями, хранят данные о серии торговых свечей, по которым  необходимо рассчитать RWR.</p>
+    <p>Например, в классе <b class="scClass">CandlestickSeries</b> для этого служит  поле <b>Data</b> типа <b class="scClass">StockSeriesData</b>, в котором есть массив <b>Candles</b>. 
+    Каждый элемент этого массива содержит данные, о какой либо свече - хранит её цену открытия, закрытия, максимальную цену и др. (рисунок 5).</p>
+        <div class="centrAling">
+    <img src="picts\api\indicator_rwr\Series.png" alt=""/><br/>Рисунок 5</div>
+    
+    <p>Помимо этого нам понадобиться два поля для хранения результатов этих расчётов. </p>
+    <p class="excerpt">List&lt;Series.<b class="scClass">Series</b>&gt; SeriesResult { get; }</p>
+    <p>Свойство <b>SeriesResult</b> одно из основных. Это тоже список из <b class="scClass">Series</b>, но предназначено для хранения результатов расчётов и выполняет две задачи:</p>
+    <ul>
+        
+            <li>Во-первых – отображение данных.  Какую бы логику не реализовывал ваш индикатор, результаты его расчётов, как правило, должны быть представлены на экране. 
+            Каждая серия данных, включенная в <b>SeriesResults</b>, 
+            будет отображена, по выбору пользователя, либо на графике торгуемого актива, либо в отдельном окне под графиком.</li>
+            <li>Во-вторых – возможность строить на основе этого индикатора другие индикаторы. Любая серия из списка 
+            <b>SeriesResult</b> может стать источником данных для другого индикатора (быть включенной пользователем в список <b>SeriesSource</b> его индикатора).</li>
+        
+    </ul>
+    <p>И так, все данные, которые рассчитает ваш индикатор, вы должны «упаковать» в объекты типа <b class="scClass">Series</b> (или в объект производный от типа 
+    <b class="scClass">Series</b>) и 
+        эти объекты добавить в список <b>SeriesResult</b>  <i>(«Упаковыванию» расчётных данных посвящен следующий подраздел <a href="#customMethods">«Пользовательские методы»</a>)</i>.</p>
+    
+    <p>В нашем примере таких объектов будет два:</p>
+    <p class="excerpt">
+        private readonly TrendLineSeries seriesUp = new TrendLineSeries("Прогноз модели RW - верхняя граница"); <br/>
+        private readonly TrendLineSeries seriesDown = new TrendLineSeries("Прогноз модели RW - нижняя граница");
+    </p>
+
+    <p>Это объекты типа <b class="scClass">TrendLineSeries</b>, который является непрямым потомком <b class="scClass">Series</b>. Можно добавить их к элементу списка  <b>SeriesResult</b> например при его создании:</p>
+    <p class="excerpt">SeriesResult = new List&lt;Series.<b class="scClass">Series</b>&gt; { seriesUp, seriesDown };</p>
+    <p>Последнее что нам понадобиться, это две переменны уровня класса:</p>
+        <ul>     
+            <li><b class="scOperator">float</b> lastCandlestickPrice - актуальная цена крайней свечки.</li>
+            <li><b class="scOperator">double</b>[,] percentileDeltaValues - массив значений всех <b>delta</b> для всех перцентилей. Эти значения меняются относительно редко, поэтому, рассчитав их один раз, будем сохранять в этой переменной.</li>
+        </ul>
+    <p>Назначение этих переменных поясняется следующим рисунком:</p>
+            <div class="centrAling">
+    <img src="picts\api\indicator_rwr\localVariable.png" alt=""/><br/>Рисунок 6</div>
+    <p>Серой горизонтальной линией на этом рисунке представлена актуальная цена крайней свечи. Это и есть значение переменной lastCandlestickPrice.</p>
+    <p>Красными горизонтальными пунктирными линиями (пронумерованными 1, 2 и 3) обозначены некоторые из значений <b>delta</b> для перцентилей. Для хранения этих значений и предназначен массив percentileDeltaValues. Его первое измерение это общее количество перцентилей (две, для случая, приведённом на рисунке). Второе измерение это количество значений <b>delta</b>, которые нужно рассчитать для каждой перцентили (оно равно значению поля ForwardSteps).</p>
+    <p>Это основные свойства, которые будет использоваться в нашем классе. Помимо них можно добавить множество вспомогательных свойств типа <b>LineWidth</b> – толщина линии прорисовки, <b>ShiftX</b> - Смещение вправо (ShiftX > 0) или влево (ShiftX  < 0).</p>
+    <p>Так же не забудьте переопределить все абстрактные свойства из базового класса, такие как <b>Name</b> и <b>CreateOwnPanel</b>. Для краткости в статье эти действия мы описывать не будем.</p>
+    <h2 id="customMethods">Пользовательские методы</h2>
+    
+    <p>В соответствии с планом, сейчас мы переходим к реализации вспомогательных методов, которые необходимы для математических расчётов значений RWR.</p>
+    <p>Поскольку целью статьи является демонстрация  примера разработки пользовательского индикатора для <b><i>Trade #</i></b>, но не изучение теории RWR, то мы не будем затрагивать теоретическую часть расчёта конкретных числовых значений этого индекса. Поэтому, для краткости, в статье не будет приводиться весь объемный код математических расчётов.</p>
+    <p>В наш класс <b>IndicatorRandomWalk</b> добавим следующие методы:</p>
+    <p><b><b class="scOperator">double</b> GetMathExpected(Series.<b class="scClass">Series</b> source)</b>  - подсчитывает математическое ожидание. Этот метод будет возвращать среднестатистическое от цен открытия и закрытия по всем свечам в указанном периоде.  При вызовах метода, в качестве параметра <b>Series</b>, передаётся  уже упомянутое поле <b>SeriesSources</b>, в нашем примере – один из его элементов <b>SeriesSources[0]</b> (индикатор строится от одной серии данных – от рыночной цены).</p>
+    <p><b><b class="scOperator">void</b> Calculation(Series.<b class="scClass">Series</b> source)</b> -  этот метод выполняет основные  вычисления в нашем индикаторе – вычисление значений <b>delta</b> для каждой перцентили и заполнение вычисленными значениями массива <b>percentileDeltaValuesv</b>. Реализация этого метода выгладит следующим образом:</p>
+    <p class="excerpt">
+    private void Calculation(Series.Series source)<br/>
+    {<br/>
+        &nbsp;percentileDeltaValues = new double[percentile.Length, forwardSteps];<br/>
+
+        &nbsp;var disper = GetMathExpected(source);<br/>
+
+        &nbsp;for (var i = 0; i < percentile.Length; i++)<br/>
+        &nbsp;&nbsp;    for (var j = 0; j < forwardSteps; j++)<br/>
+        &nbsp;&nbsp;&nbsp;        percentileDeltaValues[i, j] = QNorm(percentile[i] / 100d, 0, Math.Sqrt(j + 1) * disper, true, false);<br/>
+        &nbsp;MakeRandomWalkLine(source);<br/>
+    }
+    </p>
+    <p>Прежде всего, мы создаём новый массив и устанавливаем его размерности: первую равную количеству перцентилей (т.е. количеству элементов в массиве <b>percentile</b>), 
+    вторую – равную свойству <b>forwardSteps</b>.</p>
+    <p>Затем вызываем метод <b>GetMathExpected</b>, который, как уже упоминалось, возвращает просто среднестатистическое от цен открытия и закрытия по всем свечам в указанном периоде,
+     поэтому его реализация не приводится.</p>
+    <p>Основным логическим действием метода является заполнение данными массива <b>percentileDeltaValues</b>. 
+    В дальнейшем, именно по этим данным будут строиться линии нашего индикатора.</p>
+    <p>Метод <b>QNorm</b> выполняет исключительно математические вычисления в рамках модели RWR. Его логика и реализация выходят за рамки этой статьи. 
+    Пока нам достаточно знать, что метод <b>QNorm</b> выполняет расчёт одного значения <b>delta</b>, для какой-то конкретной перцентили. Для пояснения приведён рисунок 7. 
+    На рисунке  изображены две перцентили (отмеченные цифрами 1 и 2). В соответствии с логикой метода <b>Calculation</b> красной вертикальной линией обозначено значение <b>delta</b>, 
+     рассчитанное методом <b>QNorm</b> при i = 1, j = 5 (первая перцентиль, пятый шаг). А зелёной вертикальной линией -  значение <b>delta</b>,  рассчитанное методом 
+     <b>QNorm</b> при i = 2, j = 3.</p>
+
+    <div class="centrAling">
+    <img src="picts\api\indicator_rwr\CalkulationMethod.png" alt=""/><br/>Рисунок 7</div>
+
+    <p>Вы можете реализовать в этом методе любую логику, которая соответствует модели разрабатываемого вами индикатора.</p>
+    <p>В конце вызывается метод <b>MakeRandomWalkLine</b>.  Мы не будем рассматривать его подробно.  
+    Этот метод всего лишь заполняет объекты <b>seriesUp</b> и <b>seriesDown</b> линиями, рассчитывающимися на основе данных из <b>percentileDeltaValues[i, j]</b>.</p>
+    <p>Опишем лишь способ добавления одного отрезка в  <b>seriesUp</b>.</p>
+    <p>В объекте типа <b class="scClass">TrendLineSeries</b> (<b>seriesUp</b> и <b>seriesDown</b>) есть поле <b>data</b> типа <b class="scClass">List&lt;TrendLine&gt;</b>. 
+    В свою очередь объект типа <b class="scClass">TrendLine</b> представляет из себя просто отрезок (из таких отрезков и составлены линии 1 и 2 на рисунке 7).   
+    Этот объект имеет поле linePoints, представляющее из себя список точек - объектов типа <b class="scClass">PointD</b>.  В общем случае это выглядит так:</p>
+    <p class="excerpt">
+    var line = new TrendLine { LineStyle = TrendLine.TrendLineStyle.Отрезок,  LineColor = color };<br/>
+
+    line.linePoints.Add(new PointD(x, y));<br/>
+    line.linePoints.Add(new PointD(x, y + dy));<br/>
+
+    seriesUp.data.Add(line);<br/>
+
+    </p>
+    <p>где x, y  и dy – произвольные числа типа <b class="scOperator">double</b>.</p>
+
+    <h2 id="implementationInterfaceAndMethods">Реализация методов интерфейса и абстрактных методов базового класса</h2>
+    <p>Этот этап разработки является наиболее важным. Предыдущее описание по большей части касалось разработки кода, отвечающего за логику нашего индикатора и, в реализации вашего индикатора, может быть какой угодно.   </p>
+    <p>В этом подразделе описан способ добавления построенных на предыдущем этапе линий индикатора на график и их обновления при изменении данных графика. За это отвечают методы интерфейса IChartIndicator, который, как уже говорилось, должен быть реализован в нашем классе. </p>
+    <p>Первый метод, который нам нужно реализовать – это метод добавления нового индикатора. Вызываться он будет после соответствующего действия пользователя: </p>
+    
+    <div class="centrAling">
+    <img src="picts\api\indicator_rwr\AddNewIndicator.png" alt=""/><br/>Рисунок 8</div>
+    
+    <p class="excerpt">
+    public void Add(ChartControl chart, Pane ownerPane)<br/>
+    {<br/>
+        &nbsp;owner = chart;<br/>
+        &nbsp;SeriesResult = new &lt;Series.<b class="scClass">Series</b>&gt; { seriesUp, seriesDown };<br/>
+        &nbsp;EntitleIndicator();<br/>
+    }<br/>
+    </p>
+    <p>
+    <b>owner</b> – это открытое поле типа <b class="scClass">ChartControl</b> базового класса <b class="scClass">BaseChartIndicator</b>, которое содержит настройки графика. Этому полю мы присваиваем ссылку на график, на котором будет прорисован наш индикатор.<br/>
+    О свойстве <b>SeriesResult</b> уже говорилось в подразделе «Поля». Оно содержит список объектов <b class="scClass">Series</b>, которые должны быть прорисованы на графике.<br/>
+    Метод <b>EntitleIndicator</b> реализован в базовом классе <b class="scClass">BaseChartIndicator</b> и обеспечивает  уникальность имени добавляемого индикатора. <br/>
+    </p>
+    <p>
+    Следующий метод, который будет вызван при добавлении нового индикатора, это метод <b>AcceptSettings()</b>. Метод служит для того, что бы применить настройки к индикатору. Его вызов происходит каждый раз при обновлении свойств индикатора, или при добавлении нового индикатора. В нашем примере приведём простейшую реализацию: проверка наличия ссылки на экземпляр панели отрисовки, а так же задание текста заголовка.
+    </p>
+    <p class="excerpt">
+    public void AcceptSettings()<br/>
+    { 
+        if (CreateOwnPanel)<br/>
+            SeriesResult = new List&lt;Series.<b class="scClass">Series</b>&gt; { seriesUp, seriesDown };<br/>
+            
+        if (DrawPane != null && DrawPane != owner.StockPane)<br/>
+            DrawPane.Title = string.Format("{0} [{1}]", UniqueName, Period);<br/>
+    }
+    </p>
+    <p>После этого будет вызван основной метод <b>BuildSeries</b> - метод построения серий индикатора. В этом методе может быть любая логика расчёта. Важно лишь, что бы по завершении этого метода объект SeriesResult был инициализирован и заполнен объектами типа <b class="scClass">Series</b>. В нашем примере вся эта логика уже реализована в методе <b>Calculation</b>.</p>
+    <p class="excerpt">
+    public void BuildSeries(ChartControl chart) 
+    {
+        Calculation(SeriesSources[0]);            
+    }
+    </p>
+    <p>Этих трёх методов достаточно, для реализации сценария добавления индикатора на основной график. Теперь реализуем методы, необходимые для обновления свойств нашего индикатора.</p>
+    <p>Все имеющиеся в данный момент на графике индикаторы отображаются в виде списка в окне «Индикаторы».  Для изменения свойств какого-либо из них нужно дважды кликнуть по его имени:</p>
+    <div class="centrAling">
+    <img src="picts\api\indicator_rwr\IndicatorOptions.png" style="width:400px" alt=""/><br/>Рисунок 9</div>    
+    
+    <p>при этом произойдёт вызов метода <b>Copy()</b>. Так же должна быть реализована перегрузка этого метода <b>Copy(BaseChartIndicator indi)</b>.</p>
+    <p>Далее приведена реализация этих абстрактных методов базового класса <b class="scClass">BaseChartIndicator</b>.</p>
+    <p  class="excerpt">
+    public override BaseChartIndicator Copy()<br/>
+    {<br/>
+        &nbsp;var indi = new IndicatorRandomWalk();<br/>
+        &nbsp;Copy(indi);<br/>
+        &nbsp;return indi;<br/>
+    }<br/>
+    <br/>
+
+    public override void Copy(BaseChartIndicator indi)<br/>
+    {<br/>
+        &nbsp;var randomWalk = (IndicatorRandomWalk)indi;<br/>
+        &nbsp;CopyBaseSettings(randomWalk);<br/>
+        &nbsp;randomWalk.Period = Period;<br/>
+        &nbsp;randomWalk.ClLine = ClLine;<br/>
+        &nbsp;randomWalk.ShiftX = ShiftX;<br/>
+        &nbsp;randomWalk.LineWidth = LineWidth;<br/>
+        &nbsp;randomWalk.percentile = percentile.ToArray();<br/>
+        &nbsp;randomWalk.forwardSteps = forwardSteps;<br/>
+    }
+    </p>
+    <p>При редактировании настроек индикатора создается его копия (метод <b>Copy</b>) с целью обеспечения возможности отмены изменений. 
+    В методе <b>Copy(<b class="scClass">BaseChartIndicator</b> indi)</b> его пользовательские поля (percentile, forwardSteps и другие, которые мы создавали в начале подраздела «Поля») 
+    заполняются текущими значениями соответствующих свойств, а его основные поля задаются старыми значениями в методе <b>CopyBaseSettings</b>.</p>
+    <p>После установки нужных значений свойств индикатора в окне «Настройки индикатор» для их применения пользователь нажимает кнопку «Применить».</p>
+    <div class="centrAling">
+    <img src="picts\api\indicator_rwr\SetIndicatorOptions.png" style="width:400px" alt=""/><br/>Рисунок 10</div>  
+    <p>При этом вызывается уже описанный метод <b>AcceptSettings</b>.</p>
+    <p>Метод <b>Remove</b> вызывается перед удалением индикатора.</p>
+    <p class="excerpt">
+        public void Remove()<br/>
+        {<br/>
+            &nbsp;if (seriesUp == null || seriesDown == null) return;<br/>
+            &nbsp;seriesUp.data.Clear();<br/>
+            &nbsp;seriesDown.data.Clear();<br/>
+        }
+    </p>
+    <p>Последний важный метод, который мы рассмотрим это метод <b>OnCandleUpdated</b>. Этот метод вызывается каждый раз при изменении параметров крайней свечи (например, при изменении цены закрытия) или при добавлении новой.  Этот метод принимает два параметра:</p>
+    <p  class="excerpt">OnCandleUpdated(<b class="scClass">CandleData</b> updatedCandle, <b class="scClass">List&lt;CandleData&gt;</b> newCandles)</p>
+    <p>В случае если свеча была обновлена, то первый параметр  <b>updatedCandle</b> содержит данные об этом. Если к графику были добавлены новые свечи, то ссылки на них будут во втором параметре - в списке <b>newCandles</b>.</p>
+    <p>В случае нашего индикатора логика будет следующая:</p>
+        <ul>     
+            <li>если к графику новых свечей не добавлялось (а, например, изменилась цена закрытия), тогда нет нужды пересчитывать математическое ожидание. 
+            Достаточно скорректировать  положение перцентилей индикатора, относительно новой цены закрытия. Для этого служит вспомогательный метод  <b>UpdateRandomWalkLine</b>.</li>
+            <li>если же к графику была добавлена новая свеча, то значение математического ожидания, а, следовательно, и все значения в переменной 
+            <b>percentileDeltaValues[i, j]</b> будет неактуальны и нужно их пересчитать, вызвав метод <b>Calculation</b>.</li>
+        </ul>
+    <p class="excerpt">public void OnCandleUpdated(<b class="scClass">CandleData</b> updatedCandle, <b class="scClass">List&lt;CandleData&gt;</b> newCandles)<br/>
+    {<br/>
+        &nbsp;if (newCandles.Count == 0)<br/>
+        &nbsp;{<br/>
+            &nbsp;&nbsp;UpdateRandomWalkLine(SeriesSources[0]);<br/>
+        &nbsp;}<br/>
+        &nbsp;else<br/>
+        &nbsp;{<br/>
+            &nbsp;&nbsp;Calculation(SeriesSources[0]);<br/>
+        &nbsp;}<br/>
+    }
+</p>
+    <p>На этом разработка индикатора завершена.</p>
+
+
+</body>
+</html>

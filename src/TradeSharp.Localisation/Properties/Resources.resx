@@ -1,0 +1,4902 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="DescriptionAccountGroup" xml:space="preserve">
+    <value>Принадлежность счета к группе</value>
+  </data>
+  <data name="DescriptionAccountStatus" xml:space="preserve">
+    <value>Создан либо заблокирован</value>
+  </data>
+  <data name="DescriptionMaxLeverage" xml:space="preserve">
+    <value>Максимальное разрешенное плечо для счета</value>
+  </data>
+  <data name="DescriptionTimeBlocked" xml:space="preserve">
+    <value>Время блокирования счета</value>
+  </data>
+  <data name="DescriptionTimeCreated" xml:space="preserve">
+    <value>Время создания счета</value>
+  </data>
+  <data name="EnumAccountConnectionStatusConnected" xml:space="preserve">
+    <value>Подключен</value>
+  </data>
+  <data name="EnumAccountConnectionStatusConnectionError" xml:space="preserve">
+    <value>Ошибка подключения</value>
+  </data>
+  <data name="EnumAccountConnectionStatusNotConnected" xml:space="preserve">
+    <value>Не подключен</value>
+  </data>
+  <data name="EnumAccountRegistrationStatusDuplicateEmail" xml:space="preserve">
+    <value>Email занят</value>
+  </data>
+  <data name="EnumAccountRegistrationStatusDuplicateLogin" xml:space="preserve">
+    <value>Логин занят</value>
+  </data>
+  <data name="EnumAccountRegistrationStatusEmailDeliveryError" xml:space="preserve">
+    <value>Ошибка доставки email</value>
+  </data>
+  <data name="EnumAccountRegistrationStatusIncorrectBalance" xml:space="preserve">
+    <value>Некорректный баланс</value>
+  </data>
+  <data name="EnumAccountRegistrationStatusIncorrectEmail" xml:space="preserve">
+    <value>Некорректный email</value>
+  </data>
+  <data name="EnumAccountRegistrationStatusIncorrectLogin" xml:space="preserve">
+    <value>Некорректный логин</value>
+  </data>
+  <data name="EnumAccountRegistrationStatusIncorrectPassword" xml:space="preserve">
+    <value>Некорректный пароль</value>
+  </data>
+  <data name="EnumAccountRegistrationStatusOK" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="EnumAccountRegistrationStatusServerError" xml:space="preserve">
+    <value>Ошибка сервера</value>
+  </data>
+  <data name="EnumAccountRegistrationStatusWrongCurrency" xml:space="preserve">
+    <value>Несуществующая валюта</value>
+  </data>
+  <data name="EnumAuthenticationResponseAccountInactive" xml:space="preserve">
+    <value>Счет отключен</value>
+  </data>
+  <data name="EnumAuthenticationResponseInvalidAccount" xml:space="preserve">
+    <value>Неверный счет</value>
+  </data>
+  <data name="EnumAuthenticationResponseNotAuthorized" xml:space="preserve">
+    <value>Недостаточно прав</value>
+  </data>
+  <data name="EnumAuthenticationResponseOK" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="EnumAuthenticationResponseServerError" xml:space="preserve">
+    <value>Ошибка сервера</value>
+  </data>
+  <data name="EnumAuthenticationResponseWrongPassword" xml:space="preserve">
+    <value>Неверный пароль</value>
+  </data>
+  <data name="EnumCreateReadonlyUserRequestStatusCommonError" xml:space="preserve">
+    <value>Общая ошибка</value>
+  </data>
+  <data name="EnumCreateReadonlyUserRequestStatusNotPermitted" xml:space="preserve">
+    <value>Операция недоступна</value>
+  </data>
+  <data name="EnumCreateReadonlyUserRequestStatusPasswordIsIncorrect" xml:space="preserve">
+    <value>Неверный пароль</value>
+  </data>
+  <data name="EnumCreateReadonlyUserRequestStatusSuccess" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="EnumCreateReadonlyUserRequestStatusUserNotFound" xml:space="preserve">
+    <value>Пользователь не найден</value>
+  </data>
+  <data name="EnumPaidServiceTypePAMM" xml:space="preserve">
+    <value>ПАММ</value>
+  </data>
+  <data name="EnumPaidServiceTypeSignals" xml:space="preserve">
+    <value>Торг. сигналы</value>
+  </data>
+  <data name="EnumPositionExitReasonClosed" xml:space="preserve">
+    <value>-</value>
+  </data>
+  <data name="EnumPositionExitReasonClosedByRobot" xml:space="preserve">
+    <value>Закрыта (робот)</value>
+  </data>
+  <data name="EnumPositionExitReasonClosedBySignal" xml:space="preserve">
+    <value>Закрыта (сигнал)</value>
+  </data>
+  <data name="EnumPositionExitReasonClosedFromScript" xml:space="preserve">
+    <value>Закрыта (скрипт)</value>
+  </data>
+  <data name="EnumPositionExitReasonClosedFromUI" xml:space="preserve">
+    <value>Закрыта польз.</value>
+  </data>
+  <data name="EnumPositionExitReasonSL" xml:space="preserve">
+    <value>StopLoss</value>
+  </data>
+  <data name="EnumPositionExitReasonStopout" xml:space="preserve">
+    <value>Стопаут</value>
+  </data>
+  <data name="EnumPositionExitReasonTP" xml:space="preserve">
+    <value>TakeProfit</value>
+  </data>
+  <data name="EnumPositionStateClosed" xml:space="preserve">
+    <value>Закрыта</value>
+  </data>
+  <data name="EnumPositionStateOpened" xml:space="preserve">
+    <value>Открыта</value>
+  </data>
+  <data name="EnumPositionStateStartClosed" xml:space="preserve">
+    <value>Закрытие</value>
+  </data>
+  <data name="EnumPositionStateStartOpened" xml:space="preserve">
+    <value>Открытие</value>
+  </data>
+  <data name="EnumRequestStatusBadRequest" xml:space="preserve">
+    <value>Неправильный запрос</value>
+  </data>
+  <data name="EnumRequestStatusCommonError" xml:space="preserve">
+    <value>Общая ошибка</value>
+  </data>
+  <data name="EnumRequestStatusDealerError" xml:space="preserve">
+    <value>Ошибка дилера</value>
+  </data>
+  <data name="EnumRequestStatusDoubledRequest" xml:space="preserve">
+    <value>Повторный идентификатор запроса</value>
+  </data>
+  <data name="EnumRequestStatusGroupUnsupported" xml:space="preserve">
+    <value>Группа не поддерживается</value>
+  </data>
+  <data name="EnumRequestStatusIncorrectData" xml:space="preserve">
+    <value>Переданы некорректные данные</value>
+  </data>
+  <data name="EnumRequestStatusMarginOrLeverageExceeded" xml:space="preserve">
+    <value>Превышение марж. требований / плеча</value>
+  </data>
+  <data name="EnumRequestStatusNoConnection" xml:space="preserve">
+    <value>Нет связи</value>
+  </data>
+  <data name="EnumRequestStatusNoPrice" xml:space="preserve">
+    <value>Нет цены</value>
+  </data>
+  <data name="EnumRequestStatusNotFound" xml:space="preserve">
+    <value>Не найден</value>
+  </data>
+  <data name="EnumRequestStatusOK" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="EnumRequestStatusSerializationError" xml:space="preserve">
+    <value>Ошибка сериализации</value>
+  </data>
+  <data name="EnumRequestStatusServerError" xml:space="preserve">
+    <value>Ошибка на сервере</value>
+  </data>
+  <data name="EnumRequestStatusSlippage" xml:space="preserve">
+    <value>Превышение проскальзывания</value>
+  </data>
+  <data name="EnumRequestStatusUnauthorized" xml:space="preserve">
+    <value>Не авторизован</value>
+  </data>
+  <data name="EnumRequestStatusWrongPrice" xml:space="preserve">
+    <value>Неверная цена</value>
+  </data>
+  <data name="EnumRequestStatusWrongSide" xml:space="preserve">
+    <value>Неправильный тип (покупка / продажа)</value>
+  </data>
+  <data name="EnumRequestStatusWrongStopOrder" xml:space="preserve">
+    <value>Неверный стоп-ордер</value>
+  </data>
+  <data name="EnumRequestStatusWrongTakeOrder" xml:space="preserve">
+    <value>Неверный тейк-ордер</value>
+  </data>
+  <data name="EnumRequestStatusWrongTime" xml:space="preserve">
+    <value>Неправильно указано время</value>
+  </data>
+  <data name="EnumServerConnectionStatusConnected" xml:space="preserve">
+    <value>Подключен</value>
+  </data>
+  <data name="EnumServerConnectionStatusConnecting" xml:space="preserve">
+    <value>Подключается</value>
+  </data>
+  <data name="EnumServerConnectionStatusConnectionAborted" xml:space="preserve">
+    <value>Соединение разорвано</value>
+  </data>
+  <data name="EnumServerConnectionStatusNotConnected" xml:space="preserve">
+    <value>Не подключен</value>
+  </data>
+  <data name="EnumServiceControllerStatusContinuePending" xml:space="preserve">
+    <value>Возобновляется</value>
+  </data>
+  <data name="EnumServiceControllerStatusPaused" xml:space="preserve">
+    <value>Приостановлена</value>
+  </data>
+  <data name="EnumServiceControllerStatusPausePending" xml:space="preserve">
+    <value>Приостанавливается</value>
+  </data>
+  <data name="EnumServiceControllerStatusRunning" xml:space="preserve">
+    <value>Работает</value>
+  </data>
+  <data name="EnumServiceControllerStatusStartPending" xml:space="preserve">
+    <value>Запускается</value>
+  </data>
+  <data name="EnumServiceControllerStatusStopped" xml:space="preserve">
+    <value>Остановлена</value>
+  </data>
+  <data name="EnumServiceControllerStatusStopPending" xml:space="preserve">
+    <value>Останавливается</value>
+  </data>
+  <data name="EnumStartupStageFillDictionaries" xml:space="preserve">
+    <value>Чтение метаданных</value>
+  </data>
+  <data name="EnumStartupStageFinalizing" xml:space="preserve">
+    <value>Окончание загрузки</value>
+  </data>
+  <data name="EnumStartupStageLoadingWorkspace" xml:space="preserve">
+    <value>Загрузка окон</value>
+  </data>
+  <data name="EnumStartupStageMakeInstrumentalPanels" xml:space="preserve">
+    <value>Настройка панелей инструментов</value>
+  </data>
+  <data name="EnumStartupStageMakeQuoteStream" xml:space="preserve">
+    <value>Котировки online</value>
+  </data>
+  <data name="EnumStartupStageMakeServerConnection" xml:space="preserve">
+    <value>Соединение с сервером</value>
+  </data>
+  <data name="EnumStartupStagePreloadQuotes" xml:space="preserve">
+    <value>Загрузка котировок</value>
+  </data>
+  <data name="EnumStartupStageStarted" xml:space="preserve">
+    <value>Загрузка...</value>
+  </data>
+  <data name="EnumVocalizedEventCommonError" xml:space="preserve">
+    <value>Общая ошибка</value>
+  </data>
+  <data name="EnumVocalizedEventLoggedIn" xml:space="preserve">
+    <value>Логин</value>
+  </data>
+  <data name="EnumVocalizedEventStarted" xml:space="preserve">
+    <value>Запуск</value>
+  </data>
+  <data name="EnumVocalizedEventTradeResponse" xml:space="preserve">
+    <value>Торговый ордер</value>
+  </data>
+  <data name="EnumVocalizedEventTradeSignal" xml:space="preserve">
+    <value>Торговый сигнал</value>
+  </data>
+  <data name="EnumWalletErrorAuthenticationError" xml:space="preserve">
+    <value>Ошибка аутентификации</value>
+  </data>
+  <data name="EnumWalletErrorCommonError" xml:space="preserve">
+    <value>Общая ошибка</value>
+  </data>
+  <data name="EnumWalletErrorCurrencyExchangeFailed" xml:space="preserve">
+    <value>Невозможно конвертировать валюту</value>
+  </data>
+  <data name="EnumWalletErrorInsufficientFunds" xml:space="preserve">
+    <value>Недостаточно средств</value>
+  </data>
+  <data name="EnumWalletErrorInsufficientRights" xml:space="preserve">
+    <value>Недостаточно прав для совершения операции</value>
+  </data>
+  <data name="EnumWalletErrorInvalidData" xml:space="preserve">
+    <value>Некорректные данные</value>
+  </data>
+  <data name="EnumWalletErrorMarginExceeded" xml:space="preserve">
+    <value>Превышение марж. залога</value>
+  </data>
+  <data name="EnumWalletErrorOK" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="EnumWalletErrorServerError" xml:space="preserve">
+    <value>Ошибка сервера</value>
+  </data>
+  <data name="EnumWalletErrorServerSqlError" xml:space="preserve">
+    <value>Возможно, данные, которые вы пытаетесь внести, уже существуют в базе данных</value>
+  </data>
+  <data name="EnumWalletErrorWalletPasswordWrong" xml:space="preserve">
+    <value>Неверный пароль для кошелька</value>
+  </data>
+  <data name="ErrorMessageFieldRequired" xml:space="preserve">
+    <value>Поле обязательно для заполнения</value>
+  </data>
+  <data name="ErrorMessageRangeNotLess0" xml:space="preserve">
+    <value>Значение должно быть числом не меньшим 0</value>
+  </data>
+  <data name="ErrorMessageRangeNotLess01" xml:space="preserve">
+    <value>Значение должно быть числом не меньшим 0.01</value>
+  </data>
+  <data name="TitleAbort" xml:space="preserve">
+    <value>Прервать</value>
+  </data>
+  <data name="TitleAccount" xml:space="preserve">
+    <value>Счет</value>
+  </data>
+  <data name="TitleAccountGroup" xml:space="preserve">
+    <value>Группа счетов</value>
+  </data>
+  <data name="TitleAccountGroupCode" xml:space="preserve">
+    <value>Код группы</value>
+  </data>
+  <data name="TitleAccountGroupDealer" xml:space="preserve">
+    <value>Дилер</value>
+  </data>
+  <data name="TitleAccountGroupIsReal" xml:space="preserve">
+    <value>Группа с реальными счетами</value>
+  </data>
+  <data name="TitleAccountGroupName" xml:space="preserve">
+    <value>Название группы</value>
+  </data>
+  <data name="TitleAccountGroupShort" xml:space="preserve">
+    <value>Группа</value>
+  </data>
+  <data name="TitleAccountStatus" xml:space="preserve">
+    <value>Статус счета</value>
+  </data>
+  <data name="TitleAmount" xml:space="preserve">
+    <value>Сумма</value>
+  </data>
+  <data name="TitleBalance" xml:space="preserve">
+    <value>Баланс</value>
+  </data>
+  <data name="TitleBrokerLeverage" xml:space="preserve">
+    <value>Плечо</value>
+  </data>
+  <data name="TitleCode" xml:space="preserve">
+    <value>Код</value>
+  </data>
+  <data name="TitleComment" xml:space="preserve">
+    <value>Комментарий</value>
+  </data>
+  <data name="TitleCancel" xml:space="preserve">
+    <value>Отмена</value>
+  </data>
+  <data name="TitleCurrency" xml:space="preserve">
+    <value>Валюта</value>
+  </data>
+  <data name="TitleCurrencyTS" xml:space="preserve">
+    <value>Валюта в T#</value>
+  </data>
+  <data name="TitleDateProcessedPayment" xml:space="preserve">
+    <value>Дата регистрации платежа в системе T#</value>
+  </data>
+  <data name="TitleDateValuePayment" xml:space="preserve">
+    <value>Дата регистрации платежа в платежной системе</value>
+  </data>
+  <data name="TitleDealerEnabled" xml:space="preserve">
+    <value>Дилер разблокирован</value>
+  </data>
+  <data name="TitleDefaultMarkup" xml:space="preserve">
+    <value>Наценка по умолчанию</value>
+  </data>
+  <data name="TitleExitReason" xml:space="preserve">
+    <value>Условие выхода</value>
+  </data>
+  <data name="TitleExpertComment" xml:space="preserve">
+    <value>Комментарий робота</value>
+  </data>
+  <data name="TitleFileName" xml:space="preserve">
+    <value>Имя файла</value>
+  </data>
+  <data name="TitleHedgingAccount" xml:space="preserve">
+    <value>Хеджирующий счёт</value>
+  </data>
+  <data name="TitleIgnore" xml:space="preserve">
+    <value>Пропустить</value>
+  </data>
+  <data name="TitleInitialVirtualDepo" xml:space="preserve">
+    <value>Изначальный виртуальный депозит</value>
+  </data>
+  <data name="TitleInstruments" xml:space="preserve">
+    <value>Инструменты</value>
+  </data>
+  <data name="TitleMagic" xml:space="preserve">
+    <value>Magic</value>
+  </data>
+  <data name="TitleMain" xml:space="preserve">
+    <value>Основные</value>
+  </data>
+  <data name="TitleMarkup" xml:space="preserve">
+    <value>Наценка</value>
+  </data>
+  <data name="TitleMasterOrder" xml:space="preserve">
+    <value>Мастер-ордер</value>
+  </data>
+  <data name="TitleMaxLeverage" xml:space="preserve">
+    <value>Макс. плечо</value>
+  </data>
+  <data name="TitleMessageQueue" xml:space="preserve">
+    <value>Очередь сообщений</value>
+  </data>
+  <data name="TitleName" xml:space="preserve">
+    <value>Название</value>
+  </data>
+  <data name="TitleOrderType" xml:space="preserve">
+    <value>Тип сделки</value>
+  </data>
+  <data name="TitleNo" xml:space="preserve">
+    <value>Нет</value>
+  </data>
+  <data name="TitleOK" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="TitlePasswordView" xml:space="preserve">
+    <value>Пароль для просмотра</value>
+  </data>
+  <data name="TitlePaymentNumber" xml:space="preserve">
+    <value>Номер платежа</value>
+  </data>
+  <data name="TitlePaymentSystem" xml:space="preserve">
+    <value>Платёжная система</value>
+  </data>
+  <data name="TitlePendingOrder" xml:space="preserve">
+    <value>Отл. ордер</value>
+  </data>
+  <data name="TitlePriceBest" xml:space="preserve">
+    <value>Лучшая цена</value>
+  </data>
+  <data name="TitlePriceEntry" xml:space="preserve">
+    <value>Цена входа</value>
+  </data>
+  <data name="TitlePriceExit" xml:space="preserve">
+    <value>Цена выхода</value>
+  </data>
+  <data name="TitlePriceWorst" xml:space="preserve">
+    <value>Худшая цена</value>
+  </data>
+  <data name="TitlePurseUsers" xml:space="preserve">
+    <value>Кошелёк пользователя</value>
+  </data>
+  <data name="TitleResultBase" xml:space="preserve">
+    <value>Результат (конт.)</value>
+  </data>
+  <data name="TitleResultDepo" xml:space="preserve">
+    <value>Результат (деп.)</value>
+  </data>
+  <data name="TitleResultPoints" xml:space="preserve">
+    <value>Результат (пункты)</value>
+  </data>
+  <data name="TitleRetry" xml:space="preserve">
+    <value>Повторить</value>
+  </data>
+  <data name="TitleSenderCompId" xml:space="preserve">
+    <value>Отправитель</value>
+  </data>
+  <data name="TitleSessionName" xml:space="preserve">
+    <value>Имя сеанса</value>
+  </data>
+  <data name="TitleState" xml:space="preserve">
+    <value>Состояние</value>
+  </data>
+  <data name="TitleStopLoss" xml:space="preserve">
+    <value>Stop Loss</value>
+  </data>
+  <data name="TitleSwap" xml:space="preserve">
+    <value>Своп</value>
+  </data>
+  <data name="TitleSwapFree" xml:space="preserve">
+    <value>Своп бесплатный</value>
+  </data>
+  <data name="TitleTakeProfit" xml:space="preserve">
+    <value>Take Profit</value>
+  </data>
+  <data name="TitleTimeBlocked" xml:space="preserve">
+    <value>Время блокирования</value>
+  </data>
+  <data name="TitleTimeBlockedAccount" xml:space="preserve">
+    <value>Время блокирования счета</value>
+  </data>
+  <data name="TitleTimeCreated" xml:space="preserve">
+    <value>Время открытия</value>
+  </data>
+  <data name="TitleTimeEnter" xml:space="preserve">
+    <value>Время входа</value>
+  </data>
+  <data name="TitleTimeExit" xml:space="preserve">
+    <value>Время выхода</value>
+  </data>
+  <data name="TitleTrailing" xml:space="preserve">
+    <value>Трейлинг</value>
+  </data>
+  <data name="TitleUserComment" xml:space="preserve">
+    <value>Комментарий пользователя</value>
+  </data>
+  <data name="TitleVolume" xml:space="preserve">
+    <value>Объем</value>
+  </data>
+  <data name="TitleYes" xml:space="preserve">
+    <value>Да</value>
+  </data>
+  <data name="TitleAboutMenu" xml:space="preserve">
+    <value>О программе...</value>
+  </data>
+  <data name="TitleAccountNumberSmall" xml:space="preserve">
+    <value>счет #</value>
+  </data>
+  <data name="TitleAccountsMenu" xml:space="preserve">
+    <value>Счета...</value>
+  </data>
+  <data name="TitleApplyTemplateMenu" xml:space="preserve">
+    <value>Применить шаблон...</value>
+  </data>
+  <data name="TitleArrangeCascade" xml:space="preserve">
+    <value>Расположить каскадом</value>
+  </data>
+  <data name="TitleArrangeHorizontal" xml:space="preserve">
+    <value>Расположить горизонтально</value>
+  </data>
+  <data name="TitleArrangeVertical" xml:space="preserve">
+    <value>Расположить вертикально</value>
+  </data>
+  <data name="TitleChangeAccountMenu" xml:space="preserve">
+    <value>Сменить счет...</value>
+  </data>
+  <data name="TitleChartSettingsMenu" xml:space="preserve">
+    <value>Настройки графиков...</value>
+  </data>
+  <data name="TitleExitMenu" xml:space="preserve">
+    <value>Выход</value>
+  </data>
+  <data name="TitleFile" xml:space="preserve">
+    <value>Файл</value>
+  </data>
+  <data name="TitleHelp" xml:space="preserve">
+    <value>Справка</value>
+  </data>
+  <data name="TitleJournalsMenu" xml:space="preserve">
+    <value>Журналы...</value>
+  </data>
+  <data name="TitleLoadWorkspaceMenu" xml:space="preserve">
+    <value>Загрузить рабочее пространство...</value>
+  </data>
+  <data name="TitleLoginMenu" xml:space="preserve">
+    <value>Логин...</value>
+  </data>
+  <data name="TitleLogoutMenu" xml:space="preserve">
+    <value>Логаут...</value>
+  </data>
+  <data name="TitleManageTemplates" xml:space="preserve">
+    <value>Управление шаблонами</value>
+  </data>
+  <data name="TitleMinimizeAll" xml:space="preserve">
+    <value>Свернуть все</value>
+  </data>
+  <data name="TitleMinimizeMenu" xml:space="preserve">
+    <value>Свернуть</value>
+  </data>
+  <data name="TitleNewMenu" xml:space="preserve">
+    <value>Новый</value>
+  </data>
+  <data name="TitleNewOrderMenu" xml:space="preserve">
+    <value>Новый ордер...</value>
+  </data>
+  <data name="TitleOpenTradeSharpMenu" xml:space="preserve">
+    <value>Открыть TRADE#</value>
+  </data>
+  <data name="TitleParametersMenu" xml:space="preserve">
+    <value>Параметры...</value>
+  </data>
+  <data name="TitlePrintMenu" xml:space="preserve">
+    <value>Печать...</value>
+  </data>
+  <data name="TitleQuoteArchiveMenu" xml:space="preserve">
+    <value>Архив котировок...</value>
+  </data>
+  <data name="TitleQuotes" xml:space="preserve">
+    <value>Котировки</value>
+  </data>
+  <data name="TitleRiskMenu" xml:space="preserve">
+    <value>Риск...</value>
+  </data>
+  <data name="TitleRobotPortfolioMenu" xml:space="preserve">
+    <value>Портфель роботов...</value>
+  </data>
+  <data name="TitleRobots" xml:space="preserve">
+    <value>Роботы</value>
+  </data>
+  <data name="TitleRobotStateMenu" xml:space="preserve">
+    <value>Состояние роботов...</value>
+  </data>
+  <data name="TitleRobotTesterMenu" xml:space="preserve">
+    <value>Тестер роботов...</value>
+  </data>
+  <data name="TitleSave" xml:space="preserve">
+    <value>Сохранить</value>
+  </data>
+  <data name="TitleSaveTemplateMenu" xml:space="preserve">
+    <value>Сохранить как шаблон...</value>
+  </data>
+  <data name="TitleSaveWorkspaceMenu" xml:space="preserve">
+    <value>Сохранить рабочее пространство...</value>
+  </data>
+  <data name="TitleScript" xml:space="preserve">
+    <value>Скрипт</value>
+  </data>
+  <data name="TitleScripts" xml:space="preserve">
+    <value>Скрипты</value>
+  </data>
+  <data name="TitleSettings" xml:space="preserve">
+    <value>Настройки</value>
+  </data>
+  <data name="TitleShowHelp" xml:space="preserve">
+    <value>Вызов справки</value>
+  </data>
+  <data name="TitleStatisticsMenu" xml:space="preserve">
+    <value>Статистика...</value>
+  </data>
+  <data name="TitleStatusBar" xml:space="preserve">
+    <value>Статусная строка</value>
+  </data>
+  <data name="TitleStrategiesMenu" xml:space="preserve">
+    <value>Стратегии...</value>
+  </data>
+  <data name="TitleTemplates" xml:space="preserve">
+    <value>Шаблоны</value>
+  </data>
+  <data name="TitleTipsMenu" xml:space="preserve">
+    <value>Подсказки...</value>
+  </data>
+  <data name="TitleToolbarMenu" xml:space="preserve">
+    <value>Панель инструментов...</value>
+  </data>
+  <data name="TitleTrade" xml:space="preserve">
+    <value>Торговля</value>
+  </data>
+  <data name="TitleView" xml:space="preserve">
+    <value>Вид</value>
+  </data>
+  <data name="TitleWallet" xml:space="preserve">
+    <value>Кошелек</value>
+  </data>
+  <data name="TitleWalletMenu" xml:space="preserve">
+    <value>Кошелек...</value>
+  </data>
+  <data name="TitleWebObserver" xml:space="preserve">
+    <value>Обозреватель</value>
+  </data>
+  <data name="TitleWindows" xml:space="preserve">
+    <value>Окна</value>
+  </data>
+  <data name="TitleAccountHistory" xml:space="preserve">
+    <value>История счета</value>
+  </data>
+  <data name="TitleChangeOrder" xml:space="preserve">
+    <value>Изменить ордер</value>
+  </data>
+  <data name="TitleClose" xml:space="preserve">
+    <value>Закрыть</value>
+  </data>
+  <data name="TitleCloseAll" xml:space="preserve">
+    <value>Закрыть все</value>
+  </data>
+  <data name="TitleCloseOrder" xml:space="preserve">
+    <value>Закрыть ордер</value>
+  </data>
+  <data name="TitleCommentShort" xml:space="preserve">
+    <value>Комм.</value>
+  </data>
+  <data name="TitleCompletion" xml:space="preserve">
+    <value>Завершение</value>
+  </data>
+  <data name="TitleDeal" xml:space="preserve">
+    <value>Сделка</value>
+  </data>
+  <data name="TitleDelete" xml:space="preserve">
+    <value>Удалить</value>
+  </data>
+  <data name="TitleDeleteAll" xml:space="preserve">
+    <value>Удалить все</value>
+  </data>
+  <data name="TitleEdit" xml:space="preserve">
+    <value>Редактировать</value>
+  </data>
+  <data name="TitleEnter" xml:space="preserve">
+    <value>Вход</value>
+  </data>
+  <data name="TitleEnterPrice" xml:space="preserve">
+    <value>Цена входа</value>
+  </data>
+  <data name="TitleExposition" xml:space="preserve">
+    <value>Экспозиция</value>
+  </data>
+  <data name="TitleFreeLeverage" xml:space="preserve">
+    <value>Плечо Free</value>
+  </data>
+  <data name="TitleFreeSum" xml:space="preserve">
+    <value>Сумма Free</value>
+  </data>
+  <data name="TitleFunds" xml:space="preserve">
+    <value>Средства</value>
+  </data>
+  <data name="TitleLeverage" xml:space="preserve">
+    <value>Плечо</value>
+  </data>
+  <data name="TitleLimit" xml:space="preserve">
+    <value>Предел</value>
+  </data>
+  <data name="TitleNew" xml:space="preserve">
+    <value>Новый</value>
+  </data>
+  <data name="TitleOpenedPL" xml:space="preserve">
+    <value>Открытый P/L</value>
+  </data>
+  <data name="TitleOrder" xml:space="preserve">
+    <value>Ордер</value>
+  </data>
+  <data name="TitlePendingOrders" xml:space="preserve">
+    <value>Отложенные ордера</value>
+  </data>
+  <data name="TitlePLInPercents" xml:space="preserve">
+    <value>P/L, %</value>
+  </data>
+  <data name="TitlePLInPoints" xml:space="preserve">
+    <value>P/L, пп</value>
+  </data>
+  <data name="TitlePositions" xml:space="preserve">
+    <value>Позиции</value>
+  </data>
+  <data name="TitlePrice" xml:space="preserve">
+    <value>Цена</value>
+  </data>
+  <data name="TitleRiskAssessment" xml:space="preserve">
+    <value>Оценка риска</value>
+  </data>
+  <data name="TitleRobotComment" xml:space="preserve">
+    <value>Комментарий робота</value>
+  </data>
+  <data name="TitleRobotCommentShort" xml:space="preserve">
+    <value>Комм. роб.</value>
+  </data>
+  <data name="TitleSetTrailing" xml:space="preserve">
+    <value>Установить трейлинг</value>
+  </data>
+  <data name="TitleSetupColumnsMenu" xml:space="preserve">
+    <value>Настроить столбцы...</value>
+  </data>
+  <data name="TitleStart" xml:space="preserve">
+    <value>Старт</value>
+  </data>
+  <data name="TitleStatistics" xml:space="preserve">
+    <value>Статистика</value>
+  </data>
+  <data name="TitleStatus" xml:space="preserve">
+    <value>Статус</value>
+  </data>
+  <data name="TitleSum" xml:space="preserve">
+    <value>Сумма</value>
+  </data>
+  <data name="TitleSymbol" xml:space="preserve">
+    <value>Символ</value>
+  </data>
+  <data name="TitleTime" xml:space="preserve">
+    <value>Время</value>
+  </data>
+  <data name="TitleType" xml:space="preserve">
+    <value>Тип</value>
+  </data>
+  <data name="TitleValue" xml:space="preserve">
+    <value>Значение</value>
+  </data>
+  <data name="EnumAccountTransferTypeDirectTransfer" xml:space="preserve">
+    <value>Прямой перевод</value>
+  </data>
+  <data name="EnumAccountTransferTypePutOnAccount" xml:space="preserve">
+    <value>Заведено на счет</value>
+  </data>
+  <data name="EnumAccountTransferTypeSignalFeePaid" xml:space="preserve">
+    <value>Оплачено по сигналу</value>
+  </data>
+  <data name="EnumAccountTransferTypeSignalFeeReceived" xml:space="preserve">
+    <value>Получено по сигналу</value>
+  </data>
+  <data name="EnumAccountTransferTypeTakenFromAccount" xml:space="preserve">
+    <value>Списано со счета</value>
+  </data>
+  <data name="TitleAddWallet" xml:space="preserve">
+    <value>Добавить кошелек</value>
+  </data>
+  <data name="TitleBeginning" xml:space="preserve">
+    <value>Начало</value>
+  </data>
+  <data name="TitleCancelLoading" xml:space="preserve">
+    <value>Отменить загрузку</value>
+  </data>
+  <data name="TitleChart" xml:space="preserve">
+    <value>График</value>
+  </data>
+  <data name="TitleClosing" xml:space="preserve">
+    <value>Закрытие</value>
+  </data>
+  <data name="TitleCost" xml:space="preserve">
+    <value>Стоимость</value>
+  </data>
+  <data name="TitleDealLoss" xml:space="preserve">
+    <value>Убыток по сделке</value>
+  </data>
+  <data name="TitleDealProfit" xml:space="preserve">
+    <value>Прибыль по сделке</value>
+  </data>
+  <data name="TitleDeposit" xml:space="preserve">
+    <value>Положить</value>
+  </data>
+  <data name="TitleEnd" xml:space="preserve">
+    <value>Окончание</value>
+  </data>
+  <data name="TitleExit" xml:space="preserve">
+    <value>Выход</value>
+  </data>
+  <data name="TitleInvestment" xml:space="preserve">
+    <value>Пополнение</value>
+  </data>
+  <data name="TitleOwner" xml:space="preserve">
+    <value>Владелец</value>
+  </data>
+  <data name="TitlePayments" xml:space="preserve">
+    <value>Платежи</value>
+  </data>
+  <data name="TitlePaymentSystems" xml:space="preserve">
+    <value>Платежные системы</value>
+  </data>
+  <data name="TitlePercent" xml:space="preserve">
+    <value>Процент</value>
+  </data>
+  <data name="TitleProlong" xml:space="preserve">
+    <value>Продлять</value>
+  </data>
+  <data name="TitleResult" xml:space="preserve">
+    <value>Результат</value>
+  </data>
+  <data name="TitleService" xml:space="preserve">
+    <value>Сервис</value>
+  </data>
+  <data name="TitleServiceSubscription" xml:space="preserve">
+    <value>Подписка на сервис</value>
+  </data>
+  <data name="TitleSubscription" xml:space="preserve">
+    <value>Подписка</value>
+  </data>
+  <data name="TitleTradeAccounts" xml:space="preserve">
+    <value>Торговые счета</value>
+  </data>
+  <data name="TitleTransferToTradeAccount" xml:space="preserve">
+    <value>Перевод на торговый счет</value>
+  </data>
+  <data name="TitleTurnOff" xml:space="preserve">
+    <value>Отключить</value>
+  </data>
+  <data name="TitleWalletPayment" xml:space="preserve">
+    <value>Платеж на кошелек</value>
+  </data>
+  <data name="TitleWithdraw" xml:space="preserve">
+    <value>Снять</value>
+  </data>
+  <data name="TitleWithdrawal" xml:space="preserve">
+    <value>Снятие</value>
+  </data>
+  <data name="TitlePartisipantsCount" xml:space="preserve">
+    <value>Участников</value>
+  </data>
+  <data name="TitleConfirmSubscription" xml:space="preserve">
+    <value>Подтвердить подписку</value>
+  </data>
+  <data name="TitlePortfolio" xml:space="preserve">
+    <value>Портфель</value>
+  </data>
+  <data name="MessageProceedSubscribeOnPortfolio" xml:space="preserve">
+    <value>Подтвердить подписку на портфель?</value>
+  </data>
+  <data name="TitleUserPortfolio" xml:space="preserve">
+    <value>Пользовательский портфель</value>
+  </data>
+  <data name="TitleAccountType" xml:space="preserve">
+    <value>Тип счета</value>
+  </data>
+  <data name="TitleDemo" xml:space="preserve">
+    <value>Демо</value>
+  </data>
+  <data name="TitleNotAuthorized" xml:space="preserve">
+    <value>Не авторизован</value>
+  </data>
+  <data name="TitleNotAvailableShort" xml:space="preserve">
+    <value>н/д</value>
+  </data>
+  <data name="TitleProfit" xml:space="preserve">
+    <value>Прибыль</value>
+  </data>
+  <data name="TitleReal" xml:space="preserve">
+    <value>Реальный</value>
+  </data>
+  <data name="TitleReserve" xml:space="preserve">
+    <value>Резерв</value>
+  </data>
+  <data name="TitleStatisticsOnAllPayments" xml:space="preserve">
+    <value>Статистика по всем платежам</value>
+  </data>
+  <data name="TitleTransactions" xml:space="preserve">
+    <value>Транзакций</value>
+  </data>
+  <data name="TitleUser" xml:space="preserve">
+    <value>Пользователь</value>
+  </data>
+  <data name="TitleMaximumSlippageInPointsShort" xml:space="preserve">
+    <value>Макс. проскальз., пп</value>
+  </data>
+  <data name="TitleTicker" xml:space="preserve">
+    <value>Тикер</value>
+  </data>
+  <data name="EnumOrderTypeInstant" xml:space="preserve">
+    <value>Инстант-ордер</value>
+  </data>
+  <data name="EnumOrderTypeMarket" xml:space="preserve">
+    <value>Рыночный ордер</value>
+  </data>
+  <data name="EnumOrderTypePending" xml:space="preserve">
+    <value>Отложенный ордер</value>
+  </data>
+  <data name="TitleAdditional" xml:space="preserve">
+    <value>Дополнительно</value>
+  </data>
+  <data name="TitleAdditionalParameters" xml:space="preserve">
+    <value>Дополнительные параметры...</value>
+  </data>
+  <data name="TitleLevel" xml:space="preserve">
+    <value>Уровень</value>
+  </data>
+  <data name="TitleLevelInPoints" xml:space="preserve">
+    <value>Уровень, пп</value>
+  </data>
+  <data name="TitleNewOrder" xml:space="preserve">
+    <value>Новый ордер</value>
+  </data>
+  <data name="TitleOrderOCO" xml:space="preserve">
+    <value>Ордер OCO</value>
+  </data>
+  <data name="TitlePriceLimit" xml:space="preserve">
+    <value>Граница цены</value>
+  </data>
+  <data name="TitleSLInPoints" xml:space="preserve">
+    <value>SL, пп</value>
+  </data>
+  <data name="TitleBeginFrom" xml:space="preserve">
+    <value>начать с</value>
+  </data>
+  <data name="TitleBreak" xml:space="preserve">
+    <value>Прервать</value>
+  </data>
+  <data name="TitleCalculate" xml:space="preserve">
+    <value>Рассчитать</value>
+  </data>
+  <data name="TitleCurrentDeposit" xml:space="preserve">
+    <value>Текущий депозит</value>
+  </data>
+  <data name="TitleDate" xml:space="preserve">
+    <value>Дата</value>
+  </data>
+  <data name="TitleDealsTotal" xml:space="preserve">
+    <value>Сделок всего</value>
+  </data>
+  <data name="TitleFilterByMagic" xml:space="preserve">
+    <value>фильтр по Magic</value>
+  </data>
+  <data name="TitleGAAnnualProfit" xml:space="preserve">
+    <value>Среднегеометрическая годовая доходность</value>
+  </data>
+  <data name="TitleGADailyProfit" xml:space="preserve">
+    <value>Среднегеометрическая дневная доходность</value>
+  </data>
+  <data name="TitleGAMonthlyProfit" xml:space="preserve">
+    <value>Среднегеометрическая месячная доходность</value>
+  </data>
+  <data name="TitleHideOptions" xml:space="preserve">
+    <value>Спрятать опции</value>
+  </data>
+  <data name="TitleHTMLReport" xml:space="preserve">
+    <value>Отчет в HTML</value>
+  </data>
+  <data name="TitleInitialDate" xml:space="preserve">
+    <value>Начальная дата</value>
+  </data>
+  <data name="TitleInitialDeposit" xml:space="preserve">
+    <value>Начальный депозит</value>
+  </data>
+  <data name="TitleLog" xml:space="preserve">
+    <value>Лог</value>
+  </data>
+  <data name="TitleMaximumRelativeDrawdown" xml:space="preserve">
+    <value>Максимальная относительная просадка</value>
+  </data>
+  <data name="TitleOpenedDeals" xml:space="preserve">
+    <value>Открытые сделки</value>
+  </data>
+  <data name="TitleOperationsHistory" xml:space="preserve">
+    <value>История операций</value>
+  </data>
+  <data name="TitleProfitBy1000" xml:space="preserve">
+    <value>Прибыль на $1000</value>
+  </data>
+  <data name="TitleProfitChart" xml:space="preserve">
+    <value>График доходности</value>
+  </data>
+  <data name="TitleQuotesWithoutRequest" xml:space="preserve">
+    <value>котировки без запроса</value>
+  </data>
+  <data name="TitleShowBalanceCurve" xml:space="preserve">
+    <value>показать кривую баланса</value>
+  </data>
+  <data name="TitleShowOptions" xml:space="preserve">
+    <value>Показать опции</value>
+  </data>
+  <data name="TitleSummaryDepositsAndWithdraws" xml:space="preserve">
+    <value>Cуммарные пополнения - списания</value>
+  </data>
+  <data name="TitleSummaryResult" xml:space="preserve">
+    <value>Суммарный результат</value>
+  </data>
+  <data name="TitleSummaryResultInClosedDeals" xml:space="preserve">
+    <value>Суммарный результат по закрытым сделкам</value>
+  </data>
+  <data name="TitleSummaryResultInOpenedDeals" xml:space="preserve">
+    <value>Суммарный результат по открытым сделкам</value>
+  </data>
+  <data name="TitleTimeframeSmall" xml:space="preserve">
+    <value>таймфрейм</value>
+  </data>
+  <data name="EnumActionOnSignalОткрытьГрафик" xml:space="preserve">
+    <value>Открыть график</value>
+  </data>
+  <data name="EnumActionOnSignalПоказатьНаГрафике" xml:space="preserve">
+    <value>Показать на графике</value>
+  </data>
+  <data name="EnumActionOnSignalПредложитьОткрытьГрафик" xml:space="preserve">
+    <value>Предложить открыть график</value>
+  </data>
+  <data name="EnumActionOnSignalСообщение" xml:space="preserve">
+    <value>Сообщение</value>
+  </data>
+  <data name="TitleAccept" xml:space="preserve">
+    <value>Принять</value>
+  </data>
+  <data name="TitleAccountBalanceOnTestBeginning" xml:space="preserve">
+    <value>Баланс счета на начало тестирования</value>
+  </data>
+  <data name="TitleAccountBalanceOnTestEnd" xml:space="preserve">
+    <value>Баланс счета по завершению тестирования</value>
+  </data>
+  <data name="TitleAccountNumber" xml:space="preserve">
+    <value>Счет #</value>
+  </data>
+  <data name="TitleAccountStatisticsInTestMode" xml:space="preserve">
+    <value>Статистика по счету (режим тестирования)</value>
+  </data>
+  <data name="TitleActionOnForecastReceive" xml:space="preserve">
+    <value>Получив прогноз</value>
+  </data>
+  <data name="TitleAdditionals" xml:space="preserve">
+    <value>Дополнительные</value>
+  </data>
+  <data name="TitleAll" xml:space="preserve">
+    <value>Все</value>
+  </data>
+  <data name="TitleAutomatically" xml:space="preserve">
+    <value>Автоматически</value>
+  </data>
+  <data name="TitleAverageLeverage" xml:space="preserve">
+    <value>Среднее плечо</value>
+  </data>
+  <data name="TitleAverageLeverageInTestInUnits" xml:space="preserve">
+    <value>Среднее плечо за время теста, ед.</value>
+  </data>
+  <data name="TitleCollapse" xml:space="preserve">
+    <value>Свернуть</value>
+  </data>
+  <data name="TitleConfigure" xml:space="preserve">
+    <value>Настроить</value>
+  </data>
+  <data name="TitleCreatePortfolio" xml:space="preserve">
+    <value>Создать портфель</value>
+  </data>
+  <data name="TitleCriterion" xml:space="preserve">
+    <value>Критерий</value>
+  </data>
+  <data name="TitleDealsOpened" xml:space="preserve">
+    <value>Сделок открытых</value>
+  </data>
+  <data name="TitleDealsTotalOpenedAndClosed" xml:space="preserve">
+    <value>Сделок всего (открытых, закрытых)</value>
+  </data>
+  <data name="TitleDescription" xml:space="preserve">
+    <value>Описание</value>
+  </data>
+  <data name="TitleDuration" xml:space="preserve">
+    <value>Длительность</value>
+  </data>
+  <data name="TitleExpand" xml:space="preserve">
+    <value>Развернуть</value>
+  </data>
+  <data name="TitleExportMenu" xml:space="preserve">
+    <value>Экспорт...</value>
+  </data>
+  <data name="TitleExpressionCreation" xml:space="preserve">
+    <value>Создание формулы</value>
+  </data>
+  <data name="TitleExpressionEditorMenu" xml:space="preserve">
+    <value>Редактор формул...</value>
+  </data>
+  <data name="TitleFinalDeposit" xml:space="preserve">
+    <value>Итоговый депозит</value>
+  </data>
+  <data name="TitleFindMenu" xml:space="preserve">
+    <value>Поиск...</value>
+  </data>
+  <data name="TitleGoToStrategies" xml:space="preserve">
+    <value>В стратегии</value>
+  </data>
+  <data name="TitleGroup" xml:space="preserve">
+    <value>Группа</value>
+  </data>
+  <data name="TitleInterval" xml:space="preserve">
+    <value>Интервал</value>
+  </data>
+  <data name="TitleJournalRepository" xml:space="preserve">
+    <value>Хранилище журналов</value>
+  </data>
+  <data name="TitleJournals" xml:space="preserve">
+    <value>Журналы</value>
+  </data>
+  <data name="TitleManually" xml:space="preserve">
+    <value>Вручную</value>
+  </data>
+  <data name="TitleMaximumDrawdownShort" xml:space="preserve">
+    <value>Макс. просадка</value>
+  </data>
+  <data name="TitleMaximumLeverage" xml:space="preserve">
+    <value>Максимальное плечо</value>
+  </data>
+  <data name="TitleMaximumLeverageInTestInUnits" xml:space="preserve">
+    <value>Максимальное плечо за время теста, ед.</value>
+  </data>
+  <data name="TitleMaximumLeverageShort" xml:space="preserve">
+    <value>Макс. плечо</value>
+  </data>
+  <data name="TitleMaximumRelativeDrawdownInPercents" xml:space="preserve">
+    <value>Максимальная относительная просадка, %</value>
+  </data>
+  <data name="TitleMessage" xml:space="preserve">
+    <value>Сообщение</value>
+  </data>
+  <data name="TitleMyChoice" xml:space="preserve">
+    <value>Мой выбор</value>
+  </data>
+  <data name="TitleOrderBy" xml:space="preserve">
+    <value>Упорядочить по</value>
+  </data>
+  <data name="TitlePAMMs" xml:space="preserve">
+    <value>ПАММы</value>
+  </data>
+  <data name="TitleParameter" xml:space="preserve">
+    <value>Параметр</value>
+  </data>
+  <data name="TitlePresetCriterion" xml:space="preserve">
+    <value>Предустановленный критерий</value>
+  </data>
+  <data name="TitlePrimaries" xml:space="preserve">
+    <value>Основные</value>
+  </data>
+  <data name="TitleRefresh" xml:space="preserve">
+    <value>Обновить</value>
+  </data>
+  <data name="TitleRestoreFactor" xml:space="preserve">
+    <value>Фактор восстановления</value>
+  </data>
+  <data name="TitleRestoreFactorInUnits" xml:space="preserve">
+    <value>Фактор восстановления, ед.</value>
+  </data>
+  <data name="TitleRobot" xml:space="preserve">
+    <value>Робот</value>
+  </data>
+  <data name="TitleSaveMenu" xml:space="preserve">
+    <value>Сохранить...</value>
+  </data>
+  <data name="TitleSetupTradeMenu" xml:space="preserve">
+    <value>Настройка торговли...</value>
+  </data>
+  <data name="TitleShowResults" xml:space="preserve">
+    <value>Показать результаты</value>
+  </data>
+  <data name="TitleSignals" xml:space="preserve">
+    <value>Сигналы</value>
+  </data>
+  <data name="TitleSignal" xml:space="preserve">
+    <value>Сигнал</value>
+  </data>
+  <data name="TitleStopOut" xml:space="preserve">
+    <value>Стоп аут</value>
+  </data>
+  <data name="TitleStopOutExecutedInTimes" xml:space="preserve">
+    <value>Стоп аут произведен, раз</value>
+  </data>
+  <data name="TitleStrategies" xml:space="preserve">
+    <value>Стратегии</value>
+  </data>
+  <data name="TitleTerminal" xml:space="preserve">
+    <value>Терминал</value>
+  </data>
+  <data name="TitleTerminalWealthRatioInPercents" xml:space="preserve">
+    <value>Terminal Wealth Ratio, TWR, %</value>
+  </data>
+  <data name="TitleTestDurationInSeconds" xml:space="preserve">
+    <value>Продолжительность тестирования, сек.</value>
+  </data>
+  <data name="TitleTestInterval" xml:space="preserve">
+    <value>Интервал тестирования</value>
+  </data>
+  <data name="TitleTOP" xml:space="preserve">
+    <value>ТОП</value>
+  </data>
+  <data name="TitleTOP5100" xml:space="preserve">
+    <value>ТОП 5..100</value>
+  </data>
+  <data name="TitleTradeOperationsHistory" xml:space="preserve">
+    <value>История торговых операций</value>
+  </data>
+  <data name="TitleTradeSignals" xml:space="preserve">
+    <value>Торговые сигналы</value>
+  </data>
+  <data name="TitleTradeVerb" xml:space="preserve">
+    <value>Торговать</value>
+  </data>
+  <data name="TitleUnsubscribe" xml:space="preserve">
+    <value>Отписаться</value>
+  </data>
+  <data name="TitleUnsubscribeFromAll" xml:space="preserve">
+    <value>Отписаться от всех</value>
+  </data>
+  <data name="TitleActions" xml:space="preserve">
+    <value>Действия</value>
+  </data>
+  <data name="TitleBarGraph" xml:space="preserve">
+    <value>Гистограмма</value>
+  </data>
+  <data name="TitleClosedDeals" xml:space="preserve">
+    <value>Закрытые сделки</value>
+  </data>
+  <data name="TitleCurrencyStatistics" xml:space="preserve">
+    <value>Статистика по валютам</value>
+  </data>
+  <data name="TitleCurrentBalanceInDepositCurrency" xml:space="preserve">
+    <value>Текущий баланс (средства), валюта депозита</value>
+  </data>
+  <data name="TitleDaysUnits" xml:space="preserve">
+    <value> дней</value>
+  </data>
+  <data name="TitleEmail" xml:space="preserve">
+    <value>Эл. почта</value>
+  </data>
+  <data name="TitleFeeInUSD" xml:space="preserve">
+    <value>Комиссия (USD)</value>
+  </data>
+  <data name="TitleFollow" xml:space="preserve">
+    <value>Следовать</value>
+  </data>
+  <data name="TitleGAAnnualProfitInPercentsShort" xml:space="preserve">
+    <value>Ср. геом. год. доход, %</value>
+  </data>
+  <data name="TitleGAAnnualProfitShort" xml:space="preserve">
+    <value>Ср. геом. год. доход</value>
+  </data>
+  <data name="TitleInDetailMenu" xml:space="preserve">
+    <value>Подробно...</value>
+  </data>
+  <data name="TitleInstrument" xml:space="preserve">
+    <value>Инструмент</value>
+  </data>
+  <data name="TitleInvest" xml:space="preserve">
+    <value>Инвестировать</value>
+  </data>
+  <data name="TitleLogin" xml:space="preserve">
+    <value>Логин</value>
+  </data>
+  <data name="TitleObjectCountShort" xml:space="preserve">
+    <value>Объектов</value>
+  </data>
+  <data name="TitlePhoto" xml:space="preserve">
+    <value>Фото</value>
+  </data>
+  <data name="TitlePoints" xml:space="preserve">
+    <value>Пункты</value>
+  </data>
+  <data name="TitlePointsUnits" xml:space="preserve">
+    <value> пп</value>
+  </data>
+  <data name="TitleProfitBy1000Chart" xml:space="preserve">
+    <value>График доходности на $1000</value>
+  </data>
+  <data name="TitleProfitForNMonthsInDepositCurrency" xml:space="preserve">
+    <value>Профит за последние N месяцев, валюта депозита</value>
+  </data>
+  <data name="TitleProfitForNMonthsInPercents" xml:space="preserve">
+    <value>Профит за последние N месяцев, %</value>
+  </data>
+  <data name="TitleProfitForNMonthsInPercentsShort" xml:space="preserve">
+    <value>Профит N мес.%</value>
+  </data>
+  <data name="TitleProfitForNMonthsShort" xml:space="preserve">
+    <value>Профит N мес.</value>
+  </data>
+  <data name="TitleProfitInPercents" xml:space="preserve">
+    <value>Прибыль, %</value>
+  </data>
+  <data name="TitleProfitInPoints" xml:space="preserve">
+    <value>Прибыль, пп</value>
+  </data>
+  <data name="TitleRating" xml:space="preserve">
+    <value>Рейтинг</value>
+  </data>
+  <data name="TitleRatioOfAverageProfitToAverageLoss" xml:space="preserve">
+    <value>Отношение среднего профита к среднему убытку</value>
+  </data>
+  <data name="TitleRatioOfAverageProfitToAverageLossShort" xml:space="preserve">
+    <value>Ср. профит/ср. убыток</value>
+  </data>
+  <data name="TitleRooms" xml:space="preserve">
+    <value>Комнаты</value>
+  </data>
+  <data name="TitleServiceType" xml:space="preserve">
+    <value>Тип сервиса</value>
+  </data>
+  <data name="TitleSeviceType" xml:space="preserve">
+    <value>Тип сервиса</value>
+  </data>
+  <data name="TitleSharpeRatio" xml:space="preserve">
+    <value>Коэффициент Шарпа</value>
+  </data>
+  <data name="TitleSharpeRatioShort" xml:space="preserve">
+    <value>К. Шарпа</value>
+  </data>
+  <data name="TitleSignalNumber" xml:space="preserve">
+    <value># сигнала</value>
+  </data>
+  <data name="TitleSubscribe" xml:space="preserve">
+    <value>Подписаться</value>
+  </data>
+  <data name="TitleSubscribed" xml:space="preserve">
+    <value>Подписан</value>
+  </data>
+  <data name="TitleSubscriberCount" xml:space="preserve">
+    <value>Количество подписчиков</value>
+  </data>
+  <data name="TitleSummaryPositions" xml:space="preserve">
+    <value>Совокупные позиции</value>
+  </data>
+  <data name="TitleSummaryVolumeOfAllDealsInDepositCurrency" xml:space="preserve">
+    <value>Суммарный объем всех совершенных сделок, валюта депозита</value>
+  </data>
+  <data name="TitleTimeframe" xml:space="preserve">
+    <value>Таймфрейм</value>
+  </data>
+  <data name="TitleTrader" xml:space="preserve">
+    <value>Трейдер</value>
+  </data>
+  <data name="TitleTradeSettingsMenu" xml:space="preserve">
+    <value>Настройки торговли...</value>
+  </data>
+  <data name="TitleTradeTime" xml:space="preserve">
+    <value>Торгует</value>
+  </data>
+  <data name="TitleTradeTimeInDays" xml:space="preserve">
+    <value>Торгует (дней)</value>
+  </data>
+  <data name="TitleTradeVolume" xml:space="preserve">
+    <value>Объем торгов</value>
+  </data>
+  <data name="TitleUpdateTime" xml:space="preserve">
+    <value>Время обновления</value>
+  </data>
+  <data name="TitleUserRating" xml:space="preserve">
+    <value>Критерий</value>
+  </data>
+  <data name="TitleWeightedProfitToLossInPercents" xml:space="preserve">
+    <value>Средневзвешенный профит по сделке по отношению к сумме модулей результатов, %</value>
+  </data>
+  <data name="TitleWeightedProfitToLossShort" xml:space="preserve">
+    <value>Ср. взвеш. прибыль/убыток</value>
+  </data>
+  <data name="TitleWithdrewForLastNMonthsInDepositCurrency" xml:space="preserve">
+    <value>Выведено за последние N месяцев, валюта депозита</value>
+  </data>
+  <data name="TitleWithdrewForLastNMonthsShort" xml:space="preserve">
+    <value>Вывел N мес.</value>
+  </data>
+  <data name="TitleAccountSettings" xml:space="preserve">
+    <value>Настройки счета</value>
+  </data>
+  <data name="TitleCharts" xml:space="preserve">
+    <value>Графики</value>
+  </data>
+  <data name="TitleConfirmation" xml:space="preserve">
+    <value>Подтверждение</value>
+  </data>
+  <data name="TitleCurrentProfit" xml:space="preserve">
+    <value>Текущий доход</value>
+  </data>
+  <data name="TitleDealsChartMenu" xml:space="preserve">
+    <value>График сделок...</value>
+  </data>
+  <data name="TitleDetailedInformation" xml:space="preserve">
+    <value>Подробная информация</value>
+  </data>
+  <data name="TitleEnterTime" xml:space="preserve">
+    <value>Время входа</value>
+  </data>
+  <data name="TitleError" xml:space="preserve">
+    <value>Ошибка</value>
+  </data>
+  <data name="TitleExitTime" xml:space="preserve">
+    <value>Время выхода</value>
+  </data>
+  <data name="TitleFree" xml:space="preserve">
+    <value>Бесплатно</value>
+  </data>
+  <data name="TitleFromSmall" xml:space="preserve">
+    <value>от</value>
+  </data>
+  <data name="TitleFundsUnderManagement" xml:space="preserve">
+    <value>Капитал под управлением</value>
+  </data>
+  <data name="TitleFundsUnderManagementShort" xml:space="preserve">
+    <value>Капитал под управл.</value>
+  </data>
+  <data name="TitleGroupSettings" xml:space="preserve">
+    <value>Настройки группы</value>
+  </data>
+  <data name="TitleInformation" xml:space="preserve">
+    <value>Информация</value>
+  </data>
+  <data name="TitleInvestorCount" xml:space="preserve">
+    <value>Количество инвесторов</value>
+  </data>
+  <data name="TitleLAUNCH" xml:space="preserve">
+    <value>ПУСК</value>
+  </data>
+  <data name="TitleLoading" xml:space="preserve">
+    <value>Загрузка...</value>
+  </data>
+  <data name="TitleLosingDealCount" xml:space="preserve">
+    <value>Количество убыточных сделок</value>
+  </data>
+  <data name="TitleNotAssigned" xml:space="preserve">
+    <value>Не назначен</value>
+  </data>
+  <data name="TitleNotice" xml:space="preserve">
+    <value>Уведомление</value>
+  </data>
+  <data name="TitleOthers" xml:space="preserve">
+    <value>Прочие</value>
+  </data>
+  <data name="TitleProfitableDealCount" xml:space="preserve">
+    <value>Количество прибыльных сделок</value>
+  </data>
+  <data name="TitleQuestion" xml:space="preserve">
+    <value>Вопрос</value>
+  </data>
+  <data name="TitleRatingFS" xml:space="preserve">
+    <value>Рейтинг FS</value>
+  </data>
+  <data name="TitleReferences" xml:space="preserve">
+    <value>Ссылки</value>
+  </data>
+  <data name="TitleReset" xml:space="preserve">
+    <value>Сбросить</value>
+  </data>
+  <data name="TitleResultInUSDShort" xml:space="preserve">
+    <value>Рез-т, USD</value>
+  </data>
+  <data name="TitleRobotParameters" xml:space="preserve">
+    <value>Параметры робота(ов)</value>
+  </data>
+  <data name="TitleRobotPortfolioTesting" xml:space="preserve">
+    <value>Тестирование портфеля роботов</value>
+  </data>
+  <data name="TitleSaveLog" xml:space="preserve">
+    <value>Сохранять лог</value>
+  </data>
+  <data name="TitleSelectedRobotsSettings" xml:space="preserve">
+    <value>Настройки выбранных роботов</value>
+  </data>
+  <data name="TitleShowOnChart" xml:space="preserve">
+    <value>Показать на графике</value>
+  </data>
+  <data name="TitleSignalStatistics" xml:space="preserve">
+    <value>Статистика по сигналу</value>
+  </data>
+  <data name="TitleStatisticsIndex" xml:space="preserve">
+    <value>Статистические показатели</value>
+  </data>
+  <data name="TitleSyntaxErrorSmall" xml:space="preserve">
+    <value>неверный синтаксис</value>
+  </data>
+  <data name="TitleTestGroupSettings" xml:space="preserve">
+    <value>Настройки тестовой группы</value>
+  </data>
+  <data name="TitleTestResults" xml:space="preserve">
+    <value>Результаты тестирования</value>
+  </data>
+  <data name="TitleToSmall" xml:space="preserve">
+    <value>до</value>
+  </data>
+  <data name="TitleTotalProfit" xml:space="preserve">
+    <value>Совокупный доход</value>
+  </data>
+  <data name="TitleUpdateQuotes" xml:space="preserve">
+    <value>Обновлять котировки</value>
+  </data>
+  <data name="TitleUseTestDate" xml:space="preserve">
+    <value>Использовать дату тестирования</value>
+  </data>
+  <data name="TitleWarning" xml:space="preserve">
+    <value>Предупреждение</value>
+  </data>
+  <data name="TitleReadBounds" xml:space="preserve">
+    <value>Прочитать границы</value>
+  </data>
+  <data name="TitleButtons" xml:space="preserve">
+    <value>Кнопки</value>
+  </data>
+  <data name="TitleDefault" xml:space="preserve">
+    <value>По умолчанию</value>
+  </data>
+  <data name="TitleGraphicalObjectsShort" xml:space="preserve">
+    <value>Граф. объекты</value>
+  </data>
+  <data name="TitleGroupName" xml:space="preserve">
+    <value>Название группы</value>
+  </data>
+  <data name="TitleScriptsMenu" xml:space="preserve">
+    <value>Скрипты...</value>
+  </data>
+  <data name="TitleShowTextOnButton" xml:space="preserve">
+    <value>Отображать текст на кнопке</value>
+  </data>
+  <data name="TitleSystemButtons" xml:space="preserve">
+    <value>Систмемные кнопки</value>
+  </data>
+  <data name="TitleToolbarSettings" xml:space="preserve">
+    <value>Настройка инструментальной панели</value>
+  </data>
+  <data name="TilteRobotsState" xml:space="preserve">
+    <value>Состояние роботов</value>
+  </data>
+  <data name="TitleAutoscrollAllCharts" xml:space="preserve">
+    <value>Автопрокрутка всех графиков</value>
+  </data>
+  <data name="TitleAutoscrollChart" xml:space="preserve">
+    <value>Автопрокрутка графика</value>
+  </data>
+  <data name="TitleByTwoPoints" xml:space="preserve">
+    <value>По двум точкам</value>
+  </data>
+  <data name="TitleChartSmall" xml:space="preserve">
+    <value>график</value>
+  </data>
+  <data name="TitleChatWindow" xml:space="preserve">
+    <value>Окно чата</value>
+  </data>
+  <data name="TitleColor" xml:space="preserve">
+    <value>Цвет</value>
+  </data>
+  <data name="TitleComments" xml:space="preserve">
+    <value>Комментарии</value>
+  </data>
+  <data name="TitleCorrection" xml:space="preserve">
+    <value>Коррекция</value>
+  </data>
+  <data name="TitleCorrectionLevels" xml:space="preserve">
+    <value>Уровни коррекции</value>
+  </data>
+  <data name="TitleCorrectionPlusProjections" xml:space="preserve">
+    <value>Коррекция+проекции</value>
+  </data>
+  <data name="TitleCrosshair" xml:space="preserve">
+    <value>Перекрестие</value>
+  </data>
+  <data name="TitleCursor" xml:space="preserve">
+    <value>Курсор</value>
+  </data>
+  <data name="TitleDealMarkers" xml:space="preserve">
+    <value>Маркеры сделок</value>
+  </data>
+  <data name="TitleDecreaseScale" xml:space="preserve">
+    <value>Уменьшить масштаб</value>
+  </data>
+  <data name="TitleDrawFrame" xml:space="preserve">
+    <value>Рисовать рамку</value>
+  </data>
+  <data name="TitleDrawLabels" xml:space="preserve">
+    <value>Рисовать метки</value>
+  </data>
+  <data name="TitleEllipses" xml:space="preserve">
+    <value>Эллипсы</value>
+  </data>
+  <data name="TitleExpansionLevels" xml:space="preserve">
+    <value>Уровни расширения</value>
+  </data>
+  <data name="TitleFibonacciBars" xml:space="preserve">
+    <value>Бары Фибоначчи</value>
+  </data>
+  <data name="TitleFibonacciChannels" xml:space="preserve">
+    <value>Каналы Фибоначчи</value>
+  </data>
+  <data name="TitleFibonacciProjections" xml:space="preserve">
+    <value>Проекции Фибоначчи</value>
+  </data>
+  <data name="TitleFilling" xml:space="preserve">
+    <value>Заливка</value>
+  </data>
+  <data name="TitleFilling_Shift" xml:space="preserve">
+    <value>Заливка (Shift)</value>
+  </data>
+  <data name="TitleForecast" xml:space="preserve">
+    <value>Прогноз</value>
+  </data>
+  <data name="TitleHideArrow" xml:space="preserve">
+    <value>Скрыть стрелку</value>
+  </data>
+  <data name="TitleHideMisses" xml:space="preserve">
+    <value>Скрывать промахи</value>
+  </data>
+  <data name="TitleHideSegment" xml:space="preserve">
+    <value>Скрывать отрезок</value>
+  </data>
+  <data name="TitleHorizontal" xml:space="preserve">
+    <value>Горизонтальная</value>
+  </data>
+  <data name="TitleHorizontalFibonacciProjections" xml:space="preserve">
+    <value>Гориз. проекции Фибоначчи</value>
+  </data>
+  <data name="TitleHorizontal_Shift" xml:space="preserve">
+    <value>Горизонтальная (Shift)</value>
+  </data>
+  <data name="TitleIncreaseScale" xml:space="preserve">
+    <value>Увеличить масштаб</value>
+  </data>
+  <data name="TitleIndicators" xml:space="preserve">
+    <value>Индикаторы</value>
+  </data>
+  <data name="TitleLabels" xml:space="preserve">
+    <value>Метки</value>
+  </data>
+  <data name="TitleLengthInBars" xml:space="preserve">
+    <value>Длина, баров</value>
+  </data>
+  <data name="TitleLineType" xml:space="preserve">
+    <value>Тип линии</value>
+  </data>
+  <data name="TitleMarks" xml:space="preserve">
+    <value>Отметки</value>
+  </data>
+  <data name="TitleMeasurement" xml:space="preserve">
+    <value>Измерение</value>
+  </data>
+  <data name="TitleMeasureOnly" xml:space="preserve">
+    <value>Только измерить</value>
+  </data>
+  <data name="TitleRobotsPortfolio" xml:space="preserve">
+    <value>Портфель роботов</value>
+  </data>
+  <data name="TitleShowWindow" xml:space="preserve">
+    <value>Показывать окно</value>
+  </data>
+  <data name="TitleStroke" xml:space="preserve">
+    <value>Обводка</value>
+  </data>
+  <data name="TitleStroke_Shift" xml:space="preserve">
+    <value>Обводка (Shift)</value>
+  </data>
+  <data name="TitleSubtitles" xml:space="preserve">
+    <value>Подписи</value>
+  </data>
+  <data name="TitleTangent" xml:space="preserve">
+    <value>Касательная</value>
+  </data>
+  <data name="TitleTangentView" xml:space="preserve">
+    <value>Вид касательной</value>
+  </data>
+  <data name="TitleText" xml:space="preserve">
+    <value>Текст</value>
+  </data>
+  <data name="TitleTextColor" xml:space="preserve">
+    <value>Цвет текста</value>
+  </data>
+  <data name="TitleTextSmall" xml:space="preserve">
+    <value>текст</value>
+  </data>
+  <data name="TitleText_Shift" xml:space="preserve">
+    <value>Текст (Shift)</value>
+  </data>
+  <data name="TitleTradeAccount" xml:space="preserve">
+    <value>Торговый счет</value>
+  </data>
+  <data name="TitleTransparency" xml:space="preserve">
+    <value>Прозрачность</value>
+  </data>
+  <data name="TitleTrendLines" xml:space="preserve">
+    <value>Линии тренда</value>
+  </data>
+  <data name="TitleTurnOnRobots" xml:space="preserve">
+    <value>Включить роботов</value>
+  </data>
+  <data name="TitleType_Shift" xml:space="preserve">
+    <value>Тип (Shift)</value>
+  </data>
+  <data name="TitleBuyingArea" xml:space="preserve">
+    <value>Область покупки</value>
+  </data>
+  <data name="TitleEmptySmall" xml:space="preserve">
+    <value>пусто</value>
+  </data>
+  <data name="TitlePurchase" xml:space="preserve">
+    <value>Покупка</value>
+  </data>
+  <data name="TitlePurchaseWithHighConfirmationLevel" xml:space="preserve">
+    <value>Покупка с высокой степенью подтверждения</value>
+  </data>
+  <data name="TitleSelling" xml:space="preserve">
+    <value>Продажа</value>
+  </data>
+  <data name="TitleSellingArea" xml:space="preserve">
+    <value>Область продажи</value>
+  </data>
+  <data name="TitleSellingWithHighConfirmationLevel" xml:space="preserve">
+    <value>Продажа с высокой степенью подтверждения</value>
+  </data>
+  <data name="MessageDocumentEmpty" xml:space="preserve">
+    <value>документ пуст</value>
+  </data>
+  <data name="MessageErrorGettingAccountsFmt" xml:space="preserve">
+    <value>Ошибка получения списка счетов ({0})</value>
+  </data>
+  <data name="MessageErrorLoadingChartObjectsFileNotExistsFmt" xml:space="preserve">
+    <value>Невозможно загрузить объекты: файл {0} не существует</value>
+  </data>
+  <data name="MessageErrorLoadingChartObjectsFmt" xml:space="preserve">
+    <value>Невозможно загрузить объекты: {0}</value>
+  </data>
+  <data name="MessageErrorSavingChartObjectsFmt" xml:space="preserve">
+    <value>Невозможно сохранить объекты: {0}</value>
+  </data>
+  <data name="MessageForecastSendingFailed" xml:space="preserve">
+    <value>Не удалось установить связь с сайтом</value>
+  </data>
+  <data name="MessageForecastSent" xml:space="preserve">
+    <value>Прогноз отправлен на сайт</value>
+  </data>
+  <data name="MessageIngicatorsMisorderLoops" xml:space="preserve">
+    <value>Петли:</value>
+  </data>
+  <data name="MessageIngicatorsMisorderPrefix" xml:space="preserve">
+    <value>Нарушения в порядке загрузки индикаторов:</value>
+  </data>
+  <data name="MessageLoginNotProvided" xml:space="preserve">
+    <value>Не указан логин</value>
+  </data>
+  <data name="MessageNoConnectionServer" xml:space="preserve">
+    <value>Нет связи с сервером</value>
+  </data>
+  <data name="MessagePasswordNotProvided" xml:space="preserve">
+    <value>Не указан пароль</value>
+  </data>
+  <data name="MessageUnsupportedDocumentFormat" xml:space="preserve">
+    <value>неподдерживаемый формат документа</value>
+  </data>
+  <data name="MessageUserHasNoAccounts" xml:space="preserve">
+    <value>Для данного пользователя не заведено счетов</value>
+  </data>
+  <data name="TitleLoginError" xml:space="preserve">
+    <value>Ошибка входа</value>
+  </data>
+  <data name="EnumActionActualize" xml:space="preserve">
+    <value>Актуализировать</value>
+  </data>
+  <data name="EnumActionClearAndReload" xml:space="preserve">
+    <value>Очистить и перечитать</value>
+  </data>
+  <data name="EnumActionReadFromFile" xml:space="preserve">
+    <value>Прочитать из файла</value>
+  </data>
+  <data name="EnumCandleDrawModeBar" xml:space="preserve">
+    <value>Бары</value>
+  </data>
+  <data name="EnumCandleDrawModeCandle" xml:space="preserve">
+    <value>Свечи</value>
+  </data>
+  <data name="EnumCandleDrawModeLine" xml:space="preserve">
+    <value>Линия</value>
+  </data>
+  <data name="EnumThemesContrast" xml:space="preserve">
+    <value>Контрастная</value>
+  </data>
+  <data name="EnumThemesGray" xml:space="preserve">
+    <value>Серая</value>
+  </data>
+  <data name="EnumThemesInverted" xml:space="preserve">
+    <value>Инверсия цветов</value>
+  </data>
+  <data name="EnumThemesStandard" xml:space="preserve">
+    <value>Стандартная</value>
+  </data>
+  <data name="EnumYAxisAlignmentBoth" xml:space="preserve">
+    <value>Две шкалы</value>
+  </data>
+  <data name="EnumYAxisAlignmentLeft" xml:space="preserve">
+    <value>Слева</value>
+  </data>
+  <data name="EnumYAxisAlignmentRight" xml:space="preserve">
+    <value>Справа</value>
+  </data>
+  <data name="TitleApply" xml:space="preserve">
+    <value>Применить</value>
+  </data>
+  <data name="TitleApplyToAll" xml:space="preserve">
+    <value>Применить всем</value>
+  </data>
+  <data name="TitleChartAutoScrollSmall" xml:space="preserve">
+    <value>автопрокрутка графика</value>
+  </data>
+  <data name="TitleChartSettings" xml:space="preserve">
+    <value>Настройки графика</value>
+  </data>
+  <data name="TitleChartTypeSmall" xml:space="preserve">
+    <value>вид графика</value>
+  </data>
+  <data name="TitleChoice" xml:space="preserve">
+    <value>Выбор</value>
+  </data>
+  <data name="TitleColorSchemeSmall" xml:space="preserve">
+    <value>цветовая схема</value>
+  </data>
+  <data name="TitleDecor" xml:space="preserve">
+    <value>Оформление</value>
+  </data>
+  <data name="TitleDoNotSumDegreesSmall" xml:space="preserve">
+    <value>не суммировать степени</value>
+  </data>
+  <data name="TitleExecute" xml:space="preserve">
+    <value>Выполнить</value>
+  </data>
+  <data name="TitleGapsCountShort" xml:space="preserve">
+    <value>Гэпов</value>
+  </data>
+  <data name="TitleLoaded" xml:space="preserve">
+    <value>Загружен</value>
+  </data>
+  <data name="TitleMarkFilterSmall" xml:space="preserve">
+    <value>фильтр отметки</value>
+  </data>
+  <data name="TitlePersonalization" xml:space="preserve">
+    <value>Персонализация</value>
+  </data>
+  <data name="TitlePriceMarker" xml:space="preserve">
+    <value>маркер цены</value>
+  </data>
+  <data name="TitlePriceScaleSmall" xml:space="preserve">
+    <value>шкала цены</value>
+  </data>
+  <data name="TitleProjectionMarksSmall" xml:space="preserve">
+    <value>отметки проекций</value>
+  </data>
+  <data name="TitleProjectionSeriesSmall" xml:space="preserve">
+    <value>ряд проекций</value>
+  </data>
+  <data name="TitleQuoteArchive" xml:space="preserve">
+    <value>Архив котировок</value>
+  </data>
+  <data name="TitleQuotesLoading" xml:space="preserve">
+    <value>Загрузка котировок</value>
+  </data>
+  <data name="TitleQuoteSmall" xml:space="preserve">
+    <value>котировка</value>
+  </data>
+  <data name="TitleRepeatCheck" xml:space="preserve">
+    <value>Повторная проверка</value>
+  </data>
+  <data name="TitleRightOffsetSmall" xml:space="preserve">
+    <value>отступ справа</value>
+  </data>
+  <data name="TitleTurnBars" xml:space="preserve">
+    <value>Бары разворота</value>
+  </data>
+  <data name="TitleUpdateInterval" xml:space="preserve">
+    <value>Интервал обновления</value>
+  </data>
+  <data name="EnumAccountEventActionAlertWindow" xml:space="preserve">
+    <value>Окно сообщения</value>
+  </data>
+  <data name="EnumAccountEventActionDefaultAction" xml:space="preserve">
+    <value>Действие по-умолчанию</value>
+  </data>
+  <data name="EnumAccountEventActionDoNothing" xml:space="preserve">
+    <value>Ничего</value>
+  </data>
+  <data name="EnumAccountEventActionStatusPanelOnly" xml:space="preserve">
+    <value>Запись в журнал</value>
+  </data>
+  <data name="EnumAccountEventCodeAccountModified" xml:space="preserve">
+    <value>Операция со счетом</value>
+  </data>
+  <data name="EnumAccountEventCodeDealCanceled" xml:space="preserve">
+    <value>Отмена сделки</value>
+  </data>
+  <data name="EnumAccountEventCodeDealClosed" xml:space="preserve">
+    <value>Закрытие позиции</value>
+  </data>
+  <data name="EnumAccountEventCodeDealModified" xml:space="preserve">
+    <value>Редактирование позиции</value>
+  </data>
+  <data name="EnumAccountEventCodeDealOpened" xml:space="preserve">
+    <value>Открытие позиции</value>
+  </data>
+  <data name="EnumAccountEventCodeGapFound" xml:space="preserve">
+    <value>Обнаружен гэп</value>
+  </data>
+  <data name="EnumAccountEventCodePendingOrder" xml:space="preserve">
+    <value>Отложенный ордер</value>
+  </data>
+  <data name="EnumAccountEventCodePendingOrderModified" xml:space="preserve">
+    <value>Редактироваие отложенного ордера</value>
+  </data>
+  <data name="EnumAccountEventCodeRobotMessage" xml:space="preserve">
+    <value>Сообщение робота</value>
+  </data>
+  <data name="EnumAccountEventCodeServerMessage" xml:space="preserve">
+    <value>Серверное сообщение</value>
+  </data>
+  <data name="EnumAccountEventCodeTradeSignal" xml:space="preserve">
+    <value>Торговый сигнал</value>
+  </data>
+  <data name="EnumAccountEventCodeUpdatePending" xml:space="preserve">
+    <value>Доступно обновление терминала</value>
+  </data>
+  <data name="EnumAccountEventCodeWalletModified" xml:space="preserve">
+    <value>Редактирование кошелька</value>
+  </data>
+  <data name="EnumApplicationMessageChartSnapshot" xml:space="preserve">
+    <value>Снимок графика</value>
+  </data>
+  <data name="EnumApplicationMessageChat" xml:space="preserve">
+    <value>Чат</value>
+  </data>
+  <data name="EnumApplicationMessageNewOrder" xml:space="preserve">
+    <value>Новый ордер</value>
+  </data>
+  <data name="EnumApplicationMessageQuotes" xml:space="preserve">
+    <value>Котировки</value>
+  </data>
+  <data name="EnumApplicationMessageRobotSetup" xml:space="preserve">
+    <value>Настройка роботов</value>
+  </data>
+  <data name="EnumApplicationMessageSetupIndicators" xml:space="preserve">
+    <value>Настроить индикаторы</value>
+  </data>
+  <data name="EnumApplicationMessageStatistics" xml:space="preserve">
+    <value>Статистика</value>
+  </data>
+  <data name="MessageInstantOrderPriceCheck" xml:space="preserve">
+    <value>Instant ордер - проверка цены</value>
+  </data>
+  <data name="MessageQuickCallOrderConfirmation" xml:space="preserve">
+    <value>Быстрый вызов - подтверждение ордера</value>
+  </data>
+  <data name="MessageQuotesConfirmOrder" xml:space="preserve">
+    <value>Котировки - подтверждать ордер</value>
+  </data>
+  <data name="TitleAction" xml:space="preserve">
+    <value>Действие</value>
+  </data>
+  <data name="TitleAllowExtentedDecorThemesSmall" xml:space="preserve">
+    <value>разрешить расширенные темы оформления</value>
+  </data>
+  <data name="TitleAllSymbolsSmall" xml:space="preserve">
+    <value>(все символы)</value>
+  </data>
+  <data name="TitleBindTemplateToPairSmall" xml:space="preserve">
+    <value>привязать шаблон к валютной паре</value>
+  </data>
+  <data name="TitleBuyQuick" xml:space="preserve">
+    <value>Быстро купить</value>
+  </data>
+  <data name="TitleCandleDurationSetup" xml:space="preserve">
+    <value>Настройка длительностей свечей</value>
+  </data>
+  <data name="TitleCandles" xml:space="preserve">
+    <value>Свечи</value>
+  </data>
+  <data name="TitleChartSynchronizationSmall" xml:space="preserve">
+    <value>синхронизация графиков</value>
+  </data>
+  <data name="TitleChosenIndicators" xml:space="preserve">
+    <value>Избранные индикаторы</value>
+  </data>
+  <data name="TitleCombination" xml:space="preserve">
+    <value>Комбинация</value>
+  </data>
+  <data name="TitleConfigureSoundsMenu" xml:space="preserve">
+    <value>Настроить звуки...</value>
+  </data>
+  <data name="TitleConfirmChartClosingSmall" xml:space="preserve">
+    <value>подтверждать закрытие графика</value>
+  </data>
+  <data name="TitleConfirmGapFillingSmall" xml:space="preserve">
+    <value>подтверждать заполнение гэпа</value>
+  </data>
+  <data name="TitleConfirmTerminalClosingSmall" xml:space="preserve">
+    <value>подтверждать закрытие терминала</value>
+  </data>
+  <data name="TitleDealsWithInstrument" xml:space="preserve">
+    <value>Сделки по инструменту</value>
+  </data>
+  <data name="TitleDurations" xml:space="preserve">
+    <value>Длительности</value>
+  </data>
+  <data name="TitleEvent" xml:space="preserve">
+    <value>Событие</value>
+  </data>
+  <data name="TitleHideToTraySmall" xml:space="preserve">
+    <value>сворачивать в трей</value>
+  </data>
+  <data name="TitleHotKeys" xml:space="preserve">
+    <value>Горячие клавиши</value>
+  </data>
+  <data name="TitleHours" xml:space="preserve">
+    <value>Часы</value>
+  </data>
+  <data name="TitleInstrumentStatistics" xml:space="preserve">
+    <value>Статистика по инструменту</value>
+  </data>
+  <data name="TitleIntervals" xml:space="preserve">
+    <value>Интервалы</value>
+  </data>
+  <data name="TitleKeyCombinationAssignment" xml:space="preserve">
+    <value>Выбор комбинации клавиш</value>
+  </data>
+  <data name="TitleKeyOrKeyCombination" xml:space="preserve">
+    <value>Клавиша / комбинация клавиш</value>
+  </data>
+  <data name="TitleMessages" xml:space="preserve">
+    <value>Сообщения</value>
+  </data>
+  <data name="TitleMinutes" xml:space="preserve">
+    <value>Минуты</value>
+  </data>
+  <data name="TitleNoSoundSmall" xml:space="preserve">
+    <value>нет звука</value>
+  </data>
+  <data name="TitleNotices" xml:space="preserve">
+    <value>Уведомления</value>
+  </data>
+  <data name="TitleParameters" xml:space="preserve">
+    <value>Параметры</value>
+  </data>
+  <data name="TitlePlay" xml:space="preserve">
+    <value>Играть</value>
+  </data>
+  <data name="TitleProfitWithInstrument" xml:space="preserve">
+    <value>Доходность по инструменту</value>
+  </data>
+  <data name="TitleQuickCall" xml:space="preserve">
+    <value>Быстрый вызов</value>
+  </data>
+  <data name="TitleReloadQuotesInHoursSmall" xml:space="preserve">
+    <value>перечитывать котировки, часов</value>
+  </data>
+  <data name="TitleRemoveReadSmall" xml:space="preserve">
+    <value>удалять прочитанные</value>
+  </data>
+  <data name="TitleSaveChartSettingsSmall" xml:space="preserve">
+    <value>сохранить настройки графика</value>
+  </data>
+  <data name="TitleSaveIndicatorsSmall" xml:space="preserve">
+    <value>сохранить индикаторы</value>
+  </data>
+  <data name="TitleSaveTemplate" xml:space="preserve">
+    <value>Сохранить шаблон</value>
+  </data>
+  <data name="TitleSelectedInstument" xml:space="preserve">
+    <value>Выбранный инструмент</value>
+  </data>
+  <data name="TitleSellQuick" xml:space="preserve">
+    <value>Быстро продать</value>
+  </data>
+  <data name="TitleSounds" xml:space="preserve">
+    <value>Звуки</value>
+  </data>
+  <data name="TitleSynchronizeHistory" xml:space="preserve">
+    <value>Синхронизировать историю</value>
+  </data>
+  <data name="TitleT#ObserverRegistration" xml:space="preserve">
+    <value>Регистрация обозревателя T#</value>
+  </data>
+  <data name="TitleVisualSettings" xml:space="preserve">
+    <value>Визуальные настройки</value>
+  </data>
+  <data name="TitleWithoutSoundSmall" xml:space="preserve">
+    <value>без звука</value>
+  </data>
+  <data name="EnumPendingOrderStatusИсполнен" xml:space="preserve">
+    <value>Исполнен</value>
+  </data>
+  <data name="EnumPendingOrderStatusОтменен" xml:space="preserve">
+    <value>Отменен</value>
+  </data>
+  <data name="EnumPendingOrderStatusОшибкаИсполнения" xml:space="preserve">
+    <value>Ошибка исполнения</value>
+  </data>
+  <data name="EnumPendingOrderStatusСоздан" xml:space="preserve">
+    <value>Создан</value>
+  </data>
+  <data name="MessageBookmarkAlreadyExistsFmt" xml:space="preserve">
+    <value>Закладка с названием "{0}" существует, оставить название без изменений?</value>
+  </data>
+  <data name="MessageBookmarkImageNotProvided" xml:space="preserve">
+    <value>Картинка не выбрана</value>
+  </data>
+  <data name="MessageBookmarkTitleNotProvided" xml:space="preserve">
+    <value>Не указан заголовок закладки</value>
+  </data>
+  <data name="MessageConfirmClosingAllOrdersFmt" xml:space="preserve">
+    <value>Закрыть все открытые позиции по {0} на счете?</value>
+  </data>
+  <data name="MessageConfirmClosingOrderFmt" xml:space="preserve">
+    <value>Закрыть позицию №{0}?</value>
+  </data>
+  <data name="MessageConfirmDeletePendingFmt" xml:space="preserve">
+    <value>Удалить ордер №{0}?</value>
+  </data>
+  <data name="MessageDataSuccessfulyUpdated" xml:space="preserve">
+    <value>Данные успешно обновлены</value>
+  </data>
+  <data name="MessageDepoVolumeMustBe1000" xml:space="preserve">
+    <value>Размер депозита не может быть менее 1 000 ед валюты</value>
+  </data>
+  <data name="MessageDepoVolumeMustBe5000" xml:space="preserve">
+    <value>Размер депозита не может быть более 5 000 000 ед валюты</value>
+  </data>
+  <data name="MessageDepoVolumeMustBeInt" xml:space="preserve">
+    <value>Размер депозита должен быть целым числом</value>
+  </data>
+  <data name="MessageEmailErrorEmpty" xml:space="preserve">
+    <value>e-mail не может быть пустым</value>
+  </data>
+  <data name="MessageEmailErrorWrongFormat" xml:space="preserve">
+    <value>Введенный адрес e-mail имеет недопустимый формат</value>
+  </data>
+  <data name="MessageEnterConfirmationCode" xml:space="preserve">
+    <value>Введите код подтверждения</value>
+  </data>
+  <data name="MessageEnterOldPassword" xml:space="preserve">
+    <value>Введите старый пароль</value>
+  </data>
+  <data name="MessageErrorMakingReport" xml:space="preserve">
+    <value>Ошибка при формировании отчета</value>
+  </data>
+  <data name="MessageErrorReading" xml:space="preserve">
+    <value>Ошибка чтения</value>
+  </data>
+  <data name="MessageErrorSavingWorkspaceFmt" xml:space="preserve">
+    <value>Ошибка сохранения файла рабочего пространства: {0}</value>
+  </data>
+  <data name="MessageFieldsNotFilled" xml:space="preserve">
+    <value>Не заполнены поля</value>
+  </data>
+  <data name="MessageLoginInUse" xml:space="preserve">
+    <value>Логин "{0}" занят</value>
+  </data>
+  <data name="MessageModifyMarketOrderByDraggingFmt" xml:space="preserve">
+    <value>Установить {0} = {1} для ордера #{2} ({3} {4} {5})?</value>
+  </data>
+  <data name="MessageModifySummaryOrderByDraggingFmt" xml:space="preserve">
+    <value>Установить {0} = {1} для {2} ордеров{3}?</value>
+  </data>
+  <data name="MessagePasswordTooLongFmt" xml:space="preserve">
+    <value>Длина пароля не может быть больше {0} символов</value>
+  </data>
+  <data name="MessagePasswordTooShortFmt" xml:space="preserve">
+    <value>Длина пароля не может быть меньше {0} символов</value>
+  </data>
+  <data name="MessagePositionIsAlreadyClosingFmt" xml:space="preserve">
+    <value>Позиция №{0} уже на стадии закрытия</value>
+  </data>
+  <data name="MessageRegistrationCompleted" xml:space="preserve">
+    <value>Регистрация успешно завершена</value>
+  </data>
+  <data name="MessageRegistrationCompletedEmailFmt" xml:space="preserve">
+    <value>Запрос на регистрацию отправлен на сервер.{0}На адрес будет {1} отправлено письмо с паролем</value>
+  </data>
+  <data name="MessageReportCopiedOnServer" xml:space="preserve">
+    <value>Отчет скопирован на сервер</value>
+  </data>
+  <data name="MessageReportFileCopyErrorFmt" xml:space="preserve">
+    <value>Не удалось скопировать {0}. Ошибка: {1}</value>
+  </data>
+  <data name="MessageReportFileNotFoundFmt" xml:space="preserve">
+    <value>Файл отчета "{0}" не найден</value>
+  </data>
+  <data name="MessageReportIsMadeFmt" xml:space="preserve">
+    <value>Отчет сформирован ({0})</value>
+  </data>
+  <data name="MessageServiceIsTurnedOff" xml:space="preserve">
+    <value>Сервис отключен</value>
+  </data>
+  <data name="MessageTerminalRestartRecommended" xml:space="preserve">
+    <value>Рекомендуется перезапустить терминал</value>
+  </data>
+  <data name="MessageTurnOffSignalService" xml:space="preserve">
+    <value>Отключить сервис торговых сигналов</value>
+  </data>
+  <data name="MessageUnableParseTimeframeStringFmt" xml:space="preserve">
+    <value>Строка "{0}" не распознана как таймфрейм. Попробуйте выбрать значение из списка или указать в виде "старт;#интервал1;#интервал2;#..."</value>
+  </data>
+  <data name="MessageUnableToCreateRobotsDirFmt" xml:space="preserve">
+    <value>Ошибка: невозможно создать каталог роботов ({0})</value>
+  </data>
+  <data name="MessageUnableToUpdate" xml:space="preserve">
+    <value>Обновление невозможно</value>
+  </data>
+  <data name="MessageUserNameErrorBadSymbols" xml:space="preserve">
+    <value>Недопустимые символы в имени пользователя</value>
+  </data>
+  <data name="MessageUserNameErrorLongFmt" xml:space="preserve">
+    <value>Длина имени пользователя не может быть больше {0} символов</value>
+  </data>
+  <data name="MessageUserNameErrorShortFmt" xml:space="preserve">
+    <value>Длина имени пользователя не может быть меньше {0} символов</value>
+  </data>
+  <data name="MessageWrongPwrdEnterAgain" xml:space="preserve">
+    <value>Пароль неверен. Повторите ввод</value>
+  </data>
+  <data name="MesssageCanNotGetSubscribersInfo" xml:space="preserve">
+    <value>Невозможно получить информацию о подписчиках.\nВозможно, необходимо обновить файл конфигурации терминала</value>
+  </data>
+  <data name="TitleMissed" xml:space="preserve">
+    <value>Отсутствует</value>
+  </data>
+  <data name="TitleMissedMany" xml:space="preserve">
+    <value>Отсутствуют</value>
+  </data>
+  <data name="TitlePAMMAccount" xml:space="preserve">
+    <value>ПАММ-счет</value>
+  </data>
+  <data name="TitlePriceLevel" xml:space="preserve">
+    <value>Уровень цены</value>
+  </data>
+  <data name="TitleServerError" xml:space="preserve">
+    <value>Ошибка сервера</value>
+  </data>
+  <data name="TitleStale" xml:space="preserve">
+    <value>Устарел</value>
+  </data>
+  <data name="TitleStaleMany" xml:space="preserve">
+    <value>Устарели</value>
+  </data>
+  <data name="FilterHtml" xml:space="preserve">
+    <value>Файлы HTML (*.html)|*.html|Все файлы|*.*</value>
+  </data>
+  <data name="MessageActualizingQuoteHistory" xml:space="preserve">
+    <value>Актуализация истории котировок</value>
+  </data>
+  <data name="MessageBuildingEquityChart" xml:space="preserve">
+    <value>Строится кривая доходности</value>
+  </data>
+  <data name="MessageCalculationCompleted" xml:space="preserve">
+    <value>Расчет завершен</value>
+  </data>
+  <data name="MessageCalculationInProcess" xml:space="preserve">
+    <value>Проводятся вычисления</value>
+  </data>
+  <data name="MessageConfirmCancelPendingOrders" xml:space="preserve">
+    <value>Снять выбранные отложенные ордера</value>
+  </data>
+  <data name="MessageConfirmClosingAllOrders" xml:space="preserve">
+    <value>Закрыть все открытые позиции</value>
+  </data>
+  <data name="MessageErrorGettingQuotesFromFiles" xml:space="preserve">
+    <value>Ошибка обращения к файловому хранилищу котировок</value>
+  </data>
+  <data name="MessageErrorGettingShareHistory" xml:space="preserve">
+    <value>Ошибка получения истории пая</value>
+  </data>
+  <data name="MessageErrorSavingFile" xml:space="preserve">
+    <value>Ошибка сохранения файла</value>
+  </data>
+  <data name="MessageGettingOpenPosHistory" xml:space="preserve">
+    <value>Получение списка открытых позиций</value>
+  </data>
+  <data name="MessageGettingOrderHistory" xml:space="preserve">
+    <value>Получение истории исполнения ордеров</value>
+  </data>
+  <data name="MessageGettingTransfersHistory" xml:space="preserve">
+    <value>Получение истории неторговых операций</value>
+  </data>
+  <data name="MessageMakingReport" xml:space="preserve">
+    <value>Подготовка отчета</value>
+  </data>
+  <data name="MessageNoOpenPositions" xml:space="preserve">
+    <value>Нет открытых ордеров</value>
+  </data>
+  <data name="MessageNoTransfersData" xml:space="preserve">
+    <value>Нет данных по пополнениям / списаниям со счета</value>
+  </data>
+  <data name="MessageUnableToGetOpenPosHistory" xml:space="preserve">
+    <value>Невозможно получить открытые позиции по счету</value>
+  </data>
+  <data name="MessageUnableToGetOrderHistory" xml:space="preserve">
+    <value>Невозможно получить историю исполнения ордеров</value>
+  </data>
+  <data name="MessageUnableToGetTransfersHistory" xml:space="preserve">
+    <value>Невозможно получить историю операций по счету</value>
+  </data>
+  <data name="TitleEditGroup" xml:space="preserve">
+    <value>Редактировать группу</value>
+  </data>
+  <data name="TitleLoadQuotes" xml:space="preserve">
+    <value>Загрузить котировки</value>
+  </data>
+  <data name="TitleSaveReport" xml:space="preserve">
+    <value>Сохранить отчет</value>
+  </data>
+  <data name="MessageAmountGreaterThan" xml:space="preserve">
+    <value>Сумма не может быть больше</value>
+  </data>
+  <data name="MessageAmountLessThanZero" xml:space="preserve">
+    <value>Сумма не может быть меньше либо равна 0</value>
+  </data>
+  <data name="MessageAmountNotProvided" xml:space="preserve">
+    <value>Сумма не указана</value>
+  </data>
+  <data name="MessageApplyTemplate" xml:space="preserve">
+    <value>Применить шаблон</value>
+  </data>
+  <data name="MessageCannotSendTextSignal" xml:space="preserve">
+    <value>Не удалось доставить сообщение</value>
+  </data>
+  <data name="MessageCannotSetupCommonSlTp" xml:space="preserve">
+    <value>Невозможно установить общие значения SL - TP, \nордера открыты по нескольким инструментам</value>
+  </data>
+  <data name="MessageChronometerChoseLength" xml:space="preserve">
+    <value>Выберите длительность</value>
+  </data>
+  <data name="MessageCorrectFormatExamples" xml:space="preserve">
+    <value>Примеры записи</value>
+  </data>
+  <data name="MessageFieldsWillBeUpdated" xml:space="preserve">
+    <value>Будут обновлены поля</value>
+  </data>
+  <data name="MessageInputIncorrect" xml:space="preserve">
+    <value>Введено некорректное значение</value>
+  </data>
+  <data name="MessageIntervalLackedInChronometer" xml:space="preserve">
+    <value>В сутках остался неучтенный временной интервал</value>
+  </data>
+  <data name="MessageNoQuote" xml:space="preserve">
+    <value>Нет котировки</value>
+  </data>
+  <data name="MessageOperationCompleted" xml:space="preserve">
+    <value>Операция проведена успешно</value>
+  </data>
+  <data name="MessageOperationFailed" xml:space="preserve">
+    <value>Не удалось выполнить операцию</value>
+  </data>
+  <data name="MessagePtrWillBeSetForNPosFmt" xml:space="preserve">
+    <value>для {0} ордеров будет установлен</value>
+  </data>
+  <data name="MessageRewriteTemplate" xml:space="preserve">
+    <value>Переписать шаблон</value>
+  </data>
+  <data name="MessageSaveTemplateAs" xml:space="preserve">
+    <value>Сохранить шаблон как</value>
+  </data>
+  <data name="MessageSumFormatWrong" xml:space="preserve">
+    <value>Неправильно указана сумма (пример</value>
+  </data>
+  <data name="MessageSumPointsBuysAndSellsAreNil" xml:space="preserve">
+    <value>Одинаковое количество покупок и продаж имеет неизменный \nпо сумме пунктов результат, условие недостижимо</value>
+  </data>
+  <data name="MessageSumVolmBuysAndSellsAreNil" xml:space="preserve">
+    <value>Сумма купленного и проданного объема равны, \nрезультат недостижим</value>
+  </data>
+  <data name="MessageTargetAmountLessThanZero" xml:space="preserve">
+    <value>Баланс счета (с учетом перевода) не может быть меньше 0</value>
+  </data>
+  <data name="MessageTextSignalPublishedFmt" xml:space="preserve">
+    <value>Сигнал категории "{0}" опубликован: [{1}]</value>
+  </data>
+  <data name="MessageTickerNotChosen" xml:space="preserve">
+    <value>Тикер не выбран</value>
+  </data>
+  <data name="MessageTickerNotFoundFmt" xml:space="preserve">
+    <value>Тикер "{0}" не найден</value>
+  </data>
+  <data name="MessageValueNotRecognizedFmt" xml:space="preserve">
+    <value>Значение {0} не распознано</value>
+  </data>
+  <data name="TitleCloseWindow" xml:space="preserve">
+    <value>Закрыть окно</value>
+  </data>
+  <data name="TitleProceed" xml:space="preserve">
+    <value>Продолжить</value>
+  </data>
+  <data name="EnumVolumeRoundTypeБлижайшее" xml:space="preserve">
+    <value>Ближайшее</value>
+  </data>
+  <data name="EnumVolumeRoundTypeВверх" xml:space="preserve">
+    <value>Вверх</value>
+  </data>
+  <data name="EnumVolumeRoundTypeВниз" xml:space="preserve">
+    <value>Вниз</value>
+  </data>
+  <data name="MessageHowMuchDealsOnEachIOpen" xml:space="preserve">
+    <value>Сколько сделок по каждому я открываю?</value>
+  </data>
+  <data name="MessageHowMuchInstrumentsITrade" xml:space="preserve">
+    <value>Сколькими инструментами я торгую?</value>
+  </data>
+  <data name="MessageIBuyOrSell" xml:space="preserve">
+    <value>Я покупаю / продаю</value>
+  </data>
+  <data name="MessageWhichSummaryLeverageIPreferAllowable" xml:space="preserve">
+    <value>Какое суммарное плечо я считаю допустимым?</value>
+  </data>
+  <data name="TitleAccountBalance" xml:space="preserve">
+    <value>Баланс счета</value>
+  </data>
+  <data name="TitleAllowableLeverageSmall" xml:space="preserve">
+    <value>допустимое плечо</value>
+  </data>
+  <data name="TitleAllTickersSmall" xml:space="preserve">
+    <value>все тикеры</value>
+  </data>
+  <data name="TitleApplyTemplateToChart" xml:space="preserve">
+    <value>Применить шаблон к графику</value>
+  </data>
+  <data name="TitleCalculationExample" xml:space="preserve">
+    <value>Пример расчета</value>
+  </data>
+  <data name="TitleCriticalLeverageSmall" xml:space="preserve">
+    <value>критическое плечо</value>
+  </data>
+  <data name="TitleCurrentLeverageSmall" xml:space="preserve">
+    <value>текущее плечо</value>
+  </data>
+  <data name="TitleDealLeverage" xml:space="preserve">
+    <value>Плечо сделки</value>
+  </data>
+  <data name="TitleDefaultVolumeSmall" xml:space="preserve">
+    <value>объем по-умолчанию</value>
+  </data>
+  <data name="TitleEnterVolume" xml:space="preserve">
+    <value>Объем входа</value>
+  </data>
+  <data name="TitleFixedVolume" xml:space="preserve">
+    <value>Фиксированный объем</value>
+  </data>
+  <data name="TitleForecastMenu" xml:space="preserve">
+    <value>Прогноз...</value>
+  </data>
+  <data name="TitleForecastOnSiteMenu" xml:space="preserve">
+    <value>Прогноз на сайт...</value>
+  </data>
+  <data name="TitleHedgeOrdersShort" xml:space="preserve">
+    <value>Хедж. ордера</value>
+  </data>
+  <data name="TitleHighRiskSmall" xml:space="preserve">
+    <value>высокий риск</value>
+  </data>
+  <data name="TitleIndicatorsMenu" xml:space="preserve">
+    <value>Индикаторы...</value>
+  </data>
+  <data name="TitleIntervalInDaysSmall" xml:space="preserve">
+    <value>интервал, дней</value>
+  </data>
+  <data name="TitleJumpMenu" xml:space="preserve">
+    <value>Переход...</value>
+  </data>
+  <data name="TitleLeveragePercent" xml:space="preserve">
+    <value>Процент плеча</value>
+  </data>
+  <data name="TitleMaximumVolumeShort" xml:space="preserve">
+    <value>Макс. объем</value>
+  </data>
+  <data name="TitleMessageMenu" xml:space="preserve">
+    <value>Сообщение...</value>
+  </data>
+  <data name="TitleMessageOnRiskExcessOnEnterSmall" xml:space="preserve">
+    <value>сообщение о превышении риска при входе</value>
+  </data>
+  <data name="TitleMinimalVolumeShort" xml:space="preserve">
+    <value>Мин. объем</value>
+  </data>
+  <data name="TitleNewChart" xml:space="preserve">
+    <value>Новый график</value>
+  </data>
+  <data name="TitleObjectsMenu" xml:space="preserve">
+    <value>Объекты...</value>
+  </data>
+  <data name="TitleOnlyTemplateBindToCurrentInstumentSmall" xml:space="preserve">
+    <value>только шаблоны, привязанные к текущему инструменту</value>
+  </data>
+  <data name="TitleOrdersMenu" xml:space="preserve">
+    <value>Ордера...</value>
+  </data>
+  <data name="TitleRiskSettings" xml:space="preserve">
+    <value>Настройки риска</value>
+  </data>
+  <data name="TitleRoundedSmall" xml:space="preserve">
+    <value>округлен</value>
+  </data>
+  <data name="TitleRoundEnterVolumeSmall" xml:space="preserve">
+    <value>(округлять объем входа)</value>
+  </data>
+  <data name="TitleSaveChartMenu" xml:space="preserve">
+    <value>Сохранить график...</value>
+  </data>
+  <data name="TitleScaleMinus" xml:space="preserve">
+    <value>Масштаб -</value>
+  </data>
+  <data name="TitleScalePlus" xml:space="preserve">
+    <value>Масштаб +</value>
+  </data>
+  <data name="TitleSynchronizeQuotesMenuShort" xml:space="preserve">
+    <value>Синхр. котировки...</value>
+  </data>
+  <data name="TitleTemplate" xml:space="preserve">
+    <value>Шаблон</value>
+  </data>
+  <data name="TitleTemplateManagement" xml:space="preserve">
+    <value>Управление шаблонами</value>
+  </data>
+  <data name="TitleTemplateSmall" xml:space="preserve">
+    <value>шаблон</value>
+  </data>
+  <data name="TitleTradeLeverage" xml:space="preserve">
+    <value>Торговое плечо</value>
+  </data>
+  <data name="TitleUnallowableRiskSmall" xml:space="preserve">
+    <value>недопустимый риск</value>
+  </data>
+  <data name="TitleVolumeRounding" xml:space="preserve">
+    <value>Округление объема</value>
+  </data>
+  <data name="TitleVolumeStep" xml:space="preserve">
+    <value>Шаг объема</value>
+  </data>
+  <data name="MessageAvailableSymbolsInUserName" xml:space="preserve">
+    <value>Допустимые символы: [A-z,0-9, _, -]</value>
+  </data>
+  <data name="MessageEmail" xml:space="preserve">
+    <value>e-mail адрес. Укажите актуальный e-mail адрес,</value>
+  </data>
+  <data name="MessageEmailContinue" xml:space="preserve">
+    <value>на который Вам будет отправлен пароль</value>
+  </data>
+  <data name="MessageUserName" xml:space="preserve">
+    <value>Имя пользователя (логин). 7 - 25 символов</value>
+  </data>
+  <data name="TitleAdditionalInformation" xml:space="preserve">
+    <value>Дополнительная информация</value>
+  </data>
+  <data name="TitleAllCounts" xml:space="preserve">
+    <value>Все счета</value>
+  </data>
+  <data name="TitleBalanceSmall" xml:space="preserve">
+    <value>баланс</value>
+  </data>
+  <data name="TitleChangeDemoAccountBalance" xml:space="preserve">
+    <value>Изменить баланс демо-счета</value>
+  </data>
+  <data name="TitleChangePassword" xml:space="preserve">
+    <value>Сменить пароль</value>
+  </data>
+  <data name="TitleContactInformation" xml:space="preserve">
+    <value>Контактная информация</value>
+  </data>
+  <data name="TitleContacts" xml:space="preserve">
+    <value>Контакты</value>
+  </data>
+  <data name="TitleCourse" xml:space="preserve">
+    <value>Курс</value>
+  </data>
+  <data name="TitleCreate" xml:space="preserve">
+    <value>Создать</value>
+  </data>
+  <data name="TitleCredentials" xml:space="preserve">
+    <value>Учетные данные</value>
+  </data>
+  <data name="TitleDepositCurrency" xml:space="preserve">
+    <value>Валюта депозита</value>
+  </data>
+  <data name="TitleDepositDemoAccount" xml:space="preserve">
+    <value>Пополнить демо-счет</value>
+  </data>
+  <data name="TitleDepositOnAccount" xml:space="preserve">
+    <value>Добавить на счет</value>
+  </data>
+  <data name="TitleDepositSize" xml:space="preserve">
+    <value>Размер депозита</value>
+  </data>
+  <data name="TitleEditData" xml:space="preserve">
+    <value>Редактировать данные</value>
+  </data>
+  <data name="TitleFirstName" xml:space="preserve">
+    <value>Имя</value>
+  </data>
+  <data name="TitleFundsSmall" xml:space="preserve">
+    <value>средства</value>
+  </data>
+  <data name="TitleInMonth" xml:space="preserve">
+    <value>В месяц</value>
+  </data>
+  <data name="TitleLastName" xml:space="preserve">
+    <value>Фамилия</value>
+  </data>
+  <data name="TitleMainInformation" xml:space="preserve">
+    <value>Основная информация</value>
+  </data>
+  <data name="TitleNewPassword" xml:space="preserve">
+    <value>Новый пароль</value>
+  </data>
+  <data name="TitleOdnoklassniki" xml:space="preserve">
+    <value>Одноклассники</value>
+  </data>
+  <data name="TitleOpenAccount" xml:space="preserve">
+    <value>Открыть счет</value>
+  </data>
+  <data name="TitleOpenPAMMAccount" xml:space="preserve">
+    <value>Открыть ПАММ-счет</value>
+  </data>
+  <data name="TitleOrEmailSmall" xml:space="preserve">
+    <value>или e-mail</value>
+  </data>
+  <data name="TitlePassword" xml:space="preserve">
+    <value>Пароль</value>
+  </data>
+  <data name="TitlePasswordSmall" xml:space="preserve">
+    <value>пароль</value>
+  </data>
+  <data name="TitlePatronymic" xml:space="preserve">
+    <value>Отчество</value>
+  </data>
+  <data name="TitlePerDay" xml:space="preserve">
+    <value>За сутки</value>
+  </data>
+  <data name="TitlePersonalInformation" xml:space="preserve">
+    <value>Личная информация</value>
+  </data>
+  <data name="TitlePhone" xml:space="preserve">
+    <value>Телефон</value>
+  </data>
+  <data name="TitlePhoto1" xml:space="preserve">
+    <value>Фото 1</value>
+  </data>
+  <data name="TitlePhoto2" xml:space="preserve">
+    <value>Фото 2</value>
+  </data>
+  <data name="TitleProvideTradeSignals" xml:space="preserve">
+    <value>Предоставить торговые сигналы</value>
+  </data>
+  <data name="TitleReadAccess" xml:space="preserve">
+    <value>Доступ на чтение</value>
+  </data>
+  <data name="TitleRegistration" xml:space="preserve">
+    <value>Регистрация</value>
+  </data>
+  <data name="TitleRemindPassword" xml:space="preserve">
+    <value>Напомнить пароль</value>
+  </data>
+  <data name="TitleReward" xml:space="preserve">
+    <value>Вознаграждение</value>
+  </data>
+  <data name="TitleSelectAccount" xml:space="preserve">
+    <value>Выберите счет</value>
+  </data>
+  <data name="TitleTurnOffPAMMAccount" xml:space="preserve">
+    <value>Отключить ПАММ-счет</value>
+  </data>
+  <data name="TitleTurnOffSignalService" xml:space="preserve">
+    <value>Отключить сервис сигналов</value>
+  </data>
+  <data name="TitleUserNameOrLogin" xml:space="preserve">
+    <value>Имя пользователя (логин)</value>
+  </data>
+  <data name="TitleViewPassword" xml:space="preserve">
+    <value>Пароль для просмотра</value>
+  </data>
+  <data name="TitleVKontakte" xml:space="preserve">
+    <value>ВКонтакте</value>
+  </data>
+  <data name="TitleWithdrawFromAccount" xml:space="preserve">
+    <value>Снять со счета</value>
+  </data>
+  <data name="MessageAtLeastOneOfTheFieldsShouldBeCompleted" xml:space="preserve">
+    <value>Хотя бы одно из полей (имя пользователя, e-mail) должно быть заполнено</value>
+  </data>
+  <data name="MessageCannotEditOrderNoQuote" xml:space="preserve">
+    <value>Невозможно отредактировать ордер, нет текущей котировки</value>
+  </data>
+  <data name="MessageCannotRecognizeSignalComissionString" xml:space="preserve">
+    <value>Не распознана комиссия за использование сигналов. Примеры допустимых значений</value>
+  </data>
+  <data name="MessageEmailWithPasswordWasSent" xml:space="preserve">
+    <value>На e-mail адрес пользователя направлено письмо, содержащее пароль</value>
+  </data>
+  <data name="MessageErrorCalcDeltas" xml:space="preserve">
+    <value>Приращения не получены</value>
+  </data>
+  <data name="MessageErrorCalculatingCorrelations" xml:space="preserve">
+    <value>Ошибка расчета кор. матрицы</value>
+  </data>
+  <data name="MessageErrorCreateQuoteDirectory" xml:space="preserve">
+    <value>Ошибка: невозможно создать каталог архива котировок</value>
+  </data>
+  <data name="MessageErrorGettingOrders" xml:space="preserve">
+    <value>Ошибка получения ордеров</value>
+  </data>
+  <data name="MessageErrorReadingQuotes" xml:space="preserve">
+    <value>Ошибка чтения котировок</value>
+  </data>
+  <data name="MessageErrorSavingQuotesInFileFmt" xml:space="preserve">
+    <value>Ошибка сохранения котировок в файл "{0}": {1}</value>
+  </data>
+  <data name="MessageHighRiskShouldBeLessThanUnacceptable" xml:space="preserve">
+    <value>Значение "высокий риск" должно быть меньше значения "недопустимый риск"</value>
+  </data>
+  <data name="MessageNoPriceForInstantOrderFmt" xml:space="preserve">
+    <value>Невозможно создать instant-ордер ({0}) - нет цены</value>
+  </data>
+  <data name="MessageNoQuotesForTickers" xml:space="preserve">
+    <value>Отсутствуют котировки по тикерам</value>
+  </data>
+  <data name="MessageOperationTimedOut" xml:space="preserve">
+    <value>Невозможно дождаться завершения операции</value>
+  </data>
+  <data name="MessagePAMMFeeComissionWrong" xml:space="preserve">
+    <value>Вознаграждение указано некорректно. Примеры корректного ввода</value>
+  </data>
+  <data name="MessagePAMMFeeDepositWrong" xml:space="preserve">
+    <value>Размер депозита введен некорректно (ожидается положительное целое число)</value>
+  </data>
+  <data name="MessagePortfolioSimulationCompletedPercentFmt" xml:space="preserve">
+    <value>Моделирование портфеля: {0}% завершено</value>
+  </data>
+  <data name="MessagePriceMustBePositive" xml:space="preserve">
+    <value>Цена не может быть отрицательной</value>
+  </data>
+  <data name="MessagePriceNotProvided" xml:space="preserve">
+    <value>Не указана цена</value>
+  </data>
+  <data name="MessageResultProcessingCompletedPercentFmt" xml:space="preserve">
+    <value>Обработка результатов: {0}% завершено</value>
+  </data>
+  <data name="MessageShouldDeleteCandleSetsFmt" xml:space="preserve">
+    <value>Удалить настройку свечей {0}?</value>
+  </data>
+  <data name="MessageStoplossIsIncorrect" xml:space="preserve">
+    <value>Неправильно установлен стоп-лосс</value>
+  </data>
+  <data name="MessageSuchUserNotfound" xml:space="preserve">
+    <value>Не найден пользователь с указанными учетными данными</value>
+  </data>
+  <data name="MessageTakeprofitIsIncorrect" xml:space="preserve">
+    <value>Неправильно установлен тейк-профит</value>
+  </data>
+  <data name="MessageUnableToDeliverRequest" xml:space="preserve">
+    <value>Не удалось доставить запрос</value>
+  </data>
+  <data name="MessageUnableToGetOrder" xml:space="preserve">
+    <value>Не удалось получить ордер</value>
+  </data>
+  <data name="MessageUpdateChartsBy" xml:space="preserve">
+    <value>Обновить графики</value>
+  </data>
+  <data name="MessageValidationCorrectExamples" xml:space="preserve">
+    <value>Примеры корректного ввода:</value>
+  </data>
+  <data name="MessageValidationCorrectRangeIs" xml:space="preserve">
+    <value>Допустимый диапазон:</value>
+  </data>
+  <data name="MessageValueTypedWrongFmt" xml:space="preserve">
+    <value>Значение {0} введено некорректно</value>
+  </data>
+  <data name="MessageVolumeMustBePositive" xml:space="preserve">
+    <value>Объем должен быть положительным числом</value>
+  </data>
+  <data name="MessageVolumeNotProvided" xml:space="preserve">
+    <value>Объем не указан</value>
+  </data>
+  <data name="MessageWarningExceedLeverageFmt" xml:space="preserve">
+    <value>Текущее плечо составляет {0:f1}, новое значение составит {1:f1}. Следует помнить, что поддержание плеча выше отметки {2} может повлечь недопустимый риск. Администратор автоматически получит SMS-уведомление о совершаемой торговой операции. Вы осведомлены о возможных последствиях и, тем не менее, желаете войти в рынок?</value>
+  </data>
+  <data name="MessageChooseOneOfTheseItems" xml:space="preserve">
+    <value>Выберите один из следующих пунктов</value>
+  </data>
+  <data name="TitleCategory" xml:space="preserve">
+    <value>Категория</value>
+  </data>
+  <data name="TitleChangeScript" xml:space="preserve">
+    <value>Изменить скрипт</value>
+  </data>
+  <data name="TitleChartObjects" xml:space="preserve">
+    <value>Объекты графика</value>
+  </data>
+  <data name="TitleChoiceSmall" xml:space="preserve">
+    <value>выбор</value>
+  </data>
+  <data name="TitleDealMarker" xml:space="preserve">
+    <value>Маркер сделки</value>
+  </data>
+  <data name="TitleEllipse" xml:space="preserve">
+    <value>Эллипс</value>
+  </data>
+  <data name="TitleForecasts" xml:space="preserve">
+    <value>Прогнозы</value>
+  </data>
+  <data name="TitleHint" xml:space="preserve">
+    <value>Подсказка</value>
+  </data>
+  <data name="TitleHorizontalProjectionsShort" xml:space="preserve">
+    <value>Гориз. проекции</value>
+  </data>
+  <data name="TitleNewScriptSmall" xml:space="preserve">
+    <value>новый скрипт</value>
+  </data>
+  <data name="TitleObjectsSmall" xml:space="preserve">
+    <value>объекты</value>
+  </data>
+  <data name="TitleSegmentWithText" xml:space="preserve">
+    <value>Отрезок с текстом</value>
+  </data>
+  <data name="TitleSelectScript" xml:space="preserve">
+    <value>Выберите скрипт</value>
+  </data>
+  <data name="TitleTrendLine" xml:space="preserve">
+    <value>Линия тренда</value>
+  </data>
+  <data name="TitleTrigger" xml:space="preserve">
+    <value>Триггер</value>
+  </data>
+  <data name="TitleTurnBar" xml:space="preserve">
+    <value>Бар разворота</value>
+  </data>
+  <data name="TitleVerticalProjectionsShort" xml:space="preserve">
+    <value>Верт. проекции</value>
+  </data>
+  <data name="TitleArrowAngle" xml:space="preserve">
+    <value>Угол стрелки</value>
+  </data>
+  <data name="TitleArrowLength" xml:space="preserve">
+    <value>Длина стрелки</value>
+  </data>
+  <data name="TitleBrushColor" xml:space="preserve">
+    <value>Цвет кисти</value>
+  </data>
+  <data name="TitleBrushTransparency" xml:space="preserve">
+    <value>Прозрачность кисти</value>
+  </data>
+  <data name="TitleChooseIndicator" xml:space="preserve">
+    <value>Выбрать индикатор</value>
+  </data>
+  <data name="TitleDrawArrowSmall" xml:space="preserve">
+    <value>рисовать стрелку</value>
+  </data>
+  <data name="TitleDrawFrameSmall" xml:space="preserve">
+    <value>рисовать рамку</value>
+  </data>
+  <data name="TitleDrawStroke" xml:space="preserve">
+    <value>Рисовать обводку</value>
+  </data>
+  <data name="TitleFillingColor" xml:space="preserve">
+    <value>Цвет заливки</value>
+  </data>
+  <data name="TitleFontSize" xml:space="preserve">
+    <value>Размер шрифта</value>
+  </data>
+  <data name="TitleForm" xml:space="preserve">
+    <value>Форма</value>
+  </data>
+  <data name="TitleHideSubstrate" xml:space="preserve">
+    <value>Скрывать подложку</value>
+  </data>
+  <data name="TitleIcon" xml:space="preserve">
+    <value>Значок</value>
+  </data>
+  <data name="TitleIndicatorSettings" xml:space="preserve">
+    <value>Настройки индикатора</value>
+  </data>
+  <data name="TitleObjectProperty" xml:space="preserve">
+    <value>Свойства объекта</value>
+  </data>
+  <data name="TitleOpaquenessSmall" xml:space="preserve">
+    <value>непрозрачность</value>
+  </data>
+  <data name="TitlePivotIndex" xml:space="preserve">
+    <value>Индекс привязки</value>
+  </data>
+  <data name="TitlePivotPrice" xml:space="preserve">
+    <value>Цена привязки</value>
+  </data>
+  <data name="TitleRadiusOrSize" xml:space="preserve">
+    <value>Радиус (размер)</value>
+  </data>
+  <data name="TitleStrokeColor" xml:space="preserve">
+    <value>Цвет обводки</value>
+  </data>
+  <data name="TitleTangentColor" xml:space="preserve">
+    <value>Цвет касательной</value>
+  </data>
+  <data name="TitleTangentLevels" xml:space="preserve">
+    <value>Уровни касательной</value>
+  </data>
+  <data name="TitleTextTemplate" xml:space="preserve">
+    <value>Шаблон текста</value>
+  </data>
+  <data name="TitleTextTransparencyAndOpaque" xml:space="preserve">
+    <value>Прозрачность текста (255 - непрозрачный)</value>
+  </data>
+  <data name="TitleTitle" xml:space="preserve">
+    <value>Заголовок</value>
+  </data>
+  <data name="TitleTransparencyAndOpaque" xml:space="preserve">
+    <value>Прозрачность (255 - непрозрачный)</value>
+  </data>
+  <data name="TitleVisuals" xml:space="preserve">
+    <value>Визуальные</value>
+  </data>
+  <data name="TitleHideText" xml:space="preserve">
+    <value>Скрыть текст</value>
+  </data>
+  <data name="TitleSavePassword" xml:space="preserve">
+    <value>Сохранять пароль</value>
+  </data>
+  <data name="MessageBacktestCompleted" xml:space="preserve">
+    <value>Тест завершен</value>
+  </data>
+  <data name="MessageDealOpeningFmt" xml:space="preserve">
+    <value>Открытие сделки {0} {1}</value>
+  </data>
+  <data name="MessageErrorExecutingOrder" xml:space="preserve">
+    <value>Ошибка исполнения ордера</value>
+  </data>
+  <data name="MessageFromRobot" xml:space="preserve">
+    <value>Сообщение робота</value>
+  </data>
+  <data name="MessageNoChartToShowBacktestResults" xml:space="preserve">
+    <value>Нет доступных графиков для отображения результатов</value>
+  </data>
+  <data name="MessageNotificationCloseBodyFmt" xml:space="preserve">
+    <value>Закрытие позиции №{0} ({1} {2} {3})\nВход {4} по {5}, выход по {6}\nФин. результат сделки: {7} {8},  {9:f1} пункта,  {10:f2}%\nТекущий баланс счета: {11} {12}</value>
+  </data>
+  <data name="MessageNotificationCloseTitleFmt" xml:space="preserve">
+    <value>Закрытие сделки №{0}</value>
+  </data>
+  <data name="MessageNotificationModifiedAutoTrailFmt" xml:space="preserve">
+    <value>Автоперенос стоп-лосса при достижении уровня {0} на +{1} п</value>
+  </data>
+  <data name="MessageNotificationOrderAccountIDFmt" xml:space="preserve">
+    <value>ID операции: {0}, счет: {1}</value>
+  </data>
+  <data name="MessageNotificationOrderChangedTitle" xml:space="preserve">
+    <value>Изменен ордер</value>
+  </data>
+  <data name="MessageNotificationOrderModifiedBodyFmt" xml:space="preserve">
+    <value>Изменен ордер №{0}. {1} {2} Цена входа {3}, SL={4}, TP={5}{7}\nСчет: {6}</value>
+  </data>
+  <data name="MessageNotificationPendingChangedBodyFmt" xml:space="preserve">
+    <value>Отложенный ордер №{0} {1} изменен\nСчет: {2}</value>
+  </data>
+  <data name="MessageNotificationPendingChangedTitle" xml:space="preserve">
+    <value>Изменен отложенный ордер</value>
+  </data>
+  <data name="MessageNotificationPendingPlacedBodyFmt" xml:space="preserve">
+    <value>Вы разместили ордер {0} {1} {2} по {3}\nID операции: {4}\nСчет: {5}</value>
+  </data>
+  <data name="MessageNotificationPendingPlacedTitleFmt" xml:space="preserve">
+    <value>Отложенный ордер {0} размещен</value>
+  </data>
+  <data name="MessageOrderNotificationParamsFmt" xml:space="preserve">
+    <value>{0} ({1}) {2} {3} по цене {4}</value>
+  </data>
+  <data name="MessageOrderNotificationSlTpFmt" xml:space="preserve">
+    <value>Уровень защиты: {0} стоп-лосс +{1} п</value>
+  </data>
+  <data name="MessageOrderRejected" xml:space="preserve">
+    <value>Отказ исполнения ордера</value>
+  </data>
+  <data name="MessageRequestRejectedFmt" xml:space="preserve">
+    <value>Команда {0} {1} {2} не исполнена</value>
+  </data>
+  <data name="MessageSomeFilesOutdatedFmt" xml:space="preserve">
+    <value>Версия терминала устарела, {0} файлов нуждаются в обновлении</value>
+  </data>
+  <data name="MessageSuchNamedTemplateExistsOverwrite" xml:space="preserve">
+    <value>Шаблон с таким именем уже существует. Перезаписать?</value>
+  </data>
+  <data name="MessageTemplateNameMustBeNotEmpty" xml:space="preserve">
+    <value>Пустая строка в имени шаблона не допускается</value>
+  </data>
+  <data name="MessageTerminalUpdateAvailable" xml:space="preserve">
+    <value>Доступно обновление терминала</value>
+  </data>
+  <data name="MessageTradeSignalSentFmt" xml:space="preserve">
+    <value>Сигнал {0} {1} отправлен</value>
+  </data>
+  <data name="MessageTrailinfLevelNWrong" xml:space="preserve">
+    <value>Неверно указаны значения для {0}-го уровня трейлинга</value>
+  </data>
+  <data name="MessageUnableApplySettingsWhileRobotsAreStarted" xml:space="preserve">
+    <value>Роботы запущены, невозможно применить настройки</value>
+  </data>
+  <data name="MessageUserRegisteredFmt" xml:space="preserve">
+    <value>Пользователь "{0}" успешно зарегистрирован в системе{1}</value>
+  </data>
+  <data name="MessageUserRegisteredPasswordPart" xml:space="preserve">
+    <value>пароль:</value>
+  </data>
+  <data name="TitleCreateAccountLower" xml:space="preserve">
+    <value>открыть счет</value>
+  </data>
+  <data name="TitleServerNotificationSettings" xml:space="preserve">
+    <value>Настройка отображения уведомлений торгового сервера</value>
+  </data>
+  <data name="TitleTradeServerNotifications" xml:space="preserve">
+    <value>Уведомления торгового сервера</value>
+  </data>
+  <data name="TitleTradeSignal" xml:space="preserve">
+    <value>Торговый сигнал</value>
+  </data>
+  <data name="EnumDisplayModeTeкстПлюсКартинка" xml:space="preserve">
+    <value>Текст + картинка</value>
+  </data>
+  <data name="EnumDisplayModeКартинка" xml:space="preserve">
+    <value>Картинка</value>
+  </data>
+  <data name="EnumDisplayModeТекст" xml:space="preserve">
+    <value>Текст</value>
+  </data>
+  <data name="MessageNFilesOutdatedFmt" xml:space="preserve">
+    <value>{0} файлов устарели</value>
+  </data>
+  <data name="TitleAccountLower" xml:space="preserve">
+    <value>счет</value>
+  </data>
+  <data name="TitleAdd" xml:space="preserve">
+    <value>Добавить</value>
+  </data>
+  <data name="TitleAddBookmark" xml:space="preserve">
+    <value>Добавить закладку</value>
+  </data>
+  <data name="TitleBookmarks" xml:space="preserve">
+    <value>Закладки</value>
+  </data>
+  <data name="TitleCapcthaCode" xml:space="preserve">
+    <value>Код на картинке:</value>
+  </data>
+  <data name="TitleCustomizeNotifications" xml:space="preserve">
+    <value>Настроить уведомления</value>
+  </data>
+  <data name="TitleDontRecognizeCaptcha" xml:space="preserve">
+    <value>Не вижу код</value>
+  </data>
+  <data name="TitleImage" xml:space="preserve">
+    <value>Картинка</value>
+  </data>
+  <data name="TitleMoreLower" xml:space="preserve">
+    <value>еще</value>
+  </data>
+  <data name="TitleSelectIcon" xml:space="preserve">
+    <value>Выбрать иконку</value>
+  </data>
+  <data name="TitleShow" xml:space="preserve">
+    <value>Показывать</value>
+  </data>
+  <data name="TitleTimeframeLower" xml:space="preserve">
+    <value>таймфрейм</value>
+  </data>
+  <data name="TitleDirection" xml:space="preserve">
+    <value>Направление</value>
+  </data>
+  <data name="TitleForwardInBars" xml:space="preserve">
+    <value>Баров вперед</value>
+  </data>
+  <data name="TitleProjectionMultipliers" xml:space="preserve">
+    <value>Множители проекций</value>
+  </data>
+  <data name="EnumTrendLineStyleВолна" xml:space="preserve">
+    <value>Волна</value>
+  </data>
+  <data name="EnumTrendLineStyleЛиния" xml:space="preserve">
+    <value>Линия</value>
+  </data>
+  <data name="EnumTrendLineStyleЛинияСМаркерами" xml:space="preserve">
+    <value>Линия с маркерами</value>
+  </data>
+  <data name="EnumTrendLineStyleОкружность" xml:space="preserve">
+    <value>Окружность</value>
+  </data>
+  <data name="EnumTrendLineStyleОтрезок" xml:space="preserve">
+    <value>Отрезок</value>
+  </data>
+  <data name="EnumTrendLineStyleОтрезокСМаркерами" xml:space="preserve">
+    <value>Отрезок с маркерами</value>
+  </data>
+  <data name="EnumTrendLineStyleПрямоугольник" xml:space="preserve">
+    <value>Прямоугольник</value>
+  </data>
+  <data name="EnumTrendLineStyleПэкмен" xml:space="preserve">
+    <value>Пэкмен</value>
+  </data>
+  <data name="EnumTrendLineStyleРост" xml:space="preserve">
+    <value>Рост</value>
+  </data>
+  <data name="EnumTrendLineStyleСвечнаяСтрелка" xml:space="preserve">
+    <value>Свечная стрелка</value>
+  </data>
+  <data name="EnumTrendLineStyleСпад" xml:space="preserve">
+    <value>Спад</value>
+  </data>
+  <data name="EnumTrendLineStyleСредняяСтрелка" xml:space="preserve">
+    <value>Средняя стрелка</value>
+  </data>
+  <data name="EnumTrendLineStyleСтрелка" xml:space="preserve">
+    <value>Стрелка</value>
+  </data>
+  <data name="EnumTrendLineStyleСтрелкаLite" xml:space="preserve">
+    <value>Стрелка Lite</value>
+  </data>
+  <data name="EnumTrendLineStyleТолстаяСтрелка" xml:space="preserve">
+    <value>Толстая стрелка</value>
+  </data>
+  <data name="EnumTrendLineStyleЧерепаха" xml:space="preserve">
+    <value>Черепаха</value>
+  </data>
+  <data name="TitleDrawText" xml:space="preserve">
+    <value>Рисовать текст</value>
+  </data>
+  <data name="TitleExtensionLevels" xml:space="preserve">
+    <value>Уровни расширений</value>
+  </data>
+  <data name="TitleFibonacciChannelShort" xml:space="preserve">
+    <value>Канал ФБ</value>
+  </data>
+  <data name="TitleFibonacciSeriesShort" xml:space="preserve">
+    <value>Ряд ФБ</value>
+  </data>
+  <data name="TitleHideLine" xml:space="preserve">
+    <value>Скрывать линию</value>
+  </data>
+  <data name="TitleHitErrorsInPoints" xml:space="preserve">
+    <value>Погрешность попаданий, пп</value>
+  </data>
+  <data name="TitleLineColor" xml:space="preserve">
+    <value>Цвет линии</value>
+  </data>
+  <data name="TitleLineStyle" xml:space="preserve">
+    <value>Стиль линии</value>
+  </data>
+  <data name="TitleLineWidth" xml:space="preserve">
+    <value>Толщина линии</value>
+  </data>
+  <data name="TitleMarkers" xml:space="preserve">
+    <value>Маркеры</value>
+  </data>
+  <data name="TitlePatternScaleInPixels" xml:space="preserve">
+    <value>Масштаб узора, пикс</value>
+  </data>
+  <data name="TitleShowCorrectionSmall" xml:space="preserve">
+    <value>показать коррекцию</value>
+  </data>
+  <data name="TitleShowExtensionSmall" xml:space="preserve">
+    <value>показать расширение</value>
+  </data>
+  <data name="TitleTransparency2550" xml:space="preserve">
+    <value>Прозрачность (255-0)</value>
+  </data>
+  <data name="MessageVersionOutdatedNFilesFmt" xml:space="preserve">
+    <value>Версия устарела ({0} файлов)</value>
+  </data>
+  <data name="TitleSelectionLower" xml:space="preserve">
+    <value>выбор</value>
+  </data>
+  <data name="MessageFailedToSaveTradeSignal" xml:space="preserve">
+    <value>Не удалось сохранить торговый сигнал</value>
+  </data>
+  <data name="MessageSelectTradeSignalCategory" xml:space="preserve">
+    <value>Укажите категорию торгового сигнала</value>
+  </data>
+  <data name="MessageTradeSignalIsSaved" xml:space="preserve">
+    <value>Торговый сигнал сохранен</value>
+  </data>
+  <data name="MessageUnableToSendSignalsFromAccountFmt" xml:space="preserve">
+    <value>Со счета №{0} рассылка торговых сигналов невозможна</value>
+  </data>
+  <data name="TitleApplySettings" xml:space="preserve">
+    <value>Применить настройки</value>
+  </data>
+  <data name="TitleCandleLower" xml:space="preserve">
+    <value>свеча</value>
+  </data>
+  <data name="TitleCollapseStatusBar" xml:space="preserve">
+    <value>Свернуть поле статуса</value>
+  </data>
+  <data name="TitleExpandStatusBar" xml:space="preserve">
+    <value>Развернуть поле статуса</value>
+  </data>
+  <data name="TitleNavigate" xml:space="preserve">
+    <value>Перейти</value>
+  </data>
+  <data name="TitleNavigateChartBounds" xml:space="preserve">
+    <value>Границы</value>
+  </data>
+  <data name="TitleNavigateChartCenter" xml:space="preserve">
+    <value>Центр графика</value>
+  </data>
+  <data name="TitleNavigateTo" xml:space="preserve">
+    <value>Перейти к</value>
+  </data>
+  <data name="TitlePrintSelectedWindow" xml:space="preserve">
+    <value>Распечатать выбранное окно графика</value>
+  </data>
+  <data name="TitleRemove" xml:space="preserve">
+    <value>Убрать</value>
+  </data>
+  <data name="TitleRobotPortfolio" xml:space="preserve">
+    <value>Портфель роботов</value>
+  </data>
+  <data name="TitleSaveSettings" xml:space="preserve">
+    <value>Сохранить настройки</value>
+  </data>
+  <data name="TitleSend" xml:space="preserve">
+    <value>Отправить</value>
+  </data>
+  <data name="TitleTextSignalMessage" xml:space="preserve">
+    <value>Сообщение подписчикам</value>
+  </data>
+  <data name="TitleTimeLower" xml:space="preserve">
+    <value>время</value>
+  </data>
+  <data name="TitleAccelerationAndSlowdown" xml:space="preserve">
+    <value>Ускорение/замедление</value>
+  </data>
+  <data name="TitleAlert" xml:space="preserve">
+    <value>Алерт</value>
+  </data>
+  <data name="TitleAlertPriceLevels" xml:space="preserve">
+    <value>Уровни цен алертов</value>
+  </data>
+  <data name="TitleAwesomePeriod" xml:space="preserve">
+    <value>Период Awesome</value>
+  </data>
+  <data name="TitleBandStyle" xml:space="preserve">
+    <value>Стиль полос</value>
+  </data>
+  <data name="TitleBearishDivergenceColor" xml:space="preserve">
+    <value>Цвет медвежьих</value>
+  </data>
+  <data name="TitleBollingerBands" xml:space="preserve">
+    <value>Линии Боллинджера</value>
+  </data>
+  <data name="TitleBorder" xml:space="preserve">
+    <value>Граница</value>
+  </data>
+  <data name="TitleBullDivergenceColor" xml:space="preserve">
+    <value>Цвет бычьих</value>
+  </data>
+  <data name="TitleCandleCountToExtremumShort" xml:space="preserve">
+    <value>Свеч до экстр.</value>
+  </data>
+  <data name="TitleConfirmationBar" xml:space="preserve">
+    <value>Бар подтверждения</value>
+  </data>
+  <data name="TitleCorrectionABLengthShort" xml:space="preserve">
+    <value>Длина кор. AB</value>
+  </data>
+  <data name="TitleCorrectionBCLengthShort" xml:space="preserve">
+    <value>Длина кор. BC</value>
+  </data>
+  <data name="TitleCorrectionLength" xml:space="preserve">
+    <value>Длина проекций</value>
+  </data>
+  <data name="TitleCreateDrawingPanel" xml:space="preserve">
+    <value>Создавать панель отрисовки</value>
+  </data>
+  <data name="TitleCurrentProjections" xml:space="preserve">
+    <value>Текущие проекции</value>
+  </data>
+  <data name="TitleDayLineThickness" xml:space="preserve">
+    <value>Толщина линии дней</value>
+  </data>
+  <data name="TitleDaySeparatorColor" xml:space="preserve">
+    <value>Цвет разделителя дней</value>
+  </data>
+  <data name="TitleDaySeparatorLineStyle" xml:space="preserve">
+    <value>Стиль линии разделителя дней</value>
+  </data>
+  <data name="TitleDaySeparators" xml:space="preserve">
+    <value>Разделители дней</value>
+  </data>
+  <data name="TitleDemoTrendAndFlat" xml:space="preserve">
+    <value>Тренд/флэт (демо)</value>
+  </data>
+  <data name="TitleDivergences" xml:space="preserve">
+    <value>Дивергенции</value>
+  </data>
+  <data name="TitleDivergenceSettings" xml:space="preserve">
+    <value>Настройки дивергенций</value>
+  </data>
+  <data name="TitleDivergencesRegions" xml:space="preserve">
+    <value>Области дивергенций</value>
+  </data>
+  <data name="TitleDivergenceType" xml:space="preserve">
+    <value>Тип дивергенций</value>
+  </data>
+  <data name="TitleDrawingPanel" xml:space="preserve">
+    <value>Панель отрисовки</value>
+  </data>
+  <data name="TitleDrawingStyle" xml:space="preserve">
+    <value>Стиль рисования</value>
+  </data>
+  <data name="TitleEmailAddressesList" xml:space="preserve">
+    <value>Список адресов E-mail</value>
+  </data>
+  <data name="TitleExtremumInBarsShort" xml:space="preserve">
+    <value>Экстр., баров</value>
+  </data>
+  <data name="TitleFallColor" xml:space="preserve">
+    <value>Цвет падения</value>
+  </data>
+  <data name="TitleFastMovingAveragePeriodShort" xml:space="preserve">
+    <value>Период быстр.</value>
+  </data>
+  <data name="TitleGraphicsAnalysisShort" xml:space="preserve">
+    <value>Граф. анализ</value>
+  </data>
+  <data name="TitleGrowthColor" xml:space="preserve">
+    <value>Цвет роста</value>
+  </data>
+  <data name="TitleMALineStyle" xml:space="preserve">
+    <value>Стиль средней</value>
+  </data>
+  <data name="TitleMALineType" xml:space="preserve">
+    <value>Тип средней</value>
+  </data>
+  <data name="TitleMonthLineThickness" xml:space="preserve">
+    <value>Толщина линии месяцев</value>
+  </data>
+  <data name="TitleMonthSeparatorColor" xml:space="preserve">
+    <value>Цвет разделителя месяцев</value>
+  </data>
+  <data name="TitleMonthSepartorLineStyle" xml:space="preserve">
+    <value>Стиль линии разделителя месяцев</value>
+  </data>
+  <data name="TitleMultiTFAndIndex" xml:space="preserve">
+    <value>Мульти-ТФ-индекс</value>
+  </data>
+  <data name="TitleNotification" xml:space="preserve">
+    <value>Оповещение</value>
+  </data>
+  <data name="TitleOffsetInBars" xml:space="preserve">
+    <value>Смещение, баров</value>
+  </data>
+  <data name="TitleOscillator" xml:space="preserve">
+    <value>Осциллятор</value>
+  </data>
+  <data name="TitlePeriod" xml:space="preserve">
+    <value>Период</value>
+  </data>
+  <data name="TitlePeriodSeparator" xml:space="preserve">
+    <value>Разделитель периодов</value>
+  </data>
+  <data name="TitlePhonesForSMS" xml:space="preserve">
+    <value>Телефоны для СМС</value>
+  </data>
+  <data name="TitleProjections" xml:space="preserve">
+    <value>Проекции</value>
+  </data>
+  <data name="TitleSendEmail" xml:space="preserve">
+    <value>Отправлять E-mail</value>
+  </data>
+  <data name="TitleSendSMS" xml:space="preserve">
+    <value>Отправлять СМС</value>
+  </data>
+  <data name="TitleSeparators" xml:space="preserve">
+    <value>Разделители</value>
+  </data>
+  <data name="TitleServiceIndicators" xml:space="preserve">
+    <value>Служебные</value>
+  </data>
+  <data name="TitleShadow" xml:space="preserve">
+    <value>Тень</value>
+  </data>
+  <data name="TitleShadowBrightness" xml:space="preserve">
+    <value>Яркость тени</value>
+  </data>
+  <data name="TitleShadowThickness" xml:space="preserve">
+    <value>Толщина тени</value>
+  </data>
+  <data name="TitleShowCorrection" xml:space="preserve">
+    <value>Показывать коррекцию</value>
+  </data>
+  <data name="TitleShowDays" xml:space="preserve">
+    <value>Показывать дни</value>
+  </data>
+  <data name="TitleShowDrawingPanel" xml:space="preserve">
+    <value>Отображать панель отрисовки</value>
+  </data>
+  <data name="TitleShowMonths" xml:space="preserve">
+    <value>Показывать месяцы</value>
+  </data>
+  <data name="TitleShowWeeks" xml:space="preserve">
+    <value>Показывать недели</value>
+  </data>
+  <data name="TitleSlowMovingAveragePeriodShort" xml:space="preserve">
+    <value>Период медл.</value>
+  </data>
+  <data name="TitleSourceSeries" xml:space="preserve">
+    <value>Cерии источников</value>
+  </data>
+  <data name="TitleStretchChart" xml:space="preserve">
+    <value>Растягивать график</value>
+  </data>
+  <data name="TitleThickness" xml:space="preserve">
+    <value>Толщина</value>
+  </data>
+  <data name="TitleTrending" xml:space="preserve">
+    <value>Трендовые</value>
+  </data>
+  <data name="TitleUniqueName" xml:space="preserve">
+    <value>Уникальное имя</value>
+  </data>
+  <data name="TitleVisualization" xml:space="preserve">
+    <value>Визуализация</value>
+  </data>
+  <data name="TitleVolatilityMultiplier" xml:space="preserve">
+    <value>Множитель волатильности</value>
+  </data>
+  <data name="TitleWeekLineThickness" xml:space="preserve">
+    <value>Толщина линии недель</value>
+  </data>
+  <data name="TitleWeekSeparatorColor" xml:space="preserve">
+    <value>Цвет разделителя недель</value>
+  </data>
+  <data name="TitleWeekSeparatorLineStyle" xml:space="preserve">
+    <value>Стиль линии разделителя недель</value>
+  </data>
+  <data name="TitleZigzagPrice" xml:space="preserve">
+    <value>Цена для ЗЗ</value>
+  </data>
+  <data name="TitleZigzagThresholdInPercentsShort" xml:space="preserve">
+    <value>Порог ЗЗ, %</value>
+  </data>
+  <data name="TitleZoneLowerLimit" xml:space="preserve">
+    <value>Нижняя граница зон</value>
+  </data>
+  <data name="TitleZoneUpperLimit" xml:space="preserve">
+    <value>Верхняя граница зон</value>
+  </data>
+  <data name="TitleAnalytics" xml:space="preserve">
+    <value>Аналитика</value>
+  </data>
+  <data name="TitleArrow" xml:space="preserve">
+    <value>Стрелка</value>
+  </data>
+  <data name="TitleArrowSizesForClosedDealsShort" xml:space="preserve">
+    <value>Размер стрелок (закрытые)</value>
+  </data>
+  <data name="TitleArrowSizesForOpenedDealsShort" xml:space="preserve">
+    <value>Размер стрелок (открытые)</value>
+  </data>
+  <data name="TitleAssessment" xml:space="preserve">
+    <value>Оценка</value>
+  </data>
+  <data name="TitleAverageTimeInterval" xml:space="preserve">
+    <value>Средний временной промежуток</value>
+  </data>
+  <data name="TitleBarCountBetweenFractals" xml:space="preserve">
+    <value>Свеч между фракт.</value>
+  </data>
+  <data name="TitleBarCountFromLeft" xml:space="preserve">
+    <value>Бары слева</value>
+  </data>
+  <data name="TitleBarCountFromRight" xml:space="preserve">
+    <value>Бары справа</value>
+  </data>
+  <data name="TitleBordersInPercent" xml:space="preserve">
+    <value>Границы, %</value>
+  </data>
+  <data name="TitleBottomColor" xml:space="preserve">
+    <value>Цвет низа</value>
+  </data>
+  <data name="TitleBrickAutosize" xml:space="preserve">
+    <value>Авторазмер кирпича</value>
+  </data>
+  <data name="TitleBrickSize" xml:space="preserve">
+    <value>Размер кирпича</value>
+  </data>
+  <data name="TitleBuyLineColor" xml:space="preserve">
+    <value>Цвет линии BUY</value>
+  </data>
+  <data name="TitleCalculatedIndicatorsShort" xml:space="preserve">
+    <value>Вычисляемые</value>
+  </data>
+  <data name="TitleCalculateHits" xml:space="preserve">
+    <value>Считать попадания</value>
+  </data>
+  <data name="TitleCallColor" xml:space="preserve">
+    <value>Цвет CALL</value>
+  </data>
+  <data name="TitleCandleCount" xml:space="preserve">
+    <value>Количество свечей</value>
+  </data>
+  <data name="TitleCandleCountAfterExtremumInChannelShort" xml:space="preserve">
+    <value>Cвечей после экстремума</value>
+  </data>
+  <data name="TitleCandleCountBeforeExtremumInChannelShort" xml:space="preserve">
+    <value>Cвечей до экстремума</value>
+  </data>
+  <data name="TitleCandleCountForward" xml:space="preserve">
+    <value>Свеч вперед</value>
+  </data>
+  <data name="TitleCandleCountFromExtensionShort" xml:space="preserve">
+    <value>Свеч от расшир.</value>
+  </data>
+  <data name="TitleChannel" xml:space="preserve">
+    <value>Канал</value>
+  </data>
+  <data name="TitleChikouSmall" xml:space="preserve">
+    <value>линия отставания</value>
+  </data>
+  <data name="TitleClassicExtremumBarShort" xml:space="preserve">
+    <value>Бар клас. экстремума</value>
+  </data>
+  <data name="TitleColorizeChart" xml:space="preserve">
+    <value>Раскрасить график</value>
+  </data>
+  <data name="TitleColors" xml:space="preserve">
+    <value>Цвета</value>
+  </data>
+  <data name="TitleDataSource" xml:space="preserve">
+    <value>Источник данных</value>
+  </data>
+  <data name="TitleDeltaInPSAR" xml:space="preserve">
+    <value>Альфа (приращение)</value>
+  </data>
+  <data name="TitleDontCalculateConfirmation" xml:space="preserve">
+    <value>Не считать подтверждение</value>
+  </data>
+  <data name="TitleDrawOutdatedChannels" xml:space="preserve">
+    <value>Рисовать устаревшие каналы</value>
+  </data>
+  <data name="TitleERatio" xml:space="preserve">
+    <value>E-Ratio</value>
+  </data>
+  <data name="TitleExceptions" xml:space="preserve">
+    <value>Исключения</value>
+  </data>
+  <data name="TitleExitColorForPurchasesShort" xml:space="preserve">
+    <value>Цвет выхода (BUY)</value>
+  </data>
+  <data name="TitleExitColorForSellingsShort" xml:space="preserve">
+    <value>Цвет выхода (SELL)</value>
+  </data>
+  <data name="TitleExtrema" xml:space="preserve">
+    <value>Экстремумы</value>
+  </data>
+  <data name="TitleExtremaBordes" xml:space="preserve">
+    <value>Границы экстремумов</value>
+  </data>
+  <data name="TitleExtremaType" xml:space="preserve">
+    <value>Тип экстремумов</value>
+  </data>
+  <data name="TitleFallBricksColorShort" xml:space="preserve">
+    <value>Цвет падающих</value>
+  </data>
+  <data name="TitleFallBricksStrokeShort" xml:space="preserve">
+    <value>Обводка падающих</value>
+  </data>
+  <data name="TitleFastMAPeriodShort" xml:space="preserve">
+    <value>Период быстр.</value>
+  </data>
+  <data name="TitleFibonacciProjectionShort" xml:space="preserve">
+    <value>Проекция ФБ</value>
+  </data>
+  <data name="TitleFibonacciProjectionsShort" xml:space="preserve">
+    <value>Проекции ФБ</value>
+  </data>
+  <data name="TitleFigure" xml:space="preserve">
+    <value>Визуальный образ</value>
+  </data>
+  <data name="TitleFilter" xml:space="preserve">
+    <value>Фильтр</value>
+  </data>
+  <data name="TitleFilterByTitle" xml:space="preserve">
+    <value>Фильтр по заголовку</value>
+  </data>
+  <data name="TitleFormula1" xml:space="preserve">
+    <value>Формула 1</value>
+  </data>
+  <data name="TitleFormula2" xml:space="preserve">
+    <value>Формула 2</value>
+  </data>
+  <data name="TitleFormula3" xml:space="preserve">
+    <value>Формула 3</value>
+  </data>
+  <data name="TitleFormula4" xml:space="preserve">
+    <value>Формула 4</value>
+  </data>
+  <data name="TitleFormula5" xml:space="preserve">
+    <value>Формула 5</value>
+  </data>
+  <data name="TitleForwardChannelDrawing" xml:space="preserve">
+    <value>Дорисовка каналов вперед</value>
+  </data>
+  <data name="TitleFractal" xml:space="preserve">
+    <value>Фрактал</value>
+  </data>
+  <data name="TitleFractalLabels" xml:space="preserve">
+    <value>Метки фрактала</value>
+  </data>
+  <data name="TitleFractalPeriod" xml:space="preserve">
+    <value>Период Фрактала</value>
+  </data>
+  <data name="TitleFractalPrice" xml:space="preserve">
+    <value>Цена Фрактала</value>
+  </data>
+  <data name="TitleFractals" xml:space="preserve">
+    <value>Фракталы</value>
+  </data>
+  <data name="TitleFuturesVolumes" xml:space="preserve">
+    <value>Объемы фьючерс.</value>
+  </data>
+  <data name="TitleGlassOptions" xml:space="preserve">
+    <value>Стакан опционов</value>
+  </data>
+  <data name="TitleGrowthBricksColorShort" xml:space="preserve">
+    <value>Цвет растущих</value>
+  </data>
+  <data name="TitleGrowthBricksStrokeShort" xml:space="preserve">
+    <value>Обводка растущих</value>
+  </data>
+  <data name="TitleHideLines" xml:space="preserve">
+    <value>Скрывать линии</value>
+  </data>
+  <data name="TitleHideOldBars" xml:space="preserve">
+    <value>Скрывать старые</value>
+  </data>
+  <data name="TitleHighsColor" xml:space="preserve">
+    <value>Цвет максимумов</value>
+  </data>
+  <data name="TitleHollowBrickColor" xml:space="preserve">
+    <value>Цвет пустотелых</value>
+  </data>
+  <data name="TitleIchimokuIndicator" xml:space="preserve">
+    <value>Индикатор Ишимоку</value>
+  </data>
+  <data name="TitleIndex" xml:space="preserve">
+    <value>Индекс</value>
+  </data>
+  <data name="TitleIndex1" xml:space="preserve">
+    <value>Индекс 1</value>
+  </data>
+  <data name="TitleIndex2" xml:space="preserve">
+    <value>Индекс 2</value>
+  </data>
+  <data name="TitleIndex3" xml:space="preserve">
+    <value>Индекс 3</value>
+  </data>
+  <data name="TitleIndex4" xml:space="preserve">
+    <value>Индекс 4</value>
+  </data>
+  <data name="TitleIndex5" xml:space="preserve">
+    <value>Индекс 5</value>
+  </data>
+  <data name="TitleIndexPublication" xml:space="preserve">
+    <value>Публикация индексов</value>
+  </data>
+  <data name="TitleIndicatorState" xml:space="preserve">
+    <value>Состояние индикатора</value>
+  </data>
+  <data name="TitleKijunLine" xml:space="preserve">
+    <value>Линия стандарта</value>
+  </data>
+  <data name="TitleKijunLineSmall" xml:space="preserve">
+    <value>линия стандарта</value>
+  </data>
+  <data name="TitleKumoA" xml:space="preserve">
+    <value>Облако A</value>
+  </data>
+  <data name="TitleKumoB" xml:space="preserve">
+    <value>Облако B</value>
+  </data>
+  <data name="TitleKumoSmall" xml:space="preserve">
+    <value>облако</value>
+  </data>
+  <data name="TitleLevels" xml:space="preserve">
+    <value>Уровни</value>
+  </data>
+  <data name="TitleLevelsOrSegments" xml:space="preserve">
+    <value>Уровни (отрезки)</value>
+  </data>
+  <data name="TitleLineColor1" xml:space="preserve">
+    <value>Цвет линии 1</value>
+  </data>
+  <data name="TitleLineColor2" xml:space="preserve">
+    <value>Цвет линии 2</value>
+  </data>
+  <data name="TitleLineColor3" xml:space="preserve">
+    <value>Цвет линии 3</value>
+  </data>
+  <data name="TitleLineColor4" xml:space="preserve">
+    <value>Цвет линии 4</value>
+  </data>
+  <data name="TitleLineColor5" xml:space="preserve">
+    <value>Цвет линии 5</value>
+  </data>
+  <data name="TitleLongTimeInterval" xml:space="preserve">
+    <value>Длинный временной промежуток</value>
+  </data>
+  <data name="TitleLowerLimit" xml:space="preserve">
+    <value>Нижняя граница</value>
+  </data>
+  <data name="TitleLowerLimitSmall" xml:space="preserve">
+    <value>нижняя граница</value>
+  </data>
+  <data name="TitleLowsColor" xml:space="preserve">
+    <value>Цвет минимумов</value>
+  </data>
+  <data name="TitleMAPeriod" xml:space="preserve">
+    <value>Период СС</value>
+  </data>
+  <data name="TitleMAPrice" xml:space="preserve">
+    <value>Цена СС</value>
+  </data>
+  <data name="TitleMAType" xml:space="preserve">
+    <value>Тип СС</value>
+  </data>
+  <data name="TitleMaximumCandleCountInChannelShort" xml:space="preserve">
+    <value>Масимум свечей</value>
+  </data>
+  <data name="TitleMinimumCandleCountInChannelShort" xml:space="preserve">
+    <value>Минимум свечей</value>
+  </data>
+  <data name="TitleMinusInfinityReplacement" xml:space="preserve">
+    <value>Замена -бесконеч.</value>
+  </data>
+  <data name="TitleMovingAverage" xml:space="preserve">
+    <value>Скользящая средняя</value>
+  </data>
+  <data name="TitleNaNReplacement" xml:space="preserve">
+    <value>Замена NaN</value>
+  </data>
+  <data name="TitleOpenInterestLineColorShort" xml:space="preserve">
+    <value>Цвет линии О.И.</value>
+  </data>
+  <data name="TitleOpenInterestShort" xml:space="preserve">
+    <value>О.И.</value>
+  </data>
+  <data name="TitleOptionLevels" xml:space="preserve">
+    <value>Опционные уровни</value>
+  </data>
+  <data name="TitlePercentiles" xml:space="preserve">
+    <value>Перцентили</value>
+  </data>
+  <data name="TitlePlusInfinityReplacement" xml:space="preserve">
+    <value>Замена +бесконеч.</value>
+  </data>
+  <data name="TitlePositionNumber" xml:space="preserve">
+    <value>Позиция #</value>
+  </data>
+  <data name="TitlePriceSeriesVolatility" xml:space="preserve">
+    <value>Волатильность ценового ряда</value>
+  </data>
+  <data name="TitlePriceType" xml:space="preserve">
+    <value>Тип цены</value>
+  </data>
+  <data name="TitleProjection" xml:space="preserve">
+    <value>Проекция</value>
+  </data>
+  <data name="TitleProjectionAndDivergences" xml:space="preserve">
+    <value>Проекции+диверг.</value>
+  </data>
+  <data name="TitleProjectionLength" xml:space="preserve">
+    <value>Длина проекций</value>
+  </data>
+  <data name="TitleProjectionLevels" xml:space="preserve">
+    <value>Уровни проекций</value>
+  </data>
+  <data name="TitleProjectionMarks" xml:space="preserve">
+    <value>Отметки проекций</value>
+  </data>
+  <data name="TitleProjectionThresholdInPoints" xml:space="preserve">
+    <value>Порог проекций, пп</value>
+  </data>
+  <data name="TitlePurchaseColor" xml:space="preserve">
+    <value>Цвет покупок</value>
+  </data>
+  <data name="TitlePurchaseColorForClosedDealsShort" xml:space="preserve">
+    <value>Цвет покупок (закрытые)</value>
+  </data>
+  <data name="TitlePutColor" xml:space="preserve">
+    <value>Цвет PUT</value>
+  </data>
+  <data name="TitleQuoteDirectory" xml:space="preserve">
+    <value>Каталог котировок</value>
+  </data>
+  <data name="TitleRandomWalkModelForecastShort" xml:space="preserve">
+    <value>Прогноз модели RW</value>
+  </data>
+  <data name="TitleRedrawingTimeInSeconds" xml:space="preserve">
+    <value>Перерисовка, секунд</value>
+  </data>
+  <data name="TitleRenko" xml:space="preserve">
+    <value>Ренко</value>
+  </data>
+  <data name="TitleRSIBorders" xml:space="preserve">
+    <value>Границы RSI</value>
+  </data>
+  <data name="TitleSellingColor" xml:space="preserve">
+    <value>Цвет продаж</value>
+  </data>
+  <data name="TitleSellingColorForClosedDealsShort" xml:space="preserve">
+    <value>Цвет продаж (закрытые)</value>
+  </data>
+  <data name="TitleSellLineColor" xml:space="preserve">
+    <value>Цвет линии SELL</value>
+  </data>
+  <data name="TitleSenkouALine" xml:space="preserve">
+    <value>Верховая линия типа A</value>
+  </data>
+  <data name="TitleSenkouALineSmall" xml:space="preserve">
+    <value>верховая линия типа A</value>
+  </data>
+  <data name="TitleSenkouBLine" xml:space="preserve">
+    <value>Верховая линия типа B</value>
+  </data>
+  <data name="TitleSenkouBLineSmall" xml:space="preserve">
+    <value>верховая линия типа B</value>
+  </data>
+  <data name="TitleShortTimeInterval" xml:space="preserve">
+    <value>Короткий временной промежуток</value>
+  </data>
+  <data name="TitleShowBorders" xml:space="preserve">
+    <value>Показать границы</value>
+  </data>
+  <data name="TitleShowClosedDealsComments" xml:space="preserve">
+    <value>Комментарии закрытых</value>
+  </data>
+  <data name="TitleShowComments" xml:space="preserve">
+    <value>Отображать комментарии</value>
+  </data>
+  <data name="TitleShowDealsClosingShort" xml:space="preserve">
+    <value>Закрытые сделки</value>
+  </data>
+  <data name="TitleShowEnterPoints" xml:space="preserve">
+    <value>Показывать точки входов</value>
+  </data>
+  <data name="TitleShowOpenedOrdersStatisticsOnCurrentBarShort" xml:space="preserve">
+    <value>Коммментарий на текущем</value>
+  </data>
+  <data name="TitleShowType" xml:space="preserve">
+    <value>Режим отображения</value>
+  </data>
+  <data name="TitleShowVertexes" xml:space="preserve">
+    <value>Показ вершин</value>
+  </data>
+  <data name="TitleSigmaAnalysis" xml:space="preserve">
+    <value>Сигма-анализ</value>
+  </data>
+  <data name="TitleSlidingChannel" xml:space="preserve">
+    <value>Скользящий канал</value>
+  </data>
+  <data name="TitleSlowMAPeriodShort" xml:space="preserve">
+    <value>Период медл.</value>
+  </data>
+  <data name="TitleSmoothStochasticCurveColorShort" xml:space="preserve">
+    <value>Цвет D</value>
+  </data>
+  <data name="TitleSmoothStochasticPeriodShort" xml:space="preserve">
+    <value>Период D</value>
+  </data>
+  <data name="TitleSourcePointsShort" xml:space="preserve">
+    <value>Исход. точки</value>
+  </data>
+  <data name="TitleStartPoint" xml:space="preserve">
+    <value>Точка старта</value>
+  </data>
+  <data name="TitleStepInPSAR" xml:space="preserve">
+    <value>Альфа (шаг)</value>
+  </data>
+  <data name="TitleStochastic" xml:space="preserve">
+    <value>Стохастик</value>
+  </data>
+  <data name="TitleStochasticCurveColorShort" xml:space="preserve">
+    <value>Цвет K</value>
+  </data>
+  <data name="TitleStockIndicatorsShort" xml:space="preserve">
+    <value>Биржевые</value>
+  </data>
+  <data name="TitleTechnicalAnalysisShort" xml:space="preserve">
+    <value>Тех. анализ</value>
+  </data>
+  <data name="TitleTenkanLine" xml:space="preserve">
+    <value>Линия переворота</value>
+  </data>
+  <data name="TitleTenkanLineSmall" xml:space="preserve">
+    <value>линия переворота</value>
+  </data>
+  <data name="TitleThresholdInPercents" xml:space="preserve">
+    <value>Порог, %</value>
+  </data>
+  <data name="TitleTimeToUpdateInMinutes" xml:space="preserve">
+    <value>Минут до обновления</value>
+  </data>
+  <data name="TitleTopColor" xml:space="preserve">
+    <value>Цвет верха</value>
+  </data>
+  <data name="TitleTradeOperations" xml:space="preserve">
+    <value>Торговые операции</value>
+  </data>
+  <data name="TitleTradeSharpVolumes" xml:space="preserve">
+    <value>Объемы TRADE#</value>
+  </data>
+  <data name="TitleTradingIndicatorsShort" xml:space="preserve">
+    <value>Торговые</value>
+  </data>
+  <data name="TitleTransparentBricks" xml:space="preserve">
+    <value>Прозрачные кирпичи</value>
+  </data>
+  <data name="TitleTrendAndFlat" xml:space="preserve">
+    <value>Тренд/флэт</value>
+  </data>
+  <data name="TitleTurtleLikeFormations" xml:space="preserve">
+    <value>Черепаховидные формации</value>
+  </data>
+  <data name="TitleTurtles" xml:space="preserve">
+    <value>Черепахи</value>
+  </data>
+  <data name="TitleUpperLimit" xml:space="preserve">
+    <value>Верхняя граница</value>
+  </data>
+  <data name="TitleUpperLimitSmall" xml:space="preserve">
+    <value>верхняя граница</value>
+  </data>
+  <data name="TitleUserIndex" xml:space="preserve">
+    <value>Пользовательский индекс</value>
+  </data>
+  <data name="TitleVertexBeamDirection" xml:space="preserve">
+    <value>Направление лучей вершин</value>
+  </data>
+  <data name="TitleVolatility" xml:space="preserve">
+    <value>Волатильность</value>
+  </data>
+  <data name="TitleVolatilityPeriod" xml:space="preserve">
+    <value>Период волатильности</value>
+  </data>
+  <data name="TitleVolatilityScale" xml:space="preserve">
+    <value>Масштаб от волатильности</value>
+  </data>
+  <data name="TitleVolitilityType" xml:space="preserve">
+    <value>Тип волатильности</value>
+  </data>
+  <data name="TitleVolumeLineColor" xml:space="preserve">
+    <value>Цвет линии объема</value>
+  </data>
+  <data name="TitleVolumeType" xml:space="preserve">
+    <value>Тип объема</value>
+  </data>
+  <data name="TitleXOffset" xml:space="preserve">
+    <value>Смещение Х</value>
+  </data>
+  <data name="TitleZigzag" xml:space="preserve">
+    <value>Зиг-Заг</value>
+  </data>
+  <data name="TitleZigzagShort" xml:space="preserve">
+    <value>З-З</value>
+  </data>
+  <data name="TitleAssessmentForHit" xml:space="preserve">
+    <value>Оценка за попадание</value>
+  </data>
+  <data name="TitleChikou" xml:space="preserve">
+    <value>Линия отставания</value>
+  </data>
+  <data name="TitleDisplaySeriesOrCourseSmall" xml:space="preserve">
+    <value>серия отображения ("курс")</value>
+  </data>
+  <data name="TitleDivergenceRegions" xml:space="preserve">
+    <value>Области дивергенций</value>
+  </data>
+  <data name="TitleDivergenceTypeSmall" xml:space="preserve">
+    <value>тип дивергенций</value>
+  </data>
+  <data name="TitleExpressionEditor" xml:space="preserve">
+    <value>Редактор формул</value>
+  </data>
+  <data name="TitleExtremumPeriodSmall" xml:space="preserve">
+    <value>период экстремума</value>
+  </data>
+  <data name="TitleHighlightInDays" xml:space="preserve">
+    <value>Подсвечивать, дней</value>
+  </data>
+  <data name="TitleIntervalBordersSmall" xml:space="preserve">
+    <value>границы интервала</value>
+  </data>
+  <data name="TitleInvertSmall" xml:space="preserve">
+    <value>инвертировать</value>
+  </data>
+  <data name="TitleLeftLabel" xml:space="preserve">
+    <value>Метка слева</value>
+  </data>
+  <data name="TitleLengthInHours" xml:space="preserve">
+    <value>Длина, часов</value>
+  </data>
+  <data name="TitleMaximumDistanceFromExtremumShortSmall" xml:space="preserve">
+    <value>макс. расст. от экстр.</value>
+  </data>
+  <data name="TitleMaximumNumberOfPointToMarketShort" xml:space="preserve">
+    <value>Макс. пп. до рынка</value>
+  </data>
+  <data name="TitleMinimalVolume" xml:space="preserve">
+    <value>Мин. объем</value>
+  </data>
+  <data name="TitleMinmalOpenInterestShort" xml:space="preserve">
+    <value>Мин. откр. интерес</value>
+  </data>
+  <data name="TitleRightLabel" xml:space="preserve">
+    <value>Метка справа</value>
+  </data>
+  <data name="TitleScaleY" xml:space="preserve">
+    <value>Масштабировать Y</value>
+  </data>
+  <data name="TitleSeriesSetup" xml:space="preserve">
+    <value>Настройка серий</value>
+  </data>
+  <data name="TitleShowAmericanEurope" xml:space="preserve">
+    <value>Отображать амер./евр.</value>
+  </data>
+  <data name="TitleShowCallPut" xml:space="preserve">
+    <value>Отображать CALL/PUT</value>
+  </data>
+  <data name="TitleSourceSeriesOrIndexSmall" xml:space="preserve">
+    <value>серия-источник ("индекс")</value>
+  </data>
+  <data name="TitleSummaryLevelsLineStyleShort" xml:space="preserve">
+    <value>Линии сумм.</value>
+  </data>
+  <data name="TitleUnionOfLevels" xml:space="preserve">
+    <value>Объединение уровней</value>
+  </data>
+  <data name="TitleUnionType" xml:space="preserve">
+    <value>Тип объединения</value>
+  </data>
+  <data name="MessageAlertSound" xml:space="preserve">
+    <value>Звук воспроизведения</value>
+  </data>
+  <data name="MessageArbitraryName" xml:space="preserve">
+    <value>Произвольное наименование</value>
+  </data>
+  <data name="MessageIntervalBetweenCalls" xml:space="preserve">
+    <value>Интервал, секунд, между повторениями</value>
+  </data>
+  <data name="MessageLoadingScriptsErrorFmt" xml:space="preserve">
+    <value>ошибка загрузки скриптов из сборки {0}: {1}</value>
+  </data>
+  <data name="MessageRepeatTimes" xml:space="preserve">
+    <value>Количество повторений (-1 - без ограничений)</value>
+  </data>
+  <data name="MessageScriptTrigger" xml:space="preserve">
+    <value>Условия авто-запуска скрипта</value>
+  </data>
+  <data name="TitleIntervalBetweenCalls" xml:space="preserve">
+    <value>Интервал, с</value>
+  </data>
+  <data name="TitleMessageText" xml:space="preserve">
+    <value>Текст сообщения</value>
+  </data>
+  <data name="TitleRepeatTimes" xml:space="preserve">
+    <value>Повторов</value>
+  </data>
+  <data name="TitleSound" xml:space="preserve">
+    <value>Звук</value>
+  </data>
+  <data name="TitleCommentDetailType" xml:space="preserve">
+    <value>Тип комментария</value>
+  </data>
+  <data name="TitleCommentDetailTypeDescription" xml:space="preserve">
+    <value>Краткий / подробный (многострочный)</value>
+  </data>
+  <data name="TitleSummaryPositionCommentScript" xml:space="preserve">
+    <value>Сумм. позиция на графике</value>
+  </data>
+  <data name="TitleTerminalLoading" xml:space="preserve">
+    <value>Загрузка терминала</value>
+  </data>
+  <data name="TitleTradeAutomatically" xml:space="preserve">
+    <value>Торговать автоматически</value>
+  </data>
+  <data name="TitleAllAccounts" xml:space="preserve">
+    <value>Все счета</value>
+  </data>
+  <data name="TitleSetupColumns" xml:space="preserve">
+    <value>Настроить столбцы</value>
+  </data>
+  <data name="MessageCannotGetSubscribersInfo" xml:space="preserve">
+    <value>Невозможно получить информацию о подписчиках.\nВозможно, необходимо обновить файл конфигурации терминала</value>
+  </data>
+  <data name="MessageUnableToGetSubscriptions" xml:space="preserve">
+    <value>Невозможно получить информацию о сервисах</value>
+  </data>
+  <data name="MessageUnsubscribeSignalFmt" xml:space="preserve">
+    <value>Отписаться от сигнала "{0}"?</value>
+  </data>
+  <data name="MessageYourAreSubscribedOnSignalsFmt" xml:space="preserve">
+    <value>Вы подписаны на {0} сигналов. Комиссия составляет: {1} {2}</value>
+  </data>
+  <data name="MessageLoadingNChartFmt" xml:space="preserve">
+    <value>Загрузка {0} графика из {1}</value>
+  </data>
+  <data name="TitleExtensionLevelSettings" xml:space="preserve">
+    <value>Настройки уровней расширений</value>
+  </data>
+  <data name="TitleIdentifyNumber" xml:space="preserve">
+    <value>Идентификационное число</value>
+  </data>
+  <data name="TitleIndexList" xml:space="preserve">
+    <value>Список индексов</value>
+  </data>
+  <data name="TitleMinimalVolumeForDealRounding" xml:space="preserve">
+    <value>Минимальный объём для округления сделки</value>
+  </data>
+  <data name="TitleNewsChannels" xml:space="preserve">
+    <value>Новостные каналы</value>
+  </data>
+  <data name="TitleNotInitialized" xml:space="preserve">
+    <value>Не инициализован</value>
+  </data>
+  <data name="TitlePositionProtection" xml:space="preserve">
+    <value>Защита позиций</value>
+  </data>
+  <data name="TitlePriceDeviationFromLevel" xml:space="preserve">
+    <value>Отклонение цены от уровня</value>
+  </data>
+  <data name="TitleRoundingType" xml:space="preserve">
+    <value>Тип округления</value>
+  </data>
+  <data name="TitleRoundStep" xml:space="preserve">
+    <value>Шаг округления</value>
+  </data>
+  <data name="TitleStarted" xml:space="preserve">
+    <value>Запущен</value>
+  </data>
+  <data name="TitleTradeRobotName" xml:space="preserve">
+    <value>Название торгового робота</value>
+  </data>
+  <data name="TitleUsedBarsCount" xml:space="preserve">
+    <value>Количество используемых баров</value>
+  </data>
+  <data name="TitleUsedCharts" xml:space="preserve">
+    <value>Используемые графики</value>
+  </data>
+  <data name="EnumEllipseTangentTypeОтрезок" xml:space="preserve">
+    <value>Отрезок</value>
+  </data>
+  <data name="EnumEllipseTangentTypeПрямая" xml:space="preserve">
+    <value>Прямая</value>
+  </data>
+  <data name="TitleObjectProperties" xml:space="preserve">
+    <value>Свойства объекта</value>
+  </data>
+  <data name="EnumDealMarkerTypeВход" xml:space="preserve">
+    <value>Вход</value>
+  </data>
+  <data name="EnumDealMarkerTypeВыход" xml:space="preserve">
+    <value>Выход</value>
+  </data>
+  <data name="EnumMarkerPlacementДвеМетки" xml:space="preserve">
+    <value>Две метки</value>
+  </data>
+  <data name="EnumMarkerPlacementСлева" xml:space="preserve">
+    <value>Слева</value>
+  </data>
+  <data name="EnumMarkerPlacementСправа" xml:space="preserve">
+    <value>Справа</value>
+  </data>
+  <data name="EnumShapeTypeГайка" xml:space="preserve">
+    <value>Гайка</value>
+  </data>
+  <data name="EnumShapeTypeГалкаВверх" xml:space="preserve">
+    <value>Галка вверх</value>
+  </data>
+  <data name="EnumShapeTypeГалкаВниз" xml:space="preserve">
+    <value>Галка вниз</value>
+  </data>
+  <data name="EnumShapeTypeЗвезда" xml:space="preserve">
+    <value>Звезда</value>
+  </data>
+  <data name="EnumShapeTypeКвадрат" xml:space="preserve">
+    <value>Квадрат</value>
+  </data>
+  <data name="EnumShapeTypeКрестВверх" xml:space="preserve">
+    <value>Крест вверх</value>
+  </data>
+  <data name="EnumShapeTypeКрестВниз" xml:space="preserve">
+    <value>Крест вниз</value>
+  </data>
+  <data name="EnumShapeTypeКруг" xml:space="preserve">
+    <value>Круг</value>
+  </data>
+  <data name="EnumShapeTypeСтрелкаВверх" xml:space="preserve">
+    <value>Стрелка вверх</value>
+  </data>
+  <data name="EnumShapeTypeСтрелкаВниз" xml:space="preserve">
+    <value>Стрелка вниз</value>
+  </data>
+  <data name="EnumAllowedOptionStyleAmerican" xml:space="preserve">
+    <value>American</value>
+  </data>
+  <data name="EnumAllowedOptionStyleEuropean" xml:space="preserve">
+    <value>European</value>
+  </data>
+  <data name="EnumAllowedOptionStyleВсе" xml:space="preserve">
+    <value>Все</value>
+  </data>
+  <data name="EnumAllowedOptionTypeCALL" xml:space="preserve">
+    <value>CALL</value>
+  </data>
+  <data name="EnumAllowedOptionTypePUT" xml:space="preserve">
+    <value>PUT</value>
+  </data>
+  <data name="EnumAllowedOptionTypeВсе" xml:space="preserve">
+    <value>Все</value>
+  </data>
+  <data name="EnumChannelStateInfoНетКанала" xml:space="preserve">
+    <value>Нет канала</value>
+  </data>
+  <data name="EnumChannelStateInfoПостроенПоМаксимумам" xml:space="preserve">
+    <value>Построен по максимумам</value>
+  </data>
+  <data name="EnumChannelStateInfoПостроенПоМинимумам" xml:space="preserve">
+    <value>Построен по минимумам</value>
+  </data>
+  <data name="EnumDisplayedLevelsВсе" xml:space="preserve">
+    <value>Все</value>
+  </data>
+  <data name="EnumDisplayedLevelsОбъем" xml:space="preserve">
+    <value>Объем</value>
+  </data>
+  <data name="EnumDisplayedLevelsОткрытыйИнтерес" xml:space="preserve">
+    <value>Открытый интерес</value>
+  </data>
+  <data name="EnumDivergenceTypeКлассические" xml:space="preserve">
+    <value>Классические</value>
+  </data>
+  <data name="EnumDivergenceTypeОтКвазиЭкстремумов" xml:space="preserve">
+    <value>От квази экстремумов</value>
+  </data>
+  <data name="EnumDrawStyleРегионы" xml:space="preserve">
+    <value>Регионы</value>
+  </data>
+  <data name="EnumDrawStyleСтрелка" xml:space="preserve">
+    <value>Стрелка</value>
+  </data>
+  <data name="EnumDrawStyleСтрелки" xml:space="preserve">
+    <value>Стрелки</value>
+  </data>
+  <data name="EnumDrawStyleТекст" xml:space="preserve">
+    <value>Текст</value>
+  </data>
+  <data name="EnumDrawStyleТреугольнички" xml:space="preserve">
+    <value>Треугольнички</value>
+  </data>
+  <data name="EnumDrawStyleЦветныеСвечи" xml:space="preserve">
+    <value>Цветные свечи</value>
+  </data>
+  <data name="EnumExtremumBarDirectionСверхуВниз" xml:space="preserve">
+    <value>Сверху вниз</value>
+  </data>
+  <data name="EnumExtremumBarDirectionСнизуВверх" xml:space="preserve">
+    <value>Снизу вверх</value>
+  </data>
+  <data name="EnumExtremumSearchTypeКвазиЭкстремумы" xml:space="preserve">
+    <value>Квази экстремумы</value>
+  </data>
+  <data name="EnumExtremumSearchTypeКлассические" xml:space="preserve">
+    <value>Классические</value>
+  </data>
+  <data name="EnumIndicatorShapeПэкмен" xml:space="preserve">
+    <value>Пэкмен</value>
+  </data>
+  <data name="EnumIndicatorShapeЧерепаха" xml:space="preserve">
+    <value>Черепаха</value>
+  </data>
+  <data name="EnumLevelLabelНет" xml:space="preserve">
+    <value>Нет</value>
+  </data>
+  <data name="EnumLevelLabelОбъем" xml:space="preserve">
+    <value>Объем</value>
+  </data>
+  <data name="EnumLevelLabelОткрИнтерес" xml:space="preserve">
+    <value>Открытый интерес</value>
+  </data>
+  <data name="EnumLevelLabelЭкспирация" xml:space="preserve">
+    <value>Экспирация</value>
+  </data>
+  <data name="EnumMovAvgTypeПростая" xml:space="preserve">
+    <value>Простая</value>
+  </data>
+  <data name="EnumMovAvgTypeСглаженная" xml:space="preserve">
+    <value>Сглаженная</value>
+  </data>
+  <data name="EnumOpenPositionTypeВсе" xml:space="preserve">
+    <value>Все</value>
+  </data>
+  <data name="EnumOpenPositionTypeСовокупная" xml:space="preserve">
+    <value>Совокупная</value>
+  </data>
+  <data name="EnumOptionLevelTypeРаздельные" xml:space="preserve">
+    <value>Раздельные</value>
+  </data>
+  <data name="EnumOptionLevelTypeСуммарные" xml:space="preserve">
+    <value>Суммарные</value>
+  </data>
+  <data name="EnumOptionLevelWeightTypeОбъем" xml:space="preserve">
+    <value>Объем</value>
+  </data>
+  <data name="EnumOptionLevelWeightTypeОткрытыйИнтерес" xml:space="preserve">
+    <value>Открытый интерес</value>
+  </data>
+  <data name="EnumPivotSourceЗигЗаг" xml:space="preserve">
+    <value>Зигзаг</value>
+  </data>
+  <data name="EnumPivotSourceФрактал" xml:space="preserve">
+    <value>Фрактал</value>
+  </data>
+  <data name="EnumRencoVolatilityTypeATR" xml:space="preserve">
+    <value>ATR</value>
+  </data>
+  <data name="EnumRencoVolatilityTypeРазмах" xml:space="preserve">
+    <value>Размах</value>
+  </data>
+  <data name="EnumSourceTypeИндикаторОрдеров" xml:space="preserve">
+    <value>Индикатор ордеров</value>
+  </data>
+  <data name="EnumSourceTypeКоментарииРоботов" xml:space="preserve">
+    <value>Комментарии роботов</value>
+  </data>
+  <data name="EnumSourceTypeМаркерыСделок" xml:space="preserve">
+    <value>Маркеры сделок</value>
+  </data>
+  <data name="EnumStartPointВесьЭкран" xml:space="preserve">
+    <value>Весь экран</value>
+  </data>
+  <data name="EnumStartPointОтВхода" xml:space="preserve">
+    <value>От входа</value>
+  </data>
+  <data name="EnumPerformerSortOrderAscending" xml:space="preserve">
+    <value>по возрастанию</value>
+  </data>
+  <data name="EnumPerformerSortOrderDescending" xml:space="preserve">
+    <value>по убыванию</value>
+  </data>
+  <data name="EnumSummaryLevelLineStyleКаналы" xml:space="preserve">
+    <value>Каналы</value>
+  </data>
+  <data name="EnumSummaryLevelLineStyleРаздельные" xml:space="preserve">
+    <value>Раздельные</value>
+  </data>
+  <data name="MessageEnterFormulaComment" xml:space="preserve">
+    <value>Введите комментарий для формулы</value>
+  </data>
+  <data name="MessageEnterText" xml:space="preserve">
+    <value>Введите текст</value>
+  </data>
+  <data name="TitleCaseSensitiveSmall" xml:space="preserve">
+    <value>учитывать регистр</value>
+  </data>
+  <data name="TitleInitials" xml:space="preserve">
+    <value>Ф.И.О.</value>
+  </data>
+  <data name="TitleInput" xml:space="preserve">
+    <value>Ввод</value>
+  </data>
+  <data name="TitleSearchForManager" xml:space="preserve">
+    <value>Поиск управляющего</value>
+  </data>
+  <data name="TitleShowFirst" xml:space="preserve">
+    <value>Показать первые</value>
+  </data>
+  <data name="MeesageSourceSeriesDescription" xml:space="preserve">
+    <value>Серии источников-данных для индикатора</value>
+  </data>
+  <data name="MessageAlertPriceLevelsDescription" xml:space="preserve">
+    <value>Значения уровней цены, на которых срабатывает алерт</value>
+  </data>
+  <data name="MessageAwesomePeriodDescription" xml:space="preserve">
+    <value>Период скользящей средней индикатора Awesome</value>
+  </data>
+  <data name="MessageCloseDealQuestion" xml:space="preserve">
+    <value>Закрыть сделку?</value>
+  </data>
+  <data name="MessageCloseNDealsQuestion" xml:space="preserve">
+    <value>Закрыть {0} сделок?</value>
+  </data>
+  <data name="MessageCloseTerminalQuestion" xml:space="preserve">
+    <value>Закрыть терминал?</value>
+  </data>
+  <data name="MessageContinueQuestion" xml:space="preserve">
+    <value>Продолжить?</value>
+  </data>
+  <data name="MessageCorrectionABLengthDescription" xml:space="preserve">
+    <value>Длина черточки коррекции предпоследнего плеча, свеч</value>
+  </data>
+  <data name="MessageCorrectionBCLengthDescription" xml:space="preserve">
+    <value>Длина черточки коррекции от последнего плеча, свеч</value>
+  </data>
+  <data name="MessageCorrectionLengthDescription" xml:space="preserve">
+    <value>Длина проекций, баров</value>
+  </data>
+  <data name="MessageCorrectionLevelsDescription" xml:space="preserve">
+    <value>Уровни "коррекции" Фибоначчи</value>
+  </data>
+  <data name="MessageCreateDrawingPanelDescription" xml:space="preserve">
+    <value>Создавать свою панель отрисовки</value>
+  </data>
+  <data name="MessageDrawingPanelDescription" xml:space="preserve">
+    <value>Панель отображения данных индикатора</value>
+  </data>
+  <data name="MessageEmailAddressesListDescription" xml:space="preserve">
+    <value>Список адресов E-mail для рассылки</value>
+  </data>
+  <data name="MessageErrorDuringLoadingAndSaveChangesQuestion" xml:space="preserve">
+    <value>В процессе загрузки терминала произошла ошибка. Сохранить настройки?</value>
+  </data>
+  <data name="MessageErrorSendingRequest" xml:space="preserve">
+    <value>Не удалось доставить запрос</value>
+  </data>
+  <data name="MessageExpansionLevelsDescription" xml:space="preserve">
+    <value>Уровни "расширения" Фибоначчи</value>
+  </data>
+  <data name="MessageFallColorDescription" xml:space="preserve">
+    <value>Цвет падающих столбиков</value>
+  </data>
+  <data name="MessageFastMovingAveragePeriodDescription" xml:space="preserve">
+    <value>Период быстрой скользящей средней</value>
+  </data>
+  <data name="MessageGrowthColorDescription" xml:space="preserve">
+    <value>Цвет растущих столбиков</value>
+  </data>
+  <data name="MessageHideLineDescription" xml:space="preserve">
+    <value>Скрывать линию между узловыми точками</value>
+  </data>
+  <data name="MessageHideMissesDescription" xml:space="preserve">
+    <value>Скрывать полоски, удаленные от свечек</value>
+  </data>
+  <data name="MessageHitErrorsInPointsDescription" xml:space="preserve">
+    <value>Для отрисовки полосок - допустимая погрешность попаданий в свечу, пп</value>
+  </data>
+  <data name="MessageIconDescription" xml:space="preserve">
+    <value>Отображаемый значок</value>
+  </data>
+  <data name="MessageLineColorDescription" xml:space="preserve">
+    <value>Цвет линий</value>
+  </data>
+  <data name="MessageLineStyleDescription" xml:space="preserve">
+    <value>Стиль линии индикатора (сплошная, штирх, штрих-пунктир...)</value>
+  </data>
+  <data name="MessageMAColorDescription" xml:space="preserve">
+    <value>Цвет СС</value>
+  </data>
+  <data name="MessageMALineStyleDescription" xml:space="preserve">
+    <value>Стиль средней линии индикатора (сплошная, штирх, штрих-пунктир...)</value>
+  </data>
+  <data name="MessageMALineTypeDescription" xml:space="preserve">
+    <value>Тип скольз. средней (простая, сглаженная)</value>
+  </data>
+  <data name="MessageMAPeriodAndVolatilityIntervalDescription" xml:space="preserve">
+    <value>Период скользящей средней и интервал расчета волатильности</value>
+  </data>
+  <data name="MessageMarkersDescription" xml:space="preserve">
+    <value>Текстовые метки</value>
+  </data>
+  <data name="MessageNameDescription" xml:space="preserve">
+    <value>Краткий заголовок</value>
+  </data>
+  <data name="MessageNewsRead" xml:space="preserve">
+    <value>новости прочитаны</value>
+  </data>
+  <data name="MessageOffsetInBarsDescription" xml:space="preserve">
+    <value>Смещение вправо (&gt;0) или влево (&lt;0), баров</value>
+  </data>
+  <data name="MessagePhonesForSMSDescription" xml:space="preserve">
+    <value>Список телефонов для рассылки СМС</value>
+  </data>
+  <data name="MessagePleaseLogInOnServer" xml:space="preserve">
+    <value>Необходимо авторизоваться на сервере</value>
+  </data>
+  <data name="MessagePositionWillBeOpened" xml:space="preserve">
+    <value>Будет открыта позиция</value>
+  </data>
+  <data name="MessagePriceTypeDescription" xml:space="preserve">
+    <value>Цена, от которой считается средняя и волатильность - закрытие, медиана</value>
+  </data>
+  <data name="MessageSendEmailDescription" xml:space="preserve">
+    <value>Флаг отправки сигнала на почту по достижению одного из уровней</value>
+  </data>
+  <data name="MessageSendSMSDescription" xml:space="preserve">
+    <value>Флаг отправки СМС-сигнала по достижению одного из уровней</value>
+  </data>
+  <data name="MessageShadowBrightnessDescription" xml:space="preserve">
+    <value>Яркость тени, 0...255</value>
+  </data>
+  <data name="MessageShadowDescription" xml:space="preserve">
+    <value>Рисовать тень</value>
+  </data>
+  <data name="MessageShadowThicknessDescription" xml:space="preserve">
+    <value>Толщина тени, пикселей</value>
+  </data>
+  <data name="MessageShowCorrectionDescription" xml:space="preserve">
+    <value>Показывать уровни "коррекции" Фибоначчи</value>
+  </data>
+  <data name="MessageShowDrawingPanelDescription" xml:space="preserve">
+    <value>Отображать свою панель отрисовки на графике</value>
+  </data>
+  <data name="MessageSlowMovingAveragePeriodDescription" xml:space="preserve">
+    <value>Период медленной скользящей средней</value>
+  </data>
+  <data name="MessageStretchChartDescription" xml:space="preserve">
+    <value>Растягивать график, если уровни "не влезают" по ценовой оси</value>
+  </data>
+  <data name="MessageSymbolSNotFound" xml:space="preserve">
+    <value>Символ {0} не найден</value>
+  </data>
+  <data name="MessageTerminalAlreadyRunning" xml:space="preserve">
+    <value>Терминал уже запущен</value>
+  </data>
+  <data name="MessageTextDescription" xml:space="preserve">
+    <value>Подробный коментарий</value>
+  </data>
+  <data name="MessageTextTransparencyAndOpaqueDescription" xml:space="preserve">
+    <value>Прозрачность текста (0 - полностью прозрачный, 255 - непрозрачный)</value>
+  </data>
+  <data name="MessageThicknessDescription" xml:space="preserve">
+    <value>Толщина линии индикатора, пикселей</value>
+  </data>
+  <data name="MessageTransparencyAndOpaqueDescription" xml:space="preserve">
+    <value>Прозрачность (0 - полностью прозрачный, 255 - непрозрачный)</value>
+  </data>
+  <data name="MessageTransparencyDescription" xml:space="preserve">
+    <value>Прозрачность заливки (0 - прозрачный, 255 - непрозрачный)</value>
+  </data>
+  <data name="MessageUniqueNameDescription" xml:space="preserve">
+    <value>Уникальное имя индикатора</value>
+  </data>
+  <data name="MessageVolatilityMultiplierDescription" xml:space="preserve">
+    <value>Множитель волатильности (размах полос)</value>
+  </data>
+  <data name="MessageZigzagPriceDescription" xml:space="preserve">
+    <value>Цены Зиг-Зага</value>
+  </data>
+  <data name="MessageThresholdInPercentsDescription" xml:space="preserve">
+    <value>Пороговая величина, %, на которую должен отклониться курс для формирования нового экстремума</value>
+  </data>
+  <data name="TitleConectedToServerSmall" xml:space="preserve">
+    <value>подключен к серверу</value>
+  </data>
+  <data name="TitleNoQuotes" xml:space="preserve">
+    <value>нет котировок</value>
+  </data>
+  <data name="TitleNotConnectedSmall" xml:space="preserve">
+    <value>не подключен</value>
+  </data>
+  <data name="TitleProfitSmall" xml:space="preserve">
+    <value>прибыль</value>
+  </data>
+  <data name="TitleSelectFileMenu" xml:space="preserve">
+    <value>Выбрать файл...</value>
+  </data>
+  <data name="TitleServerMessage" xml:space="preserve">
+    <value>Сообщение сервера</value>
+  </data>
+  <data name="TitleTimeframes" xml:space="preserve">
+    <value>Таймфреймы</value>
+  </data>
+  <data name="MessageArrowLengthDescription" xml:space="preserve">
+    <value>Длина стрелки, пикс</value>
+  </data>
+  <data name="MessageAssessmentForHitDescription" xml:space="preserve">
+    <value>Оценка за попадание в вершину - следующий - через один...</value>
+  </data>
+  <data name="MessageBarCountBetweenFractalsDescription" xml:space="preserve">
+    <value>Макс свеч между двумя фракталами</value>
+  </data>
+  <data name="MessageBarCountFromLeftDescription" xml:space="preserve">
+    <value>Количество обрабатываемых баров слева от текущего</value>
+  </data>
+  <data name="MessageBarCountFromRightDescription" xml:space="preserve">
+    <value>Количество обрабатываемых баров справа от текущего</value>
+  </data>
+  <data name="MessageBearishDivergenceColorDescription" xml:space="preserve">
+    <value>Цвет стрелок медвежьих диверов</value>
+  </data>
+  <data name="MessageBorderColorDescription" xml:space="preserve">
+    <value>Цвет границы</value>
+  </data>
+  <data name="MessageBottomFractalColorDescription" xml:space="preserve">
+    <value>Цвет нижнего фрактала</value>
+  </data>
+  <data name="MessageBullDivergenceColorDescription" xml:space="preserve">
+    <value>Цвет стрелок бычьих диверов</value>
+  </data>
+  <data name="MessageCalculateHitsDescription" xml:space="preserve">
+    <value>Сравнить частоту попаданий в вершины ЗЗ в сравнении с равномерными отчетами, вывод в лог</value>
+  </data>
+  <data name="MessageCandleCountFromExtensionDescription" xml:space="preserve">
+    <value>Макс. свечей от расширения</value>
+  </data>
+  <data name="MessageCandleCountToExtremumDescription" xml:space="preserve">
+    <value>Макс. свечей до экстремума</value>
+  </data>
+  <data name="MessageCCIPeriodDescription" xml:space="preserve">
+    <value>Период CCI</value>
+  </data>
+  <data name="MessageClassicExtremumBarDescription" xml:space="preserve">
+    <value>Период экстремума, классический экстр.</value>
+  </data>
+  <data name="MessageConfirmationBarDescription" xml:space="preserve">
+    <value>Ждать один бар в сторону дивергенции</value>
+  </data>
+  <data name="MessageCurveColorDescription" xml:space="preserve">
+    <value>Цвет кривой</value>
+  </data>
+  <data name="MessageDayLineThicknessDescription" xml:space="preserve">
+    <value>Толщина линии дневного разделителя, пикселей</value>
+  </data>
+  <data name="MessageDayMonthThicknessDescription" xml:space="preserve">
+    <value>Толщина линии разделителя на месяцы, пикселей</value>
+  </data>
+  <data name="MessageDaySeparatorColorDescription" xml:space="preserve">
+    <value>Цвет разделителя дней</value>
+  </data>
+  <data name="MessageDayWeekThicknessDescription" xml:space="preserve">
+    <value>Толщина линии разделителя на недели, пикселей</value>
+  </data>
+  <data name="MessageDivergenceTypeDescription" xml:space="preserve">
+    <value>Правила определения вершин диверов</value>
+  </data>
+  <data name="MessageDontCalculateConfirmationDescription" xml:space="preserve">
+    <value>Не считать подтверждение</value>
+  </data>
+  <data name="MessageDrawArrowDescription" xml:space="preserve">
+    <value>Рисовать стрелку</value>
+  </data>
+  <data name="MessageDrawingStyleArrowsOrTextDescription" xml:space="preserve">
+    <value>Стиль рисования (стрелки или текст)</value>
+  </data>
+  <data name="MessageDrawingStyleDescription" xml:space="preserve">
+    <value>Стиль рисования (стрелки или закрашенные области)</value>
+  </data>
+  <data name="MessageDrawStroke" xml:space="preserve">
+    <value>Рисовать обводку</value>
+  </data>
+  <data name="MessageERatioDataSourceDescription" xml:space="preserve">
+    <value>Источник данных о входах</value>
+  </data>
+  <data name="MessageERatioPeriodDescription" xml:space="preserve">
+    <value>Баров вперед от входа</value>
+  </data>
+  <data name="MessageExtensionLevelsDescription" xml:space="preserve">
+    <value>Уровни расширений</value>
+  </data>
+  <data name="MessageExtremaTypeDescription" xml:space="preserve">
+    <value>Разновидность экстремумов или того, что под ними понимается</value>
+  </data>
+  <data name="MessageExtremumInBarsDescription" xml:space="preserve">
+    <value>Период экстремума на свечах, свечей</value>
+  </data>
+  <data name="MessageFractalPeriodDescription" xml:space="preserve">
+    <value>Период "фракталов", свеч</value>
+  </data>
+  <data name="MessageFractalPriceTypeDescription" xml:space="preserve">
+    <value>Тип цен для фрактала</value>
+  </data>
+  <data name="MessageHideExtensionMissesDescription" xml:space="preserve">
+    <value>Скрывать промахи "расширений"</value>
+  </data>
+  <data name="MessageHideLinesDescription" xml:space="preserve">
+    <value>Скрывать линии между точками "расширений"</value>
+  </data>
+  <data name="MessageHideOldBarsDescription" xml:space="preserve">
+    <value>Скрывать бары, построенные от неактуальных вершин ЗЗ (если не считаются степени подтверждения)</value>
+  </data>
+  <data name="MessageMonthSeparatorColorDescription" xml:space="preserve">
+    <value>Цвет разделителя месяцев</value>
+  </data>
+  <data name="MessagePriceTypeForExtremumDescription" xml:space="preserve">
+    <value>Цена для отсчета экстремума</value>
+  </data>
+  <data name="MessageProjectionLengthDescription" xml:space="preserve">
+    <value>Длина проекций, баров</value>
+  </data>
+  <data name="MessageProjectionMarksDescription" xml:space="preserve">
+    <value>Отметки проекций</value>
+  </data>
+  <data name="MessageProjectionThresholdDescription" xml:space="preserve">
+    <value>Мин. расстояние для построения уровня</value>
+  </data>
+  <data name="MessageRedrawingTimeDescription" xml:space="preserve">
+    <value>Мин. интервал между обновлением</value>
+  </data>
+  <data name="MessageShowDaySeparatorDescription" xml:space="preserve">
+    <value>Разделитель периода на дни</value>
+  </data>
+  <data name="MessageShowDivergenceOnChartDescription" xml:space="preserve">
+    <value>Отображать дивергенцию на графике</value>
+  </data>
+  <data name="MessageShowMonthSeparatorDescription" xml:space="preserve">
+    <value>Разделитель периода на месяцы</value>
+  </data>
+  <data name="MessageShowVertexesDescription" xml:space="preserve">
+    <value>Показывать вершины вертикальными лучами</value>
+  </data>
+  <data name="MessageShowWeekSeparatorDescription" xml:space="preserve">
+    <value>Разделитель периода на недели</value>
+  </data>
+  <data name="MessageShowZonesDescription" xml:space="preserve">
+    <value>Показывать зоны "перекупленности"/"перепроданности"</value>
+  </data>
+  <data name="MessageSourcePointSelectionAlgorithmDescription" xml:space="preserve">
+    <value>Алгоритм выбора исходных точек</value>
+  </data>
+  <data name="MessageTopFractalColorDescription" xml:space="preserve">
+    <value>Цвет верхнего фрактала</value>
+  </data>
+  <data name="MessageVertexBeamDirectionDescription" xml:space="preserve">
+    <value>Направление лучей вершин</value>
+  </data>
+  <data name="MessageWeekSeparatorColorDescription" xml:space="preserve">
+    <value>Цвет разделителя недель</value>
+  </data>
+  <data name="MessageZoneLimitDescription" xml:space="preserve">
+    <value>Для "зонального" индикатора - граница зон перекупленности-перепроданности</value>
+  </data>
+  <data name="MessageZoneLowerLimitDescription" xml:space="preserve">
+    <value>Нижняя граница (зона "перепроданности")</value>
+  </data>
+  <data name="MessageZoneUpperLimitDescription" xml:space="preserve">
+    <value>Верхняя граница (зона "перекупленности")</value>
+  </data>
+  <data name="TitleBearishDivergencesSmall" xml:space="preserve">
+    <value>медвежьих</value>
+  </data>
+  <data name="TitleBullDivergencesSmall" xml:space="preserve">
+    <value>бычьих</value>
+  </data>
+  <data name="TitleClassicalSmallShort" xml:space="preserve">
+    <value>класс.</value>
+  </data>
+  <data name="TitleDivergencesSmall" xml:space="preserve">
+    <value>дивергенции</value>
+  </data>
+  <data name="TitleQuasiSmall" xml:space="preserve">
+    <value>квази</value>
+  </data>
+</root>

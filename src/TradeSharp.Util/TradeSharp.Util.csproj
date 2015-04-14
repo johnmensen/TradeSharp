@@ -1,0 +1,337 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4B406C3D-89C3-4C9F-A677-C3114D93B8F9}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TradeSharp.Util</RootNamespace>
+    <AssemblyName>TradeSharp.Util</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>../Libraries/tradesharp.pfx</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libraries\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libraries\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ActualizableSafeList.cs" />
+    <Compile Include="AppConfig.cs" />
+    <Compile Include="AppMessageFilter.cs" />
+    <Compile Include="AsynchWebRequest.cs" />
+    <Compile Include="BaseWebServer.cs" />
+    <Compile Include="BasicServicePageRenderer.cs" />
+    <Compile Include="CheckBoxPropertyGridEditor.cs" />
+    <Compile Include="CheckedListBoxColorableDraggable.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CollectionExtensions.cs" />
+    <Compile Include="ColorUITypeWEditor.cs" />
+    <Compile Include="CompressionHelper.cs" />
+    <Compile Include="ContactListUtils.cs" />
+    <Compile Include="Controls\ChronometerWatch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ChronometerWatch.Designer.cs">
+      <DependentUpon>ChronometerWatch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\CollapsiblePanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\CollapsiblePanel.Designer.cs">
+      <DependentUpon>CollapsiblePanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\CollapsiblePanelActionList.cs" />
+    <Compile Include="Controls\CollapsiblePanelDesigner.cs" />
+    <Compile Include="Controls\ExpressionBuilder.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ExpressionBuilder.Designer.cs">
+      <DependentUpon>ExpressionBuilder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ImagedComboBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\ImagedLabelList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\TransparencyControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\TransparencyControl.Designer.cs">
+      <DependentUpon>TransparencyControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Converter.cs" />
+    <Compile Include="CopyValueAttribute.cs" />
+    <Compile Include="CredentialsHash.cs" />
+    <Compile Include="DefaultExpressionValuesAttribute.cs" />
+    <Compile Include="Dialogs.cs" />
+    <Compile Include="EncodingFriendlyName.cs" />
+    <Compile Include="EntityFilter.cs" />
+    <Compile Include="EntityFilterAttribute.cs" />
+    <Compile Include="EnumFriendlyName.cs" />
+    <Compile Include="EverSortedList.cs" />
+    <Compile Include="ExecutablePath.cs" />
+    <Compile Include="ExpressionParameterNameAttribute.cs" />
+    <Compile Include="ExpressionResolver.cs" />
+    <Compile Include="ExpressionResolverLiveParams.cs" />
+    <Compile Include="FileLogMessageQueue.cs" />
+    <Compile Include="FloodSafeLogger.cs" />
+    <Compile Include="Formatter.cs" />
+    <Compile Include="Forms\CaptchaDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CaptchaDialog.Designer.cs">
+      <DependentUpon>CaptchaDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CheckedListBoxDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CheckedListBoxDialog.Designer.cs">
+      <DependentUpon>CheckedListBoxDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CheckedOrderedListBoxDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CheckedOrderedListBoxDialog.Designer.cs">
+      <DependentUpon>CheckedOrderedListBoxDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\DateTimeDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DateTimeDialog.Designer.cs">
+      <DependentUpon>DateTimeDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\DialogWithControl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DialogWithControl.Designer.cs">
+      <DependentUpon>DialogWithControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\DropDownDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DropDownDialog.Designer.cs">
+      <DependentUpon>DropDownDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormulaEditorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormulaEditorForm.Designer.cs">
+      <DependentUpon>FormulaEditorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormulaParameterForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormulaParameterForm.Designer.cs">
+      <DependentUpon>FormulaParameterForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ListSelectDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ListSelectDialog.Designer.cs">
+      <DependentUpon>ListSelectDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\NotificationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\NotificationForm.Designer.cs">
+      <DependentUpon>NotificationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SimpleDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SimpleDialog.Designer.cs">
+      <DependentUpon>SimpleDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\TickerUpdateDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\TickerUpdateDialog.Designer.cs">
+      <DependentUpon>TickerUpdateDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormulaTemplate.cs" />
+    <Compile Include="FormulaUIEditor.cs" />
+    <Compile Include="GenericPatterns.cs" />
+    <Compile Include="HashMD5.cs" />
+    <Compile Include="HelpManager.cs" />
+    <Compile Include="HiddenModes.cs" />
+    <Compile Include="HostName.cs" />
+    <Compile Include="HSLColor.cs" />
+    <Compile Include="HttpRequestProcessor.cs" />
+    <Compile Include="IDialogBoxProvider.cs" />
+    <Compile Include="IniFile.cs" />
+    <Compile Include="IStorage.cs" />
+    <Compile Include="LiveConnectionString.cs" />
+    <Compile Include="LocalizedCategoryAttribute.cs" />
+    <Compile Include="LocalizedDescriptionAttribute.cs" />
+    <Compile Include="LocalizedDisplayNameAttribute.cs" />
+    <Compile Include="Localizer.cs" />
+    <Compile Include="Logger.cs" />
+    <Compile Include="LookupTypeEditor.cs" />
+    <Compile Include="MailPublisher.cs" />
+    <Compile Include="MathExtensions.cs" />
+    <Compile Include="MessageLogQueue.cs" />
+    <Compile Include="MessageQueues.cs" />
+    <Compile Include="NotificationControl\NotificationBox.cs" />
+    <Compile Include="ObjectWithTag.cs" />
+    <Compile Include="PlatformConstants.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="PropertyOrder.cs" />
+    <Compile Include="RandomExtensions.cs" />
+    <Compile Include="ResourcesExistChecker.cs" />
+    <Compile Include="Scheduler.cs" />
+    <Compile Include="Serialization\IFastSerializationTypeSurrogate.cs" />
+    <Compile Include="Serialization\IOwnedDataSerializable.cs" />
+    <Compile Include="Serialization\IOwnedDataSerializableAndRecreatable.cs" />
+    <Compile Include="Serialization\SerializationReader.cs" />
+    <Compile Include="Serialization\SerializationWriter.cs" />
+    <Compile Include="Serialization\SerializedType.cs" />
+    <Compile Include="SharpCodeContract.cs" />
+    <Compile Include="StringFormatter.cs" />
+    <Compile Include="StronglyName.cs" />
+    <Compile Include="SymCipher.cs" />
+    <Compile Include="TCPDistributor.cs" />
+    <Compile Include="TcpReceiverClient.cs" />
+    <Compile Include="TextUItypeWEditor.cs" />
+    <Compile Include="ThreadSafeDateTime.cs" />
+    <Compile Include="ThreadSafeList.cs" />
+    <Compile Include="ThreadSafeQueue.cs" />
+    <Compile Include="ThreadSafeStorage.cs" />
+    <Compile Include="ThreadSafeTimeStamp.cs" />
+    <Compile Include="ThreadSafeUpdatingList.cs" />
+    <Compile Include="TimeInterval.cs" />
+    <Compile Include="TimeLogger.cs" />
+    <Compile Include="Transliteration.cs" />
+    <Compile Include="TransparencyUITypeEditor.cs" />
+    <Compile Include="TransparencyUITypeWEditor.cs" />
+    <Compile Include="UiFieldAttribute.cs" />
+    <Compile Include="UnsafeStorage.cs" />
+    <Compile Include="WordGenerator.cs" />
+    <Compile Include="WorkingDay.cs" />
+    <Compile Include="XmlNodeExtensions.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Controls\CollapsiblePanel.bmp" />
+    <Content Include="Controls\Resources\collapse.gif" />
+    <Content Include="Controls\Resources\collapse_hightlight.gif" />
+    <Content Include="Controls\Resources\expand.gif" />
+    <Content Include="Controls\Resources\expand_highlight.gif" />
+    <Content Include="Resources\expand_highlight.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Controls\CollapsiblePanel.resx">
+      <DependentUpon>CollapsiblePanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ExpressionBuilder.resx">
+      <DependentUpon>ExpressionBuilder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\TransparencyControl.resx">
+      <DependentUpon>TransparencyControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CaptchaDialog.resx">
+      <DependentUpon>CaptchaDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CheckedListBoxDialog.resx">
+      <DependentUpon>CheckedListBoxDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CheckedOrderedListBoxDialog.resx">
+      <DependentUpon>CheckedOrderedListBoxDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DateTimeDialog.resx">
+      <DependentUpon>DateTimeDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DialogWithControl.resx">
+      <DependentUpon>DialogWithControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DropDownDialog.resx">
+      <DependentUpon>DropDownDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormulaEditorForm.resx">
+      <DependentUpon>FormulaEditorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormulaParameterForm.resx">
+      <DependentUpon>FormulaParameterForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ListSelectDialog.resx">
+      <DependentUpon>ListSelectDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\NotificationForm.resx">
+      <DependentUpon>NotificationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SimpleDialog.resx">
+      <DependentUpon>SimpleDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\TickerUpdateDialog.resx">
+      <DependentUpon>TickerUpdateDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="tradesharp.pfx" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

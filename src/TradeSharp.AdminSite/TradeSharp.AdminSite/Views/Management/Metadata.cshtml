@@ -1,0 +1,211 @@
+﻿@{
+    ViewBag.Title = Resource.PageTitleMetaData;
+    Layout = "~/Views/Pages/_PageLayout.cshtml";
+}
+
+@using TradeSharp.SiteAdmin.App_GlobalResources
+@using TradeSharp.SiteAdmin.Helper
+@using TradeSharp.SiteAdmin.Models.CommonClass
+@using TradeSharp.SiteAdmin.Models.Items
+
+
+@section Header {
+    <link rel="stylesheet" href="/css/screen.css" type="text/css" media="screen" title="default" />
+    <link rel="stylesheet" href="/css/button.css" type="text/css" media="screen" title="default" />
+    
+    <script src="/js/jquery_1_10_3/jquery-1.9.1.js" type="text/javascript"></script>
+    <script src="~/js/uiscripts.js" type="text/javascript"></script>
+    <script src="~/js/validate_script.js" type="text/javascript"></script>
+    <!--  jquery core -->
+   
+    <!--[if IE]>
+    <link rel="stylesheet" media="all" type="text/css" href="/css/pro_dropline_ie.css" />
+    <![endif]-->
+}
+
+
+<script type="text/javascript">
+    function getSender(e) { return (e && e.target) || (window.event && window.event.srcElement); }
+
+    function refreshTable() {
+        $.get('@Url.Action("PartialMetadata", "Management")', function (data) {
+            $("#ajaxTableContainer").html(data);
+            $('#imgLoading').hide();
+        });
+    }
+    
+    function postMetadataChangesOnServer() {
+        releaseValidateResult('editDiv');
+              
+        @AjaxFieldHelper.JsonToBePost(typeof(MetadataItem), "editDiv", "objToSend")
+        $("#imgLoading").show();
+        $("#TableForm").fadeTo(0, 0.7);
+        $.ajax({
+            url: '@Url.Action("ChangeMetadata", "Management")',
+            type: 'POST',
+            data: JSON.stringify(objToSend),
+            dataType: 'json',
+            contentType: 'application/json; charset=utf-8',
+            success: function (data) {
+                if (data.status == true) {
+                    refreshTable();
+                } else {
+                    alert(data.errorString);
+                }
+                refreshTable();
+            }
+        });
+        return true;
+    }
+    
+    // Дабавить элемент
+    function onNewMetadataPressed(e) {
+        $('#editDiv').find('input').val('');
+        
+        if (e != null) {
+            var senderItem = $(getSender(e));
+            var catName = senderItem.closest('div').attr('data-category');
+            $('#@AjaxFieldHelper.EditFieldId((MetadataItem s) => s.Category)').val(catName);
+            $('#@AjaxFieldHelper.EditFieldId((MetadataItem s) => s.Category)').prop("disabled", true);
+            $('#@AjaxFieldHelper.EditFieldId((MetadataItem s) => s.Name)').prop("disabled", false);
+        } else {
+            $('#@AjaxFieldHelper.EditFieldId((MetadataItem s) => s.Category)').prop("disabled", false);
+            $('#@AjaxFieldHelper.EditFieldId((MetadataItem s) => s.Name)').prop("disabled", false);
+        }
+
+        $('#actionType').val('addNew');
+        // позиционировать окно посередине видимой части экрана
+        letDivFloat('editDiv');        
+    }
+    
+    function showEditWindow(catName, name, dataType, value) {
+        name = name.replace(/&quot;/g, '\'');
+     
+        $('#@AjaxFieldHelper.EditFieldId((MetadataItem s) => s.Category)').val(catName);
+        $('#@AjaxFieldHelper.EditFieldId((MetadataItem s) => s.Category)').prop("disabled", true);
+        $('#@AjaxFieldHelper.EditFieldId((MetadataItem s) => s.Name)').val(name);
+        $('#@AjaxFieldHelper.EditFieldId((MetadataItem s) => s.Name)').prop("disabled", false);
+        $('#@AjaxFieldHelper.EditFieldId((MetadataItem s) => s.DataType)').val(dataType);
+        $('#@AjaxFieldHelper.EditFieldId((MetadataItem s) => s.Value)').val(value);
+
+        $('#actionType').val('editExist');
+
+        SetDescription(dataType);
+        $('#@AjaxFieldHelper.EditFieldId((MetadataItem s) => s.DataType)').change(function () {
+            SetDescription(this.value);
+        });
+        // позиционировать окно посередине видимой части экрана
+        letDivFloat('editDiv');
+    }
+    
+    function SetDescription(val) {
+        if (val == "DateTime") {
+            $('#description').text('@Resource.ErrorMessageDateFormat');
+        } else {
+            $('#description').text('');
+        }
+    }
+    
+    // Удаление элемента
+    function delItem(id) {
+        if (!confirm('@Resource.ConfirmDell')) return false;
+        var delItemId = {id: id};
+
+        $.ajax({
+            url: '@Url.Action("DelMetadata", "Management")',
+            type: 'POST',
+            data: JSON.stringify(delItemId),
+            dataType: 'json',
+            contentType: 'application/json; charset=utf-8',
+            success: function (data) {
+                if (data.status) {
+                    refreshTable();
+                } else
+                    showModalDialog('Ошибка', data.errorString);
+            }
+        });
+        return true;
+    }
+
+</script>
+
+
+@Html.Partial("localizationVariableJavaScriptValidate")
+
+<div id="content-outer">
+    <!-- start content -->
+    <div id="content">
+        <!-- Всплывающие окошки диалогов -->
+        <div id="dialog-modal" title="Empty" style="display: none">
+        </div>
+
+        <!--  start page-heading -->
+        <div id="page-heading">
+            <h1>@Resource.TitleMetaData</h1>
+            <br/>
+            <a href="javascript:void(0);" class="ml-button-3" onclick="onNewMetadataPressed(null);">@Resource.TitleAdd</a>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <img id="imgLoading" class="ui-progressbar" style="width: 128px; height: 128px; display: none; background-position:center; position: fixed" src="~/images/table/loading.gif" alt=""/>
+            <div id="ajaxTableContainer" class="ajaxTableContainer"></div>
+
+            
+            <script type="text/javascript">
+                refreshTable();
+            </script>
+            
+
+            <div class="clear">&nbsp;</div>
+        </div>
+    </div>
+    
+        <!-- "Окно" добавления / редактирования элемента таблицы -->
+    <div id="editDiv" class="item_edit_div" style="width: 580px; height: 310px">
+        <input type="hidden" id="actionType"/>
+        <table>
+            <tr>
+                <td>@Resource.TitleCategory</td>
+                <td>
+                    @AjaxFieldHelper.Input((MetadataItem i) => i.Category, new { @style="width:100px; "})
+                </td>       
+                            
+            </tr>
+            <tr>
+                <td>@Resource.TitleName</td>
+                <td>
+                    @AjaxFieldHelper.Input((MetadataItem i) => i.Name, new { @style="width:100px"})
+                </td>               
+            </tr>
+            <tr>
+                <td>@Resource.TitleType</td>
+                <td>
+                    @AjaxFieldHelper.Combobox((MetadataItem i) => i.DataType, 
+                                              Utils.GetMetadataTypeTitle(), null, new { @style="width:100px"})
+                </td>
+            </tr>
+            <tr>
+                <td>@Resource.TitleValue</td>
+                <td>
+                    @AjaxFieldHelper.Input((MetadataItem i) => i.Value, new { @style="width:100px"})
+                </td>
+                
+            </tr>
+            <tr>
+                <td colspan="2"><span style="color: cadetblue; font-style: italic" id="description"></span></td>
+                <td></td>
+            </tr>
+        </table>
+        <br />
+        <a href="javascript:void(0);" class="ml-button-3" style="float:none; display:inline; padding:8px;" 
+           onclick="if(validateInputs('editDiv')) postMetadataChangesOnServer();">@Resource.TitleAccept</a>
+        &nbsp;&nbsp;
+        <a href="javascript:void(0);" class="ml-button-3" style="float:none; display:inline; padding:8px;" 
+           onclick="releaseValidateResult('editDiv');">@Resource.TitleCancel</a>
+    </div>    
+</div>
+
+
+
+

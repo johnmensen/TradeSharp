@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{81FFD5F4-69B4-4F03-B697-216DAA91AE71}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>NewsAnalysisScript</RootNamespace>
+    <AssemblyName>NewsAnalysisScript</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FastChart">
+      <HintPath>..\..\Libraries\FastChart.dll</HintPath>
+    </Reference>
+    <Reference Include="FastGrid">
+      <HintPath>..\..\Libraries\FastGrid.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CurrencyIndexCalculator.cs" />
+    <Compile Include="InputDataForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InputDataForm.Designer.cs">
+      <DependentUpon>InputDataForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NewsAnalyst.cs" />
+    <Compile Include="ProgressForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProgressForm.Designer.cs">
+      <DependentUpon>ProgressForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ResultsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ResultsForm.Designer.cs">
+      <DependentUpon>ResultsForm.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Common\Candlechart\Candlechart.csproj">
+      <Project>{7753653B-2D5D-4FBB-80A7-5B643127DCDC}</Project>
+      <Name>Candlechart</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\Entity\Entity.csproj">
+      <Project>{33517AEB-576A-429E-B651-EA87B54242E7}</Project>
+      <Name>Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\TradeSharp.Chat\Client\TradeSharp.Chat.Client.csproj">
+      <Project>{77c611c5-39f4-4ffc-bd9a-32d70409e0bf}</Project>
+      <Name>TradeSharp.Chat.Client</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\TradeSharp.Client\TradeSharp.Client.csproj">
+      <Project>{7E6447BD-1928-40C8-8944-37F0C5D86FC9}</Project>
+      <Name>TradeSharp.Client</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\TradeSharp.Contract\TradeSharp.Contract.csproj">
+      <Project>{168F1CAC-77C9-4847-B6C1-138E4373CCEA}</Project>
+      <Name>TradeSharp.Contract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\TradeSharp.Robot\TradeSharp.Robot.csproj">
+      <Project>{4A03E10A-86E8-4E73-8536-0969F30B803D}</Project>
+      <Name>TradeSharp.Robot</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\TradeSharp.Util\TradeSharp.Util.csproj">
+      <Project>{4B406C3D-89C3-4C9F-A677-C3114D93B8F9}</Project>
+      <Name>TradeSharp.Util</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RobotPackage\NewsRobot\NewsRobot.csproj">
+      <Project>{A64DD735-67AB-4EB7-8200-39A6FEEA13B1}</Project>
+      <Name>NewsRobot</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="InputDataForm.resx">
+      <DependentUpon>InputDataForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProgressForm.resx">
+      <DependentUpon>ProgressForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResultsForm.resx">
+      <DependentUpon>ResultsForm.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

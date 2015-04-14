@@ -1,0 +1,79 @@
+﻿<farm>
+  <Account>
+    <AccountId value="3" />
+    <UserLogin value="Andrey" />
+    <UserPassword value="123456" />
+    <AccountId value="TradeEnabled" />
+    <AccountId value="True" />
+    <robot>
+      <Robot.StopLossPoints value="500" />
+      <Robot.TakeProfitPoints value="500" />
+      <Robot.BrickSize value="50" />
+      <Robot.AutoBrickSize value="False" />
+      <Robot.AutoScale value="1" />
+      <Robot.AutosizePeriod value="30" />
+      <Robot.VolatilityType value="Размах" />
+      <Robot.TypeName value="Ренко" />
+      <Robot.Magic value="1" />
+      <Robot.MaxLeverage value="10" />
+      <Robot.TradeVolume value="100000" />
+      <Robot.TimeSeries value="EURUSD:H1" />
+      <Robot.NewsChannels value="" />
+    </robot>
+    <robot>
+      <Robot.CandlesInHistory value="100" />
+      <Robot.MaxBody value="20" />
+      <Robot.MinBody value="3" />
+      <Robot.CountBefore value="1" />
+      <Robot.CountAfter value="2" />
+      <Robot.ChannelState value="НетКанала" />
+      <Robot.FixedVolume value="0" />
+      <Robot.FixedVolumeStep value="0" />
+      <Robot.FixedLeverage value="1" />
+      <Robot.FixedLeverageStep value="0" />
+      <Robot.MinVolume value="10000" />
+      <Robot.VolumeStep value="10000" />
+      <Robot.MaxLossSeries value="3" />
+      <Robot.SilenceDays value="2" />
+      <Robot.CountLosses value="0" />
+      <Robot.StopLossPoints value="57" />
+      <Robot.TakeProfitPoints value="0" />
+      <Robot.UseTrailing value="True" />
+      <Robot.Trailing value="70" />
+      <Robot.ExtraTrailing value="90" />
+      <Robot.StepTrailing value="10" />
+      <Robot.FinalTrailing value="30" />
+      <Robot.AreaTP value="30" />
+      <Robot.Supress value="60" />
+      <Robot.SupressPoints value="5" />
+      <Robot.TypeName value="Скользящие каналы" />
+      <Robot.Magic value="3" />
+      <Robot.MaxLeverage value="10" />
+      <Robot.TradeVolume value="100000" />
+      <Robot.TimeSeries value="GBPUSD:H1" />
+      <Robot.NewsChannels value="" />
+    </robot>
+    <robot>
+      <Robot.StopLossPoints value="500" />
+      <Robot.TakeProfitPoints value="500" />
+      <Robot.BrickSize value="50" />
+      <Robot.AutoBrickSize value="False" />
+      <Robot.AutoScale value="1" />
+      <Robot.AutosizePeriod value="30" />
+      <Robot.VolatilityType value="Размах" />
+      <Robot.TypeName value="Ренко" />
+      <Robot.Magic value="2" />
+      <Robot.MaxLeverage value="10" />
+      <Robot.TradeVolume value="100000" />
+      <Robot.TimeSeries value="USDCHF:H1" />
+      <Robot.NewsChannels value="" />
+    </robot>
+  </Account>
+  <Account>
+    <AccountId value="5" />
+    <UserLogin value="Andrey" />
+    <UserPassword value="123456" />
+    <AccountId value="TradeEnabled" />
+    <AccountId value="True" />
+  </Account>
+</farm>

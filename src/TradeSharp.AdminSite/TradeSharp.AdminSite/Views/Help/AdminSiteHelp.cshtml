@@ -1,0 +1,79 @@
+﻿@using TradeSharp.SiteAdmin.App_GlobalResources
+@{
+    ViewBag.Title = Resource.PageTitleContents;
+    Layout = "~/Views/Pages/_PageLayout.cshtml";
+}
+
+
+@section Header {
+    <link rel="stylesheet" href="~/css/screen.css" type="text/css" media="screen" title="default" />
+    <link rel="stylesheet" href="/css/button.css" type="text/css" media="screen" title="default" />
+    <script src="~/js/jquery_1_10_3/jquery-1.9.1.js"></script>
+
+    <!--[if IE]>
+        <link rel="stylesheet" media="all" type="text/css" href="/css/pro_dropline_ie.css" />
+    <![endif]-->
+    
+   
+    <script type="text/javascript">
+        $(function() {
+            styleRebind();
+            $('#mainContaner').height($(document).height() - 380);
+        });
+
+        function styleRebind() {
+            $('#content').find('p').css('padding-top', '10px');
+            $('#content').find('ul').css('padding-top', '10px').css('padding-left', '20px');
+            $('#content').find('ol').css('padding-top', '10px').css('padding-left', '20px');
+            $('#content').find('span').css('padding-right', '5px');
+            $('#content').find('img').css('padding-top', '10px');
+
+            $.each($('#content').find('a[data-item]').addClass('table-item').css('font-size', '15px').css('margin-top', '3px'), function (key, value) {
+                $(this).attr('href', 'javascript:upDatePageTextContent("' + $(this).attr("data-item") + '")');
+            });
+        }
+
+        function upDatePageTextContent(pageName) {
+            $.ajax({
+                url: '/Help/AdminSiteHelp?pageName=' + pageName,
+                type: 'GET',
+                success: function (result) {
+                    $('#mainContaner').html(result);
+                    styleRebind();
+                },
+                error: function() {
+                }
+            });
+        }
+    </script>
+}
+
+<div id="content-outer">
+    <div id="content" style="font-size: 15px">
+        <div id="menu" style="width:250px; float:left;">
+            <h1>@Resource.TitleContents</h1>    
+            <br/>   
+            <a href="javascript:void(0);" data-item="IntroductionPage.html">@Resource.TitleIntroduction</a>
+            <a href="javascript:void(0);" data-item="ServerStatus.html">@Resource.MainMenuAdministration</a>
+            <a href="javascript:void(0);" data-item="ServerStatus.html" style="margin-left: 10px">@Resource.MainMenuServerStatus</a>
+            <a href="javascript:void(0);" data-item="SystemServicesPage.html" style="margin-left: 10px">@Resource.MainMenuSystemService</a>
+            <a href="javascript:void(0);" data-item="UsersPage.html" style="margin-left: 10px">@Resource.MainMenuUsers</a>
+            <a href="javascript:void(0);" data-item="ManagementPage.html">@Resource.MainMenuManagement</a>
+            <a href="javascript:void(0);" data-item="AccountManagePage.html" style="margin-left: 10px">@Resource.TitleAccountManagement</a>
+            <a href="javascript:void(0);" data-item="AccountDetailsPage.html" style="margin-left: 20px">@Resource.TitleReview, @Resource.TitleEdit</a>
+            <a href="javascript:void(0);" data-item="PositionPage.html" style="margin-left: 20px">@Resource.MainMenuPositionList</a>
+            <a href="javascript:void(0);" data-item="PositionListEditPage.html" style="margin-left: 20px">@Resource.TitleOrderEdit</a>
+            <a href="javascript:void(0);" data-item="AccountGroupsPage.html">@Resource.TitleAccountGroupManagement</a>
+            <a href="javascript:void(0);" data-item="BrokerReportPage.html">@Resource.MainMenuBrokerReport</a>
+            <a href="javascript:void(0);" data-item="OptionsPage.html">@Resource.MainMenuOptions</a>
+            
+            <h1 style="margin-top: 20px">@Resource.MainMenuOptions</h1>
+            <a href="/Help/NavigationDiagram" style="color: #743399; margin-top: 10px" target="_blank">@Resource.TitleDiagramNavigation</a> 
+        </div>
+
+        <div id="mainContaner" style="margin-left: 255px; text-align: justify; overflow: auto;">
+            @Html.Partial("AdminSiteHelpPartial")
+        </div>
+        
+    </div>
+</div>

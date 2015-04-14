@@ -1,0 +1,143 @@
+﻿@using TradeSharp.SiteAdmin.App_GlobalResources
+@{
+    ViewBag.Title = Resource.PageTitleSystemServices;
+    Layout = "~/Views/Pages/_PageLayout.cshtml";
+}
+
+@section Header {
+    <link rel="stylesheet" href="/css/screen.css" type="text/css" media="screen" title="default" />
+    <link rel="stylesheet" href="/css/button.css" type="text/css" media="screen" title="default" />
+    <!--  jquery core -->
+    <script src="/js/jquery/jquery-1.4.1.min.js" type="text/javascript"></script>
+    <!--[if IE]>
+    <link rel="stylesheet" media="all" type="text/css" href="/css/pro_dropline_ie.css" />
+    <![endif]-->
+}
+
+<!-- start content-outer ........................................................................................................................START -->
+<div id="content-outer">
+    <!-- start content -->
+    <div id="content">
+
+        <!--  start page-heading -->
+        <div id="page-heading">
+            <h1>@Resource.TitleSystemServices</h1>
+        </div>
+        <!-- end page-heading -->
+        
+        <table border="0" width="100%" cellpadding="0" cellspacing="0" id="content_table">
+            <tr>
+                <th rowspan="3" class="sized">
+                    <img src="/images/shared/side_shadowleft.jpg" width="20" class="shadow" alt="" /></th>
+                <th class="topleft"></th>
+                <td id="tbl-border-top">&nbsp;</td>
+                <th class="topright"></th>
+                <th rowspan="3" class="sized">
+                    <img src="/images/shared/side_shadowright.jpg" width="20" class="shadow" alt="" /></th>
+            </tr>
+            <tr>
+                <td id="tbl-border-left"></td>
+                <td>
+                    
+                    <!-- Кнопка Обновить -->
+                    <span>
+                        <a href="javascript:void(0);" class="ml-button-3" style="float:none; display:inline; padding:8px;" onclick="refreshTable()">@Resource.TitleRefresh</a>
+                    </span>
+
+                    <br/>
+
+                    <!--  start content_table_inner ...................................................................... START -->
+                    <div id="content_table_inner">
+                        <div style="">
+                            <table id="product_table" border="0" width="100%" cellpadding="0" cellspacing="0">
+                                <tr>
+                                    <th class="table-header-repeat line-left minwidth-1"><span>@Resource.TitleService</span></th>
+                                    <th class="table-header-repeat line-left minwidth-1"><span>@Resource.TitleState</span></th>
+                                    <th class="table-header-repeat line-left"><span>@Resource.TitleManage</span></th>
+                                </tr>
+                                <tr>
+                                    <td>@Resource.TitleEmpty</td><td>@Resource.TitleEmpty</td><td>@Resource.TitleEmpty</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="clear"></div>
+
+                    </div>
+                    <!--  end content_table_inner ............................................END  -->
+                </td>
+                <td id="tbl-border-right"></td>
+            </tr>
+            <tr>
+                <th class="sized bottomleft"></th>
+                <td id="tbl-border-bottom">&nbsp;</td>
+                <th class="sized bottomright"></th>
+            </tr>
+        </table>
+        <div class="clear">&nbsp;</div>
+    </div>
+
+    <!--  end content -->
+    <div class="clear">&nbsp;</div>
+</div>
+
+<script>
+    function startStopService(name, shouldStart) {
+        var cmdUrl = '@Url.Action("StartStopServiceAjax", "ServiceState")';        
+        $.ajax({
+            url: cmdUrl,
+            type: 'GET',
+            data: { name: encodeURIComponent(name), start: shouldStart },
+            success: function(status) {
+                alert(status.result);
+            },
+            error: function(msg) {
+                alert('@Resource.ErrorMessage: ' + msg);
+            }
+        });
+    }
+
+    function refreshTable() {
+        $.ajax({
+            url: '@Url.Action("ListSystemServicesAjax", "ServiceState")',            
+            type: "GET",
+            success: function(records) {
+                // очистить строки
+                $("#product_table").find("tr:gt(0)").remove();
+                // заполнить строки 
+                $.each(records.Records, function (i, row) {
+                    var cmdStr = '<a class="ml-button-3" onclick="startStopService(\'' + row.Name + '\', true);">@Resource.TitleStart</a> ' +
+                        '<a class="ml-button-3" onclick="startStopService(\'' + row.Name + '\', false);">@Resource.TitleStop</a>';
+                    var stule = 'style="color: red; font-weight: bold"';
+                    switch(row.Status) {
+                        case "Running":
+                            stule = 'style="color: green; font-weight: bold"';
+                            break;
+                        case "running":
+                            stule = 'style="color: green; font-weight: bold"';
+                            break;
+                        case "Stopped":
+                            stule = 'style="color: blue; font-weight: bold"';
+                            break;
+                        case "stopped":
+                            stule = 'style="color: blue; font-weight: bold"';
+                            break;
+                        default:
+                            break;
+                    }
+                    $('<tr>').attr('id', i).
+                        append($('<td>').text(row.Title)).
+                        append($('<td ' + stule + ' >').text(row.Status)).
+                        append($('<td>').append(cmdStr)).appendTo("#product_table");
+                });
+            },
+            error: function(msg) {
+                alert(@Resource.ErrorMessage + ': ' + msg);
+            }
+        });
+    }
+
+    refreshTable();
+
+</script>
+
+<!--  end content-outer........................................................END -->

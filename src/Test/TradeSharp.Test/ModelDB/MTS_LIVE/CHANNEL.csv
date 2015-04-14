@@ -1,0 +1,4 @@
+ID,Name,Description,Cachable
+2,"GLOBEX","Futures and options from Globex",True
+3,"Yahoo News","Equity Indexes from Yahoo Finance",True
+4,"TradeSharp","Trade Sharp News",True

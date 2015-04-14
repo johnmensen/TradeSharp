@@ -1,0 +1,176 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{168F1CAC-77C9-4847-B6C1-138E4373CCEA}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TradeSharp.Contract</RootNamespace>
+    <AssemblyName>TradeSharp.Contract</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>../Libraries/tradesharp.pfx</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Contract\IAccountStatistics.cs" />
+    <Compile Include="Contract\IModuleStatus.cs" />
+    <Compile Include="Contract\IPlatformManager.cs" />
+    <Compile Include="Contract\IRobotFarm.cs" />
+    <Compile Include="Contract\ITradeSharpDictionary.cs" />
+    <Compile Include="Contract\ITradeSharpServer.Callback.cs" />
+    <Compile Include="Contract\ITradeSharpServer.cs" />
+    <Compile Include="Contract\ITradeSharpAccount.cs" />
+    <Compile Include="Contract\ITradeSharpServerTrade.cs" />
+    <Compile Include="Contract\INewsReceiver.cs" />
+    <Compile Include="Contract\INewsStorage.cs" />
+    <Compile Include="Contract\IQuoteStorage.cs" />
+    <Compile Include="Contract\ITradeSignalExecutor.cs" />
+    <Compile Include="Contract\IWalletManager.cs" />
+    <Compile Include="Entity\Account.cs" />
+    <Compile Include="Entity\AccountEfficiency.cs" />
+    <Compile Include="Entity\AccountEvent.cs" />
+    <Compile Include="Entity\AccountRegistrationResponse.cs" />
+    <Compile Include="Entity\AccountShare.cs" />
+    <Compile Include="Entity\AccountShared.cs" />
+    <Compile Include="Entity\AccountShareOnDate.cs" />
+    <Compile Include="Entity\AutoTradeSettings.cs" />
+    <Compile Include="Entity\EquityOnTime.cs" />
+    <Compile Include="Entity\OpenedVolumesByTicker.cs" />
+    <Compile Include="Entity\OrderFilterAndSortOrder.cs" />
+    <Compile Include="Entity\PerformerFormulasAndCriteriasSet.cs" />
+    <Compile Include="Entity\PerformerSearchCriteria.cs" />
+    <Compile Include="Entity\PlatformVolumesSummary.cs" />
+    <Compile Include="Entity\TransfersByAccountSummary.cs" />
+    <Compile Include="Entity\UserEvent.cs" />
+    <Compile Include="Entity\AccountGroup.cs" />
+    <Compile Include="Entity\AccountRegistrationStatus.cs" />
+    <Compile Include="Entity\AccountRights.cs" />
+    <Compile Include="Entity\BalanceChange.cs" />
+    <Compile Include="Entity\BaseNewsParser.cs" />
+    <Compile Include="Entity\BrokerOrder.cs" />
+    <Compile Include="Entity\BrokerResponse.cs" />
+    <Compile Include="Entity\CandleDataPacked.cs" />
+    <Compile Include="Entity\CreateReadonlyUserRequestStatus.cs" />
+    <Compile Include="Entity\DealerDescription.cs" />
+    <Compile Include="Entity\EmptyTradeSharpServerCallbackReceiver.cs" />
+    <Compile Include="Entity\IBaseNews.cs" />
+    <Compile Include="Entity\Instrument.cs" />
+    <Compile Include="Entity\LotByGroupDictionary.cs" />
+    <Compile Include="Entity\MarketOrder.cs" />
+    <Compile Include="Entity\MarketOrderSerializer.cs" />
+    <Compile Include="Entity\News.cs" />
+    <Compile Include="Entity\NewsMap.cs" />
+    <Compile Include="Entity\OrderBill.cs" />
+    <Compile Include="Entity\OrderPricing.cs" />
+    <Compile Include="Entity\OrderRejectReason.cs" />
+    <Compile Include="Entity\OrderStatus.cs" />
+    <Compile Include="Entity\OrderType.cs" />
+    <Compile Include="Entity\PackedCandleStream.cs" />
+    <Compile Include="Entity\PackedQuoteStream.cs" />
+    <Compile Include="Entity\PaidService.cs" />
+    <Compile Include="Entity\PaymentSystem.cs" />
+    <Compile Include="Entity\PaymentSystemTransfer.cs" />
+    <Compile Include="Entity\PendingOrder.cs" />
+    <Compile Include="Entity\PendingOrderType.cs" />
+    <Compile Include="Entity\PerformerStat.cs" />
+    <Compile Include="Entity\PerformerStatEx.cs" />
+    <Compile Include="Entity\PerformerStatField.cs" />
+    <Compile Include="Entity\PlatformUser.cs" />
+    <Compile Include="Entity\PositionExitReason.cs" />
+    <Compile Include="Entity\PositionState.cs" />
+    <Compile Include="Entity\ProtectedOperationContext.cs" />
+    <Compile Include="Entity\ProviderSession.cs" />
+    <Compile Include="Entity\QuoteData.cs" />
+    <Compile Include="Entity\QuoteType.cs" />
+    <Compile Include="Entity\RequestStatus.cs" />
+    <Compile Include="Entity\RequestUniqueId.cs" />
+    <Compile Include="Entity\ServiceStateInfo.cs" />
+    <Compile Include="Entity\Subscription.cs" />
+    <Compile Include="Entity\TickerQuoteData.cs" />
+    <Compile Include="Entity\TopPortfolio.cs" />
+    <Compile Include="Entity\TradeSignalAction.cs" />
+    <Compile Include="Entity\TradeTicker.cs" />
+    <Compile Include="Entity\Transfer.cs" />
+    <Compile Include="Entity\UserAccountRights.cs" />
+    <Compile Include="Entity\UserInfoEx.cs" />
+    <Compile Include="Entity\UserPaymentSystem.cs" />
+    <Compile Include="Entity\UserRole.cs" />
+    <Compile Include="Entity\UserSession.cs" />
+    <Compile Include="Entity\Wallet.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Proxy\CommonChannelSettings.cs" />
+    <Compile Include="Proxy\ModuleStatusProxy.cs" />
+    <Compile Include="Proxy\RobotFarmProxy.cs" />
+    <Compile Include="Proxy\TradeSharpServerTradeProxy.cs" />
+    <Compile Include="Proxy\NewsReceiverProxy.cs" />
+    <Compile Include="Proxy\NewsStorageProxy.cs" />
+    <Compile Include="Proxy\QuoteStorageProxy.cs" />
+    <Compile Include="Proxy\TradeSignalExecutorProxy.cs" />
+    <Compile Include="WebContract\ChangeAccountBalanceQuery.cs" />
+    <Compile Include="WebContract\ExecutionReport.cs" />
+    <Compile Include="WebContract\HttpParameter.cs" />
+    <Compile Include="WebContract\RegisterAccountQuery.cs" />
+    <Compile Include="WebContract\TerminalUser.cs" />
+    <Compile Include="WebContract\TradeSharpServiceProcess.cs" />
+    <Compile Include="WebContract\TradeSharpServiceStartStop.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TradeSharp.Util\TradeSharp.Util.csproj">
+      <Project>{4B406C3D-89C3-4C9F-A677-C3114D93B8F9}</Project>
+      <Name>TradeSharp.Util</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="tradesharp.pfx" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

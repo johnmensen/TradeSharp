@@ -1,0 +1,335 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{1D43B7A3-D499-4624-B5E3-70D6196C67E4}</ProjectGuid>
+    <OutputType>library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TradeSharp.Client.Subscription</RootNamespace>
+    <AssemblyName>TradeSharp.Client.Subscription</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>../Libraries/tradesharp.pfx</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FastChart">
+      <HintPath>..\Libraries\FastChart.dll</HintPath>
+    </Reference>
+    <Reference Include="FastGrid">
+      <HintPath>..\Libraries\FastGrid.dll</HintPath>
+    </Reference>
+    <Reference Include="FastMultiChart">
+      <HintPath>..\Libraries\FastMultiChart.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Control\CompleteSubscribeOnPortfolioControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Control\CompleteSubscribeOnPortfolioControl.Designer.cs">
+      <DependentUpon>CompleteSubscribeOnPortfolioControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Control\ExpressionBuilderPanelWithSlider.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Control\ExpressionBuilderPanelWithSlider.designer.cs">
+      <DependentUpon>ExpressionBuilderPanelWithSlider.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Control\PerformersFastGrid.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Control\PerformersFastGrid.Designer.cs">
+      <DependentUpon>PerformersFastGrid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Control\PerformerStatistic.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Control\PerformerStatistic.Designer.cs">
+      <DependentUpon>PerformerStatistic.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Control\SignalFastGrid.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Control\SignalFastGrid.Designer.cs">
+      <DependentUpon>SignalFastGrid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Control\SubscriptionControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Control\SubscriptionControl.Designer.cs">
+      <DependentUpon>SubscriptionControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Control\SubscriptionFastGrid.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Control\SubscriptionFastGrid.Designer.cs">
+      <DependentUpon>SubscriptionFastGrid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Control\TickersAndVolumesBarControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Control\TickersAndVolumesBarControl.Designer.cs">
+      <DependentUpon>TickersAndVolumesBarControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Control\TopFilterControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Control\TopFilterControl.designer.cs">
+      <DependentUpon>TopFilterControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Control\TopPortfolioControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Control\TopPortfolioControl.Designer.cs">
+      <DependentUpon>TopPortfolioControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Control\TopPortfolioListControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Control\TopPortfolioListControl.designer.cs">
+      <DependentUpon>TopPortfolioListControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Control\TopSubscriptionControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Control\TopSubscriptionControl.Designer.cs">
+      <DependentUpon>TopSubscriptionControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Control\TradeSetting.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Control\TradeSetting.Designer.cs">
+      <DependentUpon>TradeSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialog\AutoTradeSettingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialog\AutoTradeSettingsForm.Designer.cs">
+      <DependentUpon>AutoTradeSettingsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialog\CompleteSubscribeOnPortfolioDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialog\CompleteSubscribeOnPortfolioDlg.Designer.cs">
+      <DependentUpon>CompleteSubscribeOnPortfolioDlg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialog\FunctionCheckForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialog\FunctionCheckForm.Designer.cs">
+      <DependentUpon>FunctionCheckForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialog\InputPerformerFiltersForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialog\InputPerformerFiltersForm.designer.cs">
+      <DependentUpon>InputPerformerFiltersForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialog\PerformerCriteriaFunctionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialog\PerformerCriteriaFunctionForm.Designer.cs">
+      <DependentUpon>PerformerCriteriaFunctionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialog\PerformersSummaryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialog\PerformersSummaryForm.Designer.cs">
+      <DependentUpon>PerformersSummaryForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialog\SubscriberStatisticsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialog\SubscriberStatisticsForm.Designer.cs">
+      <DependentUpon>SubscriberStatisticsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialog\TopPortfolioForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialog\TopPortfolioForm.Designer.cs">
+      <DependentUpon>TopPortfolioForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AccountModel.cs" />
+    <Compile Include="Model\TradeSignalFileStorage.cs" />
+    <Compile Include="Model\TradeSignalUpdate.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Control\CompleteSubscribeOnPortfolioControl.resx">
+      <DependentUpon>CompleteSubscribeOnPortfolioControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Control\ExpressionBuilderPanelWithSlider.resx">
+      <DependentUpon>ExpressionBuilderPanelWithSlider.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Control\PerformersFastGrid.resx">
+      <DependentUpon>PerformersFastGrid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Control\PerformerStatistic.resx">
+      <DependentUpon>PerformerStatistic.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Control\SignalFastGrid.resx">
+      <DependentUpon>SignalFastGrid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Control\SubscriptionControl.resx">
+      <DependentUpon>SubscriptionControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Control\SubscriptionFastGrid.resx">
+      <DependentUpon>SubscriptionFastGrid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Control\TopFilterControl.resx">
+      <DependentUpon>TopFilterControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Control\TopPortfolioControl.resx">
+      <DependentUpon>TopPortfolioControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Control\TopPortfolioListControl.resx">
+      <DependentUpon>TopPortfolioListControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Control\TopSubscriptionControl.resx">
+      <DependentUpon>TopSubscriptionControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Control\TradeSetting.resx">
+      <DependentUpon>TradeSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialog\AutoTradeSettingsForm.resx">
+      <DependentUpon>AutoTradeSettingsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialog\CompleteSubscribeOnPortfolioDlg.resx">
+      <DependentUpon>CompleteSubscribeOnPortfolioDlg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialog\FunctionCheckForm.resx">
+      <DependentUpon>FunctionCheckForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialog\InputPerformerFiltersForm.resx">
+      <DependentUpon>InputPerformerFiltersForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialog\PerformerCriteriaFunctionForm.resx">
+      <DependentUpon>PerformerCriteriaFunctionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialog\PerformersSummaryForm.resx">
+      <DependentUpon>PerformersSummaryForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialog\SubscriberStatisticsForm.resx">
+      <DependentUpon>SubscriberStatisticsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialog\TopPortfolioForm.resx">
+      <DependentUpon>TopPortfolioForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+    <None Include="tradesharp.pfx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\ico_delete.png" />
+    <Resource Include="img\ico_exclamation.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Common\Entity\Entity.csproj">
+      <Project>{33517AEB-576A-429E-B651-EA87B54242E7}</Project>
+      <Name>Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SiteBridge\TradeSharp.SiteBridge.Lib\TradeSharp.SiteBridge.Lib.csproj">
+      <Project>{98E58858-6473-49A2-BCFB-902221DE66C8}</Project>
+      <Name>TradeSharp.SiteBridge.Lib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TradeSharp.Chat\Client\TradeSharp.Chat.Client.csproj">
+      <Project>{77c611c5-39f4-4ffc-bd9a-32d70409e0bf}</Project>
+      <Name>TradeSharp.Chat.Client</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TradeSharp.Chat\Contract\TradeSharp.Chat.Contract.csproj">
+      <Project>{30b57708-1a64-412f-aa25-7d54d0195f6c}</Project>
+      <Name>TradeSharp.Chat.Contract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TradeSharp.Client.Util\TradeSharp.Client.Util.csproj">
+      <Project>{85913aa3-b955-46d1-9719-09b371e4db7a}</Project>
+      <Name>TradeSharp.Client.Util</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TradeSharp.Contract.Util\TradeSharp.Contract.Util.csproj">
+      <Project>{7DA33D58-6B7A-4551-93D6-488D31369D7A}</Project>
+      <Name>TradeSharp.Contract.Util</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TradeSharp.Contract\TradeSharp.Contract.csproj">
+      <Project>{168F1CAC-77C9-4847-B6C1-138E4373CCEA}</Project>
+      <Name>TradeSharp.Contract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TradeSharp.UI.Util\TradeSharp.UI.Util.csproj">
+      <Project>{386DDB6B-D707-4ADC-A0BC-08448D144A8D}</Project>
+      <Name>TradeSharp.UI.Util</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TradeSharp.Util\TradeSharp.Util.csproj">
+      <Project>{4B406C3D-89C3-4C9F-A677-C3114D93B8F9}</Project>
+      <Name>TradeSharp.Util</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ModelView\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

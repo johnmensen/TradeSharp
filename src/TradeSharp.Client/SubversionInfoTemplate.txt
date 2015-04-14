@@ -1,0 +1,4 @@
+﻿Revision=$WCREV$
+Commited=$WCDATE$
+Built=$WCNOW$
+CommitComment=$WCLOCKCOMMENT$

@@ -1,0 +1,45 @@
+﻿@using TradeSharp.Hub.WebSite.Helper
+@using TradeSharp.Util
+@model TradeSharp.Hub.WebSite.Models.GenericGridModel<TradeSharp.Hub.BL.Model.Currency>
+
+
+<script type="text/javascript">
+    @{
+        var spec = new TradeSharp.Hub.BL.Model.Currency();
+        <text>var postUrl = '@Url.Action("SortAndPage", "Currency")'</text>;
+     }
+ </script>
+
+@using (Ajax.BeginForm("SortAndPage", "Currency", 
+    new AjaxOptions { HttpMethod = "Post" }, 
+    new { id = "TableForm", name = "TableForm" }))
+{
+    <table border="0" width="100%" cellpadding="0" cellspacing="0" class="product_table">
+        <tr>
+            @Html.HeaderColumn(typeof(TradeSharp.Hub.BL.Model.Currency), spec.Property(s => s.Code), @Model.PagerModel.SortBy, @Model.PagerModel.SortAscending)
+            @Html.HeaderColumn(typeof(TradeSharp.Hub.BL.Model.Currency), spec.Property(s => s.CurrencyIndex), @Model.PagerModel.SortBy, @Model.PagerModel.SortAscending)
+            <th class="table-header-repeat line-left minwidth-1">
+                <span>Редактировать</span>
+            </th>
+        </tr>
+        @foreach (var item in Model.Items)
+        {
+            <tr>
+                <td class="left">@item.Code</td>
+                <td class="left">@item.CurrencyIndex</td>
+                <td class="left">
+                    <a href="javascript:void(0);" onclick="getCurrencyToEdit('@item.Code');openOrCloseDialog(true);">
+                        <img src="../../images/buttons/fast_edit.png" style="width: 16px; height: 16px;" title="Редактировать"/>
+                    </a>
+                    &nbsp;&nbsp;
+                    <a href="javascript:void(0);" onclick="deleteCurrency('@item.Code');">
+                        <img src="../../images/shared/DeleteRed.png" title="Удалить"/>
+                    </a>
+                </td>
+            </tr>
+        }
+    </table>
+    <div class="clear"></div>
+    @Html.Partial("PagerPartial", Model.PagerModel)
+    <div class="clear"></div>
+}

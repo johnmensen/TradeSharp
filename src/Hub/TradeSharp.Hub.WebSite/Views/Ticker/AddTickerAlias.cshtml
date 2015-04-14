@@ -1,0 +1,62 @@
+﻿@{
+    ViewBag.Title = "Добавить / редактировать псевдоним";
+}
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Scripts.Render("~/bundles/jqueryval")
+
+ 
+ 
+    <script type="text/javascript">
+
+    </script>
+}
+@model TradeSharp.Hub.BL.Model.TickerAlias
+
+<div id="content-outer">
+    <div id="content" class="content" style="width: 380px; margin:0 auto; min-width: 380px;">
+        @using (Ajax.BeginForm("AddTickerAlias", "Ticker", new AjaxOptions { HttpMethod = "Post" }, new { id = "TableForm", name = "TableForm" }))
+        {
+            <h3>Добавить / редактировать псевдоним</h3>
+            <div class="simpleTableContainer">
+                <table class="tableWithoutBorders">
+                    <tr>
+                        <td>
+                            @Html.LabelFor(x => x.Server)
+                        </td>
+                        <td>
+                            @Html.DropDownListFor(x => x.Server, new SelectList(ViewBag.ServerCodeList))
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            @Html.LabelFor(x => x.Ticker)
+                        </td>
+                        <td>
+                            @Html.DropDownListFor(x => x.Ticker, new SelectList(ViewBag.TickerNameList))
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            @Html.LabelFor(x => x.Alias)
+                        </td>
+                        <td>
+                            @Html.TextBoxFor(x => x.Alias   )
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="TickerAliasEdit?brokerCode=@Model.Server" style="color:#0000cd; font-size: 14px; font-weight: bold">&lArr; Назад</a>
+                        </td>
+                        <td>
+                            <input type="submit" class="ml-button-3" value="Сохранить"/>
+                        </td>
+                    </tr>
+                </table> 
+            </div>                 
+        }
+    </div>
+</div>

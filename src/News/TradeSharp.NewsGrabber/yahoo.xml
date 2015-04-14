@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<yahoo>
+  <settings channelId="3" newsTitle="Yahoo Index" />
+  <ticker name="CRB" nameYahoo="^CRBQX" searchPattern="&lt;big&gt;&lt;b&gt;&lt;span id=&quot;yfs_l10_^crbqx&quot;&gt;" />
+  <ticker name="SP500A" nameYahoo="SP5.PA" searchPattern="&lt;big&gt;&lt;b&gt;&lt;span id=&quot;yfs_l10_sp5.pa&quot;&gt;" />
+  <ticker name="DJIA30" nameYahoo="^DJI2MN" searchPattern="&lt;big&lt;&lt;b&lt;&lt;span id=&quot;yfs_l10_^dji2mn&quot;&lt;" />
+</yahoo>

@@ -1,0 +1,52 @@
+﻿@using TradeSharp.SiteAdmin.App_GlobalResources
+@{
+    ViewBag.Title = Resource.PageTitleAccountGroup;
+    Layout = "~/Views/Pages/_PageLayout.cshtml";
+}
+
+@section Header {
+    <link rel="stylesheet" href="/css/screen.css" type="text/css" media="screen" title="default" />
+    <link rel="stylesheet" href="/css/button.css" type="text/css" media="screen" title="default" />
+    <!--  jquery core -->
+    <script src="/js/jquery_1_10_3/jquery-1.9.1.js" type="text/javascript"></script>
+    <script src="~/js/jquery_1_10_3/jquery-ui-1.10.3.custom.min.js" type="text/javascript"></script>
+    <script src="@Url.Content("~/js/jquery_1_10_3/jquery.unobtrusive-ajax.min.js")" type="text/javascript"></script>
+    <script src="~/js/TableAccount.js" type="text/javascript"></script>
+    <link href="~/css/jquery_1_10_3_Theme/jquery-ui-1.10.3.custom.min.css" rel="stylesheet" />   
+    
+    <script src="~/js/chosen.jquery.min.js" type="text/javascript"></script>
+    <link href="~/css/chosen.min.css" rel="stylesheet" />
+    <!--[if IE]>
+    <link rel="stylesheet" media="all" type="text/css" href="/css/pro_dropline_ie.css" />
+    <![endif]-->
+}
+
+<div id="content-outer">
+    <!-- start content -->
+    <div id="content">
+        <!--  start page-heading -->
+        <div id="page-heading">
+            <h1>@Resource.TitleAccountGroups</h1>
+        </div>
+        <!-- end page-heading -->
+        <div id="accountsGroupsTableContainer">@Html.Partial("AccountGroupsPartialTable")</div>
+        <div class="clear">&nbsp;</div>
+    </div>
+    <!--  end content -->
+    <div class="clear">&nbsp;</div>
+</div>
+
+
+@*после какого то действия (например, добавления нового счёта) нужно уведомить пользователя о том, что всё прошло нормально. Это делается при помощи данного скрипта*@
+<script type="text/javascript">
+    $(function() {
+        $("#dialogResult").dialog({
+            modal: true,
+            buttons: {
+                Ok: function () {
+                    $(this).dialog("close");
+                }
+            }
+        });
+    });
+</script>

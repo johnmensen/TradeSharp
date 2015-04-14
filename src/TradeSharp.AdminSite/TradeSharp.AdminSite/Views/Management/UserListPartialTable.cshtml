@@ -1,0 +1,219 @@
+﻿@using TradeSharp.SiteAdmin.App_GlobalResources
+@using TradeSharp.Contract.Entity
+@using TradeSharp.Util
+@model TradeSharp.SiteAdmin.Models.UserListModel
+
+<img id="imgLoading" class="ui-progressbar" style="width: 64px; height: 64px; background-position: center; position: fixed" src="~/images/table/loading.gif" />
+@using (Ajax.BeginForm("UserList", "Management", new AjaxOptions { HttpMethod = "Post" }, new { id = "TableForm", name = "TableForm" }))
+{
+    <table id="content_table">
+        <tr>
+            <th rowspan="3" class="sized">
+                <img src="/images/shared/side_shadowleft.jpg" width="20" class="shadow" alt="" />
+            </th>
+            <th class="topleft"></th>
+            <td id="tbl-border-top">&nbsp;</td>
+            <th class="topright"></th>
+            <th rowspan="3" class="sized">
+                <img src="/images/shared/side_shadowright.jpg" width="20" class="shadow" alt="" /></th>
+        </tr>
+        <tr>
+            <td id="tbl-border-left"></td>
+            <td>
+                <!--  start content_table_inner ...................................................................... START -->
+                <div id="content_table_inner">
+                    <div style=""></div>
+                    <br />
+                    <br />
+                    <table id="product_table">
+                        <tr>
+                            <th style="width: 50px; min-width: 50px;" class="table-header-repeat line-left minwidth-1"><span>#</span></th>
+                            <td class="table-header-repeat line-left minwidth-1"><span>@Resource.Login</span></td>
+                            <td style="width: 200px; min-width: 200px;" class="table-header-repeat line-left minwidth-1"><span>@Resource.TitlePurse</span></td>
+                            <td style="width: 200px; min-width: 200px;" class="table-header-repeat line-left minwidth-1"><span>@Resource.TitleTradeSignals</span></td>
+                            <td style="width: 200px; min-width: 200px;" class="table-header-repeat line-left minwidth-1"><span>@Resource.TitleService</span></td>
+                            <td style="width: 200px; min-width: 200px;" class="table-header-repeat line-left minwidth-1"><span>@Resource.TitleAccounts</span></td>
+                            <td style="width: 100px; min-width: 100px;" class="table-header-repeat line-left"><span>@Resource.TitleDelete</span></td>
+                        </tr>
+                        @foreach (var item in Model.CurrentPageItems)
+                        {
+                            <tr>
+                                <td>@item.UserId</td>
+                                <td>@Html.ActionLink(item.UserLogin, "OwnerDetails", new { ownerId = item.UserId }, new { @class = "table-item" })</td>
+                                <td>
+                                    <a class="table-item" href="/Management/WalletDetails?walletId=@item.UserId">@item.WalletBalance @item.WalletCurrency</a>
+                                </td>
+                                <td>
+                                    <a style="color: blue; font-weight: bold" href="/Management/Subscription?userId=@item.UserId">@Resource.TitleTradeSignals</a>
+                                    <br />
+                                    <br />
+                                    @if (@item.CountOwnerSignal > 0)
+                                    {
+                                        <samp style="color: limegreen; font-weight: bold">@Resource.TitleTradeSignalCount - @item.CountOwnerSignal</samp>
+                                    }
+                                    else
+                                    {
+                                        <samp style="color: gray; font-weight: bold">@Resource.TitleTradeSignalCount - @item.CountOwnerSignal</samp>
+                                    }
+                                    <br />
+                                    <br />
+                                    @if (@item.CountSubscription > 0)
+                                    {
+                                        <samp style="color: limegreen; font-weight: bold">@Resource.TitleSubscriptionCount - @item.CountSubscription</samp>
+                                    }
+                                    else
+                                    {
+                                        <samp style="color: gray; font-weight: bold">@Resource.TitleSubscriptionCount - @item.CountSubscription</samp>
+                                    }
+                                </td>
+                                <td style="width: 200px; min-width: 200px;">
+                                    @foreach (var x in item.UserService)
+                                    {
+                                        @*<span style="color: cadetblue;">@((PaidServiceType)x.ServiceType)</span>*@
+                                        <span style="color: cadetblue;">@(EnumFriendlyName<PaidServiceType>.GetString((PaidServiceType)x.ServiceType))</span>
+                                        <br />
+                                    }
+                                </td>
+                                <td style="width: 200px; min-width: 200px;">
+                                    @foreach (var x in item.UserRightsMask)
+                                    {
+                                        @Html.ActionLink(x.Key.ToString(), "AccountDetails", new { accountId = x.Key }, new { @class = "table-item", @style = "display:inline" })
+                                        <span>&nbsp;&nbsp;&nbsp;&nbsp;</span> 
+                                        switch (x.Value)
+                                        {
+                                            case UserAccountRights.ReadOnly:
+                                                <span style="color: limegreen;">@Resource.EnumUserAccountRightsReadOnly</span>
+                                                break;
+                                            case UserAccountRights.Trade:
+                                                <span style="color: brown;">@Resource.EnumUserAccountRightsTrade</span>
+                                                break;
+                                        }
+                                        <br />
+                                    }
+                                </td>
+                                <td style="width: 100px; min-width: 100px;">
+                                    
+                                    @if (item.CountOwnerSignal > 0)
+                                    {
+                                        <img alt="@Resource.TitleDelete" 
+                                             title="@(Resource.MessageForRemovMustNotBeSignal )" 
+                                             src="~/images/table/action_delete.gif" />
+                                    }
+                                    else
+                                    {
+                                        <a style="margin-left: 10px" href="javascript:void(0);" onclick=" if (confirm('@Resource.ConfirmDellUser')) window.location.href = '/Management/DeletePlatformUser?userId=' + @item.UserId; ">
+                                            <img src="/images/shared/DeleteRed.png" style="width: 15px; height: 15px" alt="">
+                                        </a>
+                                    }
+                                    
+                                </td>
+                            </tr>
+                        }
+                    </table>
+                    <div style="color: #807C7D; vertical-align: middle;">
+                        @Html.HiddenFor(x => x.PageNomber)
+                        &nbsp;
+                        @if (Model.CurrentPageItems.HasPreviousPage)
+                        {
+                            <a id="PagingFirst" data-item="0" href="/Management/UserList">
+                                <img src="~/images/table/firstPage.png" alt="" /></a>
+                            @Html.Raw("&nbsp;")
+                            <a id="PagingPrev" data-item="@(Model.CurrentPageItems.PageIndex - 1)" href="/Management/UserList">
+                                <img src="~/images/table/previousPage.png" alt="" /></a>
+                        }
+                        else
+                        {
+                            <img src="~/images/table/paging_far_left.gif" />
+                            @Html.Raw("&nbsp;")
+                            <img src="~/images/table/paging_left.gif" />
+                        }
+                        &nbsp;
+                        @Resource.TitlePage @(Model.CurrentPageItems.PageNumber) @Resource.TitleOf @Model.CurrentPageItems.PageCount
+                        &nbsp;
+                        @if (Model.CurrentPageItems.HasNextPage)
+                        {
+                            <a id="PagingNext" data-item="@(Model.CurrentPageItems.PageIndex + 1)" href="/Management/UserList">
+                                <img src="~/images/table/nextPage.png" alt="" /></a>
+                            @Html.Raw("&nbsp;")
+                            <a id="PagingLast" data-item="@(Model.CurrentPageItems.PageCount - 1)" href="/Management/UserList">
+                                <img src="~/images/table/lastPage.png" alt="" /></a>
+                        }
+                        else
+                        {
+                            <img src="~/images/table/paging_right.gif" />
+                            @Html.Raw("&nbsp;")
+                            <img src="~/images/table/paging_far_right.gif" />
+                        }
+
+                        <div style="float: right; vertical-align: middle;">
+                            @Resource.TitleRecordPage
+                            @Html.DropDownListFor(x => x.CurrentPageSize, new SelectList(Model.PageSizeItems),
+                                                  new { @id = "CurrentPageSize", @class = "chzn-select", @style = "width:150px;" })
+                        </div>
+                    </div>
+                </div>
+            </td>
+            <td id="tbl-border-right"></td>
+            
+        </tr>
+        <tr>
+            <th class="sized bottomleft"></th>
+            <td id="tbl-border-bottom">&nbsp;</td>
+            <th class="sized bottomright"></th>
+        </tr>
+    </table>
+}
+
+<script type="text/javascript">
+    function AsyncSubmitForm() {
+        $("#imgLoading").show(500);
+        $("#TableForm").fadeTo(0, 0.7);
+        $.ajax({
+            url: '@Url.Action("UserList", "Management")',
+            type: "POST",
+            data: $("#TableForm").serialize(),
+            success: function (data) {
+                $("#imgLoading").hide();
+                $("#TableForm").fadeTo(0, 1);
+                $('#usersTableContainer').html(data);
+            },
+            error: function (result) {
+                $("#TableForm").fadeTo(0, 1);
+                $("#imgLoading").hide();
+            }
+        });
+    }
+
+    $(document).ready(function () {
+        $("#imgLoading").hide();
+
+        $("#CurrentPageSize").change(function (e) {
+            e.preventDefault();
+            AsyncSubmitForm();
+        });
+
+        $('a[id^="Paging"]').click(function (e) {
+            var arg = $(this).attr('data-item');
+            var actionParam = $("<input>").attr("type", "hidden").attr("name", "pageUserAction").val("Paging");
+            var argParam = $("<input>").attr("type", "hidden").attr("name", "pageUserArg").val(arg);
+            $("#TableForm").append($(actionParam));
+            $("#TableForm").append($(argParam));
+
+            e.preventDefault();
+            AsyncSubmitForm();
+        });
+    });
+
+
+    var config = {
+        '.chzn-select': {},
+        '.chzn-select-deselect': { allow_single_deselect: true },
+        '.chzn-select-no-single': { disable_search_threshold: 10 },
+        '.chzn-select-no-results': { no_results_text: '@Resource.MessageNoAccounts' },
+        '.chzn-select-width': { width: "95%" }
+    };
+    for (var selector in config) {
+        $(selector).chosen(config[selector]);
+    }
+    $('.chzn-search').hide();
+</script>

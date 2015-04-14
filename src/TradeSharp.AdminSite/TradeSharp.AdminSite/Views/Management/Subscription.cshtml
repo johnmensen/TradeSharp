@@ -1,0 +1,207 @@
+﻿@{
+    ViewBag.Title = Resource.PageTitleSubscription;
+    Layout = "~/Views/Pages/_PageLayout.cshtml";
+}
+
+@using TradeSharp.SiteAdmin.App_GlobalResources
+@using TradeSharp.SiteAdmin.Helper
+@using TradeSharp.SiteAdmin.Models
+@model SubscriptionListModel
+
+@section Header {
+    <link rel="stylesheet" href="/css/screen.css" type="text/css" media="screen" title="default" />
+    <link rel="stylesheet" href="/css/button.css" type="text/css" media="screen" title="default" />
+    <!--  jquery core -->
+    <script src="/js/jquery_1_10_3/jquery-1.9.1.js" type="text/javascript"></script>
+    <script src="~/js/jquery_1_10_3/jquery-ui-1.10.3.custom.min.js" type="text/javascript"></script>
+    <script src="~/js/TableAccount.js" type="text/javascript"></script>
+    <script src="~/js/uiscripts.js" type="text/javascript"></script>
+    <script src="~/js/validate_script.js" type="text/javascript"></script>
+    
+    <script src="~/js/chosen.jquery.min.js" type="text/javascript"></script>
+    <link href="~/css/chosen.min.css" rel="stylesheet" />
+    <!--[if IE]>
+    <link rel="stylesheet" media="all" type="text/css" href="/css/pro_dropline_ie.css" />
+    <![endif]-->
+}
+
+<script type="text/javascript">
+    function getSender(e) { return (e && e.target) || (window.event && window.event.srcElement); }
+
+    function refreshTable() {
+        $.get('@Url.Action("Subscription", "Management", new { userId = Model.CurrentUser.ID })', function (data) {
+            $('#ajaxTableContainer').html(data);
+            $('#imgLoading').hide();
+        });
+    }
+
+    function postNewSignal() {
+        releaseValidateResult('СhangeSignalDiv');
+        $("#TableSignal").fadeTo(0, 0.7);
+        $("#imgLoading").show();
+        @AjaxFieldHelper.JsonToBePost(typeof(ServiceTradeSignalModel), "СhangeSignalDiv", "objToSend")
+        $.ajax({
+            url: '@Url.Action("AddSignal", "Management")',
+            type: 'POST',
+            data: JSON.stringify(objToSend),
+            dataType: 'json',
+            contentType: 'application/json; charset=utf-8',
+            success: function (data) {
+                if (data.status != true) 
+                    alert(data.errorString);
+                
+                refreshTable();
+            }
+        });
+        return true;
+    }
+
+    // Дабавить новый собственный сигнал
+    function showСhangSignalWindow(e) {
+        $('#СhangeSignalDiv').find('input').val('');
+        $('#СhangeSignalDiv').find('textarea').val('');
+        $('#СhangeSignalDiv').find('input').prop('checked', false);
+        
+
+        if (e == null) {
+            $('#@AjaxFieldHelper.EditFieldId((ServiceTradeSignalModel s) => s.Id)').val(-1);
+            $('#@AjaxFieldHelper.EditFieldId((ServiceTradeSignalModel s) => s.FixedPrice)').val(2.38);
+
+            $('#@AjaxFieldHelper.EditFieldId((ServiceTradeSignalModel s) => s.User)').val(@Model.CurrentUser.ID);
+           
+        } else {
+            var senderItem = $(getSender(e));
+            var parrent = senderItem.closest('tr');
+            
+            var itemId = parrent.attr('data-rowId');
+            var serviceType = parrent.attr('data-serviceType');
+            var comment = parrent.children('td[data-td="Comment"]').text();
+            var fixedPrice = parrent.children('td[data-td="FixedPrice"]').text();
+            var accountId = parrent.children('td[data-td="AccountId"]').text();
+
+            $('#@AjaxFieldHelper.EditFieldId((ServiceTradeSignalModel s) => s.Id)').val(itemId.trim());
+            $('#@AjaxFieldHelper.EditFieldId((ServiceTradeSignalModel s) => s.Comment)').val(comment.trim());
+            $('#@AjaxFieldHelper.EditFieldId((ServiceTradeSignalModel s) => s.FixedPrice)').val(fixedPrice.trim());
+            $('#@AjaxFieldHelper.EditFieldId((ServiceTradeSignalModel s) => s.AccountId)').val(accountId.trim());
+            $('#@AjaxFieldHelper.EditFieldId((ServiceTradeSignalModel s) => s.ServiceType)').val(serviceType.trim());
+            $('#@AjaxFieldHelper.EditFieldId((ServiceTradeSignalModel s) => s.User)').val(@Model.CurrentUser.ID);
+        }
+
+        // позиционировать окно посередине видимой части экрана
+        letDivFloat('СhangeSignalDiv');
+    }
+    
+   
+
+    function delSignal(serviceId) {
+        if (!confirm('@Resource.ConfirmDellTradeSignal?')) return false;
+        var signalId = { signalId: serviceId };
+
+        $("#TableSignal").fadeTo(0, 0.7);
+        $("#imgLoading").show();
+        
+        $.ajax({
+            url: '@Url.Action("DellSignal", "Management")',
+            type: 'POST',
+            data: JSON.stringify(signalId),
+            dataType: 'json',
+            contentType: 'application/json; charset=utf-8',
+            success: function(data) {
+                if (data.status) {
+                    refreshTable();
+                } else alert(@Resource.ErrorMessage + ' ' + data.errorString);
+            }
+        });
+        
+        return true;
+    }
+
+    function delSubscription(signalId, userId) {
+        if (!confirm('@Resource.ConfirmUnsubscribeTradeSignal?')) return false;
+        var params = { signalId: signalId, userId: userId };
+
+        $("#TableSignal").fadeTo(0, 0.7);
+        $("#imgLoading").show();
+
+        $.ajax({
+            url: '@Url.Action("UnSubscription", "Management")',
+            type: 'POST',
+            data: JSON.stringify(params),
+            dataType: 'json',
+            contentType: 'application/json; charset=utf-8',
+            success: function (data) {
+                if (data.status) {
+                    refreshTable();
+                } else alert(@Resource.ErrorMessage + ' ' + data.errorString);
+            }
+        });
+
+        return true;
+    }
+</script>
+
+@Html.Partial("localizationVariableJavaScriptValidate")
+
+<!-- start content-outer ........................................................................................................................START -->
+<div id="content-outer">
+    <!-- start content -->
+    <div id="content">
+        <!--  start page-heading -->
+        <div id="page-heading">
+            <h1>@Resource.TitleUserTradeSignal @Model.CurrentUser.Login</h1>
+            <br/>
+            <h2>@Resource.TitleUserDetails</h2>
+            <div># @Model.CurrentUser.ID</div>
+            <div>@Model.CurrentUser.FullName</div>
+            <div>@Model.CurrentUser.Description</div>
+            <br/>
+            <br/>
+            <img id="imgLoading" class="ui-progressbar" style="width: 128px; height: 128px; display: none; background-position:center; position: fixed" src="~/images/table/loading.gif" alt=""/>
+            <div class="ajaxTableContainer" id="ajaxTableContainer">@Html.Partial("SubscriptionPartialTable")</div>           
+        </div>
+    </div>
+    
+
+
+    <!-- "Окно" добавления / редактирования своих сигналов -->    
+    <div id="СhangeSignalDiv" class="item_edit_div">
+        <input type="hidden" id="editUser"/>
+        <input type="hidden" id="editId"/>
+        <table>
+            <tr>
+                <td>@Resource.TitleAccount</td>
+                <td>
+                    @AjaxFieldHelper.Combobox((ServiceTradeSignalModel i) => i.AccountId, 
+                                              (List<string>)ViewBag.listAccountsValue, (List<string>)ViewBag.listAccountsText, 
+                                              new { @style="width:100px"})
+                </td>                    
+            </tr>
+            <tr>
+                <td>@Resource.TitlePricePerMonth</td>
+                <td>
+                    @AjaxFieldHelper.Input((ServiceTradeSignalModel i) => i.FixedPrice, new { @style="width:100px"})
+                </td>                    
+            </tr>
+            <tr>
+                <td>@Resource.TitleComment</td>
+                <td>
+                    <textarea id="@AjaxFieldHelper.EditFieldId((ServiceTradeSignalModel i) => i.Comment)" rows="4" cols="50"></textarea>
+                </td>                    
+            </tr>
+            <tr>
+                <td>@Resource.TitleTradeSignalType</td>
+                <td>
+                    @AjaxFieldHelper.Combobox((TradeSignalModel i) => i.ServiceType, 
+                                              (List<string>)ViewBag.serviceTypeValue, (List<string>)ViewBag.serviceTypeText, 
+                                              new { @style="width:100px"})
+                </td>                    
+            </tr>
+        </table>
+        <br />
+        <a href="javascript:void(0);" class="ml-button-3" style="float:none; display:inline; padding:8px;" 
+           onclick="if(validateInputs('СhangeSignalDiv')) postNewSignal();">@Resource.TitleAccept</a>
+        &nbsp;&nbsp;
+        <a href="javascript:void(0);" class="ml-button-3" style="float:none; display:inline; padding:8px;" 
+           onclick="releaseValidateResult('СhangeSignalDiv');">@Resource.TitleCancel</a>
+    </div>
+</div>

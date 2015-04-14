@@ -1,0 +1,106 @@
+﻿@using TradeSharp.Hub.WebSite.Helper
+@{
+    ViewBag.Title = "Редактирование псевдонимов";
+}
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script type="text/javascript">
+        $(function() {
+            $("#ddlServerCode").change(function() {
+                var selectedItem = $(this).val();
+                $.ajax({
+                    cache: false,
+                    type: "GET",
+                    url: "@(Url.Action("TickerAliasEdit", "Ticker"))",
+                    data: { "brokerCode": selectedItem },
+                    success: function(data) {
+                        $('div#tableContainer').html(data);
+                    },
+                    error: function() {
+                        alert('@HelpViewCharacter.FailOperation');
+                    }
+                });
+            });
+        });
+
+
+        function UpdateTickerAlias() {
+
+            var postArray = [];
+
+            $.each($('input[id^="@HelpViewCharacter.TextPrefix"]'), function (index, value) {
+                var argServer = $(value).attr('data-Server');
+                var argTicker = $(value).attr('data-Ticker');
+                var argAlias = $(value).val();
+
+                postArray.push(argServer + '@HelpViewCharacter.Divider' + argTicker + '@HelpViewCharacter.Divider' + argAlias);
+                console.log(argServer + '@HelpViewCharacter.Divider' + argTicker + '@HelpViewCharacter.Divider' + argAlias);
+            });
+            
+                       
+            $.ajax({
+                url: "@(Url.Action("TickerAliasEdit", "Ticker"))",
+                type: 'POST',
+                data: JSON.stringify({ postArray: postArray }),
+                dataType: 'json',
+                contentType: 'application/json; charset=utf-8',
+                success: function (data) {
+                    if (data.updateSuccess == true) {
+                        alert('@HelpViewCharacter.SuccessOperation');
+                    } else {
+                        alert('@HelpViewCharacter.FailOperation');
+                    }
+                },
+                error: function (data) {
+                    alert('@HelpViewCharacter.FailOperation');
+                }
+            });
+        }
+    </script>
+}
+
+<div class="content">
+    <table border="0" width="100%" cellpadding="0" cellspacing="0" class="content_table">
+        <tr>
+            <th rowspan="3" class="sized">
+                <img src="/images/shared/side_shadowleft.jpg" width="20" class="shadow" alt="" /></th>
+            <th class="topleft"></th>
+            <td id="tbl-border-top">&nbsp;</td>
+            <th class="topright"></th>
+            <th rowspan="3" class="sized">
+                <img src="/images/shared/side_shadowright.jpg" width="20" class="shadow" alt="" /></th>
+        </tr>
+        <tr>
+            <td id="tbl-border-left"></td>
+            <td>
+                <div id="content_table_inner">
+                    <div style="">
+                        <br/>
+                        <h2>Редактирование псевдонимов</h2>
+                        <br/>
+
+                        <h2>Брокер</h2>
+
+                        @Html.DropDownList("ddlServerCode", new SelectList(ViewBag.ServerCodeList, ViewBag.BrokerCode), new {@style = "width:150px; margin-bottom: 10px; display:inline;" })
+                        
+                        <br/>
+                        <div id="tableContainer">@Html.Partial("TickerAliasEditPartialTable")</div>
+                    
+                        <br/>
+                    </div>
+                </div>
+            </td>
+            <td id="tbl-border-right"></td>
+        </tr>
+        <tr>
+            <th class="sized bottomleft"></th>
+            <td id="tbl-border-bottom">&nbsp;</td>
+            <th class="sized bottomright"></th>
+        </tr>
+    </table>
+</div>

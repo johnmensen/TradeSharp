@@ -1,0 +1,89 @@
+﻿@{
+    ViewBag.Title = Resource.PageTitlePamm;
+    Layout = "~/Views/Pages/_PageLayout.cshtml";
+}
+
+@using TradeSharp.SiteAdmin.App_GlobalResources
+@using TradeSharp.SiteAdmin.Models.CommonClass
+@model TradeSharp.SiteAdmin.Models.PammModel
+
+@section Header {
+    <link rel="stylesheet" href="/css/screen.css" type="text/css" media="screen" title="default" />
+    <link rel="stylesheet" href="/css/button.css" type="text/css" media="screen" title="default" />
+    <!--  jquery core -->
+    <script src="/js/jquery_1_10_3/jquery-1.9.1.js" type="text/javascript"></script>
+    <script src="~/js/jquery_1_10_3/jquery-ui-1.10.3.custom.min.js" type="text/javascript"></script>
+    <script src="@Url.Content("~/js/jquery_1_10_3/jquery.unobtrusive-ajax.min.js")" type="text/javascript"></script>
+    <script src="~/js/uiscripts.js" type="text/javascript"></script>
+    <link href="~/css/jquery_1_10_3_Theme/jquery-ui-1.10.3.custom.min.css" rel="stylesheet" />   
+    
+    <script src="~/js/chosen.jquery.min.js" type="text/javascript"></script>
+    <link href="~/css/chosen.min.css" rel="stylesheet" />
+    <!--[if IE]>
+    <link rel="stylesheet" media="all" type="text/css" href="/css/pro_dropline_ie.css" />
+    <![endif]-->
+}
+
+<!-- start content-outer ........................................................................................................................START -->
+<div id="content-outer">
+    <!-- start content -->
+    <div id="content">
+        <!--  start page-heading -->
+        <div id="page-heading">
+            <h1>@Resource.TitlePamm</h1>
+        </div>
+        <!-- end page-heading -->
+        <div id="pammTableContainer">@Html.Partial("PammPartialTable")</div>
+        <div class="clear">&nbsp;</div>
+    </div>
+    <!--  end content -->
+    <div class="clear">&nbsp;</div>
+    <!--  end content-outer........................................................END -->
+</div>
+
+<script type="text/javascript">
+    var pageNumberName = "PammPartialTablePageNumber";
+    var pageSizeName = "PammPartialTableCurrentPageSize";
+    var anyInvestorName = "PammPartialTableAnyInvestor";
+
+
+    function AsyncSubmitForm() {
+        $("#imgLoading").show(500);
+        $("#TableForm").fadeTo(0, 0.7);
+        
+        $.ajax({
+            url: '@Url.Action("Pamm", "TrustManagement")',
+            type: "POST",
+            data: $("#TableForm").serialize(),
+            success: function (data) {
+                $("#imgLoading").hide();
+                $("#TableForm").fadeTo(0, 1);
+                $('#pammTableContainer').html(data);
+            },
+            error: function (result) {
+                $("#TableForm").fadeTo(0, 1);
+                $("#imgLoading").hide();
+            }
+        });
+    }
+    
+    $(function () {       
+        $("#@Model.GetPropertyName(x => x.PageNomber)").val(GetSettings(pageNumberName));
+        $("#@Model.GetPropertyName(x => x.CurrentPageSize)").val(GetSettings(pageSizeName));
+        if (GetSettings(anyInvestorName) == "true") 
+            $("#@Model.GetPropertyName(x => x.AnyInvestor)").prop('checked', true);
+        
+        
+        AsyncSubmitForm();
+        
+        $("#dialogResult").dialog({
+            modal: true,
+            buttons: {
+                Ok: function () {
+                    $(this).dialog("close");
+                }
+            }
+        });
+    });
+</script>
+

@@ -1,0 +1,237 @@
+﻿@{
+    ViewBag.Title = Resource.PageTitleMarketOrderDetails + "  " + Model.ID;
+    Layout = "~/Views/Pages/_PageLayout.cshtml";
+}
+
+@using Entity
+@using TradeSharp.SiteAdmin.App_GlobalResources
+@using TradeSharp.Contract.Entity
+@model MarketOrder
+
+@section Header {
+    <link rel="stylesheet" href="~/css/screen.css" type="text/css" media="screen" title="default" />
+    <link rel="stylesheet" href="/css/button.css" type="text/css" media="screen" title="default" />
+
+    <!--  jquery core -->
+    <script src="~/js/jquery_1_10_3/jquery-1.9.1.js"></script>
+    <script src="~/js/jquery_1_10_3/jquery-ui-1.10.3.custom.min.js"></script>
+
+    <script src="~/js/chosen.jquery.min.js" type="text/javascript"></script>
+    <script src="@Url.Content("~/js/jquery/jquery.validate.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/js/jquery/jquery.validate.unobtrusive.js")" type="text/javascript"></script>
+
+
+    <link href="~/css/jquery_1_10_3_Theme/jquery-ui-1.10.3.custom.min.css" rel="stylesheet" />
+    <link href="~/css/chosen.min.css" rel="stylesheet" />
+
+    <!--[if IE]>
+    <link rel="stylesheet" media="all" type="text/css" href="/css/pro_dropline_ie.css" />
+    <![endif]-->
+}
+<style type="text/css">
+    table.padded-table { margin-top: 50px; }
+    table.padded-table td { padding:10px; }
+
+    .LableStyle {
+        font-size: 14px;font-weight: bold; color: white
+    }
+    .RowStyle {
+        font-size: 12px;font-weight: bold;color: #ffe4b5;
+    }
+</style>
+
+<script type="text/javascript">
+    $(function () {
+        $("#tabs").tabs();
+    });
+</script>
+
+<div id="content-outer">
+    <div id="content">
+        <div id="page-heading">
+            <h3>@Resource.TitleMarketOrderDetails @Model.ID</h3>
+        </div>
+
+        <div id="tabs">
+            <ul>
+                <li><a href="#tabs-main">@Resource.TitleMain</a></li>
+                <li><a href="#tabs-additional">@Resource.TitleOptions</a></li>
+            </ul>
+            <div id="tabs-main">
+                <h1 style="color: white;">@Resource.TitleMarketOrderMainIndicator</h1>
+                <table class="padded-table">
+                    <tr>
+                        <td class="LableStyle">
+                            @Resource.TitleMarketOrderNumber
+                        </td>
+                        <td class="RowStyle">
+                            @Model.ID
+                        </td>
+                        <td >
+                            @Html.LabelFor(x => x.Magic, new { @class = "LableStyle" })
+                        </td>
+                        <td class="RowStyle">
+                            @Model.Magic
+                        </td>
+                        <td >
+                            @Html.LabelFor(x => x.StopLoss, new { @class = "LableStyle" })
+                        </td>
+                        <td class="RowStyle">
+                            @Model.StopLoss
+                        </td>
+                        <td >
+                            @Html.LabelFor(x => x.ExpertComment, new { @class = "LableStyle" })
+                        </td>
+                        <td class="RowStyle">
+                            @Model.ExpertComment
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            @Html.LabelFor(x => x.AccountID, new { @class = "LableStyle" })
+                        </td>
+                        <td class="RowStyle">
+                            @Model.AccountID
+                        </td>
+                        <td >
+                            @Html.LabelFor(x => x.Side, new { @class = "LableStyle" })
+                        </td>
+                        <td class="RowStyle">
+                            @((DealType)Model.Side)
+                        </td>
+                        <td>
+                            @Html.LabelFor(x => x.TakeProfit, new { @class = "LableStyle" })
+                        </td>
+                        <td class="RowStyle">
+                            @Model.TakeProfit
+                        </td>
+                        <td >
+                            @Html.LabelFor(x => x.Comment, new { @class = "LableStyle" })
+                        </td>
+                        <td class="RowStyle">
+                            @Model.Comment
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            @Html.LabelFor(x => x.Symbol, new { @class = "LableStyle" })   
+                        </td>
+                        <td class="RowStyle">
+                            @Model.Symbol
+                        </td>
+                        <td>
+                            @Html.LabelFor(x => x.State, new { @class = "LableStyle" })
+                        </td>
+                        <td class="RowStyle">
+                            @Model.State
+                        </td>
+                        <td >
+                            @Html.LabelFor(x => x.PendingOrderID, new { @class = "LableStyle" })
+                        </td>
+                        <td class="RowStyle">
+                            @Model.PendingOrderID
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            @Html.LabelFor(x => x.Volume, new { @class = "LableStyle" })
+                        </td>
+                        <td class="RowStyle">
+                            @Model.Volume
+                        </td>
+                        <td >
+                            @Html.LabelFor(x => x.ExitReason, new { @class = "LableStyle" })
+                        </td>
+                        <td class="RowStyle">
+                            @Model.ExitReason
+                        </td>
+                    </tr>
+                </table>
+                
+                <table class="padded-table">
+                    <tr>
+                        <td>
+                            @Html.LabelFor(x => x.TimeEnter, new { @class = "LableStyle" })
+                        </td>
+                        <td class="RowStyle">
+                            @Model.TimeEnter
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            @Html.LabelFor(x => x.PriceEnter, new { @class = "LableStyle" })
+                        </td>
+                        <td class="RowStyle">
+                            @Model.PriceEnter
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            @Html.LabelFor(x => x.TimeExit, new { @class = "LableStyle" })
+                        </td>
+                        <td class="RowStyle">
+                            @Model.TimeExit
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            @Html.LabelFor(x => x.PriceExit, new { @class = "LableStyle" })
+                        </td>
+                        <td class="RowStyle">
+                            @Model.PriceExit
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            
+
+            <div id="tabs-additional">
+                <h1 style="color: white; margin-bottom: 15px;">@Resource.TitleMarketOrderOptionIndicator</h1>
+
+                <table class="padded-table">
+                    @if (Model.State == PositionState.Closed)
+                    {
+                        <tr>
+                            <td class = "LableStyle">
+                                @Html.LabelFor(x => x.ResultPoints, new { @class = "LableStyle" })
+                            </td>
+                            <td class="RowStyle">
+                                @Model.ResultPoints
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                @Html.LabelFor(x => x.ResultBase, new { @class = "LableStyle" })
+                            </td>
+                            <td class="RowStyle">
+                                @Model.ResultBase
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                @Html.LabelFor(x => x.ResultDepo, new { @class = "LableStyle" })
+                            </td>
+                            <td class="RowStyle">
+                                @Model.ResultDepo
+                            </td>
+                        </tr>
+                    }
+                    else
+                    {
+                        <tr>
+                            <td class = "LableStyle">
+                                @Html.LabelFor(x => x.Trailing, new { @class = "LableStyle" })
+                            </td>
+                            <td class="RowStyle">
+                                @Model.Trailing
+                            </td>
+                        </tr>
+                        
+                    }
+                </table>
+            </div>
+        </div>
+        <div class="clear">&nbsp;</div>
+    </div>
+    <div class="clear">&nbsp;</div>
+</div>

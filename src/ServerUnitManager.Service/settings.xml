@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<settings>
+
+  <Items>
+    <Folder value="d:\Sources\svn\Sharp\src\TradeSharp.UpdateServer\bin\Debug" />
+    <ServiceExecFileName value="TradeSharp.UpdateServer.exe" />
+    <ServiceName value="TradeSharp.UpdateServer" />
+  </Items>
+
+  <Items>
+    <Folder value="d:\Sources\svn\Sharp\src\TradeSharp.TradeSignalExecutor\bin\Debug" />
+    <ServiceExecFileName value="TradeSharp.TradeSignalExecutor.exe" />
+    <ServiceName value="TradeSharp.TradeSignalExecutor" />
+  </Items>
+
+</settings>

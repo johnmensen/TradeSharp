@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{386DDB6B-D707-4ADC-A0BC-08448D144A8D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TradeSharp.UI.Util</RootNamespace>
+    <AssemblyName>TradeSharp.UI.Util</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>../Libraries/tradesharp.pfx</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FastGrid">
+      <HintPath>..\Libraries\FastGrid.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Control\Expander.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Control\Expander.Designer.cs">
+      <DependentUpon>Expander.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Control\FinanceLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Control\GrayStyledButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Control\SizeablePanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Control\StandByControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Control\StandByControl.Designer.cs">
+      <DependentUpon>StandByControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Control\TickerComboBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Control\TickerComboBox.Designer.cs">
+      <DependentUpon>TickerComboBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ExportPositionsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ExportPositionsForm.designer.cs">
+      <DependentUpon>ExportPositionsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\PickSignalCategoryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PickSignalCategoryForm.Designer.cs">
+      <DependentUpon>PickSignalCategoryForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\PositionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PositionForm.Designer.cs">
+      <DependentUpon>PositionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Forms\TooltipForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\TooltipForm.Designer.cs">
+      <DependentUpon>TooltipForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Update\ClientFileBrowser.cs" />
+    <Compile Include="Update\FileVersion.cs" />
+    <Compile Include="Update\VersionInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Control\Expander.resx">
+      <DependentUpon>Expander.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Control\StandByControl.resx">
+      <DependentUpon>StandByControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ExportPositionsForm.resx">
+      <DependentUpon>ExportPositionsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PickSignalCategoryForm.resx">
+      <DependentUpon>PickSignalCategoryForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PositionForm.resx">
+      <DependentUpon>PositionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\TooltipForm.resx">
+      <DependentUpon>TooltipForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Common\Entity\Entity.csproj">
+      <Project>{33517aeb-576a-429e-b651-ea87b54242e7}</Project>
+      <Name>Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TradeSharp.Contract\TradeSharp.Contract.csproj">
+      <Project>{168F1CAC-77C9-4847-B6C1-138E4373CCEA}</Project>
+      <Name>TradeSharp.Contract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TradeSharp.UpdateContract\TradeSharp.UpdateContract.csproj">
+      <Project>{c2b97926-c5e0-443b-b446-24a1b670b597}</Project>
+      <Name>TradeSharp.UpdateContract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TradeSharp.Util\TradeSharp.Util.csproj">
+      <Project>{4b406c3d-89c3-4c9f-a677-c3114d93b8f9}</Project>
+      <Name>TradeSharp.Util</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="tradesharp.pfx" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

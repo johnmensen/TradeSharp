@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<settings>
+    <News><CountryCode value="EU" /><NewsTitle value="Розничные продажи" /><Weight value="1" /></News>
+
+    <News><CountryCode value="GB" /><NewsTitle value="Индекс потребительских цен" /><Weight value="-1" /></News>
+    <News><CountryCode value="GB" /><NewsTitle value="Индекс розничных цен" /><Weight value="-1" /></News>
+    <News><CountryCode value="GB" /><NewsTitle value="Промышленное производство" /><Weight value="1" /></News>
+    <News><CountryCode value="GB" /><NewsTitle value="Розничные продажи" /><Weight value="-1" /></News>
+
+    <News><CountryCode value="DE" /><NewsTitle value="Индекс настроения в деловых кругах" /><Weight value="1" /></News>
+    <News><CountryCode value="DE" /><NewsTitle value="Индекс оценки текущей экономической ситуации" /><Weight value="1" /></News>
+    <News><CountryCode value="DE" /><NewsTitle value="Индекс экономических ожиданий" /><Weight value="1" /></News>
+    <News><CountryCode value="DE" /><NewsTitle value="Промышленное производство" /><Weight value="1" /></News>
+
+    <News><CountryCode value="US" /><NewsTitle value="Индекс доверия потребителей" /><Weight value="1" /></News>
+    <News><CountryCode value="US" /><NewsTitle value="Продажи на первичном рынке жилья" /><Weight value="1" /></News>
+    <News><CountryCode value="US" /><NewsTitle value="Заказы на товары длительного пользования" /><Weight value="1" /></News>
+    <News><CountryCode value="US" /><NewsTitle value="Личные доходы" /><Weight value="1" /></News>
+    <News><CountryCode value="US" /><NewsTitle value="Личные расходы" /><Weight value="1" /></News>
+    <News><CountryCode value="US" /><NewsTitle value="Индекс деловой активности в производственном секторе" /><Weight value="1" /></News>
+    <News><CountryCode value="US" /><NewsTitle value="Индекс деловой активности в секторе услуг" /><Weight value="1" /></News>
+    <News><CountryCode value="US" /><NewsTitle value="Уровень безработицы" /><Weight value="-1" /></News>
+    <News><CountryCode value="US" /><NewsTitle value="Расходы на строительство" /><Weight value="1" /></News>
+    <News><CountryCode value="US" /><NewsTitle value="Розничные продажи" /><Weight value="1" /></News>
+    <News><CountryCode value="US" /><NewsTitle value="Запасы природного газа по данным EIA" /><Weight value="1" /></News>
+    <News><CountryCode value="US" /><NewsTitle value="Число вторичных заявок на пособие по безработице" /><Weight value="-1" /></News>
+    <News><CountryCode value="US" /><NewsTitle value="Количество заявок на пособие по безработице" /><Weight value="-1" /></News>
+    <News><CountryCode value="US" /><NewsTitle value="Индекс деловой активности в секторе услуг" /><Weight value="1" /></News>
+    <News><CountryCode value="US" /><NewsTitle value="Заказы на товары длительного пользования" /><Weight value="1" /></News>
+    <News><CountryCode value="US" /><NewsTitle value="Индекс потребительских цен" /><Weight value="-1" /></News>
+    <News><CountryCode value="US" /><NewsTitle value="Промышленное производство" /><Weight value="1" /></News>
+    <News><CountryCode value="US" /><NewsTitle value="Индекс деловой активности в производственном секторе" /><Weight value="1" /></News>
+    <News><CountryCode value="US" /><NewsTitle value="Запасы природного газа по данным EIA" /><Weight value="1" /></News>
+    <News><CountryCode value="US" /><NewsTitle value="Розничные продажи" /><Weight value="1" /></News>
+    <News><CountryCode value="US" /><NewsTitle value="Уровень безработицы" /><Weight value="-1" /></News>
+    <News><CountryCode value="US" /><NewsTitle value="Оптовые запасы" /><Weight value="-1" /></News>
+    <News><CountryCode value="US" /><NewsTitle value="Деловые запасы" /><Weight value="-1" /></News>
+    <News><CountryCode value="US" /><NewsTitle value="Количество заявок на пособие по безработице" /><Weight value="-1" /></News>
+    <News><CountryCode value="US" /><NewsTitle value="Индекс потребительских цен" /><Weight value="-1" /></News>
+    <News><CountryCode value="US" /><NewsTitle value="Стержневой индекс потребительских цен" /><Weight value="-1" /></News>
+    <News><CountryCode value="US" /><NewsTitle value="Индекс деловой активности" /><Weight value="1" /></News>
+    <News><CountryCode value="US" /><NewsTitle value="Промышленное производство" /><Weight value="1" /></News>
+    <News><CountryCode value="US" /><NewsTitle value="Индекс производственных цен" /><Weight value="-1" /></News>
+    <News><CountryCode value="US" /><NewsTitle value="Индекс опережающих индикаторов" /><Weight value="1" /></News>
+    <News><CountryCode value="US" /><NewsTitle value="Продажи на вторичном рынке жилья" /><Weight value="1" /></News>
+
+    <News><CountryCode value="JP" /><NewsTitle value="Индекс потребительских цен округа Токио" /><Weight value="-1" /></News>
+    <News><CountryCode value="JP" /><NewsTitle value="Индекс цен на услуги для компаний" /><Weight value="-1" /></News>
+    <News><CountryCode value="JP" /><NewsTitle value="Общегосударственный индекс потребительских цен" /><Weight value="-1" /></News>
+    <News><CountryCode value="JP" /><NewsTitle value="Отношение числа рабочих мест к числу кандидатов" /><Weight value="1" /></News>
+    <News><CountryCode value="JP" /><NewsTitle value="Расходы домашних хозяйств" /><Weight value="1" /></News>
+    <News><CountryCode value="JP" /><NewsTitle value="Сальдо текущего счета платежного баланса (без коррекции на сезон)" /><Weight value="-1" /></News>
+    <News><CountryCode value="JP" /><NewsTitle value="Уровень безработицы" /><Weight value="-1" /></News>
+    <News><CountryCode value="JP" /><NewsTitle value="Число закладок новых домов" /><Weight value="1" /></News>
+    <News><CountryCode value="JP" /><NewsTitle value="Экспорт" /><Weight value="1" /></News>
+
+  <Currencies>
+    <Currency><CountryCode value="EU" /><CurrencyCode value="EUR" /></Currency>
+    <Currency><CountryCode value="DE" /><CurrencyCode value="EUR" /></Currency>
+    <Currency><CountryCode value="US" /><CurrencyCode value="USD" /></Currency>
+    <Currency><CountryCode value="AU" /><CurrencyCode value="AUD" /></Currency>
+    <Currency><CountryCode value="CA" /><CurrencyCode value="CAD" /></Currency>
+    <Currency><CountryCode value="CH" /><CurrencyCode value="CHF" /></Currency>
+    <Currency><CountryCode value="GB" /><CurrencyCode value="GBP" /></Currency>
+    <Currency><CountryCode value="JP" /><CurrencyCode value="JPY" /></Currency>
+    <Currency><CountryCode value="NZ" /><CurrencyCode value="NZD" /></Currency>
+  </Currencies>
+</settings>

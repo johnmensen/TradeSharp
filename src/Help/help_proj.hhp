@@ -1,0 +1,63 @@
+[OPTIONS]
+Compatibility=1.1 or later
+Compiled file=terminal.chm
+Contents file=terminal_help.hhc
+Default Window=DefPane
+Default topic=pg_start.htm
+Display compile progress=No
+Language=0x419 Русский (Россия)
+Title=TradeSharp
+
+[WINDOWS]
+DefPane="TradeSharp","terminal_help.hhc",,"pg_start.htm","pg_start.htm",,,,,0x60420,,0x5c,[271,372,671,772],,,,,,,0
+
+
+[FILES]
+jquery-1.10.2.min.js
+script.js
+pg_start.htm
+pg_indicators.htm
+pg_renco.htm
+pg_user_index.htm
+pg_robot_level.htm
+pg_tutor_start.htm
+pg_tutor_chat.htm
+pg_tutorials.htm
+pg_autotrade.htm
+pg_trade_signals.htm
+pg_integration.htm
+pg_mt4.htm
+pg_api_indicator_rwr.htm
+pg_trade.htm
+pg_tradesettings.htm
+pg_chartnavi.htm
+pg_gui.htm
+pg_api_robot.htm
+pg_api_robot_ma.htm
+pg_formulas.htm
+pg_script.htm
+pg_faq.htm
+pg_robots.htm
+pg_robot_test.htm
+pg_indicator_window.htm
+pg_graphics.htm
+
+[ALIAS]
+SignalAutoTrade=pg_autotrade.htm
+ChatClient=pg_tutor_chat.htm
+TradeSettings=pg_tradesettings.htm
+FastButtons=pg_fastbuttons.htm
+IndicatorWindow=pg_indicator_window.htm
+ToolPanel=pg_graphics.htm
+
+
+[MAP]
+#define SignalAutoTrade 20
+#define ChatClient 30
+#define TradeSettings 40
+#define FastButtons 50
+#define IndicatorWindow 60
+#define ToolPanel 70
+
+[INFOTYPES]
+

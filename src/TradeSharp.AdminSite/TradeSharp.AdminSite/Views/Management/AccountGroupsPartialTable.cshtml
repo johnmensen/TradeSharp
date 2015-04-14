@@ -1,0 +1,216 @@
+﻿@using TradeSharp.Contract.Entity
+@using TradeSharp.SiteAdmin.App_GlobalResources
+@using TradeSharp.SiteAdmin.Controllers
+@using TradeSharp.SiteAdmin.Models.Items
+@using TradeSharp.Util
+@model IEnumerable<AccountGroupItem>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $('[id^="check-success"]').fadeOut(0);
+        $('[id^="check-error"]').fadeOut(0);
+        $('[id^="check-loading"]').fadeOut(0);
+        
+        $('select[id^="ddl"]').change(function () {
+            var $parrent = $(this).parent();
+            
+            $parrent.find('[id^="check-loading"]').fadeTo(0, 1);
+
+            $.ajax({
+                url: '@Url.Action("EditAccountDealer", "Management")',
+                type: "GET",
+                data: { accountCode: $(this).attr('id'), dealerCode: $(this).val() },
+                success: function (records) {  
+                    $parrent.find('[id^="check-loading"]').fadeOut(0, 0);
+                    $parrent.find('[id^="check-success"]').fadeTo(2000, 1);
+                    $parrent.find('[id^="check-success"]').fadeOut(2000, 0);
+                },
+                error: function (msg) {
+                    $parrent.find('[id^="check-loading"]').fadeOut(0, 0);
+                    $parrent.find('[id^="check-error"]').fadeTo(2000, 1);
+                    $parrent.find('[id^="check-error"]').fadeOut(2000, 0);
+                }
+            });
+        });
+    });
+</script>
+
+    @if (!string.IsNullOrEmpty(ManagementController.ResultMessage))
+    {
+        <div id="dialogResult" title="@Resource.TitleHeaderDialogResult">
+            <p>@ManagementController.ResultMessage</p>
+        </div>
+        @(ManagementController.ResultMessage = string.Empty)
+    }
+
+<table border="0" width="100%" cellpadding="0" cellspacing="0" id="content_table">
+    <tr>
+        <th rowspan="3" class="sized">
+            <img src="/images/shared/side_shadowleft.jpg" width="20" class="shadow" alt="" /></th>
+        <th class="topleft"></th>
+        <td id="tbl-border-top">&nbsp;</td>
+        <th class="topright"></th>
+        <th rowspan="3" class="sized">
+            <img src="/images/shared/side_shadowright.jpg" width="20" class="shadow" alt="" /></th>
+    </tr>
+    <tr>
+        <td id="tbl-border-left"></td>
+        <td>
+            @Html.ActionLink(Resource.TitleAccountGroupAddShort, "AccountGroupAdd", null, new
+                {
+                    id = "addAccountLink", style = "float:none; display:inline; padding:8px;", @class="ml-button-3"
+                })
+            <!--  start content_table_inner ...................................................................... START -->
+            <div id="content_table_inner">
+                <div style="">
+                    <br />
+                    <br />
+                    <table border="0" width="100%" cellpadding="0" cellspacing="0" id="product_table">
+                        <tr>
+                            <th class="table-header-repeat line-left minwidth-1">
+                                <span>
+                                    @Html.ActionLink(Resource.TitleAccountGroupCode, "AccountGroups", new { sortColumn = "Code" }, new { @class = "table-header-sotr-text" })
+                                </span>
+                            </th>
+                            <th class="table-header-repeat line-left minwidth-1">
+                                <span>@Html.ActionLink(Resource.TitleAccountGroupName, "AccountGroups", new { sortColumn = "Name" }, new { @class = "table-header-sotr-text" })
+                                </span>
+                            </th>
+                            <th class="table-header-repeat line-left">
+                                <span>@Html.ActionLink(Resource.TitleAccountGroupType, "AccountGroups", new { sortColumn = "IsReal" }, new { @class = "table-header-sotr-text" })
+                                </span>
+                            </th>
+                            <th class="table-header-repeat line-left">
+                                <span>@Html.ActionLink(Resource.TitleAccountGroupBrokerLeverage, "AccountGroups", new { sortColumn = "BrokerLeverage" }, new { @class = "table-header-sotr-text" })
+                                </span>
+                            </th>
+                            <th class="table-header-repeat line-left">
+                                <span>@Html.ActionLink(Resource.TitleAccountGroupMarginCall, "AccountGroups", new { sortColumn = "MarginCallPercentLevel" }, new { @class = "table-header-sotr-text" })
+                                </span>
+                            </th>
+                            <th class="table-header-repeat line-left">
+                                <span>@Html.ActionLink(Resource.TitleAccountGroupStopOut, "AccountGroups", new { sortColumn = "StopoutPercentLevel" }, new { @class = "table-header-sotr-text" })
+                                </span>
+                            </th>
+                            <th class="table-header-repeat line-left">
+                                <span>@Html.ActionLink(Resource.TitleAccountGroupDealer, "AccountGroups", new { sortColumn = "Dealer" }, new { @class = "table-header-sotr-text" })
+                                </span>
+                            </th>
+                            <th class="table-header-repeat line-left">
+                                <span>@Html.ActionLink(Resource.TitleAccountCount, "AccountGroups", new { sortColumn = "AccountsCount" }, new { @class = "table-header-sotr-text" })
+                                </span>
+                            </th>  
+                            <th class="table-header-repeat line-left">
+                                <span>@Resource.TitleAccountMarkup
+                                </span>
+                            </th>  
+                            <th class="table-header-repeat line-left">
+                                <span>@Resource.TitleAccountGroupSwop
+                                </span>
+                            </th>
+                            <th class="table-header-repeat line-left">
+                                <span>@Resource.TitleDelete
+                                </span>
+                            </th>   
+                        </tr>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td><a href="/Management/EditAccountGroupsDetails?code=@item.Code" class="table-item" id="@item.Code">@item.Code</a></td>
+                                <td>@item.Name</td>
+                                <td>
+                                    @if (item.IsReal)
+                                    {
+                                        <Span style="color: blue">@Resource.TitleReal</Span>
+                                    } else
+                                    {
+                                        <Span>@Resource.TitleVirtual</Span>
+                                    }
+                                </td>
+                                <td>@item.BrokerLeverage.ToString()</td> 
+                                <td>@item.MarginCallPercentLevel.ToString()</td>
+                                <td>@item.StopoutPercentLevel.ToString()</td>
+                                <td>
+                                   
+                                    @Html.DropDownList("ddl-" + item.Code, item.Dealers, new { @class = "chzn-select", @style = "width:150px;" })
+                                        
+                                    <a style="margin-left: 10px" href="/Management/EditDealerAccountGroups?Code=@(item.Code)">
+                                        <img src="~/images/table/options.png" style="width: 15px; height: 15px" alt=""/>
+                                    </a>
+                                        
+                                    <img id="check-success-@(item.Code)" src="~/images/table/check.png" style="width: 15px; height: 15px" alt=""/>
+                                    <img id="check-loading-@(item.Code)" style="width: 15px; height: 15px" src="~/images/table/loading.gif" alt=""/>                                     
+                                        
+                                    <div id="check-error-@(item.Code)" style="color: red">@Resource.ErrorMessage
+                                        <img  src="~/images/table/error.png" style="width: 15px; height: 15px" alt=""/>
+                                    </div>  
+                                    
+                                </td>
+                                <td>@(item.AccountsCount.ToString())</td> 
+                                <td>@{
+                                        if ((int)item.Markup != 0)
+                                        {
+                                            <span>@(EnumFriendlyName<AccountGroup.MarkupType>.GetString(item.Markup))</span>
+                                            <span>@item.DefaultMarkupPoints @Resource.TitlePoints</span>
+                                        }
+                                    }
+                                       
+                                </td>
+                                <td>@if (item.SwapFree)
+                                    {
+                                        <span>@Resource.TitleYes</span>
+                                    }
+                                    else
+                                    {
+                                        <span>@Resource.TitleNo</span>
+                                    }
+                                
+                                <td>
+                                    @if (item.AccountsCount > 0)
+                                    {
+                                        <img alt="@Resource.TitleDelete" 
+                                             title="@Resource.ErrorMessageAccountGroupDeleteHaveAccount" 
+                                            src="~/images/table/action_delete.gif" />
+                                    }
+                                    else
+                                    {
+                                        <a href="/Management/DeleteVoidAccountGroup?accountGroupCode=@item.Code" 
+                                            onclick="if (!confirm('@Resource.ConfirmDellAccountGroup')) return false;">
+                                            
+                                            <img alt="@Resource.TitleDelete" title="@Resource.TitleDelete" src="~/images/shared/DeleteRed.png" /></a>
+                                    }
+                                </td>
+                            </tr>
+                        }
+                    </table>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <!--  end content_table_inner ............................................END  -->
+        </td>
+        <td id="tbl-border-right"></td>
+    </tr>
+    <tr>
+        <th class="sized bottomleft"></th>
+        <td id="tbl-border-bottom">&nbsp;</td>
+        <th class="sized bottomright"></th>
+    </tr>
+</table>
+
+<div id="DetailsAccountGroups" title="@Resource.TitleAccountCount">
+</div>
+
+<script type="text/javascript">
+    var config = {
+        '.chzn-select': {},
+        '.chzn-select-deselect': { allow_single_deselect: true },
+        '.chzn-select-no-single': { disable_search_threshold: 10 },
+        '.chzn-select-no-results': { no_results_text: '@Resource.ErrorMassageNothingFound' },
+        '.chzn-select-width': { width: "95%" }
+    };
+    for (var selector in config) {
+        $(selector).chosen(config[selector]);
+    }
+    $('.chzn-search').hide();
+</script>

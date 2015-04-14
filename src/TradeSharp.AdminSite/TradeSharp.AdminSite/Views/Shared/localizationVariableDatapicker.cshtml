@@ -1,0 +1,29 @@
+﻿@using TradeSharp.SiteAdmin.App_GlobalResources
+<script type="text/javascript">
+    $.datepicker.regional['@Resource.DatepickerRegional'] = {
+        closeText: '@Resource.DatepickerCloseText',
+        prevText: '@Resource.DatepickerPrevText',
+        nextText: '@Resource.DatepickerNextText',
+        currentText: '@Resource.DatepickerCurrentText',
+        monthNames: ['@Resource.MonthJanuary', '@Resource.MonthFebruary', '@Resource.MonthMarch', '@Resource.MonthApril', '@Resource.MonthMay', '@Resource.MonthJune',
+            '@Resource.MonthJuly', '@Resource.MonthAugust', '@Resource.MonthSeptember', '@Resource.MonthOctober', '@Resource.MonthNovember', '@Resource.MonthDecember'],
+        monthNamesShort: ['@Resource.MonthJanuaryShort', '@Resource.MonthFebruaryShort', '@Resource.MonthMarchShort',
+            '@Resource.MonthAprilShort', '@Resource.MonthMayShort', '@Resource.MonthJuneShort',
+            '@Resource.MonthJulyShort', '@Resource.MonthAugustShort', '@Resource.MonthSeptemberShort',
+            '@Resource.MonthOctoberShort', '@Resource.MonthNovemberShort', '@Resource.MonthDecemberShort'],
+        dayNames: ['@Resource.DaySunday', '@Resource.DayMonday', '@Resource.DayTuesday',
+            '@Resource.DayWednesday', '@Resource.DayThursday', '@Resource.DayFriday', '@Resource.DaySaturday'],
+        dayNamesShort: ['@Resource.DaySundayShort', '@Resource.DayMondayShort', '@Resource.DayTuesdayShort',
+            '@Resource.DayWednesdayShort', '@Resource.DayThursdayShort', '@Resource.DayFridayShort', '@Resource.DaySaturdayShort'],
+        dayNamesMin: ['@Resource.DaySundayMin', '@Resource.DayMondayMin', '@Resource.DayTuesdayMin',
+            '@Resource.DayWednesdayMin', '@Resource.DayThursdayMin', '@Resource.DayFridayMin', '@Resource.DaySaturdayMin'],
+        weekHeader: '@Resource.WeekHeader',
+        firstDay: '@Resource.WeekFirstDay',
+        isRTL: false,
+        showMonthAfterYear: false,
+        yearSuffix: ''
+    };
+
+    if ('@Resource.DatepickerRegional' == 'ru')
+        $.datepicker.setDefaults($.datepicker.regional['ru']);
+</script>

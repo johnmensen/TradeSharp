@@ -1,0 +1,113 @@
+/*Normal*/
+.ml-button-3 {
+    display: block;
+	width: 120px !important;
+	height: 35px !important;
+	border-radius: 4px !important;
+	text-align: center !important;
+	line-height: 35px !important;
+	text-decoration: none !important;
+    margin-right: 6px;
+    margin-left: 6px;
+    margin-top: 15px;
+    margin-bottom: 10px;
+	font-family: 'Helvetica' !important;
+	font-weight: bold !important;
+	font-size: 10pt !important;
+	float: left;
+    cursor: pointer !important;
+	background-color: #848484 !important;
+	border: 1px solid #515151 !important;
+	-moz-box-shadow:inset 0px 0px 1px rgba(100,100,100,1) !important;
+	-webkit-box-shadow:inset 0px 0px 1px rgba(100,100,100,1) !important;
+	box-shadow:inset 0px 0px 1px rgba(100,100,100,1) !important;
+	background-image: -o-linear-gradient(90deg , rgb(127,127,127) 0%, rgb(166,166,166) 100%) !important;
+	background-image: -moz-linear-gradient(90deg , rgb(127,127,127) 0%, rgb(166,166,166) 100%) !important;
+	background-image: -webkit-linear-gradient(90deg , rgb(127,127,127) 0%, rgb(166,166,166) 100%) !important;
+	background-image: -ms-linear-gradient(90deg , rgb(127,127,127) 0%, rgb(166,166,166) 100%) !important;
+	background-image: linear-gradient(90deg , rgb(127,127,127) 0%, rgb(166,166,166) 100%) !important;
+	font-family: 'Helvetica' !important;
+	font-size: 10pt !important;
+	color: #FFFFFF !important;
+	text-shadow: rgba(78,78,78,1) 0px -1px 0px !important;
+	font-weight: bolder !important;
+}
+
+/*Hover*/
+.ml-button-3 :hover {
+	background-color: #8E8E8E !important;
+	background-image: -o-linear-gradient(90deg , rgb(143,143,143) 0%, rgb(183,183,183) 100%) !important;
+	background-image: -moz-linear-gradient(90deg , rgb(143,143,143) 0%, rgb(183,183,183) 100%) !important;
+	background-image: -webkit-linear-gradient(90deg , rgb(143,143,143) 0%, rgb(183,183,183) 100%) !important;
+	background-image: -ms-linear-gradient(90deg , rgb(143,143,143) 0%, rgb(183,183,183) 100%) !important;
+	background-image: linear-gradient(90deg , rgb(143,143,143) 0%, rgb(183,183,183) 100%) !important;
+}
+
+
+
+
+/*Active*/
+.ml-button-3 :active {
+	background-color: #6D6D6D !important;
+	-moz-box-shadow:inset 0px 0px 5px rgba(100,100,100,1) !important;
+	-webkit-box-shadow:inset 0px 0px 5px rgba(100,100,100,1) !important;
+	box-shadow:inset 0px 0px 5px rgba(100,100,100,1) !important;
+	background-image: -o-linear-gradient(90deg , rgb(166,166,166) 0%, rgb(127,127,127) 100%) !important;
+	background-image: -moz-linear-gradient(90deg , rgb(166,166,166) 0%, rgb(127,127,127) 100%) !important;
+	background-image: -webkit-linear-gradient(90deg , rgb(166,166,166) 0%, rgb(127,127,127) 100%) !important;
+	background-image: -ms-linear-gradient(90deg , rgb(166,166,166) 0%, rgb(127,127,127) 100%) !important;
+	background-image: linear-gradient(90deg , rgb(166,166,166) 0%, rgb(127,127,127) 100%) !important;
+	text-shadow: none !important;
+}
+
+#product_table	td a.ml-button-3 {
+    color: #FFFFFF;
+}
+
+
+.ml-button-2 {
+    display: block;
+	width: 120px !important;
+	height: 35px !important;
+	border-radius: 4px !important;
+	text-align: center !important;
+	line-height: 35px !important;
+	text-decoration: none !important;
+    margin-right: 6px;
+    margin-left: 6px;
+    margin-top: 15px;
+    margin-bottom: 10px;
+	font-family: 'Helvetica' !important;
+	font-weight: bold !important;
+	font-size: 10pt !important;
+	float: left;
+    cursor: pointer !important;
+	background-color: #212121 !important;
+	border: 1px solid #111111 !important;
+	-moz-box-shadow:inset 0px 0px 1px rgba(60,60,60,1) !important;
+	-webkit-box-shadow:inset 0px 0px 1px rgba(60,60,60,1) !important;
+	box-shadow:inset 0px 0px 1px rgba(60,60,60,1) !important;
+	background-image: -o-linear-gradient(90deg , rgb(47,47,47) 0%, rgb(76,76,76) 100%) !important;
+	background-image: -moz-linear-gradient(90deg , rgb(47,47,47) 0%, rgb(76,76,76) 100%) !important;
+	background-image: -webkit-linear-gradient(90deg , rgb(47,47,47) 0%, rgb(76,76,76) 100%) !important;
+	background-image: -ms-linear-gradient(90deg , rgb(47,47,47) 0%, rgb(76,76,76) 100%) !important;
+	background-image: linear-gradient(90deg , rgb(47,47,47) 0%, rgb(76,76,76) 100%) !important;
+	font-family: 'Helvetica' !important;
+	font-size: 10pt !important;
+	color: #FFFFFF !important;
+	text-shadow: rgba(58,58,58,1) 0px -1px 0px !important;
+	font-weight: bolder !important;
+}
+
+/*Hover*/
+.ml-button-2 :hover {
+	background-color: #8E8E8E !important;
+	background-image: -o-linear-gradient(90deg , rgb(123,123,123) 0%, rgb(163,163,163) 100%) !important;
+	background-image: -moz-linear-gradient(90deg , rgb(123,123,123) 0%, rgb(163,163,163) 100%) !important;
+	background-image: -webkit-linear-gradient(90deg , rgb(123,123,123) 0%, rgb(163,163,163) 100%) !important;
+	background-image: -ms-linear-gradient(90deg , rgb(123,123,123) 0%, rgb(163,163,163) 100%) !important;
+	background-image: linear-gradient(90deg , rgb(123,123,123) 0%, rgb(163,163,163) 100%) !important;
+}
+
+
+

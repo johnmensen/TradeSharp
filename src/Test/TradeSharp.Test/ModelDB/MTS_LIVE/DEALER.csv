@@ -1,0 +1,4 @@
+Code,FileName,DealerEnabled
+"Demo","DemoDealer.dll",True
+"FIX","FixDealer.dll",False
+"SiteSignalDealer","SiteSignalDealer.dll",True

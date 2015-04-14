@@ -1,0 +1,183 @@
+﻿@using System.Collections
+@using System.Linq
+@using TradeSharp.SiteAdmin.App_GlobalResources
+@using TradeSharp.Contract.Entity
+@model TradeSharp.SiteAdmin.Models.Items.PositionItem
+
+@{
+    ViewBag.Title = Resource.PageTitleAddDeal;
+    Layout = "~/Views/Pages/_PageLayout.cshtml";
+}
+
+@section Header {
+    <link rel="stylesheet" href="~/css/screen.css" type="text/css" media="screen" title="default" />
+    <link rel="stylesheet" href="/css/button.css" type="text/css" media="screen" title="default" />
+    <!--  jquery core -->
+    <script src="~/js/jquery_1_10_3/jquery-1.9.1.js"></script>
+    <script src="~/js/chosen.jquery.min.js" type="text/javascript"></script>
+    <script src="@Url.Content("~/js/jquery/jquery.validate.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/js/jquery/jquery.validate.unobtrusive.js")" type="text/javascript"></script>
+    <script src="~/js/jquery_1_10_3/jquery-ui.js"></script>
+    <link href="http://code.jquery.com/ui/1.10.3/themes/eggplant/jquery-ui.css" rel="stylesheet" />
+
+    <link href="~/css/chosen.min.css" rel="stylesheet" />
+
+    <!--[if IE]>
+        <link rel="stylesheet" media="all" type="text/css" href="/css/pro_dropline_ie.css" />
+    <![endif]-->
+    
+    <style>
+        td {
+            text-align: right;
+            padding: 5px;
+        }
+    </style>
+}
+
+@Html.Partial("localizationVariableDatapicker")
+
+<script type="text/javascript">     
+    $(function() {
+        var config = {
+            '.chzn-select': {},
+            '.chzn-select-deselect': { allow_single_deselect: true },
+            '.chzn-select-no-single': { disable_search_threshold: 10 },
+            '.chzn-select-no-results': { no_results_text: '@Resource.ErrorMassageNothingFound' },
+            '.chzn-select-width': { width: "95%" }
+        };
+        for (var selector in config) {
+            $(selector).chosen(config[selector]);
+        }
+            
+        $('#State_chzn').find('.chzn-search').hide();
+        $('#Side_chzn').find('.chzn-search').hide();
+
+        var inputDiv = $('#AccountID_chzn').find('.chzn-search');
+        // Обработчик события ввода символа в окне поиска фильра AccountId
+        inputDiv.on('input', function () {
+            var text = inputDiv.find('input').val();
+            $.ajax({
+                url: '@Url.Action("AccountListForPositionTableAjaxUpdate", "Management")',
+                type: 'POST',
+                data: JSON.stringify({ searchText: text }),
+                dataType: 'json',
+                contentType: 'application/json; charset=utf-8',
+                success: function (data) {
+                    if (data.AccountIdHTML == null || data.AccountIdHTML == '') {
+
+                    } else {
+                        var strHtml = data.AccountIdHTML.replace(">-1<", ">@Resource.TitleWithoutFilter<");
+                        $('#AccountID').html(strHtml);
+                        $('.chzn-select').trigger("liszt:updated");
+                        inputDiv.find('input').val(text); //что бы введённый пользователем текст не пропадал после updated
+                    }
+                },
+                error: function (data, textStatus, errorThrown) {
+                    alert(@Resource.ErrorMessage + '. ' + errorThrown);
+                }
+            });
+        });
+            
+        $("#StrTimeEnter").datepicker({
+            defaultDate: "-2m",
+            dateFormat: 'dd.mm.yy',
+            numberOfMonths: 3
+        });
+
+        var today = new Date();
+        $("#StrTimeEnter").val(today.getDate() + "." + (today.getMonth() + 1) + "." + today.getFullYear() + " 0:00:00");
+    });
+</script>
+
+<div id="content-outer">
+    <div id="content" style="width: 380px; margin:0 auto; min-width: 380px;">
+        <div id="page-heading">
+            @using (Html.BeginForm("AddDeal", "Management", FormMethod.Post, new { id = "SubmitForm", name = "SubmitForm", onsubmit = "return subForm();" }))
+            {
+                <table class="tableWithoutBorders">
+                <tr>
+                    <td>
+                        @Html.LabelFor(x => x.AccountID)
+                    </td>
+                    <td>
+                        @Html.DropDownListFor(x => x.AccountID, new SelectList((IEnumerable)ViewBag.listAccountId, "Value", "Text"),
+                                              new { @class = "chzn-select", @style = "width:150px;" })
+                    </td>
+                    <td class="ValidationMessage">
+                        @Html.ValidationMessageFor(x => x.AccountID)
+                    </td>
+                </tr>
+                    <tr>
+                        <td>
+                            @Html.LabelFor(x => x.Symbol)
+                        </td>
+                        <td>
+                            @Html.DropDownListFor(x => x.Symbol, new SelectList((IEnumerable)ViewBag.listSymbol, "Value", "Text"),
+                                                              new { @class = "chzn-select", @style = "width:150px;" })
+                        </td>
+                        <td class="ValidationMessage">
+                            @Html.ValidationMessageFor(x => x.Symbol)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            @Html.LabelFor(x => x.State)
+                        </td>
+                        <td>
+                            @Html.DropDownListFor(x => x.State, new SelectList(((List<SelectListItem>)ViewBag.listStatus).Where(x=>x.Value != "-1" && x.Value != ((int)PositionState.Closed).ToString()), "Value", "Text"),
+                                new { @class = "chzn-select", @style = "width:150px;" })
+                        </td>
+                        <td class="ValidationMessage">
+                            @Html.ValidationMessageFor(x => x.State)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            @Html.LabelFor(x => x.Side)
+                        </td>
+                        <td>
+                            @Html.DropDownListFor(x => x.Side, new SelectList(((List<SelectListItem>)ViewBag.listDealType).Where(x=>x.Value != null), "Value", "Text"),
+                                                  new { @class = "chzn-select", @style = "width:150px;" })
+                        </td>
+                        <td class="ValidationMessage">
+                            @Html.ValidationMessageFor(x => x.Side)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            @Html.LabelFor(x => x.StrTimeEnter)             
+                        </td>
+                        <td>
+                            <img src="~/images/shared/calendar.png" title="@Resource.TitleSetEntryTime" alt="" />
+                            @Html.TextBoxFor(x => x.StrTimeEnter, new { @style = "width:120px;" })
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            @Html.LabelFor(x => x.PriceEnter)
+                        </td>
+                        <td>
+                            @Html.TextBoxFor(x=>x.PriceEnter, new {@class = "login-inp"} )
+                        </td>
+                        <td class="ValidationMessage">
+                            @Html.ValidationMessageFor(x => x.PriceEnter)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            @Html.LabelFor(x => x.Volume)
+                        </td>
+                        <td>
+                            @Html.TextBoxFor(x=>x.Volume, new {@class = "login-inp"} )
+                        </td>
+                        <td class="ValidationMessage">
+                            @Html.ValidationMessageFor(x => x.Volume)
+                        </td>
+                    </tr>
+                </table>
+
+                <input type="submit" class="ml-button-3" value="@Resource.TitleAdd"/>
+            }
+        </div>
+    </div>
+</div>

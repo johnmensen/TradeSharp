@@ -1,0 +1,2133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Login" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="LoginErrorMessage" xml:space="preserve">
+    <value>Enter the username</value>
+  </data>
+  <data name="LogOut" xml:space="preserve">
+    <value>Log Out</value>
+  </data>
+  <data name="MainMenuAccountGroups" xml:space="preserve">
+    <value>Account groups</value>
+  </data>
+  <data name="MainMenuAccounts" xml:space="preserve">
+    <value>Accounts</value>
+  </data>
+  <data name="MainMenuAdministration" xml:space="preserve">
+    <value>Administration</value>
+  </data>
+  <data name="MainMenuBrokerReport" xml:space="preserve">
+    <value>Broker report</value>
+  </data>
+  <data name="MainMenuFeedBack" xml:space="preserve">
+    <value>Feed back</value>
+  </data>
+  <data name="MainMenuHelp" xml:space="preserve">
+    <value>Help</value>
+  </data>
+  <data name="MainMenuManagement" xml:space="preserve">
+    <value>Management</value>
+  </data>
+  <data name="MainMenuMetadata" xml:space="preserve">
+    <value>Extras. settings</value>
+  </data>
+  <data name="MainMenuOptions" xml:space="preserve">
+    <value>Options</value>
+  </data>
+  <data name="MainMenuPamm" xml:space="preserve">
+    <value>PAMM</value>
+  </data>
+  <data name="MainMenuPaumentTransfer" xml:space="preserve">
+    <value>Paument transfer</value>
+  </data>
+  <data name="MainMenuPositionList" xml:space="preserve">
+    <value>Orders</value>
+  </data>
+  <data name="MainMenuServerStatus" xml:space="preserve">
+    <value>Server status</value>
+  </data>
+  <data name="MainMenuSystemService" xml:space="preserve">
+    <value>System service</value>
+  </data>
+  <data name="MainMenuTopPortfalio" xml:space="preserve">
+    <value>Top portfolio</value>
+  </data>
+  <data name="MainMenuTradeSignal" xml:space="preserve">
+    <value>Trade signal</value>
+  </data>
+  <data name="MainMenuTrustManagement" xml:space="preserve">
+    <value>Trust management</value>
+  </data>
+  <data name="MainMenuUsers" xml:space="preserve">
+    <value>Users</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="ErrorMessagePassword" xml:space="preserve">
+    <value>Enter the password</value>
+  </data>
+  <data name="TitleRefresh" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
+  <data name="ErrorMessageServer" xml:space="preserve">
+    <value>Server Error</value>
+  </data>
+  <data name="ErrorMessageUserNotFind" xml:space="preserve">
+    <value>User not found</value>
+  </data>
+  <data name="ErrorMessageUserRights" xml:space="preserve">
+    <value>User does not have appropriate rights</value>
+  </data>
+  <data name="Enter" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="PageTitleLogin" xml:space="preserve">
+    <value>TRADE# server administration - Login</value>
+  </data>
+  <data name="ChatServer" xml:space="preserve">
+    <value>Chat server</value>
+  </data>
+  <data name="ErrorMessageCommon" xml:space="preserve">
+    <value>{1}Общая ошибка</value>
+  </data>
+  <data name="EmailSender" xml:space="preserve">
+    <value>Delivery server</value>
+  </data>
+  <data name="ErrorMessage" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="QuoteServer" xml:space="preserve">
+    <value>Quote server</value>
+  </data>
+  <data name="ServerTS" xml:space="preserve">
+    <value>Server TRADE#</value>
+  </data>
+  <data name="PageTitleServerUtil" xml:space="preserve">
+    <value>TRADE# server administration - Server status</value>
+  </data>
+  <data name="TitleServerUtil" xml:space="preserve">
+    <value>Server status</value>
+  </data>
+  <data name="PageTitleSystemServices" xml:space="preserve">
+    <value>TRADE# server administration - System services</value>
+  </data>
+  <data name="TitleSystemServices" xml:space="preserve">
+    <value>System services</value>
+  </data>
+  <data name="TitleActiveSessions" xml:space="preserve">
+    <value>Active sessions</value>
+  </data>
+  <data name="TitleRegisteredUsersCount" xml:space="preserve">
+    <value>Number of registered users</value>
+  </data>
+  <data name="TitleDetails" xml:space="preserve">
+    <value>Details</value>
+  </data>
+  <data name="TitleEmpty" xml:space="preserve">
+    <value>Empty</value>
+  </data>
+  <data name="TitleManage" xml:space="preserve">
+    <value>Control</value>
+  </data>
+  <data name="TitleService" xml:space="preserve">
+    <value>Service</value>
+  </data>
+  <data name="TitleStart" xml:space="preserve">
+    <value>Start</value>
+  </data>
+  <data name="TitleState" xml:space="preserve">
+    <value>State</value>
+  </data>
+  <data name="TitleStop" xml:space="preserve">
+    <value>Stop</value>
+  </data>
+  <data name="TitleUsers" xml:space="preserve">
+    <value>Users</value>
+  </data>
+  <data name="PageTitleUser" xml:space="preserve">
+    <value>TRADE# server administration - Users</value>
+  </data>
+  <data name="PageTitleAccounts" xml:space="preserve">
+    <value>TRADE# server administration - Accounts</value>
+  </data>
+  <data name="TitleAccounts" xml:space="preserve">
+    <value>Accounts</value>
+  </data>
+  <data name="TitleAccept" xml:space="preserve">
+    <value>Accept</value>
+  </data>
+  <data name="TitleAccount" xml:space="preserve">
+    <value>Account</value>
+  </data>
+  <data name="TitleAccountGroup" xml:space="preserve">
+    <value>Account group</value>
+  </data>
+  <data name="TitleAccountOwners" xml:space="preserve">
+    <value>Owners</value>
+  </data>
+  <data name="TitleAmmount" xml:space="preserve">
+    <value>Ammount</value>
+  </data>
+  <data name="TitleBalance" xml:space="preserve">
+    <value>Balance</value>
+  </data>
+  <data name="TitleCancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="TitleClean" xml:space="preserve">
+    <value>Clean</value>
+  </data>
+  <data name="TitleComment" xml:space="preserve">
+    <value>Comment</value>
+  </data>
+  <data name="TitleCorrectBalance" xml:space="preserve">
+    <value>Correct the balance</value>
+  </data>
+  <data name="TitleCurrency" xml:space="preserve">
+    <value>Currency</value>
+  </data>
+  <data name="TitleDate" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="TitleDeactivateAccount" xml:space="preserve">
+    <value>Deactivate account</value>
+  </data>
+  <data name="TitleDeleteAccount" xml:space="preserve">
+    <value>Delete account</value>
+  </data>
+  <data name="TitleDeposit" xml:space="preserve">
+    <value>Deposit</value>
+  </data>
+  <data name="TitleLowerLimit" xml:space="preserve">
+    <value>Lower limit</value>
+  </data>
+  <data name="TitleNewAccount" xml:space="preserve">
+    <value>New account</value>
+  </data>
+  <data name="TitleOf" xml:space="preserve">
+    <value>of</value>
+  </data>
+  <data name="TitlePage" xml:space="preserve">
+    <value>page</value>
+  </data>
+  <data name="TitlePositionList" xml:space="preserve">
+    <value>Market orders</value>
+  </data>
+  <data name="TitleRecordPage" xml:space="preserve">
+    <value>Records per page</value>
+  </data>
+  <data name="TitleTypeTransaction" xml:space="preserve">
+    <value>Type of transaction</value>
+  </data>
+  <data name="TitleUpperLimit" xml:space="preserve">
+    <value>Upper limit</value>
+  </data>
+  <data name="ConfirmDellAccount" xml:space="preserve">
+    <value>This account, all his orders and other means will be deleted. Continue?</value>
+  </data>
+  <data name="ConfirmDellAccountGroup" xml:space="preserve">
+    <value>Delete this group accounts?</value>
+  </data>
+  <data name="ConfirmLongOperation" xml:space="preserve">
+    <value>This operation may take a few minutes. Continue?</value>
+  </data>
+  <data name="ErrorMessageAccountGroupDeleteHaveAccount" xml:space="preserve">
+    <value>To delete a group accounts it should not be a single account.</value>
+  </data>
+  <data name="MessageConfirmed" xml:space="preserve">
+    <value>Confirmed</value>
+  </data>
+  <data name="MessageNoAccounts" xml:space="preserve">
+    <value>No accounts</value>
+  </data>
+  <data name="PageTitleAccountGroup" xml:space="preserve">
+    <value>TRADE# server administration - Account groups</value>
+  </data>
+  <data name="PageTitlePositionList" xml:space="preserve">
+    <value>TRADE# server administration - Orders</value>
+  </data>
+  <data name="TitleAccountCount" xml:space="preserve">
+    <value>Number of accounts</value>
+  </data>
+  <data name="TitleAccountGroupAddShort" xml:space="preserve">
+    <value>Add group</value>
+  </data>
+  <data name="TitleAccountGroupBrokerLeverage" xml:space="preserve">
+    <value>Broker leverage</value>
+  </data>
+  <data name="TitleAccountGroupCode" xml:space="preserve">
+    <value>Group code</value>
+  </data>
+  <data name="TitleAccountGroupDealer" xml:space="preserve">
+    <value>Dealer</value>
+  </data>
+  <data name="TitleAccountGroupMarginCall" xml:space="preserve">
+    <value>Margin call</value>
+  </data>
+  <data name="TitleAccountGroupName" xml:space="preserve">
+    <value>Group name</value>
+  </data>
+  <data name="TitleAccountGroups" xml:space="preserve">
+    <value>Account groups</value>
+  </data>
+  <data name="TitleAccountGroupStopOut" xml:space="preserve">
+    <value>StopOut</value>
+  </data>
+  <data name="TitleAccountGroupSwop" xml:space="preserve">
+    <value>Swop</value>
+  </data>
+  <data name="TitleAccountGroupType" xml:space="preserve">
+    <value>Group type</value>
+  </data>
+  <data name="TitleAccountMarkup" xml:space="preserve">
+    <value>Markup</value>
+  </data>
+  <data name="TitleDelete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="TitleNo" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="TitleOpenOrder" xml:space="preserve">
+    <value>Open order</value>
+  </data>
+  <data name="TitlePoints" xml:space="preserve">
+    <value>p.</value>
+  </data>
+  <data name="TitleReal" xml:space="preserve">
+    <value>Real</value>
+  </data>
+  <data name="TitleStatus" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="TitleVirtual" xml:space="preserve">
+    <value>Virtual</value>
+  </data>
+  <data name="TitleWithoutFilter" xml:space="preserve">
+    <value>Without filter</value>
+  </data>
+  <data name="TitleYes" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="TitleAccountType" xml:space="preserve">
+    <value>Account type</value>
+  </data>
+  <data name="TitleFilters" xml:space="preserve">
+    <value>Filters</value>
+  </data>
+  <data name="ConfirmDellUser" xml:space="preserve">
+    <value>This user will be deleted. Continue?</value>
+  </data>
+  <data name="ErrorMessageDataAccess" xml:space="preserve">
+    <value>Error accessing data</value>
+  </data>
+  <data name="ErrorMessageRange1_2500" xml:space="preserve">
+    <value>Value must be a number ranging from 1 to 2500</value>
+  </data>
+  <data name="PageTitleMetadataManagement" xml:space="preserve">
+    <value>TRADE# server administration - Platform configuration</value>
+  </data>
+  <data name="PageTitlePaymentTransfer" xml:space="preserve">
+    <value>TRADE# server administration - Payment transfer</value>
+  </data>
+  <data name="TextAddingEditingBaseActive" xml:space="preserve">
+    <value>Adding / editing currencies, securities, commodities...</value>
+  </data>
+  <data name="TextAddingEditingInstruments" xml:space="preserve">
+    <value>Adding / editing traded instruments (SPOT, CFD, Futures...)</value>
+  </data>
+  <data name="TextToManuallySpecifyPurse" xml:space="preserve">
+    <value>{!}To manually specify the purse - click on the number of transfers in the first column of the table.</value>
+  </data>
+  <data name="TextUnidentifiedPayments" xml:space="preserve">
+    <value>{!}The table displays the records from the table payments PAYMENT_SYSTEM_TRANSFER, for which no corresponding entry in the table TRANSFER. This means that these payments were made through the payment system, but, for whatever reason, have not been conducted in the terminal T # ( and therefore not enrolled in any purse or user). Possible Cause: The system is not registered in the purse, which tries to enroll means.</value>
+  </data>
+  <data name="TitleBaseActive" xml:space="preserve">
+    <value>Base active</value>
+  </data>
+  <data name="TitleBuy" xml:space="preserve">
+    <value>Buy</value>
+  </data>
+  <data name="TitleEditSelectedOrders" xml:space="preserve">
+    <value>edit the selected orders</value>
+  </data>
+  <data name="TitleEntry" xml:space="preserve">
+    <value>Entry</value>
+  </data>
+  <data name="TitleExit" xml:space="preserve">
+    <value>Exit</value>
+  </data>
+  <data name="TitleFiltrate" xml:space="preserve">
+    <value>Filtrate</value>
+  </data>
+  <data name="TitleFrom" xml:space="preserve">
+    <value>from</value>
+  </data>
+  <data name="TitleFromPaymentSystem" xml:space="preserve">
+    <value>from payment system</value>
+  </data>
+  <data name="TitleInCurrency" xml:space="preserve">
+    <value>in currency</value>
+  </data>
+  <data name="TitleInPaymentSystem" xml:space="preserve">
+    <value>in payment system</value>
+  </data>
+  <data name="TitleInPoint" xml:space="preserve">
+    <value>in point</value>
+  </data>
+  <data name="TitleInstruments" xml:space="preserve">
+    <value>Instruments</value>
+  </data>
+  <data name="TitleInSystemSharpe" xml:space="preserve">
+    <value>in system T#</value>
+  </data>
+  <data name="TitleMarketOrder" xml:space="preserve">
+    <value>Market order</value>
+  </data>
+  <data name="TitleMetadataManagement" xml:space="preserve">
+    <value>Additional settings</value>
+  </data>
+  <data name="TitleNotShownItem" xml:space="preserve">
+    <value>not shown item</value>
+  </data>
+  <data name="TitlePaymentSystem" xml:space="preserve">
+    <value>Payment system</value>
+  </data>
+  <data name="TitlePrice" xml:space="preserve">
+    <value>Price</value>
+  </data>
+  <data name="TitleProfit" xml:space="preserve">
+    <value>Profit</value>
+  </data>
+  <data name="TitlePurse" xml:space="preserve">
+    <value>Purse</value>
+  </data>
+  <data name="TitlePurseSharp" xml:space="preserve">
+    <value>purse T#</value>
+  </data>
+  <data name="TitleReview" xml:space="preserve">
+    <value>Review</value>
+  </data>
+  <data name="TitleSell" xml:space="preserve">
+    <value>Sell</value>
+  </data>
+  <data name="TitleSetSamplingTime" xml:space="preserve">
+    <value>set the sampling time by clicking on the input field to the right</value>
+  </data>
+  <data name="TitleSubscriptionCount" xml:space="preserve">
+    <value>Number of subscriptions</value>
+  </data>
+  <data name="TitleTime" xml:space="preserve">
+    <value>Time</value>
+  </data>
+  <data name="TitleTimeExit" xml:space="preserve">
+    <value>Time exit</value>
+  </data>
+  <data name="TitleTimeOpen" xml:space="preserve">
+    <value>Time open</value>
+  </data>
+  <data name="TitleTo" xml:space="preserve">
+    <value>to</value>
+  </data>
+  <data name="TitleTradeSignals" xml:space="preserve">
+    <value>Trade signals</value>
+  </data>
+  <data name="TitleTradeSignalCount" xml:space="preserve">
+    <value>The number of signals</value>
+  </data>
+  <data name="TitleTradingInstrument" xml:space="preserve">
+    <value>Trading instrument</value>
+  </data>
+  <data name="TitleTransferDate" xml:space="preserve">
+    <value>Transfer date</value>
+  </data>
+  <data name="TitleTransferred" xml:space="preserve">
+    <value>Transferred</value>
+  </data>
+  <data name="TitleUndefined" xml:space="preserve">
+    <value>Undefined</value>
+  </data>
+  <data name="TitleUnidentifiedPayments" xml:space="preserve">
+    <value>Unidentified payments</value>
+  </data>
+  <data name="ConfirmDell" xml:space="preserve">
+    <value>{!}Is delete this item?</value>
+  </data>
+  <data name="ConfirmDellPortfolio" xml:space="preserve">
+    <value>{!}This portfolio will be deleted and its subscribers unsubscribed. Continue?</value>
+  </data>
+  <data name="ConfirmDellTradeSignal" xml:space="preserve">
+    <value>{!}All subscribers to unsubscribe and remove signals</value>
+  </data>
+  <data name="DatepickerCloseText" xml:space="preserve">
+    <value>Done</value>
+  </data>
+  <data name="DatepickerCurrentText" xml:space="preserve">
+    <value>Today</value>
+  </data>
+  <data name="DatepickerIsRTL" xml:space="preserve">
+    <value>false</value>
+  </data>
+  <data name="DatepickerNextText" xml:space="preserve">
+    <value>Next&amp;#x3e;</value>
+  </data>
+  <data name="DatepickerPrevText" xml:space="preserve">
+    <value>&amp;#x3c;Prev</value>
+  </data>
+  <data name="DatepickerRegional" xml:space="preserve">
+    <value>en</value>
+  </data>
+  <data name="DatepickerShowMonthAfterYear" xml:space="preserve">
+    <value>false</value>
+  </data>
+  <data name="DatepickerYearSuffix" xml:space="preserve">
+    <value />
+  </data>
+  <data name="DayFriday" xml:space="preserve">
+    <value>Friday</value>
+  </data>
+  <data name="DayFridayMin" xml:space="preserve">
+    <value>Fr</value>
+  </data>
+  <data name="DayFridayShort" xml:space="preserve">
+    <value>Fri</value>
+  </data>
+  <data name="DayMonday" xml:space="preserve">
+    <value>Monday</value>
+  </data>
+  <data name="DayMondayMin" xml:space="preserve">
+    <value>Mo</value>
+  </data>
+  <data name="DayMondayShort" xml:space="preserve">
+    <value>Mon</value>
+  </data>
+  <data name="DaySaturday" xml:space="preserve">
+    <value>Saturday</value>
+  </data>
+  <data name="DaySaturdayMin" xml:space="preserve">
+    <value>Sa</value>
+  </data>
+  <data name="DaySaturdayShort" xml:space="preserve">
+    <value>Sat</value>
+  </data>
+  <data name="DaySunday" xml:space="preserve">
+    <value>Sunday</value>
+  </data>
+  <data name="DaySundayMin" xml:space="preserve">
+    <value>Su</value>
+  </data>
+  <data name="DaySundayShort" xml:space="preserve">
+    <value>Sun</value>
+  </data>
+  <data name="DayThursday" xml:space="preserve">
+    <value>Thursday</value>
+  </data>
+  <data name="DayThursdayMin" xml:space="preserve">
+    <value>Th</value>
+  </data>
+  <data name="DayThursdayShort" xml:space="preserve">
+    <value>Thu</value>
+  </data>
+  <data name="DayTuesday" xml:space="preserve">
+    <value>Tuesday</value>
+  </data>
+  <data name="DayTuesdayMin" xml:space="preserve">
+    <value>Tu</value>
+  </data>
+  <data name="DayTuesdayShort" xml:space="preserve">
+    <value>Tue</value>
+  </data>
+  <data name="DayWednesday" xml:space="preserve">
+    <value>Wednesday</value>
+  </data>
+  <data name="DayWednesdayMin" xml:space="preserve">
+    <value>We</value>
+  </data>
+  <data name="DayWednesdayShort" xml:space="preserve">
+    <value>Wed</value>
+  </data>
+  <data name="MonthApril" xml:space="preserve">
+    <value>April</value>
+  </data>
+  <data name="MonthAprilShort" xml:space="preserve">
+    <value>Apr</value>
+  </data>
+  <data name="MonthAugust" xml:space="preserve">
+    <value>August</value>
+  </data>
+  <data name="MonthAugustShort" xml:space="preserve">
+    <value>Aug</value>
+  </data>
+  <data name="MonthDecember" xml:space="preserve">
+    <value>December</value>
+  </data>
+  <data name="MonthDecemberShort" xml:space="preserve">
+    <value>Dec</value>
+  </data>
+  <data name="MonthFebruary" xml:space="preserve">
+    <value>February</value>
+  </data>
+  <data name="MonthFebruaryShort" xml:space="preserve">
+    <value>Feb</value>
+  </data>
+  <data name="MonthJanuary" xml:space="preserve">
+    <value>January</value>
+  </data>
+  <data name="MonthJanuaryShort" xml:space="preserve">
+    <value>Jan</value>
+  </data>
+  <data name="MonthJuly" xml:space="preserve">
+    <value>July</value>
+  </data>
+  <data name="MonthJulyShort" xml:space="preserve">
+    <value>Jul</value>
+  </data>
+  <data name="MonthJune" xml:space="preserve">
+    <value>June</value>
+  </data>
+  <data name="MonthJuneShort" xml:space="preserve">
+    <value>Jun</value>
+  </data>
+  <data name="MonthMarch" xml:space="preserve">
+    <value>March</value>
+  </data>
+  <data name="MonthMarchShort" xml:space="preserve">
+    <value>Mar</value>
+  </data>
+  <data name="MonthMay" xml:space="preserve">
+    <value>May</value>
+  </data>
+  <data name="MonthMayShort" xml:space="preserve">
+    <value>May</value>
+  </data>
+  <data name="MonthNovember" xml:space="preserve">
+    <value>November</value>
+  </data>
+  <data name="MonthNovemberShort" xml:space="preserve">
+    <value>Nov</value>
+  </data>
+  <data name="MonthOctober" xml:space="preserve">
+    <value>October</value>
+  </data>
+  <data name="MonthOctoberShort" xml:space="preserve">
+    <value>Oct</value>
+  </data>
+  <data name="MonthSeptember" xml:space="preserve">
+    <value>September</value>
+  </data>
+  <data name="MonthSeptemberShort" xml:space="preserve">
+    <value>Sep</value>
+  </data>
+  <data name="PageTitleBrokerReport" xml:space="preserve">
+    <value>TRADE# server administration - Broker report</value>
+  </data>
+  <data name="PageTitleFeedback" xml:space="preserve">
+    <value>TRADE# server administration - Feedback</value>
+  </data>
+  <data name="PageTitleHelp" xml:space="preserve">
+    <value>TRADE# server administration - Help</value>
+  </data>
+  <data name="PageTitlePamm" xml:space="preserve">
+    <value>TRADE# server administration - PAMM-management</value>
+  </data>
+  <data name="PageTitleTopPortfolio" xml:space="preserve">
+    <value>TRADE# server administration - Top portfolio</value>
+  </data>
+  <data name="PageTitleTradeSignals" xml:space="preserve">
+    <value>TRADE# server administration - Trade signal</value>
+  </data>
+  <data name="TextAddingEditingMetadata" xml:space="preserve">
+    <value>Adding / editing metadata</value>
+  </data>
+  <data name="TextAddingEditingTradingSignals" xml:space="preserve">
+    <value>Adding / editing of trading signals</value>
+  </data>
+  <data name="TextAggregateReport" xml:space="preserve">
+    <value>Aggregate earnings reports brokerage</value>
+  </data>
+  <data name="TextAnalysisEffectiveness" xml:space="preserve">
+    <value>Analysis of the effectiveness of capital management traders</value>
+  </data>
+  <data name="TextAnalysisEffectivenessDescription" xml:space="preserve">
+    <value>Sorts account the characteristics of capital management. Displays TOP N best / worst accounts to the chosen indicators.</value>
+  </data>
+  <data name="TextBrokerReportDescription" xml:space="preserve">
+    <value>Includes data on the number and distribution of accounts, trading volumes, Markup Companies profit / loss traders.</value>
+  </data>
+  <data name="TextDellPortfolio" xml:space="preserve">
+    <value>{!}Unsubscribe and delete all subscribers portfolio</value>
+  </data>
+  <data name="TextEditPortfolioFormula" xml:space="preserve">
+    <value>Edit the formula and the boundary value</value>
+  </data>
+  <data name="TitleAccountHistory" xml:space="preserve">
+    <value>Account history</value>
+  </data>
+  <data name="TitleAccountHistoryChart" xml:space="preserve">
+    <value>Chart of account history</value>
+  </data>
+  <data name="TitleAdd" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="TitleAnyInvestor" xml:space="preserve">
+    <value>{!}Only accounts that have investors</value>
+  </data>
+  <data name="TitleBoundaryValue" xml:space="preserve">
+    <value>boundary value</value>
+  </data>
+  <data name="TitleBrokerReport" xml:space="preserve">
+    <value>Broker report</value>
+  </data>
+  <data name="TitleBrokerReportCreate" xml:space="preserve">
+    <value>Create report</value>
+  </data>
+  <data name="TitleDescription" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="TitleEdit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="TitleFeedback" xml:space="preserve">
+    <value>Feedback</value>
+  </data>
+  <data name="TitleFixedPrice" xml:space="preserve">
+    <value>Fixed price</value>
+  </data>
+  <data name="TitleFormula" xml:space="preserve">
+    <value>Formula</value>
+  </data>
+  <data name="TitleHeaderDialogResult" xml:space="preserve">
+    <value>Result of operation</value>
+  </data>
+  <data name="TitleInvestorCount" xml:space="preserve">
+    <value>Number of investors</value>
+  </data>
+  <data name="TitleMetaData" xml:space="preserve">
+    <value>Metadata</value>
+  </data>
+  <data name="TitleNewPortfolio" xml:space="preserve">
+    <value>Add portfolio</value>
+  </data>
+  <data name="TitleOnlyRealAccount" xml:space="preserve">
+    <value>Only real account</value>
+  </data>
+  <data name="TitlePamm" xml:space="preserve">
+    <value>PAMM</value>
+  </data>
+  <data name="TitlePortfolioName" xml:space="preserve">
+    <value>Portfolio name</value>
+  </data>
+  <data name="TitleSignaller" xml:space="preserve">
+    <value>Signaller</value>
+  </data>
+  <data name="TitleTopPortfolio" xml:space="preserve">
+    <value>Top portfolio</value>
+  </data>
+  <data name="TitleTradeSignalType" xml:space="preserve">
+    <value>Trade signal type</value>
+  </data>
+  <data name="WeekFirstDay" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="WeekHeader" xml:space="preserve">
+    <value>Week</value>
+  </data>
+  <data name="PageTitleChartAccountHistory" xml:space="preserve">
+    <value>TRADE# server administration - Chart of account history</value>
+  </data>
+  <data name="PageTitleContents" xml:space="preserve">
+    <value>TRADE# server administration - Contents</value>
+  </data>
+  <data name="TitleAccountGroupManagement" xml:space="preserve">
+    <value>Account group management</value>
+  </data>
+  <data name="TitleAccountManagement" xml:space="preserve">
+    <value>Account management</value>
+  </data>
+  <data name="TitleContents" xml:space="preserve">
+    <value>Contents</value>
+  </data>
+  <data name="TitleDiagramNavigation" xml:space="preserve">
+    <value>Diagram of navigation</value>
+  </data>
+  <data name="TitleIntroduction" xml:space="preserve">
+    <value>Introduction</value>
+  </data>
+  <data name="TitleOrderEdit" xml:space="preserve">
+    <value>{!}Edit market Order</value>
+  </data>
+  <data name="PageTitleEditFunction" xml:space="preserve">
+    <value>TRADE# server administration - EditFunction</value>
+  </data>
+  <data name="PageTitleReportProfitability" xml:space="preserve">
+    <value>TRADE# server administration - Report profitability broker</value>
+  </data>
+  <data name="TextDemoAccountsOpened" xml:space="preserve">
+    <value>Demo accounts opened during the period</value>
+  </data>
+  <data name="TextOfThemDemoAccounts" xml:space="preserve">
+    <value>Of them - Demo Accounts</value>
+  </data>
+  <data name="TextProfitabilityReport" xml:space="preserve">
+    <value>Brokerage services profitability report</value>
+  </data>
+  <data name="TitleAvailableVariables" xml:space="preserve">
+    <value>Available variables (case insensitive)</value>
+  </data>
+  <data name="TitleChartAccountHistory" xml:space="preserve">
+    <value>Chart of account history</value>
+  </data>
+  <data name="TitleCheckFunction" xml:space="preserve">
+    <value>Check function</value>
+  </data>
+  <data name="TitleCode" xml:space="preserve">
+    <value>Code</value>
+  </data>
+  <data name="TitleDemo" xml:space="preserve">
+    <value>Demo</value>
+  </data>
+  <data name="TitleFunction" xml:space="preserve">
+    <value>Function</value>
+  </data>
+  <data name="TitleHistoryChanges" xml:space="preserve">
+    <value>History сhanges</value>
+  </data>
+  <data name="TitleManagedAccounts" xml:space="preserve">
+    <value>Managed accounts</value>
+  </data>
+  <data name="TitleName" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="TitleOpenForPeriod" xml:space="preserve">
+    <value>Open for the period</value>
+  </data>
+  <data name="TitlePercent" xml:space="preserve">
+    <value>Percent</value>
+  </data>
+  <data name="TitleReportDataTime" xml:space="preserve">
+    <value>Date / Time report</value>
+  </data>
+  <data name="TitleSave" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="TitleTradeVolume" xml:space="preserve">
+    <value>Trade volume</value>
+  </data>
+  <data name="TitleVariable" xml:space="preserve">
+    <value>Variable</value>
+  </data>
+  <data name="ConfirmFunction" xml:space="preserve">
+    <value>will be deleted. Continue?</value>
+  </data>
+  <data name="ErrorMessageFieldRequired" xml:space="preserve">
+    <value>Field is required</value>
+  </data>
+  <data name="ErrorMessageInvalidEmail" xml:space="preserve">
+    <value>Invalid email address</value>
+  </data>
+  <data name="ErrorMessageInvalidUserPhone" xml:space="preserve">
+    <value>Invalid phone number</value>
+  </data>
+  <data name="ErrorMessageRangeNotLess0" xml:space="preserve">
+    <value>The value should be a number not less than 0</value>
+  </data>
+  <data name="ErrorMessageRangeNotLess1" xml:space="preserve">
+    <value>The value should be a number not less than 1</value>
+  </data>
+  <data name="ErrorMessageStringLength2_50" xml:space="preserve">
+    <value>Number of characters should be in the range of 2 to 50 characters</value>
+  </data>
+  <data name="ErrorMessageStringLength7_50" xml:space="preserve">
+    <value>Number of characters should be in the range of 7 to 50 characters</value>
+  </data>
+  <data name="FilterFunctionGreatestLeverage" xml:space="preserve">
+    <value>The greatest leverage</value>
+  </data>
+  <data name="KeyFirst" xml:space="preserve">
+    <value>First</value>
+  </data>
+  <data name="KeyLast" xml:space="preserve">
+    <value>Last</value>
+  </data>
+  <data name="PageTitleAccountAdd" xml:space="preserve">
+    <value>TRADE# server administration - Add account</value>
+  </data>
+  <data name="PageTitleAccountDetails" xml:space="preserve">
+    <value>TRADE# server administration - Details of account</value>
+  </data>
+  <data name="PageTitleNavigationDiagram" xml:space="preserve">
+    <value>TRADE# server administration -  Diagram of  navigation</value>
+  </data>
+  <data name="PageTitleTraderRate" xml:space="preserve">
+    <value>TRADE# server administration - TraderRate</value>
+  </data>
+  <data name="TitleAccountOrders" xml:space="preserve">
+    <value>Orders of Account</value>
+  </data>
+  <data name="TitleAccountOwnersRights" xml:space="preserve">
+    <value>Account owners and their rights</value>
+  </data>
+  <data name="TitleAdditionalDescription" xml:space="preserve">
+    <value>Additional description</value>
+  </data>
+  <data name="TitleApply" xml:space="preserve">
+    <value>Apply</value>
+  </data>
+  <data name="TitleAverageLeverage" xml:space="preserve">
+    <value>Avg. leverage</value>
+  </data>
+  <data name="TitleAverageProfitLossInBrokerCurrency" xml:space="preserve">
+    <value>Average profit / loss (in the broker currency)</value>
+  </data>
+  <data name="TitleAverageProfitLossInRelationToMoneyInvested" xml:space="preserve">
+    <value>Average profit / loss in relation to the money invested</value>
+  </data>
+  <data name="TitleAverageValueMoneyInvested" xml:space="preserve">
+    <value>The average value of the invested money</value>
+  </data>
+  <data name="TitleClientPersonalData" xml:space="preserve">
+    <value>Personal data of client</value>
+  </data>
+  <data name="TitleCreate" xml:space="preserve">
+    <value>Create</value>
+  </data>
+  <data name="TitleCurrencyPurse" xml:space="preserve">
+    <value>Currency of purse</value>
+  </data>
+  <data name="TitleDateRegistration" xml:space="preserve">
+    <value>Date of registration</value>
+  </data>
+  <data name="TitleDellFunction" xml:space="preserve">
+    <value>Delete function</value>
+  </data>
+  <data name="TitleEditFunction" xml:space="preserve">
+    <value>Edit function</value>
+  </data>
+  <data name="TitleEmailAddress" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="TitleFactorX" xml:space="preserve">
+    <value>X-factor</value>
+  </data>
+  <data name="TitleFilterAccountsOnManagementEffectiveness" xml:space="preserve">
+    <value>Filter of accounts on management effectiveness</value>
+  </data>
+  <data name="TitleGeometricAverageProfit" xml:space="preserve">
+    <value>Avg.Y.Profit</value>
+  </data>
+  <data name="TitleInputOutputForPeriod" xml:space="preserve">
+    <value>Input-output for the period</value>
+  </data>
+  <data name="TitleInvested" xml:space="preserve">
+    <value>Invested</value>
+  </data>
+  <data name="TitleManagementEfficiency" xml:space="preserve">
+    <value>Management efficiency</value>
+  </data>
+  <data name="TitleMarkupOnClosedOrder" xml:space="preserve">
+    <value>Markup on closed orders</value>
+  </data>
+  <data name="TitleMaxDropDown" xml:space="preserve">
+    <value>Max drop down</value>
+  </data>
+  <data name="TitleMaxLeverage" xml:space="preserve">
+    <value>Max leverage</value>
+  </data>
+  <data name="TitleOrders" xml:space="preserve">
+    <value>Orders</value>
+  </data>
+  <data name="TitleOrdersCount" xml:space="preserve">
+    <value>Number of orders</value>
+  </data>
+  <data name="TitlePatronymic" xml:space="preserve">
+    <value>Patronymic</value>
+  </data>
+  <data name="TitlePercentOrders" xml:space="preserve">
+    <value>Percent of orders</value>
+  </data>
+  <data name="TitleRights" xml:space="preserve">
+    <value>Rights</value>
+  </data>
+  <data name="TitleRole" xml:space="preserve">
+    <value>Role</value>
+  </data>
+  <data name="TitleServices" xml:space="preserve">
+    <value>Services</value>
+  </data>
+  <data name="TitleSharpFactor" xml:space="preserve">
+    <value>Sharp factor</value>
+  </data>
+  <data name="TitlesSurname" xml:space="preserve">
+    <value>Surname</value>
+  </data>
+  <data name="TitleTakeOut" xml:space="preserve">
+    <value>Take out</value>
+  </data>
+  <data name="TitleTop" xml:space="preserve">
+    <value>Top</value>
+  </data>
+  <data name="TitleTopTraders" xml:space="preserve">
+    <value>traders</value>
+  </data>
+  <data name="TitleTradersWithHighestLosses" xml:space="preserve">
+    <value>traders with the highest losses</value>
+  </data>
+  <data name="TitleUserFullName" xml:space="preserve">
+    <value>Full name</value>
+  </data>
+  <data name="TitleUserId" xml:space="preserve">
+    <value>User Id</value>
+  </data>
+  <data name="TitleUserName" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="TitleUserPhone1" xml:space="preserve">
+    <value>Phone 1</value>
+  </data>
+  <data name="TitleUserPhone2" xml:space="preserve">
+    <value>Phone 2</value>
+  </data>
+  <data name="TitleWalletBalance" xml:space="preserve">
+    <value>Balance in wallet</value>
+  </data>
+  <data name="ErrorMassageNothingFound" xml:space="preserve">
+    <value>Nothing found</value>
+  </data>
+  <data name="ErrorMessageAccountNotFound" xml:space="preserve">
+    <value>Perhaps this account is not found</value>
+  </data>
+  <data name="ErrorMessageDealerNotSelected" xml:space="preserve">
+    <value>Dealer not selected</value>
+  </data>
+  <data name="PageTitleAccountGroupAdd" xml:space="preserve">
+    <value>TRADE# server administration - New account groups</value>
+  </data>
+  <data name="PageTitleAccountOwner" xml:space="preserve">
+    <value>TRADE# server administration - Owners of account and their rights</value>
+  </data>
+  <data name="PageTitleEditAccountGroupsDetails" xml:space="preserve">
+    <value>TRADE# server administration - Editing group accounts</value>
+  </data>
+  <data name="TextFillingAccountGroup" xml:space="preserve">
+    <value>{!}For filling group accounts, go to the edit page of any account, and set the " Group " the appropriate value.</value>
+  </data>
+  <data name="TitleAccountDetails" xml:space="preserve">
+    <value>Details of account</value>
+  </data>
+  <data name="TitleAccountGroupAdd" xml:space="preserve">
+    <value>New account group</value>
+  </data>
+  <data name="TitleAccountGroupShort" xml:space="preserve">
+    <value>group</value>
+  </data>
+  <data name="TitleAddAccount" xml:space="preserve">
+    <value>Add account</value>
+  </data>
+  <data name="TitleAddSubscriber" xml:space="preserve">
+    <value>Add subscriber</value>
+  </data>
+  <data name="TitleEditAccountGroupsDetails" xml:space="preserve">
+    <value>Editing group accounts</value>
+  </data>
+  <data name="TitleExposure" xml:space="preserve">
+    <value>Exposure</value>
+  </data>
+  <data name="TitleFreePrice" xml:space="preserve">
+    <value>Free price</value>
+  </data>
+  <data name="TitleHedging" xml:space="preserve">
+    <value>Hedging</value>
+  </data>
+  <data name="TitleMargin" xml:space="preserve">
+    <value>Margin</value>
+  </data>
+  <data name="TitleMoneyAtMoment" xml:space="preserve">
+    <value>Money at the moment</value>
+  </data>
+  <data name="TitleOpenOrdersCount" xml:space="preserve">
+    <value>The number of open positions</value>
+  </data>
+  <data name="TitlePaid" xml:space="preserve">
+    <value>Paid</value>
+  </data>
+  <data name="TitleProfitAtMoment" xml:space="preserve">
+    <value>Profit at the moment</value>
+  </data>
+  <data name="TitleTrade" xml:space="preserve">
+    <value>Trade</value>
+  </data>
+  <data name="TitleUser" xml:space="preserve">
+    <value>User</value>
+  </data>
+  <data name="TitleUserAndRight" xml:space="preserve">
+    <value>User - Rights</value>
+  </data>
+  <data name="ConfirmContinue" xml:space="preserve">
+    <value>Continue?</value>
+  </data>
+  <data name="ConfirmNewBaseActive" xml:space="preserve">
+    <value>{!}Will create a new asset</value>
+  </data>
+  <data name="ErrorMessageDateFormat" xml:space="preserve">
+    <value>The date must be in the format dd.MM.yyyy HH: mm: ss</value>
+  </data>
+  <data name="PageTitleAddDeal" xml:space="preserve">
+    <value>TRADE# server administration - New order</value>
+  </data>
+  <data name="PageTitleBaseActive" xml:space="preserve">
+    <value>{!}TRADE# server administration - Base active</value>
+  </data>
+  <data name="PageTitleDealerAccountGroupEdit" xml:space="preserve">
+    <value>TRADE# server administration - Editing data of dealer</value>
+  </data>
+  <data name="PageTitleMetaData" xml:space="preserve">
+    <value>TRADE# server administration - Metadata</value>
+  </data>
+  <data name="PageTitleOwnerDetails" xml:space="preserve">
+    <value>TRADE# server administration - Details of owner</value>
+  </data>
+  <data name="PageTitleTopPortfolioAdd" xml:space="preserve">
+    <value>TRADE# server administration - Add a top portfolio</value>
+  </data>
+  <data name="PageTitleTopPortfolioDetails" xml:space="preserve">
+    <value>TRADE# server administration - Details of the portfolio of robots</value>
+  </data>
+  <data name="TitleAttachExistAccount" xml:space="preserve">
+    <value>Attach to an existing account portfolio</value>
+  </data>
+  <data name="TitleBaseActiveNew" xml:space="preserve">
+    <value>Add a new asset</value>
+  </data>
+  <data name="TitleCategory" xml:space="preserve">
+    <value>Category</value>
+  </data>
+  <data name="TitleCreatePortfolioWithAccount" xml:space="preserve">
+    <value>Create a portfolio of robots with a new account</value>
+  </data>
+  <data name="TitleDataType" xml:space="preserve">
+    <value>Type of data</value>
+  </data>
+  <data name="TitleDealer" xml:space="preserve">
+    <value>Dealer</value>
+  </data>
+  <data name="TitleDealerAccountGroupEdit" xml:space="preserve">
+    <value>Editing data of dealer</value>
+  </data>
+  <data name="TitleDescending" xml:space="preserve">
+    <value>descending</value>
+  </data>
+  <data name="TitleFilterByName" xml:space="preserve">
+    <value>Filter by name</value>
+  </data>
+  <data name="TitleFormulaLimitValue" xml:space="preserve">
+    <value>Limit value (screening) for formula</value>
+  </data>
+  <data name="TitleFormulaScreeningCriterion" xml:space="preserve">
+    <value>Formula - screening criterion</value>
+  </data>
+  <data name="TitleNewAccountForPortfolio" xml:space="preserve">
+    <value>Create a new account for the portfolio</value>
+  </data>
+  <data name="TitleParticipantsPortfolioMax" xml:space="preserve">
+    <value>Max. number of participants portfolio</value>
+  </data>
+  <data name="TitlePriceEntry" xml:space="preserve">
+    <value>Price entry</value>
+  </data>
+  <data name="TitlePriceExit" xml:space="preserve">
+    <value>Price exit</value>
+  </data>
+  <data name="TitleResultDepo" xml:space="preserve">
+    <value>Result (depo)</value>
+  </data>
+  <data name="TitleSelectAccount" xml:space="preserve">
+    <value>Select an account</value>
+  </data>
+  <data name="TitleSetEntryTime" xml:space="preserve">
+    <value>set the entry time by clicking on the input field to the right</value>
+  </data>
+  <data name="TitleSortByFormula" xml:space="preserve">
+    <value>Sort by formula</value>
+  </data>
+  <data name="TitleTopPortfolioAdd" xml:space="preserve">
+    <value>Add a top portfolio</value>
+  </data>
+  <data name="TitleTopPortfolioEdit" xml:space="preserve">
+    <value>Editing data on portfolio</value>
+  </data>
+  <data name="TitleTopPortfolioName" xml:space="preserve">
+    <value>Portfolio name</value>
+  </data>
+  <data name="TitleTopPortfolioNumber" xml:space="preserve">
+    <value>Portfolio number</value>
+  </data>
+  <data name="TitleTopPortfolioTradeAccount" xml:space="preserve">
+    <value>{!}Account, which will sell a portfolio of robots</value>
+  </data>
+  <data name="TitleTopPortfolioTradeAccountEdit" xml:space="preserve">
+    <value>{!}Edit account which trade on portfolio</value>
+  </data>
+  <data name="TitleType" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="TitleValue" xml:space="preserve">
+    <value>Value</value>
+  </data>
+  <data name="TitltAscending" xml:space="preserve">
+    <value>ascending</value>
+  </data>
+  <data name="ConfirmPositionEdit" xml:space="preserve">
+    <value>{!}During this operation numbers editable transactions are changed. Continue?</value>
+  </data>
+  <data name="ConfirmTitleMarketOrderCancelSelected" xml:space="preserve">
+    <value>The market orders will be canceled, as if they were not at all (no possibility of recovery). Continue?</value>
+  </data>
+  <data name="ConfirmUnsubscribeTradeSignal" xml:space="preserve">
+    <value>Unsubscribe from this signal</value>
+  </data>
+  <data name="ErrorMessageWalletSelect" xml:space="preserve">
+    <value>select the user's purse</value>
+  </data>
+  <data name="PageTitleMarketOrderDetails" xml:space="preserve">
+    <value>TRADE# server administration - Details of market order</value>
+  </data>
+  <data name="PageTitlePaymentTransferDetails" xml:space="preserve">
+    <value>TRADE# server administration - Payments transfer</value>
+  </data>
+  <data name="PageTitlePositionEdit" xml:space="preserve">
+    <value>TRADE# server administration - Market orders editing</value>
+  </data>
+  <data name="PageTitleSpot" xml:space="preserve">
+    <value>TRADE# server administration - Spot</value>
+  </data>
+  <data name="PageTitleSubscription" xml:space="preserve">
+    <value>TRADE# server administration - Subscriptions</value>
+  </data>
+  <data name="TextChangeUserPaymentSysInDB" xml:space="preserve">
+    <value>If it does not, edit the appropriate field in the table UserPaymentSys PAYMENT_SYSTEM_TRANSFER to record with ID</value>
+  </data>
+  <data name="TextEmptyStringIgnor" xml:space="preserve">
+    <value>If the input field is empty string, it will be ignored</value>
+  </data>
+  <data name="TextMakePaymentComment" xml:space="preserve">
+    <value>Deposit by the selected user's purse</value>
+  </data>
+  <data name="TextMarketOrderCancelSelectedComment" xml:space="preserve">
+    <value>{!}Abolish selected market order as if they were concluded. This will recalculate the deposit of funds</value>
+  </data>
+  <data name="TextMarketOrderCloseAdditionalActions" xml:space="preserve">
+    <value>Additional actions on selected close market orders requiring data recalculation</value>
+  </data>
+  <data name="TextMarketOrderCloseInSample" xml:space="preserve">
+    <value>{!}Close market order in the sample (field editing secure)</value>
+  </data>
+  <data name="TextMarketOrderCloseSelectedComment" xml:space="preserve">
+    <value>To open the selected market order, set the status of  closed. This will recalculate the deposit of funds</value>
+  </data>
+  <data name="TextMarketOrderEditSelectedComment" xml:space="preserve">
+    <value>Edit additional fields selected open market order</value>
+  </data>
+  <data name="TextMarketOrderOpenAdditionalActions" xml:space="preserve">
+    <value>Additional actions on selected open transactions requiring data recalculation</value>
+  </data>
+  <data name="TextMarketOrderOpenInSample" xml:space="preserve">
+    <value>{!}Open market order in the sample (field editing secure)</value>
+  </data>
+  <data name="TextMarketOrderOpenSelectedComment" xml:space="preserve">
+    <value>For selected closed market orders, set the status of Open. This will recalculate the deposit of funds</value>
+  </data>
+  <data name="TextPaymentAmountComment" xml:space="preserve">
+    <value>Funds transferred to T# purse</value>
+  </data>
+  <data name="TextPaymentNumberComment" xml:space="preserve">
+    <value>Id of entry in table  PAYMENT_SYSTEM_TRANSFER</value>
+  </data>
+  <data name="TextPaymentTansferFor" xml:space="preserve">
+    <value>It was determined that the payment was intended to</value>
+  </data>
+  <data name="TitleAutoExtension" xml:space="preserve">
+    <value>{!}Auto extension</value>
+  </data>
+  <data name="TitleBaseCurrency" xml:space="preserve">
+    <value>Base currency</value>
+  </data>
+  <data name="TitleChangeType" xml:space="preserve">
+    <value>change Type</value>
+  </data>
+  <data name="TitleClose" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="TitleCounterCurrency" xml:space="preserve">
+    <value>Countercurrency</value>
+  </data>
+  <data name="TitleCurrentValue" xml:space="preserve">
+    <value>Current value</value>
+  </data>
+  <data name="TitleExist" xml:space="preserve">
+    <value>Exist</value>
+  </data>
+  <data name="TitleField" xml:space="preserve">
+    <value>Field</value>
+  </data>
+  <data name="TitleMain" xml:space="preserve">
+    <value>Main</value>
+  </data>
+  <data name="TitleMakePayment" xml:space="preserve">
+    <value>Make a payment</value>
+  </data>
+  <data name="TitleMarketOrderCancelSelected" xml:space="preserve">
+    <value>Cancel the selected market order</value>
+  </data>
+  <data name="TitleMarketOrderClose" xml:space="preserve">
+    <value>{!}Closing deals</value>
+  </data>
+  <data name="TitleMarketOrderCloseSelected" xml:space="preserve">
+    <value>Close the selected market order</value>
+  </data>
+  <data name="TitleMarketOrderDetails" xml:space="preserve">
+    <value>Details of market order</value>
+  </data>
+  <data name="TitleMarketOrderEdit" xml:space="preserve">
+    <value>Edit market orders</value>
+  </data>
+  <data name="TitleMarketOrderEditSelected" xml:space="preserve">
+    <value>Edit additional fields</value>
+  </data>
+  <data name="TitleMarketorderMainIndicator" xml:space="preserve">
+    <value>The main indicator of the deal</value>
+  </data>
+  <data name="TitleMarketOrderNumber" xml:space="preserve">
+    <value>Number of deal</value>
+  </data>
+  <data name="TitleMarketOrderOptionIndicator" xml:space="preserve">
+    <value>Additional indicator of the deal</value>
+  </data>
+  <data name="TitleMarketOrdersEdit" xml:space="preserve">
+    <value>Editing market orders</value>
+  </data>
+  <data name="TitleMarketOrderType" xml:space="preserve">
+    <value>Type of market order</value>
+  </data>
+  <data name="TitleMinStepChangeVolume" xml:space="preserve">
+    <value>Minimal volume change</value>
+  </data>
+  <data name="TitleMinStepChangeVolumeShort" xml:space="preserve">
+    <value>Min volume change</value>
+  </data>
+  <data name="TitleMinVolume" xml:space="preserve">
+    <value>Minimal volume</value>
+  </data>
+  <data name="TitleMinVolumeShort" xml:space="preserve">
+    <value>Min volume</value>
+  </data>
+  <data name="TitleNewValue" xml:space="preserve">
+    <value>New value</value>
+  </data>
+  <data name="TitleNumberSubscribers" xml:space="preserve">
+    <value>Number of subscribers</value>
+  </data>
+  <data name="TitleOperationComplet" xml:space="preserve">
+    <value>Operation complet</value>
+  </data>
+  <data name="TitleOptions" xml:space="preserve">
+    <value>Options</value>
+  </data>
+  <data name="TitlePrecision" xml:space="preserve">
+    <value>Precision</value>
+  </data>
+  <data name="TitlePricePerMonth" xml:space="preserve">
+    <value>Price per month</value>
+  </data>
+  <data name="TitleReasonExit" xml:space="preserve">
+    <value>Reason for exit</value>
+  </data>
+  <data name="TitleReopen" xml:space="preserve">
+    <value>Reopen</value>
+  </data>
+  <data name="TitleSelectPaymentSystem" xml:space="preserve">
+    <value>Select a payment system</value>
+  </data>
+  <data name="TitleSPOT" xml:space="preserve">
+    <value>SPOT</value>
+  </data>
+  <data name="TitleSubscribe" xml:space="preserve">
+    <value>Subscribe</value>
+  </data>
+  <data name="TitleSubscribesOther" xml:space="preserve">
+    <value>Subscriptions to the signals of other signallers</value>
+  </data>
+  <data name="TitleSubscriptionDell" xml:space="preserve">
+    <value>Deleting a subscription</value>
+  </data>
+  <data name="TitleSubscriptionEndTime" xml:space="preserve">
+    <value>End time of subscription</value>
+  </data>
+  <data name="TitleSubscriptionStartTime" xml:space="preserve">
+    <value>Start time of subscription</value>
+  </data>
+  <data name="TitleSwapBuy" xml:space="preserve">
+    <value>SWAP purchase</value>
+  </data>
+  <data name="TitleSwapSell" xml:space="preserve">
+    <value>SWAP sale</value>
+  </data>
+  <data name="TitleTradeSignal" xml:space="preserve">
+    <value>Trade signal</value>
+  </data>
+  <data name="TitleUserDetails" xml:space="preserve">
+    <value>Details of user</value>
+  </data>
+  <data name="TitleUserTradeSignal" xml:space="preserve">
+    <value>Users trade signal</value>
+  </data>
+  <data name="TitleVolume" xml:space="preserve">
+    <value>Volume</value>
+  </data>
+  <data name="EnumSelectOrderFirst" xml:space="preserve">
+    <value>First</value>
+  </data>
+  <data name="EnumSelectOrderLast" xml:space="preserve">
+    <value>Last</value>
+  </data>
+  <data name="ErrorMessageIncorrectRecordNumber" xml:space="preserve">
+    <value>Incorrect record number</value>
+  </data>
+  <data name="ErrorMessageMaxNumberCharacters" xml:space="preserve">
+    <value>Maximum number of characters</value>
+  </data>
+  <data name="ErrorMessageMinNumberCharacters" xml:space="preserve">
+    <value>Minimum number of characters</value>
+  </data>
+  <data name="ErrorMessageMustNegative" xml:space="preserve">
+    <value>The value must be negative</value>
+  </data>
+  <data name="ErrorMessageMustNonNegative" xml:space="preserve">
+    <value>The value must be non-negative</value>
+  </data>
+  <data name="ErrorMessageMustNonPositive" xml:space="preserve">
+    <value>The value must be non-positive</value>
+  </data>
+  <data name="ErrorMessageMustPositive" xml:space="preserve">
+    <value>Value must be positive</value>
+  </data>
+  <data name="ErrorMessageRangeNotLess001" xml:space="preserve">
+    <value>The value should be a number not less than 1</value>
+  </data>
+  <data name="PageTitlePammDetails" xml:space="preserve">
+    <value>Сервер TRADE# -Подробные сведения о ПАММ-е</value>
+  </data>
+  <data name="PageTitleWalletDetails" xml:space="preserve">
+    <value>TRADE# server administration - Purse T#</value>
+  </data>
+  <data name="TitleAccountToTransfer" xml:space="preserve">
+    <value>Account to which funds are transferred</value>
+  </data>
+  <data name="TitleAutoTransferOnAccount" xml:space="preserve">
+    <value>Automatically transfer from a purse on the trading account</value>
+  </data>
+  <data name="TitleAutoWithdrawFromAccount" xml:space="preserve">
+    <value>Automatically withdraw from the trading account</value>
+  </data>
+  <data name="TitleBack" xml:space="preserve">
+    <value>Back</value>
+  </data>
+  <data name="TitleDepositing" xml:space="preserve">
+    <value>Depositing</value>
+  </data>
+  <data name="TitleExampleOfRecords" xml:space="preserve">
+    <value>Examples of records</value>
+  </data>
+  <data name="TitleInvestorAccount" xml:space="preserve">
+    <value>Investor's account</value>
+  </data>
+  <data name="TitlePammDetails" xml:space="preserve">
+    <value>Details of PAMM</value>
+  </data>
+  <data name="TitlePercentage" xml:space="preserve">
+    <value>Percentage</value>
+  </data>
+  <data name="TitleRecalculationInNewCurrency" xml:space="preserve">
+    <value>Recalculation of funds in the new currency</value>
+  </data>
+  <data name="TitleTransfer" xml:space="preserve">
+    <value>Transfer</value>
+  </data>
+  <data name="TitleTransferVolume" xml:space="preserve">
+    <value>The volume of transfer</value>
+  </data>
+  <data name="TitleUserAccounts" xml:space="preserve">
+    <value>User accounts</value>
+  </data>
+  <data name="TitleWalletOperation" xml:space="preserve">
+    <value>Operation with a wallet of user</value>
+  </data>
+  <data name="TitleWalletUserId" xml:space="preserve">
+    <value>Identifier users / purse</value>
+  </data>
+  <data name="TitleWithdraw" xml:space="preserve">
+    <value>Withdraw</value>
+  </data>
+  <data name="ErrorMessageCalculationFunctions" xml:space="preserve">
+    <value>Error of function calculation</value>
+  </data>
+  <data name="ErrorMessageErrorIn" xml:space="preserve">
+    <value>Error in</value>
+  </data>
+  <data name="ErrorMessageInFunction" xml:space="preserve">
+    <value>Error in function</value>
+  </data>
+  <data name="ErrorMessageNoExitPriceFor" xml:space="preserve">
+    <value>no price exit for</value>
+  </data>
+  <data name="ErrorMessageNotFound" xml:space="preserve">
+    <value>not found</value>
+  </data>
+  <data name="ErrorMessageNotFoundInstrument" xml:space="preserve">
+    <value>tool not found</value>
+  </data>
+  <data name="ErrorMessageNotFoundQuote" xml:space="preserve">
+    <value>quote not found</value>
+  </data>
+  <data name="ErrorMessageQuotNotReceived" xml:space="preserve">
+    <value>quotations are not received</value>
+  </data>
+  <data name="ErrorMessageRangeLess12" xml:space="preserve">
+    <value>The number of characters must be less than 12 characters</value>
+  </data>
+  <data name="ErrorMessageRangeLess128" xml:space="preserve">
+    <value>Number of characters should be less then 128 characters</value>
+  </data>
+  <data name="ErrorMessageRangeLess25" xml:space="preserve">
+    <value>The number of characters must be less than 25 characters</value>
+  </data>
+  <data name="ErrorMessageRangeLess6" xml:space="preserve">
+    <value>The number of characters must be less than 6 characters</value>
+  </data>
+  <data name="ErrorMessageRangeLess60" xml:space="preserve">
+    <value>The number of characters must be less than 60 characters</value>
+  </data>
+  <data name="ErrorMessageUnknownVariables" xml:space="preserve">
+    <value>unknown variables</value>
+  </data>
+  <data name="TextFailedGetDescriptionFor" xml:space="preserve">
+    <value>failed to get the description for</value>
+  </data>
+  <data name="TextNumberDistinctValues" xml:space="preserve">
+    <value>Number of distinct values</value>
+  </data>
+  <data name="TextSameInAllSelectedItems" xml:space="preserve">
+    <value>The same in all the selected items</value>
+  </data>
+  <data name="TextUnableReadAttributeDisplayName" xml:space="preserve">
+    <value>unable to read the attribute value 'DisplayName' property</value>
+  </data>
+  <data name="TextUnknownDataType" xml:space="preserve">
+    <value>unknown data type</value>
+  </data>
+  <data name="TitleAutoExtensionShort" xml:space="preserve">
+    <value>Auto extension</value>
+  </data>
+  <data name="TitleAvgLeverage" xml:space="preserve">
+    <value>Average leverage</value>
+  </data>
+  <data name="TitleTradeSignalNumber" xml:space="preserve">
+    <value>Number of signal</value>
+  </data>
+  <data name="TitleUniqueIdentifier" xml:space="preserve">
+    <value>Unique identifier</value>
+  </data>
+  <data name="TitleYearIncomeShort" xml:space="preserve">
+    <value>{!}Ср.геом. год. доход</value>
+  </data>
+  <data name="TypeDescriptionBool" xml:space="preserve">
+    <value>boolean value (format 'true' / 'false')</value>
+  </data>
+  <data name="TypeDescriptionByte" xml:space="preserve">
+    <value>8-bit unsigned integer</value>
+  </data>
+  <data name="TypeDescriptionDateTime" xml:space="preserve">
+    <value>current time, expressed as a date and hour: minute: second (format 'dd.mm.yyyy hh: mm: ss')</value>
+  </data>
+  <data name="TypeDescriptionDecimal" xml:space="preserve">
+    <value>128-bit, for a floating point value (format x.xx)</value>
+  </data>
+  <data name="TypeDescriptionDouble" xml:space="preserve">
+    <value>64-bit, for a floating point value (format x.xx)</value>
+  </data>
+  <data name="TypeDescriptionEnum" xml:space="preserve">
+    <value>Enumeration</value>
+  </data>
+  <data name="TypeDescriptionFloat" xml:space="preserve">
+    <value>32-bit, for a floating point value (format x.xx)</value>
+  </data>
+  <data name="TypeDescriptionInt" xml:space="preserve">
+    <value>integer value</value>
+  </data>
+  <data name="TypeDescriptionLong" xml:space="preserve">
+    <value>64 -bit signed integer</value>
+  </data>
+  <data name="TypeDescriptionShort" xml:space="preserve">
+    <value>16-bit signed integer</value>
+  </data>
+  <data name="TypeDescriptionString" xml:space="preserve">
+    <value>String</value>
+  </data>
+  <data name="TypeDescriptionUint" xml:space="preserve">
+    <value>Unsigned 32-bit integer</value>
+  </data>
+  <data name="TypeDescriptionUlong" xml:space="preserve">
+    <value>Unsigned 64-bit integer</value>
+  </data>
+  <data name="ErrorMessageAccountGroupAdd" xml:space="preserve">
+    <value>Failed to add group accounts</value>
+  </data>
+  <data name="ErrorMessageAccountGroupDelete" xml:space="preserve">
+    <value>Failed to delete group accounts</value>
+  </data>
+  <data name="ErrorMessageAccountGroupNotFound" xml:space="preserve">
+    <value>Group not found</value>
+  </data>
+  <data name="ErrorMessageAccountGroupSave" xml:space="preserve">
+    <value>Unable to make changes to the group accounts</value>
+  </data>
+  <data name="ErrorMessageAccountGroupSaveDeallerInfo" xml:space="preserve">
+    <value>Failed to modify information about the dealer of group account</value>
+  </data>
+  <data name="ErrorMessageCampaignAccount" xml:space="preserve">
+    <value>No value was specified campaign account</value>
+  </data>
+  <data name="ErrorMessageCanNotDellAccount" xml:space="preserve">
+    <value>Unable to delete account</value>
+  </data>
+  <data name="ErrorMessageCombinationNameAndPortfolioNumberInDB" xml:space="preserve">
+    <value>Such a combination of the name and number of participants in the portfolio already exists in the database</value>
+  </data>
+  <data name="ErrorMessageIdMustBeInteger" xml:space="preserve">
+    <value>id must be an integer</value>
+  </data>
+  <data name="ErrorMessageInvalidFieldValue" xml:space="preserve">
+    <value>Invalid field value</value>
+  </data>
+  <data name="ErrorMessageNotCreateAccountForTopPortfolio" xml:space="preserve">
+    <value>When adding a top portfolio failed to create a new account on</value>
+  </data>
+  <data name="ErrorMessageNotFindUserAccountOwner" xml:space="preserve">
+    <value>Could not find user - account holder campaign</value>
+  </data>
+  <data name="ErrorMessageNumberParticipantsMustInteger" xml:space="preserve">
+    <value>The number of participants should be an integer</value>
+  </data>
+  <data name="ErrorMessageStringLength0_10" xml:space="preserve">
+    <value>Number of characters should be in the range of 0 to 10 characters</value>
+  </data>
+  <data name="ErrorMessageStringLength0_256" xml:space="preserve">
+    <value>Number of characters should be in the range of 0 to 256 characters</value>
+  </data>
+  <data name="ErrorMessageStringLength1_20" xml:space="preserve">
+    <value>Number of characters should be in the range of 1 to 20 characters</value>
+  </data>
+  <data name="ErrorMessageStringLength2_60" xml:space="preserve">
+    <value>Number of characters should be in the range of 2 to 60 characters</value>
+  </data>
+  <data name="ErrorMessageTopPortfolioUnableAdd" xml:space="preserve">
+    <value>Unable to add an top portfolio</value>
+  </data>
+  <data name="ErrorMessageTradeSignalUnableAdd" xml:space="preserve">
+    <value>Unable to add an trade signal</value>
+  </data>
+  <data name="ErrorMessageTradeSignalUnableDell" xml:space="preserve">
+    <value>Unable to delete an trade signal</value>
+  </data>
+  <data name="ErrorMessageTradeSignalUnableEdit" xml:space="preserve">
+    <value>Unable to edit an trade signal</value>
+  </data>
+  <data name="ErrorMessageUnableDellRecordDB" xml:space="preserve">
+    <value>unable to delete records in the database</value>
+  </data>
+  <data name="ErrorMessageUnableSignAccount" xml:space="preserve">
+    <value>Unable to sign a account on portfolio of campaign</value>
+  </data>
+  <data name="MessageAccountDeleted" xml:space="preserve">
+    <value>Account deleted</value>
+  </data>
+  <data name="MessageAccountGroupAdd" xml:space="preserve">
+    <value>Group accounts added</value>
+  </data>
+  <data name="MessageAccountGroupEditedSuccessful" xml:space="preserve">
+    <value>{!}Successful saved changes to the group accounts</value>
+  </data>
+  <data name="MessageAccountGroupFor" xml:space="preserve">
+    <value>for group accounts</value>
+  </data>
+  <data name="MessageAccountGroupSaveDealerInfo" xml:space="preserve">
+    <value>Save changed information of dealer</value>
+  </data>
+  <data name="MessageDoesNotUserNotHaveAccount" xml:space="preserve">
+    <value>does not appear users who would not have a account</value>
+  </data>
+  <data name="MessagePortfolioDeleted" xml:space="preserve">
+    <value>Portfolio deleted</value>
+  </data>
+  <data name="MessagePortfolioEditCancel" xml:space="preserve">
+    <value>Editing portfolio canceled</value>
+  </data>
+  <data name="MessageTopPortfolioCreated" xml:space="preserve">
+    <value>New top portfolio created</value>
+  </data>
+  <data name="MessageUsersWithoutAccountsInLog" xml:space="preserve">
+    <value>Users remain without accounts are listed in the log file</value>
+  </data>
+  <data name="TextAccountGroupDell" xml:space="preserve">
+    <value>Group accounts deleted</value>
+  </data>
+  <data name="TextAccountGroupMayBeDellIfNoAccounts" xml:space="preserve">
+    <value>The group may be deleted only if there are no accounts</value>
+  </data>
+  <data name="TextNumberAccountsInGroup" xml:space="preserve">
+    <value>The number of accounts in a group</value>
+  </data>
+  <data name="TextPropertyPossibleValues" xml:space="preserve">
+    <value>Possible values: '-1' - sales, '1 '- buy. Other values ​​are not valid</value>
+  </data>
+  <data name="TextPropertyPossibleValues0123" xml:space="preserve">
+    <value>Possible values: '0 ' - Closed, '1' - open, '2 ' - Opening, '3' - Closure. Other values ​​are not valid</value>
+  </data>
+  <data name="TextPropertyPossibleValues01234567" xml:space="preserve">
+    <value>Possible values: '0 '-, '1' - StopLoss, '2 '- TakeProfit, '3' - Stop out, '4 ' - Closed (robot ), '5' - Closed User., '6 ' - Closed ( script) ' 7 ' - Closed (signal). Other values ​​are not valid</value>
+  </data>
+  <data name="TextPropertyRequirRecalculationDeposit" xml:space="preserve">
+    <value>{!}Property requiring recalculation of the deposit when the editing</value>
+  </data>
+  <data name="TitleMarketOrderResult" xml:space="preserve">
+    <value>result of the market order</value>
+  </data>
+  <data name="TitleNotSelected" xml:space="preserve">
+    <value>Not selected</value>
+  </data>
+  <data name="ErrorMessageAccauntAdded" xml:space="preserve">
+    <value>Error adding account</value>
+  </data>
+  <data name="ErrorMessageAccessToPageDenied" xml:space="preserve">
+    <value>Access to page is denied</value>
+  </data>
+  <data name="ErrorMessageAccountDeactivated" xml:space="preserve">
+    <value>Failed to deactivate account</value>
+  </data>
+  <data name="ErrorMessageAccountTransactionsUpdated" xml:space="preserve">
+    <value>Error updating transactions and recalculated the balance of the account</value>
+  </data>
+  <data name="ErrorMessageAdding" xml:space="preserve">
+    <value>Error adding</value>
+  </data>
+  <data name="ErrorMessageAmountMustBePositive" xml:space="preserve">
+    <value>Amount must be strictly greater than 0</value>
+  </data>
+  <data name="ErrorMessageCanceledNotAllTransactions" xml:space="preserve">
+    <value>If canceled not all transactions that you have specified, detailed information you can view the logs</value>
+  </data>
+  <data name="ErrorMessageClosedNotAllTransactions" xml:space="preserve">
+    <value>If closed not all transactions that you have specified, detailed information you can view the logs</value>
+  </data>
+  <data name="ErrorMessageDataNotFound" xml:space="preserve">
+    <value>Data not found</value>
+  </data>
+  <data name="ErrorMessageInvalid" xml:space="preserve">
+    <value>the data entered is not valid</value>
+  </data>
+  <data name="ErrorMessageMustBeNumber" xml:space="preserve">
+    <value>The number must be</value>
+  </data>
+  <data name="ErrorMessagePageNotFound" xml:space="preserve">
+    <value>Page not found</value>
+  </data>
+  <data name="ErrorMessageQuoteNotFound" xml:space="preserve">
+    <value>Not found the quote for pair of currency</value>
+  </data>
+  <data name="ErrorMessageSaveDataChanges" xml:space="preserve">
+    <value>Failed to save data changes</value>
+  </data>
+  <data name="ErrorMessageSaveDeallerInfo" xml:space="preserve">
+    <value>Unable to save changes information about dealer</value>
+  </data>
+  <data name="ErrorMessageServerNotHandleRequests" xml:space="preserve">
+    <value>Server is temporarily not in a position to handle requests for technical reasons</value>
+  </data>
+  <data name="ErrorMessageTransactionsOnPairWillNotClosed" xml:space="preserve">
+    <value>Transactions on this currency pair will not be closed</value>
+  </data>
+  <data name="ErrorMessageTxtbxTimeExitNotFound" xml:space="preserve">
+    <value>Unable to find the element type txtbxTimeExit named 'txtbxTimeExit'</value>
+  </data>
+  <data name="ErrorMessageUnableGetDataFromServer" xml:space="preserve">
+    <value>Failed to retrieve data from the server</value>
+  </data>
+  <data name="ErrorMessageUnableMarketOrderUpdate" xml:space="preserve">
+    <value>Market orders have not been updated</value>
+  </data>
+  <data name="ErrorMessageUnableParseDateTime" xml:space="preserve">
+    <value>Unable to parse the date</value>
+  </data>
+  <data name="ErrorMessageUnableParseTimeExit" xml:space="preserve">
+    <value>was unable to parse the date of 'Time Exit'</value>
+  </data>
+  <data name="ErrorMessageUnableRetrieveServerListPortfolios" xml:space="preserve">
+    <value>Unable to retrieve server list portfolios robots.</value>
+  </data>
+  <data name="ErrorMessageUnableToFormDataModelInServer" xml:space="preserve">
+    <value>Server has received the request, but failed to generate the data model, to send back</value>
+  </data>
+  <data name="ErrorMessageUnableUnsubscribeAandRemoveSignals" xml:space="preserve">
+    <value>unable to unsubscribe and remove subscribers signals</value>
+  </data>
+  <data name="ErrorMessageUnableUpdateRecordDB" xml:space="preserve">
+    <value>unable to update records in the database</value>
+  </data>
+  <data name="ErrorMessageVolumeInvalid" xml:space="preserve">
+    <value>Value is not validly</value>
+  </data>
+  <data name="MessageAccauntAdded" xml:space="preserve">
+    <value>Added a new account</value>
+  </data>
+  <data name="MessageAccountDeactivated" xml:space="preserve">
+    <value>Account has been deactivated</value>
+  </data>
+  <data name="MessageAccountsWithoutUsers" xml:space="preserve">
+    <value>The following accounts were without users</value>
+  </data>
+  <data name="MessageAccountTransactionsUpdated" xml:space="preserve">
+    <value>Transactions of account have been updated, balance has been recalculated</value>
+  </data>
+  <data name="MessageAccountTransactionsUpdatedWithoutBalance" xml:space="preserve">
+    <value>Transactions of account have been updated, but failed to recalculate the balance</value>
+  </data>
+  <data name="MessageBalanceRecalculated" xml:space="preserve">
+    <value>Balance was recalculated in the new currency</value>
+  </data>
+  <data name="MessageDellRecordDB" xml:space="preserve">
+    <value>The entry is deleted from the database</value>
+  </data>
+  <data name="MessageEditingCanceled" xml:space="preserve">
+    <value>Editing canceled</value>
+  </data>
+  <data name="MessageEditingMade" xml:space="preserve">
+    <value>Editing made</value>
+  </data>
+  <data name="MessageEditPurseCanceled" xml:space="preserve">
+    <value>Editing purse canceled</value>
+  </data>
+  <data name="MessageFundsTransferredToAccount" xml:space="preserve">
+    <value>Transfer of funds to the account</value>
+  </data>
+  <data name="MessageFundsTransferredToPurse" xml:space="preserve">
+    <value>Transfer of funds to wallet</value>
+  </data>
+  <data name="MessageMarketOrderCancel" xml:space="preserve">
+    <value>Market orders have been canceled</value>
+  </data>
+  <data name="MessageMarketOrderClosed" xml:space="preserve">
+    <value>Market orders have been closed</value>
+  </data>
+  <data name="MessageMarketOrderOpen" xml:space="preserve">
+    <value>Market order opened</value>
+  </data>
+  <data name="MessageMarketOrderUpdate" xml:space="preserve">
+    <value>Market orders have been updated</value>
+  </data>
+  <data name="MessageTransferSuccessfullyRegistered" xml:space="preserve">
+    <value>Transfer successfully registered</value>
+  </data>
+  <data name="MessageTypeEditTransactionNotRecognized" xml:space="preserve">
+    <value>Type of editable transactions not recognized</value>
+  </data>
+  <data name="MessageUnableRecoverPayment" xml:space="preserve">
+    <value>Unable to recover payment</value>
+  </data>
+  <data name="MessageWithdrawFromAccount" xml:space="preserve">
+    <value>withdraw funds from the account</value>
+  </data>
+  <data name="MessageWithdrawFromWallet" xml:space="preserve">
+    <value>Withdraw funds from the wallet</value>
+  </data>
+  <data name="TextAlreadyExists" xml:space="preserve">
+    <value>is already exists</value>
+  </data>
+  <data name="TextCurrentValue" xml:space="preserve">
+    <value>Current value is</value>
+  </data>
+  <data name="TextEditingDB" xml:space="preserve">
+    <value>editing a DB</value>
+  </data>
+  <data name="TextEtc" xml:space="preserve">
+    <value>etc</value>
+  </data>
+  <data name="TextExampleCorrectFillDateTime" xml:space="preserve">
+    <value>Example of correct filling date: 21.02.2008 16:01:55</value>
+  </data>
+  <data name="TextFromThePurse" xml:space="preserve">
+    <value>from the purse</value>
+  </data>
+  <data name="TextIsAlreadyInUse" xml:space="preserve">
+    <value>is already in use</value>
+  </data>
+  <data name="TextMarketOrderResult" xml:space="preserve">
+    <value>Result of market order</value>
+  </data>
+  <data name="TextToThePurse" xml:space="preserve">
+    <value>to the purse</value>
+  </data>
+  <data name="TextVolume" xml:space="preserve">
+    <value>Volume</value>
+  </data>
+  <data name="TextYouPointed" xml:space="preserve">
+    <value>You pointed</value>
+  </data>
+  <data name="TitleElement" xml:space="preserve">
+    <value>element</value>
+  </data>
+  <data name="EnumDealTypeBuy" xml:space="preserve">
+    <value>Buy</value>
+  </data>
+  <data name="EnumDealTypeSell" xml:space="preserve">
+    <value>Sell</value>
+  </data>
+  <data name="EnumMarkupTypeMarkup" xml:space="preserve">
+    <value>Markup</value>
+  </data>
+  <data name="EnumMarkupTypeMarkupIsIncludedInQuote" xml:space="preserve">
+    <value>Markup is included in quote</value>
+  </data>
+  <data name="EnumMarkupTypeNoMarkup" xml:space="preserve">
+    <value>No markup</value>
+  </data>
+  <data name="EnumPositionStateClosed" xml:space="preserve">
+    <value>Closed</value>
+  </data>
+  <data name="EnumPositionStateOpened" xml:space="preserve">
+    <value>Opened</value>
+  </data>
+  <data name="EnumPositionStateStartClosed" xml:space="preserve">
+    <value>Closing</value>
+  </data>
+  <data name="EnumPositionStateStartOpened" xml:space="preserve">
+    <value>Opening</value>
+  </data>
+  <data name="EnumUserAccountRightsReadOnly" xml:space="preserve">
+    <value>Read only</value>
+  </data>
+  <data name="EnumUserAccountRightsTrade" xml:space="preserve">
+    <value>Trade</value>
+  </data>
+  <data name="EnumUserRoleAdministrator" xml:space="preserve">
+    <value>Administrator</value>
+  </data>
+  <data name="EnumUserRoleManager" xml:space="preserve">
+    <value>Manager</value>
+  </data>
+  <data name="EnumUserRoleTrader" xml:space="preserve">
+    <value>Trader</value>
+  </data>
+  <data name="EnumBalanceChangeTypeDeposit" xml:space="preserve">
+    <value>Deposit</value>
+  </data>
+  <data name="EnumBalanceChangeTypeLoss" xml:space="preserve">
+    <value>Loss on deal</value>
+  </data>
+  <data name="EnumBalanceChangeTypeProfit" xml:space="preserve">
+    <value>Profit on deal</value>
+  </data>
+  <data name="EnumBalanceChangeTypeSwap" xml:space="preserve">
+    <value>Swap</value>
+  </data>
+  <data name="EnumBalanceChangeTypeWithdrawal" xml:space="preserve">
+    <value>Withdrawal</value>
+  </data>
+  <data name="EnumPaidServiceTypePAMM" xml:space="preserve">
+    <value>PAMM</value>
+  </data>
+  <data name="EnumPaidServiceTypeSignals" xml:space="preserve">
+    <value>Signals</value>
+  </data>
+  <data name="TitleTradeSignalsShort" xml:space="preserve">
+    <value>Signals</value>
+  </data>
+  <data name="ErrorMessageCanNotDellUser" xml:space="preserve">
+    <value>Unable to delete user</value>
+  </data>
+  <data name="MessageSignalCountNow" xml:space="preserve">
+    <value>Now the number of signals</value>
+  </data>
+  <data name="ConfirmAllSubscriptionsWillBeDel" xml:space="preserve">
+    <value>All their subscriptions will be deleted!</value>
+  </data>
+  <data name="MessageNowSignedSignals" xml:space="preserve">
+    <value>Now signed on signals</value>
+  </data>
+  <data name="TitleOwnSignals" xml:space="preserve">
+    <value>Own signals</value>
+  </data>
+  <data name="TitleFiltrateSignaller" xml:space="preserve">
+    <value>Filter by signaller</value>
+  </data>
+  <data name="PageTitleUpdateManager" xml:space="preserve">
+    <value>Update server units</value>
+  </data>
+  <data name="MainMenuUpdateManager" xml:space="preserve">
+    <value>Update services</value>
+  </data>
+  <data name="EnumServiceControllerStatusContinuePending" xml:space="preserve">
+    <value>Continue pending...</value>
+  </data>
+  <data name="EnumServiceControllerStatusPaused" xml:space="preserve">
+    <value>Paused</value>
+  </data>
+  <data name="EnumServiceControllerStatusPausePending" xml:space="preserve">
+    <value>Pause pending...</value>
+  </data>
+  <data name="EnumServiceControllerStatusRunning" xml:space="preserve">
+    <value>Running</value>
+  </data>
+  <data name="EnumServiceControllerStatusStartPending" xml:space="preserve">
+    <value>Start pending...</value>
+  </data>
+  <data name="EnumServiceControllerStatusStopped" xml:space="preserve">
+    <value>Stopped</value>
+  </data>
+  <data name="EnumServiceControllerStatusStopPending" xml:space="preserve">
+    <value>Stop pending</value>
+  </data>
+  <data name="TitleChoose" xml:space="preserve">
+    <value>Choose</value>
+  </data>
+  <data name="TitleUpdateServices" xml:space="preserve">
+    <value>Update services</value>
+  </data>
+  <data name="TitleOrderType" xml:space="preserve">
+    <value>Type of order</value>
+  </data>
+  <data name="MessageForRemovMustNotBeSignal" xml:space="preserve">
+    <value>For removal this must NOT be the signaller (managing for services)</value>
+  </data>
+  <data name="TextPropertyPossibleValues1" xml:space="preserve">
+    <value>Possible values: '-1' - sales, '1' - buying. Other values ​​is not valid</value>
+  </data>
+</root>

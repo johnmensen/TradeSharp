@@ -1,0 +1,26 @@
+﻿@model TradeSharp.Hub.WebSite.Models.TickerEditModel
+
+@{
+    Layout = null;
+}
+
+@using (Ajax.BeginForm("SaveTicker", "Ticker",
+                       new AjaxOptions {HttpMethod = "Post"},
+                       new { id = "EditForm", name = "EditForm" }))
+{
+
+    <table class="editFormTable">
+        <tr>
+            <td>@Html.LabelFor(m => m.Name):</td>
+            <td>@Html.TextBoxFor(m => m.Name)</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(m => m.CurrencyCode):</td>
+            <td>@Html.DropDownListFor(x => x.CurrencyCode,
+                          new SelectList(Model.currencies, "Code", "Code"), new {@id = "currencyList"})</td>
+        </tr>
+    </table>
+        
+    <br/>
+    <br/>    
+}

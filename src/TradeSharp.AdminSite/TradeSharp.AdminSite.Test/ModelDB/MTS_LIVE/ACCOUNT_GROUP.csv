@@ -1,0 +1,16 @@
+Code,Name,IsReal,DefaultVirtualDepo,BrokerLeverage,MarginCallPercentLevel,StopoutPercentLevel,MarkupType,DefaultMarkupPoints,SwapFree
+"CFHABD","CFH Alexey B",True,0,500.00,150.00,90.00,0,0,False
+"CFHABR","CFH Abrosimov",True,0,500.00,50.00,90.00,0,0,False
+"CfhAPopov","CFH A Popov",False,0,500.00,50.00,90.00,0,10,False
+"CFHDemoNew","CFH Demo New",False,0,100.00,75.00,90.00,0,0,False
+"CFHIMR","CFH Imran",True,10000,500.00,50.00,99.00,0,0,False
+"CFHOBD","CFH Olg Bez",True,10000,500.00,50.00,90.00,0,0,False
+"CFHSUMR","CFH Sumerin",True,10000,500.00,50.00,90.00,0,0,False
+"Demo","Демо",False,10000,500.00,50.00,90.00,1,1,True
+"InvestMgr","Invest Mgr",True,10000,500.00,50.00,90.00,0,0,False
+"MinSignal","MinorSignal",False,1000000,500.00,33.00,90.00,0,0,False
+"RealTrader","Real Trading Accounts",True,0,100.00,50.00,90.00,0,1,False
+"SigManager","Signal Managers",True,1000000,500.00,33.00,99.00,0,0,False
+"SigMgr50","Signal Manager 50K",False,10000,500.00,150.00,90.00,0,0,False
+"SigMgrKag","Signal Manager Kagan",False,10000,500.00,50.00,90.00,0,0,False
+"SigMgrMini","Signal Manager Mini",False,10000,500.00,50.00,90.00,0,0,False

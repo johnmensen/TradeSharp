@@ -1,0 +1,384 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D38F67F2-0D82-4D7D-87CB-52FA5BEDC304}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TradeSharp.Test</RootNamespace>
+    <AssemblyName>TradeSharp.Test</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <TargetFrameworkProfile />
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>..\..\Libraries\tradesharp.pfx</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Castle.Core, Version=3.2.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Castle.Core.3.2.2\lib\net45\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Effort">
+      <HintPath>..\..\Libraries\Effort.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\TradeSharp.Linq\bin\Debug\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Finance.Entities, Version=1.0.0.0, Culture=neutral, PublicKeyToken=26e72e8ce007dad9, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Processing\TradeSharp.Processing.WebMoney\WebMoneyAPI\Finance.Entities.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentAssertions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=33f2691a05b67b6a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\FluentAssertions.2.2.0.0\lib\net45\FluentAssertions.dll</HintPath>
+    </Reference>
+    <Reference Include="Moq, Version=4.2.1312.1622, Culture=neutral, PublicKeyToken=69f491c39445e920, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Moq.4.2.1312.1622\lib\net40\Moq.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework, Version=2.6.3.13283, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\NUnit.2.6.3\lib\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Messaging" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="TestStack.White, Version=0.11.0.207, Culture=neutral, PublicKeyToken=2672efbf3e161801, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\TestStack.White.0.11.0.207\lib\net40\TestStack.White.dll</HintPath>
+    </Reference>
+    <Reference Include="UIAutomationClient" />
+    <Reference Include="UIAutomationTypes" />
+    <Reference Include="WebMoney.BasicObjects, Version=1.0.0.0, Culture=neutral, PublicKeyToken=26e72e8ce007dad9, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Processing\TradeSharp.Processing.WebMoney\WebMoneyAPI\WebMoney.BasicObjects.dll</HintPath>
+    </Reference>
+    <Reference Include="WebMoney.XmlInterfaces, Version=1.0.0.0, Culture=neutral, PublicKeyToken=26e72e8ce007dad9, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Processing\TradeSharp.Processing.WebMoney\WebMoneyAPI\WebMoney.XmlInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="XmlInterfaces.General, Version=1.0.0.0, Culture=neutral, PublicKeyToken=26e72e8ce007dad9, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Processing\TradeSharp.Processing.WebMoney\WebMoneyAPI\XmlInterfaces.General.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <CodeAnalysisDependentAssemblyPaths Condition=" '$(VS100COMNTOOLS)' != '' " Include="$(VS100COMNTOOLS)..\IDE\PrivateAssemblies">
+      <Visible>False</Visible>
+    </CodeAnalysisDependentAssemblyPaths>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Candlechart\NuStockSeries.cs" />
+    <Compile Include="Client\BacktestTickerCursorStreamTest.cs" />
+    <Compile Include="Client\FakeNewsServer.cs" />
+    <Compile Include="Client\FileGapActualizator.cs" />
+    <Compile Include="Client\NewsCache.cs" />
+    <Compile Include="Client\NewsLocalStorage.cs" />
+    <Compile Include="Client\NewsMap.cs" />
+    <Compile Include="Client\NuFingerPrint.cs" />
+    <Compile Include="Client\NuForexInvestSiteAccessor.cs" />
+    <Compile Include="Client\NuMainForm.Authenticate.cs" />
+    <Compile Include="Client\NuPositionSummary.cs" />
+    <Compile Include="Client\NuProfitByTickerForm.cs" />
+    <Compile Include="Client\NuSettingsAutosaver.cs" />
+    <Compile Include="Client\Performer.cs" />
+    <Compile Include="Client\UserServiceRegistrator.cs" />
+    <Compile Include="Entity\BarSettings.cs" />
+    <Compile Include="Entity\BaseChartIndicator.cs" />
+    <Compile Include="Entity\Candle.cs" />
+    <Compile Include="Entity\NuCandlePackerPool.cs" />
+    <Compile Include="Entity\DalSpot.cs" />
+    <Compile Include="Entity\ExpressionResolver.cs" />
+    <Compile Include="Entity\Extensions.cs" />
+    <Compile Include="Entity\Gap.cs" />
+    <Compile Include="Entity\GenericCollection.cs" />
+    <Compile Include="Entity\IniFile.cs" />
+    <Compile Include="Entity\MathExtensions.cs" />
+    <Compile Include="Entity\NuCandlePacker.cs" />
+    <Compile Include="Entity\NuCopyValueAttribute.cs" />
+    <Compile Include="Entity\NuOrderFilterAndSortOrder.cs" />
+    <Compile Include="Entity\RobotFarm.cs" />
+    <Compile Include="Entity\ThreadSafeCollection.cs" />
+    <Compile Include="Entity\UserInfoExCache.cs" />
+    <Compile Include="Entity\WebContract.cs" />
+    <Compile Include="Linq\DatabaseQuoteEnquirerTest.cs" />
+    <Compile Include="Localisation\NuCheckAllResourcesExist.cs" />
+    <Compile Include="Localisation\NuLocalisationManager.cs" />
+    <Compile Include="Moq\AccountShareTestDataMaker.cs" />
+    <Compile Include="Moq\MockDailyQuoteStorage.cs" />
+    <Compile Include="Moq\MockResourceResolver.cs" />
+    <Compile Include="Moq\MoqPaymentAccessor.cs" />
+    <Compile Include="Moq\MoqQuoteStorage.cs" />
+    <Compile Include="Moq\MoqTradeSharpDictionary.cs" />
+    <Compile Include="Moq\NewsMaker.cs" />
+    <Compile Include="Moq\PositionMaker.cs" />
+    <Compile Include="Moq\QuoteMaker.cs" />
+    <Compile Include="Moq\TestDataGenerator.cs" />
+    <Compile Include="Moq\TestDialogBoxProvider.cs" />
+    <Compile Include="Moq\TradeSharpConnectionPersistent.cs" />
+    <Compile Include="OptionCalculator\PriceModelTest.cs" />
+    <Compile Include="Processing\NuPaymentProcessor.cs" />
+    <Compile Include="Processing\NuWmTransfer.cs" />
+    <Compile Include="Processing\NuWebMoneyTransferCache.cs" />
+    <Compile Include="Processing\NuYahooQuoteProvider.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Robot\FiboLevelRobot.cs" />
+    <Compile Include="Robot\NuBaseRobot.cs" />
+    <Compile Include="Robot\OptionTraderRobotTest.cs" />
+    <Compile Include="Robot\TestIchimokuRobot.cs" />
+    <Compile Include="Robot\TestRobotMA.cs" />
+    <Compile Include="Robot\TestRobotUtil.cs" />
+    <Compile Include="Server\AutoTradeSettingsSampler.cs" />
+    <Compile Include="Server\NuAccountCheckStream.cs" />
+    <Compile Include="Server\NuAccountManager.cs" />
+    <Compile Include="Server\NuBillingManager.cs" />
+    <Compile Include="Server\NuManagerTrade.cs" />
+    <Compile Include="Server\NuPlatformManager.cs" />
+    <Compile Include="Server\NuSubscription.cs" />
+    <Compile Include="Server\NuSubscriptionOnPortfolio.cs" />
+    <Compile Include="Server\NuTradeManager.cs" />
+    <Compile Include="Server\NuUserEventStorage.cs" />
+    <Compile Include="Server\NuUserSettingsStorage.cs" />
+    <Compile Include="Server\NuWallet.cs" />
+    <Compile Include="Server\NuWalletManager.cs" />
+    <Compile Include="SiteBridge\MiniChartPacker.cs" />
+    <Compile Include="SiteBridge\NuAccountEfficiencyCache.cs" />
+    <Compile Include="SiteBridge\NuDailyQuoteStorage.cs" />
+    <Compile Include="SiteBridge\NuEfficiencyCalculator.cs" />
+    <Compile Include="SiteBridge\NuEquityCurveCalculator.cs" />
+    <Compile Include="Subscription\NuPerformerStatField.cs" />
+    <Compile Include="Subscription\SubscriptionModel.cs" />
+    <Compile Include="TradeSignalExecutor\NuTradeSignalDealer.cs" />
+    <Compile Include="TradeSignalExecutor\PAMMFeeManager.cs" />
+    <Compile Include="TradeSignalExecutor\PortfolioBalancer.cs" />
+    <Compile Include="TradeSignalExecutor\StaleOrdersChecker.cs" />
+    <Compile Include="UI.Util\NuClientFileBrowser.cs" />
+    <Compile Include="Util\NuConcurrentCollections.cs" />
+    <Compile Include="Util\NuConverter.cs" />
+    <Compile Include="Util\NuUtil.cs" />
+    <Compile Include="Util\UiFieldAttribute.cs" />
+    <Compile Include="WinForms\NuNotificationForm.cs" />
+    <Compile Include="WinForms\NuRiskSetupForm.cs" />
+    <Compile Include="WinForms\WinFormTest.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="AnyFilesToTest\autosave\2703165731_2703170058.zip" />
+    <None Include="AnyFilesToTest\autosave\2703165731_2703170118.zip" />
+    <None Include="AnyFilesToTest\autosave\2703165731_2703170408.zip" />
+    <None Include="AnyFilesToTest\autosave\2703165731_2703170434.zip" />
+    <None Include="AnyFilesToTest\autosave\2703165731_2703170633.zip" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ModelDB\MTS_LIVE\ACCOUNT.csv" />
+    <None Include="ModelDB\MTS_LIVE\ACCOUNT_GROUP.csv" />
+    <None Include="ModelDB\MTS_LIVE\BALANCE_CHANGE.csv" />
+    <None Include="ModelDB\MTS_LIVE\BROKER_ORDER.csv" />
+    <None Include="ModelDB\MTS_LIVE\BROKER_RESPONSE.csv" />
+    <None Include="ModelDB\MTS_LIVE\CHANNEL.csv" />
+    <None Include="ModelDB\MTS_LIVE\CHANNEL_GROUP.csv" />
+    <None Include="ModelDB\MTS_LIVE\COMMODITY.csv" />
+    <None Include="ModelDB\MTS_LIVE\DEALER.csv" />
+    <None Include="ModelDB\MTS_LIVE\DEALER_GROUP.csv" />
+    <None Include="ModelDB\MTS_LIVE\ENGINE_METADATA.csv" />
+    <None Include="ModelDB\MTS_LIVE\FILE.csv" />
+    <None Include="ModelDB\MTS_LIVE\LOT_BY_GROUP.csv" />
+    <None Include="ModelDB\MTS_LIVE\ORDER_BILL.csv" />
+    <None Include="ModelDB\MTS_LIVE\PAYMENT_SYSTEM_TRANSFER.csv" />
+    <None Include="ModelDB\MTS_LIVE\PENDING_ORDER.csv" />
+    <None Include="ModelDB\MTS_LIVE\PENDING_ORDER_CLOSED.csv" />
+    <None Include="ModelDB\MTS_LIVE\PLATFORM_USER.csv" />
+    <None Include="ModelDB\MTS_LIVE\PLATFORM_USER_ACCOUNT.csv" />
+    <None Include="ModelDB\MTS_LIVE\POSITION.csv" />
+    <None Include="ModelDB\MTS_LIVE\POSITION_CLOSED.csv" />
+    <None Include="ModelDB\MTS_LIVE\SERVICE.csv" />
+    <None Include="ModelDB\MTS_LIVE\SPOT.csv" />
+    <None Include="ModelDB\MTS_LIVE\SUBSCRIPTION.csv" />
+    <None Include="ModelDB\MTS_LIVE\TOP_PORTFOLIO.csv" />
+    <None Include="ModelDB\MTS_LIVE\TRADE_SIGNAL_CATEGORY.csv" />
+    <None Include="ModelDB\MTS_LIVE\TRANSFER.csv" />
+    <None Include="ModelDB\MTS_LIVE\USER_INFO.csv" />
+    <None Include="ModelDB\MTS_LIVE\USER_PAYMENT_SYSTEM.csv" />
+    <None Include="ModelDB\MTS_LIVE\USER_TOP_PORTFOLIO.csv" />
+    <None Include="ModelDB\MTS_LIVE\USER_TRADE_SIGNAL.csv" />
+    <None Include="ModelDB\MTS_LIVE\WALLET.csv" />
+    <None Include="packages.config" />
+    <Content Include="AnyFilesToTest\autosave\indicator.xml" />
+    <Content Include="AnyFilesToTest\autosave\objects.xml" />
+    <Content Include="AnyFilesToTest\autosave\settings.xml" />
+    <Content Include="quotes\EURUSD.quote">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="quotes\INDUSD.quote">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="tradesharp.pfx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Common\Candlechart\Candlechart.csproj">
+      <Project>{7753653B-2D5D-4FBB-80A7-5B643127DCDC}</Project>
+      <Name>Candlechart</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\Entity\Entity.csproj">
+      <Project>{33517AEB-576A-429E-B651-EA87B54242E7}</Project>
+      <Name>Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Dealer\DemoDealer\DemoDealer.csproj">
+      <Project>{7b606f9e-2f25-4845-a00c-7ea122e49ba4}</Project>
+      <Name>DemoDealer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Plugin\DemoPlugin\DemoPlugin.csproj">
+      <Project>{33e8a505-a50f-40e5-89a6-15e48fe416ad}</Project>
+      <Name>DemoPlugin</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Processing\TradeSharp.Processing.Lib\TradeSharp.Processing.Lib.csproj">
+      <Project>{5a93ecb0-7e97-4de2-9931-dbe9530b9d7d}</Project>
+      <Name>TradeSharp.Processing.Lib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Processing\TradeSharp.Processing.WebMoney\TradeSharp.Processing.WebMoney.csproj">
+      <Project>{f1b1f557-bbbf-4de3-aaba-0589b0a195b4}</Project>
+      <Name>TradeSharp.Processing.WebMoney</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\SiteBridge\TradeSharp.SiteBridge.Lib\TradeSharp.SiteBridge.Lib.csproj">
+      <Project>{98e58858-6473-49a2-bcfb-902221de66c8}</Project>
+      <Name>TradeSharp.SiteBridge.Lib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\SiteBridge\TradeSharp.SiteBridge.Service\TradeSharp.SiteBridge.Service.csproj">
+      <Project>{4296d3d5-b53a-48b4-9fd2-73df47059e3b}</Project>
+      <Name>TradeSharp.SiteBridge.Service</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\TradeSharp.Chat\Client\TradeSharp.Chat.Client.csproj">
+      <Project>{77c611c5-39f4-4ffc-bd9a-32d70409e0bf}</Project>
+      <Name>TradeSharp.Chat.Client</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\TradeSharp.Client.Subscription\TradeSharp.Client.Subscription.csproj">
+      <Project>{1d43b7a3-d499-4624-b5e3-70d6196c67e4}</Project>
+      <Name>TradeSharp.Client.Subscription</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\TradeSharp.Client.Util\TradeSharp.Client.Util.csproj">
+      <Project>{85913aa3-b955-46d1-9719-09b371e4db7a}</Project>
+      <Name>TradeSharp.Client.Util</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\TradeSharp.Client\TradeSharp.Client.csproj">
+      <Project>{7e6447bd-1928-40c8-8944-37f0c5d86fc9}</Project>
+      <Name>TradeSharp.Client</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\TradeSharp.Contract.Util\TradeSharp.Contract.Util.csproj">
+      <Project>{7DA33D58-6B7A-4551-93D6-488D31369D7A}</Project>
+      <Name>TradeSharp.Contract.Util</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\TradeSharp.Contract\TradeSharp.Contract.csproj">
+      <Project>{168F1CAC-77C9-4847-B6C1-138E4373CCEA}</Project>
+      <Name>TradeSharp.Contract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\TradeSharp.DealerInterface\TradeSharp.DealerInterface.csproj">
+      <Project>{5ed87716-991a-4283-80c2-dc2318512b17}</Project>
+      <Name>TradeSharp.DealerInterface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\TradeSharp.Linq\TradeSharp.Linq.csproj">
+      <Project>{30751404-73af-4bca-93e5-6d8b42547c9f}</Project>
+      <Name>TradeSharp.Linq</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\TradeSharp.Localisation\TradeSharp.Localisation.csproj">
+      <Project>{e0348c81-a1c5-47fa-8d2d-dd0c7be201a4}</Project>
+      <Name>TradeSharp.Localisation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\TradeSharp.ProviderProxyContract\TradeSharp.ProviderProxyContract.csproj">
+      <Project>{8bedd458-a1fb-4ab5-a46a-1993f429e043}</Project>
+      <Name>TradeSharp.ProviderProxyContract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\TradeSharp.QuoteHistory\TradeSharp.QuoteHistory.csproj">
+      <Project>{52570351-41d0-48db-b3cd-6c7fbdbeacf9}</Project>
+      <Name>TradeSharp.QuoteHistory</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\TradeSharp.RobotFarm\TradeSharp.RobotFarm.csproj">
+      <Project>{0756e620-f56d-4bcf-9ec9-eb10a45b6b9f}</Project>
+      <Name>TradeSharp.RobotFarm</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\TradeSharp.Robot\TradeSharp.Robot.csproj">
+      <Project>{4a03e10a-86e8-4e73-8536-0969f30b803d}</Project>
+      <Name>TradeSharp.Robot</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\TradeSharp.Server\TradeSharp.Server.csproj">
+      <Project>{a64e75d8-bff9-44ea-a0a5-df06abba5efa}</Project>
+      <Name>TradeSharp.Server</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\TradeSharp.TradeLib\TradeSharp.TradeLib.csproj">
+      <Project>{dd2485d6-3c3a-4f4d-91e1-362b015b2f68}</Project>
+      <Name>TradeSharp.TradeLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\TradeSharp.TradeSignalExecutor\TradeSharp.TradeSignalExecutor.csproj">
+      <Project>{7fa7a126-39b3-460f-b9c5-b0bc316d595b}</Project>
+      <Name>TradeSharp.TradeSignalExecutor</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\TradeSharp.UI.Util\TradeSharp.UI.Util.csproj">
+      <Project>{386DDB6B-D707-4ADC-A0BC-08448D144A8D}</Project>
+      <Name>TradeSharp.UI.Util</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\TradeSharp.Util\TradeSharp.Util.csproj">
+      <Project>{4B406C3D-89C3-4C9F-A677-C3114D93B8F9}</Project>
+      <Name>TradeSharp.Util</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TradeSharp.Test.WinFormContainer\TradeSharp.Test.WinFormContainer.csproj">
+      <Project>{01b934dc-05a0-4c87-a0a6-789e03ca0a67}</Project>
+      <Name>TradeSharp.Test.WinFormContainer</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

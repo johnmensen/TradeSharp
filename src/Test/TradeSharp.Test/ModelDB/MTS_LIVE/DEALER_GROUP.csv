@@ -1,0 +1,16 @@
+Dealer,AccountGroup,SessionName,MessageQueue,HedgingAccount,SenderCompId
+"Demo","CFHABD","CfhLiveOrders","ts.abd.in","ACC4813","Alexei_Denisov"
+"Demo","CFHABR","CfhLiveOrders","ts.abr.in","ACC4709","Alexei_Denisov"
+"Demo","CfhAPopov","LMXBD","Arkasha","101","Arkasha"
+"Demo","CFHDemoNew","","","",""
+"Demo","CFHIMR","CfhLiveOrders","ts.imv.in","ACC4708","Alexei_Denisov"
+"Demo","CFHOBD","CfhLiveOrders","ts.obd.in","ACC4707","Alexei_Denisov"
+"Demo","CFHSUMR","CfhLiveOrders","ts.sumr.in","ACC4811","Alexei_Denisov"
+"Demo","Demo","","","",""
+"Demo","InvestMgr",,,,
+"Demo","MinSignal",,,,
+"Demo","RealTrader",,,,
+"Demo","SigMgr50",,,,
+"Demo","SigMgrKag","CfhLiveOrders","ts.kag.in","ACC4814","Alexei_Denisov"
+"SiteSignalDealer","SigManager",,,,
+"SiteSignalDealer","SigMgrMini",,,"",

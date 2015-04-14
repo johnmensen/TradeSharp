@@ -1,0 +1,185 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="TS_ChatModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="TS_ChatModelStoreContainer">
+          <EntitySet Name="Message" EntityType="TS_ChatModel.Store.Message" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Room" EntityType="TS_ChatModel.Store.Room" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="RoomRole" EntityType="TS_ChatModel.Store.RoomRole" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_Message_Room" Association="TS_ChatModel.Store.FK_Message_Room">
+            <End Role="Room" EntitySet="Room" />
+            <End Role="Message" EntitySet="Message" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Message">
+          <Key>
+            <PropertyRef Name="SendTimeStamp" />
+            <PropertyRef Name="Sender" />
+          </Key>
+          <Property Name="SendTimeStamp" Type="datetime" Nullable="false" />
+          <Property Name="Sender" Type="int" Nullable="false" />
+          <Property Name="RoomName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Text" Type="ntext" />
+          <Property Name="Receiver" Type="int" />
+        </EntityType>
+        <EntityType Name="Room">
+          <Key>
+            <PropertyRef Name="Name" />
+          </Key>
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Owner" Type="int" Nullable="false" />
+          <Property Name="Description" Type="ntext" />
+          <Property Name="Greeting" Type="ntext" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" />
+          <Property Name="ExpireTimeStamp" Type="datetime" />
+          <Property Name="IsBound" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RoomRole">
+          <Key>
+            <PropertyRef Name="User" />
+            <PropertyRef Name="Room" />
+          </Key>
+          <Property Name="User" Type="int" Nullable="false" />
+          <Property Name="Room" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Role" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Message_Room">
+          <End Role="Room" Type="TS_ChatModel.Store.Room" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Message" Type="TS_ChatModel.Store.Message" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Room">
+              <PropertyRef Name="Name" />
+            </Principal>
+            <Dependent Role="Message">
+              <PropertyRef Name="RoomName" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TS_ChatModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="TS_ChatEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Message" EntityType="TS_ChatModel.Message" />
+          <EntitySet Name="RoomRole" EntityType="TS_ChatModel.RoomRole" />
+          <EntitySet Name="Room" EntityType="TS_ChatModel.Room" />
+          <AssociationSet Name="FK_Message_Room" Association="TS_ChatModel.FK_Message_Room">
+            <End Role="Room" EntitySet="Room" />
+            <End Role="Message" EntitySet="Message" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Message">
+          <Key>
+            <PropertyRef Name="SendTimeStamp" />
+            <PropertyRef Name="Sender" />
+          </Key>
+          <Property Name="SendTimeStamp" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Sender" Type="Int32" Nullable="false" />
+          <Property Name="RoomName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Text" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Receiver" Type="Int32" />
+          <NavigationProperty Name="Room" Relationship="TS_ChatModel.FK_Message_Room" FromRole="Message" ToRole="Room" />
+        </EntityType>
+        <EntityType Name="RoomRole">
+          <Key>
+            <PropertyRef Name="User" />
+            <PropertyRef Name="Room" />
+          </Key>
+          <Property Name="User" Type="Int32" Nullable="false" />
+          <Property Name="Room" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Role" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Room">
+          <Key>
+            <PropertyRef Name="Name" />
+          </Key>
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="Owner" Nullable="false" />
+          <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Greeting" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Password" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="ExpireTimeStamp" Precision="3" />
+          <Property Type="Boolean" Name="IsBound" Nullable="false" />
+          <NavigationProperty Name="Message" Relationship="TS_ChatModel.FK_Message_Room" FromRole="Room" ToRole="Message" />
+        </EntityType>
+        <Association Name="FK_Message_Room">
+          <End Type="TS_ChatModel.Room" Role="Room" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="TS_ChatModel.Message" Role="Message" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Room">
+              <PropertyRef Name="Name" />
+            </Principal>
+            <Dependent Role="Message">
+              <PropertyRef Name="RoomName" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TS_ChatModelStoreContainer" CdmEntityContainer="TS_ChatEntities">
+          <EntitySetMapping Name="Message">
+            <EntityTypeMapping TypeName="TS_ChatModel.Message">
+              <MappingFragment StoreEntitySet="Message">
+                <ScalarProperty Name="SendTimeStamp" ColumnName="SendTimeStamp" />
+                <ScalarProperty Name="Sender" ColumnName="Sender" />
+                <ScalarProperty Name="RoomName" ColumnName="RoomName" />
+                <ScalarProperty Name="Text" ColumnName="Text" />
+                <ScalarProperty Name="Receiver" ColumnName="Receiver" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RoomRole">
+            <EntityTypeMapping TypeName="TS_ChatModel.RoomRole">
+              <MappingFragment StoreEntitySet="RoomRole">
+                <ScalarProperty Name="User" ColumnName="User" />
+                <ScalarProperty Name="Room" ColumnName="Room" />
+                <ScalarProperty Name="Role" ColumnName="Role" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Room">
+            <EntityTypeMapping TypeName="TS_ChatModel.Room">
+              <MappingFragment StoreEntitySet="Room">
+                <ScalarProperty Name="IsBound" ColumnName="IsBound" />
+                <ScalarProperty Name="ExpireTimeStamp" ColumnName="ExpireTimeStamp" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Greeting" ColumnName="Greeting" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

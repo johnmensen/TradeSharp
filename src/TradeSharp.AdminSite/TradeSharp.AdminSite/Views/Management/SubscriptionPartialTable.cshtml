@@ -1,0 +1,165 @@
+﻿@using TradeSharp.SiteAdmin.App_GlobalResources
+@using TradeSharp.Contract.Entity
+@using TradeSharp.SiteAdmin.Models
+@model SubscriptionListModel
+
+<hr style="margin-bottom: 20px"/>
+<h1>@Resource.TitleOwnSignals</h1>
+<table id="TableSignal" style="margin-bottom: 20px">
+    <tr>
+        <th>
+            @Resource.TitleTradeSignal
+        </th>
+        <th>
+            @Resource.TitleAccount
+        </th>
+        <th>
+            @Resource.TitleCurrency
+        </th>
+        <th>
+            @Resource.TitlePrice
+        </th>
+        <th>
+            @Resource.TitlePricePerMonth
+        </th>
+        <th>
+            @Resource.TitleNumberSubscribers
+        </th>
+        <th>
+            @Resource.TitleComment
+        </th>
+        <th>
+            @Resource.TitleEdit
+        </th>
+        <th>
+            @Resource.TitleSubscriptionDell
+        </th>
+    </tr>
+    @if (Model.OwnerSignalList != null)
+    {
+        foreach (var item in Model.OwnerSignalList)
+        {
+            <tr data-rowId="@item.Id" data-serviceType="@((int)item.ServiceType)">
+                <td>
+                    @item.Id
+                </td>
+                <td data-td="AccountId">
+                    @item.AccountId
+                </td>
+                <td>
+                    @item.Currency
+                </td>
+                <td data-td="FixedPrice">
+                    @item.FixedPrice
+                </td>
+                <td>
+                    @item.FixedPriceMonth
+                </td>
+                <td>
+                    @item.CountSubscriber
+                </td>
+                <td data-td="Comment">
+                    @item.Comment
+                </td>
+                <td>
+                    <a href="javascript:void(0);" onclick="showСhangSignalWindow(event);">
+                        <img style="height: 15px;" src="../../images/forms/icon_edit.gif" alt="@Resource.TitleEdit"/>
+                    </a>
+                </td>
+                <td>
+                    @if (item.CountSubscriber > 0)
+                    {
+                        <a href="javascript:void(0);" onclick="delSignal(@item.Id); ">
+                            <img style="height: 15px;" src="../../images/shared/DeleteRed.png" alt="@Resource.TitleSubscriptionDell"/>
+                        </a>
+                        
+                        <span style="color: red">@Resource.MessageNowSignedSignals @item.CountSubscriber @Resource.ConfirmAllSubscriptionsWillBeDel</span>
+                    }
+                    else
+                    {
+                        <a href="javascript:void(0);" onclick="delSignal(@item.Id); ">
+                            <img style="height: 15px;" src="../../images/shared/DeleteRed.png" alt="@Resource.TitleSubscriptionDell"/>
+                        </a>
+                    }
+                </td>
+            </tr>
+        }
+    }
+    else
+    {
+        <tr><td>@Resource.ErrorMessageDataAccess</td></tr>
+    }
+</table>
+<a href="javascript:void(0);" onclick="showСhangSignalWindow(null);">
+    <img src="../../images/shared/ico_add.png" alt="@Resource.TitleSubscribe"/>
+</a>
+<hr style="margin-bottom: 20px; margin-top: 40px"/>
+
+<h1>@Resource.TitleSubscribesOther</h1>
+<table id="TableSubscription">
+    <tr>
+        <th>
+            @Resource.TitleTradeSignal
+        </th>
+        <th>
+            @Resource.TitleSignaller
+        </th>
+        <th>
+            @Resource.TitleSubscriptionStartTime
+        </th>
+        <th>
+            @Resource.TitleSubscriptionEndTime
+        </th>
+        <th>
+            @Resource.TitleSubscriptionEndTime
+        </th>
+        <th>
+            @Resource.TitleAutoExtension
+        </th>
+        <th>
+            @Resource.TitleDelete
+        </th>
+    </tr>
+    @if (Model.SubscriptionList != null)
+    {
+        foreach (var item in Model.SubscriptionList)
+        {
+            <tr >
+                <td >
+                    @item.Service
+                </td>
+                <td >
+                    @item.SignalOwnerLogin
+                </td>
+                <td >
+                    @item.TimeStarted
+                </td>
+                <td >
+                    @item.TimeEnd
+                </td>
+                <td >
+                    @((PaidServiceType)item.ServiceType)
+                </td>
+                <td >
+                    @if (item.RenewAuto)
+                    {
+                        <samp style="color: limegreen; font-weight: bold">@Resource.TitleExist</samp>
+                    }
+                    else
+                    {
+                        <samp style="color: lightslategray; font-weight: bold">@Resource.TitleNo</samp>
+                    }
+                </td>
+                <td>
+                    <a href="javascript:void(0);" onclick="delSubscription(@item.Service, @item.User);">
+                        <img style="height: 15px;" src="../../images/shared/DeleteRed.png" alt="@Resource.TitleDelete"/>
+                    </a>
+                </td>
+            </tr>
+        }
+    }
+    else
+    {
+        <tr><td>@Resource.ErrorMessageDataAccess</td></tr>
+    }
+</table>

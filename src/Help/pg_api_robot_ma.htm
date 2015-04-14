@@ -1,0 +1,372 @@
+<html>
+<head>
+    <title>Разработка пользовательского индикатора</title>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+
+    <style type="text/css">
+        .centrAling
+        {
+	        text-align:center;	
+        }
+        .centrAling img
+        {
+	        width:600px; 
+	        height:400px;
+        }
+
+        .scClass
+        {
+	        color:#2b91af;
+        }
+
+        .scOperator
+        {
+	        color:#0000ff;	
+        }
+
+        .nb
+        {
+            color:Red;
+            font: bold 10pt Arial;
+        }
+    </style>
+
+</head>
+<body>
+    <img src="picts\main_logo.png" alt=""/>
+    <h1>
+        Разработка торгового робота, торгующего на основе анализа скользящих средних</h1>
+    <h2>
+        Алгоритм торговли
+    </h2>
+    <p>
+        В данной статье мы рассмотрим разработку торгового робота для системы
+        <b><i>Trade #</i></b>. Вы можете разрабатывать собственных торговых роботов, взяв за основу, робота, описанного в этой статье.
+    </p>
+    <p>
+        Реализуем торгового робота, который будет совершать сделки на основе анализа двух скользящих средних – «быстрой» и «медленной». 
+        Медленной будем называть скользящую среднюю с периодом в 21 свечу, быстрой – с периодом в 5 свечей. 
+        В случае, если быстрая скользящая средняя пересекает медленную снизу вверх, робот закрывает все открытые сделки на покупку (если такие есть) и открывает сделку на продажу. 
+        В случае, если быстрая скользящая средняя пересекает медленную сверху вниз, робот закрывает все открытые продажи и совершает покупку. Открывать сделки по покупку или продажу робот будет всегда на один и тот же объём. По умолчанию этот объём будет составлять 10 000 ед. базового актива, значение настраивается пользователем. Настраиваются также значения параметров StopLoss и TakeProfit, периоды быстрой и медленной скользящих средних. </p>
+    <p>
+        В данной статье описывается разработка индикатора с использованием MS Visual Studio
+        2010. Так же предполагается, что читатель владеет языком программирования Visual C#.
+    </p>
+    <h2>
+        Разработка робота
+    </h2>
+    <h3>Исходные файлы</h3>
+    <p>Создадим проект типа <b>Class Library</b>, версия .NET framework – 4.0. Потребуются ссылки на следующие сборки TradeSharp:</p>
+
+    <ul>
+        <li>Entity</li>
+        <li>TradeSharp.Contract</li>
+        <li>TradeSharp.Util</li>
+        <li>TradeSharp.Contract.Util</li>
+        <li>TradeSharp.Robot</li>
+    </ul>
+
+    <p>В проекте создадим единственный класс – <b class="scClass">RobotMA</b>. Класс должен иметь модификатор видимости <b>public</b>, наследоваться от 
+        определенного типа и быть помеченным атрибутом DisplayName (значение – «скользящие средние»). Скомпилированная библиотека должна быть помещена в папку 
+         <b>plugin</b> терминала. После загрузки терминала робот с названием, указанным в атрибуте <b>DisplayName</b> появится в списке доступных роботов.</p>
+
+
+    <div class="centrAling"><img src="picts\api\robot_ma\add_robot.png"  alt="" /><br/>Рисунок - Модуль тестирования роботов</div>
+
+    <h3>Основные поля и методы</h3>
+    <p>Торговый робот будет реализован в виде класса, унаследованного от <b class="scClass">BaseRobot</b>.  
+        Класс <b class="scClass">BaseRobot</b> абстрактный и инкапсулирует основные поля и методы, необходимые для настройки и функционирования робота. 
+        Для того, что бы задать роботу заголовок, отображаемый в терминале <b>TradeSharp</b>, пометим класс атрибутом</p> 
+        <p class="excerpt">[DisplayName("Скользящие средние")]</p>
+        <p> из пространства <b>System.ComponentModel</b> сборки <b>System.dll</b>.</p>
+
+
+    <p>Назовём наш класс <b class="scClass">RobotMA</b>. При наследовании его от <b class="scClass">BaseRobot</b> необходимо  реализовать и переопределить следующие методы:</p>
+    <ol>
+        <li><p class="excerpt">abstract BaseRobot MakeCopy()</p></li>
+        <li><p class="excerpt">virtual void Initialize(BacktestServerProxy.RobotContext robotContext, CurrentProtectedContext protectedContext)</p></li>
+        <li><p class="excerpt">virtual Dictionary&lt;string, DateTime&gt; GetRequiredSymbolStartupQuotes(DateTime startTrade)</p></li>
+        <li><p class="excerpt">abstract List&lt;string&gt; OnQuotesReceived(string[] names, QuoteData[] quotes, bool isHistoryStartOff)</p></li>
+    </ol>
+
+    <p>Первый метод – <b>MakeCopy</b>, должен создавать новый экземпляр объекта <b class="scClass">RobotMA</b> – точную копию текущего. В методе <b>Initialize</b> 
+        реализуется первичная настройка 
+        свойств робота. Этот метод вызывается терминалом непосредственно перед запуском робота. Метод <b>GetRequiredSymbolStartupQuotes</b> возвращает список используемых 
+        инструментов с указанием начальной даты. В нашем роботе он будет использоваться для получения исторических данных о значениях котировки. 
+        Четвёртый метод <b>OnQuotesReceived</b> основной – он вызывается каждый раз с приходом новой котировки. В этом методе будет основная логика робота. 
+        В нём будет приниматься решение об открытии новых и закрытии уже открытых сделок. Эти методы будут реализованы позднее.</p>
+
+    <p>Для того, чтобы дать пользователю возможность настраивать некоторые свойства робота, такие как, например,  величина <b>StopLoss</b>, объявим их как открытые поля. В нашем классе будет пять таких свойств:</p>
+
+    <ol>
+        <li><p><b>StopLossPoints</b> – значение Stop Loss в пунктах для текущей открытой сделки. Свойство типа <b class="scClass">int</b>, начальное значение 250</p></li>
+        <li><p><b>TakeProfitPoints</b> – значение Take Profit в пунктах для текущей открытой сделки. Свойство типа <b class="scClass">int</b>, начальное значение 250</p></li>
+        <li><p><b>RangeSlowMA</b> – период медленной скользящей средней. Свойство типа <b class="scClass">int</b>, начальное значение 14</p></li>
+        <li><p><b>RangeFastMA</b> – период быстрой скользящей средней. Свойство типа <b class="scClass">in</b>t, начальное значение 5</p></li>
+        <li><p><b>FixedVolume</b> – объём входа в рынок. Свойство типа <b class="scClass">int</b>, начальное значение 10 000</p></li>
+    </ol>
+
+    <p>Для примера приведено объявление свойства объёма сделки:</p>
+
+    <p class="excerpt">private int fixedVolume = 10000;<br />
+[PropertyXMLTag("Robot.FixedVolume")]<br />
+[DisplayName("Объём входа")]<br />
+[Category("Торговые")]<br />
+[Description("Объём, которым робот входит в рынок. 0 - не задан")]<br />
+public int FixedVolume<br />
+{<br />
+&nbsp;    get { return fixedVolume; }<br />
+&nbsp;    set { fixedVolume = value; }<br />
+}<br />
+</p>
+    <div class="centrAling"><img src="picts\api\robot_ma\robot_options.png" style="width:400px;" alt="" /><br/>Рисунок - Пользовательские настройки роботов</div>
+
+    <p>Атрибуты, добавленные к свойству, обязательны. Первый из них необходим для успешной сериализации робота.  Остальные отвечают за отображение данного свойства в окне настройки робота.</p>
+    <p>Помимо свойств, при реализации робота, понадобится несколько полей, которые пользователь изменять (и вообще видеть) не должен.</p>
+    <p>Объявим  следующие переменные:</p>
+
+        <ol>
+        <li>private string <b>ticker</b> – название торгуемого роботом инструмента (например, EURUSD). Переменная заполняется в методе Initialize</li>
+        <li>private <b class="scClass">CandlePacker</b> <b>packer</b> – служебный объект, который позволит нам получить свечи из котировок. О его использовании будет написано далее</li>
+        <li>private int? <b>maDifSign</b> – это переменная для хранения флага взаимного расположения быстрой и медленной скользящей средней относительно друг друга. Если эта переменная больше нуля значит быстрая скользящая средняя, выше медленной. Эта переменная имеет значение null при первом сравнении скользящих средних после старта робота</li>
+        <li>private float <b>sumSlow, sumFast</b> – переменные, используемые для оптимизации расчёта среднего арифметического для медленной и быстрой скользящих средних соответственно. При расчёте значения скользящей средней необходимо знать сумму N цен закрытия всех свечей за прошедший период. Чтобы не высчитывать эти суммы каждый раз при обновлении котировки, мы будем хранить их в этих переменных sumSlow, sumFast и обновлять в методе CalculateMA</li>
+        <li>private <b class="scClass">RestrictedQueue&lt;float&gt;</b> <b>queueSlow, queueFast</b> – это очереди ограниченной длины (с вытеснением). При добавлении нового элемента такую очередь, первый её элемент вытесняется (если очередь уже заполнена). Они используются для хранения значений цен закрытия свечей  за определённый период. По значениям элементов этих очередей будут вычисляться текущие значения быстрой и медленной скользящих средних</li>
+    </ol>
+
+    <h3>Реализация методов</h3>
+    <p>После объявления всех полей переходим к реализации методов, унаследованных от <b class="scClass">BaseRobot</b>.</p>
+    <p>Метод <b>MakeCopy</b> создаёт новый объект типа <b class="scClass">RobotMA</b> и устанавливает значения его свойств такими же, как у текущего объекта.</p>
+    <p class="excerpt">public override BaseRobot MakeCopy()<br />
+{<br />
+&nbsp;    var bot = new RobotMA<br />
+&nbsp;    {<br />
+&nbsp;&nbsp;&nbsp;         StopLossPoints = StopLossPoints,<br />
+&nbsp;&nbsp;&nbsp;        TakeProfitPoints = TakeProfitPoints,<br />
+&nbsp;&nbsp;&nbsp;        RangeSlowMA = RangeSlowMA,<br />
+&nbsp;&nbsp;&nbsp;        RangeFastMA = RangeFastMA,<br />
+&nbsp;&nbsp;&nbsp;        FixedVolume = FixedVolume<br />
+&nbsp;    };<br />
+&nbsp;    CopyBaseSettings(bot);<br />
+&nbsp;    return bot;<br />
+}
+</p>
+
+    <p>В методе <b class="scClass">Initialize</b> будет осуществляться проверка на наличие графиков, к которым привязан данный робот. 
+        В базовом классе <b class="scClass">BaseRobot</b> есть свойство Graphics - 
+        список из <b class="scClass">Cortege2&lt;string, BarSettings&gt;</b>. Первый параметр – торгуемый актив, например, USDCAD. Второй параметр – таймфрейм, например, H4 
+        (четырехчасовые свечи, отсчитываемые от 00:00 во временной зоне брокера). Для робота может быть задано 0, 1 или более таких «графиков». Например,</p>
+    <ul>
+        <li>для робота, торгующий по пересечению скользящих средних, должен быть указан один и только один «график»</li>
+        <li>робот, который закрывает все открытые на текущий момент сделки по определенному условию (падение баланса на X% с начала дня, обновление макроэкономического показателя 
+            и т.п.), не нуждается в установке «графиков»</li>
+        <li>один робот может одновременно анализировать несколько «графиков» и торговать несколькими активами</li>
+    </ul>
+    <p>В нашем случае график должен быть только один. <span class="nb">Важно отметить</span>: робот никоим образом не привязан к какому-либо окну графика, открытому в терминале <b><i>TradeSharp</i></b>.</p>
+
+    <p class="excerpt">
+        public override void Initialize(BacktestServerProxy.RobotContext robotContext, CurrentProtectedContext protectedContext)<br />
+{<br />
+&nbsp;    base.Initialize(robotContext, protectedContext);<br />
+&nbsp;    if (Graphics.Count == 0)<br />
+&nbsp;    {<br />
+&nbsp;&nbsp;&nbsp;        Logger.DebugFormat("настройки графиков не заданы");<br />
+&nbsp;&nbsp;&nbsp;        return;<br />
+&nbsp;    }<br />
+&nbsp;   if (Graphics.Count > 1)<br />
+&nbsp;    {<br />
+&nbsp;&nbsp;&nbsp;        Logger.DebugFormat("настройки графиков должны описывать один тикер");<br />
+&nbsp;&nbsp;&nbsp;        return;<br />
+&nbsp;    }<br />
+&nbsp;    packer = new CandlePacker(Graphics[0].b); <br />
+&nbsp;    ticker = Graphics[0].a;<br />
+&nbsp;    queueSlow = new RestrictedQueue&lt;float&gt;(RangeSlowMA);<br />
+&nbsp;    queueFast = new RestrictedQueue&lt;float&gt;(RangeFastMA);<br />
+&nbsp;    sumSlow = 0;<br />
+&nbsp;    sumFast = 0;<br />
+&nbsp;    maDifSign = null;     <br />
+}
+    </p>
+
+
+    <p>Как уже говорилось, вся логика торговли нашего робота основана на анализе быстрой и медленной скользящих средних.  
+        Что бы рассчитать значения этих скользящих средних нам понадобится некоторое количество свечей за предыдущий период. 
+        Свечи получаются из котировок, при помощи объекта packer типа <b class="scClass">CandlePacker</b>.</p>
+    <p>Класс <b class="scClass">CandlePacker</b> реализует преобразование свеч малой продолжительности (OHLC, m1) и котировок (bid, ask) в свечи заданного в конструкторе класса типа 
+        <b class="scClass">BarSettings</b> (m5, H1, H4 …). Очередная котировка / свеча m1 передается в метод <b>CandlePacker.UpdateCandle</b>. 
+        Если текущая свеча завершена, на выходе метода – объект класса <b class="scClass">CandleData</b>, в противном случае – null.</p>
+    <p>Также в этом методе инициализируются объявленные переменные. Длина очередей <b>queueSlow</b> и <b>queueFast</b> задаётся соответствующими значениями 
+        <b>RangeSlowMA</b> и <b>RangeFastMA</b>.</p>
+    <p>Метод <b>GetRequiredSymbolStartupQuotes</b> вызывается каждый раз при старте робота и указывает, на какой отрезок времени в истории должен заглянуть робот при 
+        старте и какие котировки ему понадобятся.  Параметр <b>startTrade</b> – это дата, с которой  робот начнет получать котировки.</p>
+    <p>Реализация метода выглядит следующим образом:</p>
+
+    <p class="excerpt">public override Dictionary&lt;string, DateTime&gt; GetRequiredSymbolStartupQuotes(DateTime startTrade)<br />
+{<br />
+&nbsp;    if (Graphics.Count == 0) return null;<br />
+&nbsp;    var historyIndexStart = Graphics[0].b.GetDistanceTime(rangeSlowMA + 1, -1, startTrade);<br />
+&nbsp;    return new Dictionary&lt;string, DateTime&gt; {{Graphics[0].a, historyIndexStart}};<br />
+}</p>
+
+        <p>Если график задан, у его свойства <b>b</b> (типа <b class="scClass">BarSettings</b>) вызывается метод <b>GetDistanceTime</b>. 
+            Первым параметром в метод передаётся количество свечей, 
+            которые мы хотим получить. Вторым параметром передаётся флаг, который указывает направление смещение даты: назад, в прошлое (-1) или – вперед, в будущее (1) – 
+            относительно даты <b>startTrade</b>. Этот метод возвращает дату / время открытия первой свечи, отстоящей на <b>rangeSlowMA + 1</b> свечей от указанной даты. 
+            Формируется словарь из пар инструмент – дата первой котировки, который возвращается в качестве результата.</p>
+        <p>Таким образом, на момент старта торговли робот уже рассчитает «быструю» и «медленную» скользящие средние, «заглянув» в историю на указанную в словаре дату.</p>
+        <p>Метод  <b>OnQuotesReceived</b> – основной.  Его параметры  <b>string[]</b> names и <b class="scClass">QuoteData[]</b> quotes всегда содержат одинаковое количество элементов – 
+            торгуемые активы и соответствующие, по порядку, котировки.</p>
+        <p>Метод возвращает список строк. Строки из списка формируют отчет о функционировании робота. Это могут быть строки произвольного формата 
+            (выводятся в отдельном окне терминала), а могут быть и строки, форматированные определенным образом. Такие строки будут распознаны терминалом как отметки, 
+            которые терминал разместит в окне графика (если нужное окно графика открыто в терминале).</p>
+        <p>Реализация метода начинается с объявления списка:</p>
+        <p class="excerpt">var events = new List&lt;string&gt;();</p>
+        <p>После этого необходимо убедиться, что название текущего инструмента (ticker) задано корректно. В противном случае выходим из метода.</p>
+        <p class="excerpt">if (string.IsNullOrEmpty(ticker)) return events;   <br />      
+var tickerIndex = -1;<br />
+for (var i = 0; i < names.Length; i++)<br />
+&nbsp;    if (names[i] == ticker)<br />
+&nbsp;    {<br />
+&nbsp;&nbsp;&nbsp;        tickerIndex = i;<br />
+&nbsp;&nbsp;&nbsp;        break;<br />
+&nbsp;    }<br />
+if (tickerIndex < 0) return events;<br />
+var quote = quotes[tickerIndex];
+</p>
+
+    <p>Получаем текущую котировку торгуемого актива (ticker). Это значение необходимо, чтобы при помощи объекта <b>packer</b> получить новую, только что 
+        сформированную, свечу (или – null, если свеча не завершена).</p>
+
+    <p class="excerpt">var candle = packer.UpdateCandle(quote.bid, quote.time);<br />
+if (candle == null) return events;<br />
+</p>
+
+    <p>Наш робот будет совершать какие-либо действия только на закрытии свечи, т.е. только в тех случаях, когда candle не равно null. 
+        Если это так, можно рассчитать значения скользящих средних для текущей цены закрытия. </p>
+
+    <p class="excerpt">var maSlow = CalculateMA(queueSlow, candle.close, ref sumSlow);<br />
+var maFast = CalculateMA(queueFast, candle.close, ref sumFast);<br />
+if (maSlow == 0) return events;<br />
+</p>
+
+    <p>Метод  <b>CalculateMA</b>  рассчитывает значение скользящих средних для текущей котировки и обновляет переданную в параметре очередь (<b>maSlow</b> или <b>maFast</b>). 
+        Реализация этого метода приведена ниже. В случае если эти очереди ещё не заполнены (их длина меньше установленной предельной длины), метод вернёт 0. 
+        Метод расчета значения скользящей средней мог бы быть реализован несколько проще: </p>
+
+    <ol>
+        <li>все свечи, возвращаемые методом <b>UpdateCandle</b>, помещать в список <b class="scClass">List&lt;CandleData&gt;</b></li>
+        <li>после добавления свечи в список посчитать сумму цен <b>close</b> N последних элементов списка и разделить значение на N</li>
+    </ol>
+
+    <p>В примере реализован намного более «экономный» процесс расчета скользящей средней.</p>
+    <p>Если рассчитано значение 0, значит, данных для расчёта скользящих средних ещё не достаточно и предпринимать какие-либо действия рано. 
+        В противном случае, нужно выяснить взаимное расположение скользящих средних на текущий момент. Для этого объявляем локальную переменную.</p>
+    <p class="excerpt">var currentSign = Math.Sign(maFast - maSlow);</p>
+    <p>Переменная будет равна +1, если быстрая скользящая средняя больше (выше) медленной скользящей средней. В противном случае <b>currentSign</b> будет отрицательной.</p>
+    <p>Переменная <b>maDifSign</b>  сохраняет значение <b>currentSign</b> между обновлениями котировки (т.е. в <b>maDifSign</b> хранится значение <b>currentSign</b>  
+        на момент закрытия предыдущей свечи). Сравнивая <b>maDifSign</b> и <b>currentSign</b> можно сделать вывод о том, было ли пересечение скользящих средних. 
+        Пересечение скользящих средних определяем в момент закрытия свечи, когда текущий знак <b>currentSign</b> не равен предыдущему знаку <b>maDifSign</b>, а предыдущей знак, 
+        в свою очередь, не равен null.</p>
+    <p>Если все эти условия выполнены, значит можно совершать сделку, предварительно закрыв все сделки с противоположным знаком (закрыв покупки перед продажей либо – 
+        продажи перед покупкой).</p>
+    <p class="excerpt">if (maDifSign.HasValue)<br />
+{<br />
+&nbsp;    if (currentSign != maDifSign && !isHistoryStartOff)<br />
+&nbsp;    {<br />
+&nbsp;&nbsp;&nbsp;        List&lt;MarketOrder&gt; orders;<br />
+&nbsp;&nbsp;&nbsp;        robotContext.GetMarketOrders(robotContext.accountInfo.ID, out orders);<br />
+&nbsp;&nbsp;&nbsp;        foreach (var order in orders.Where(o => o.Side != currentSign && <br />
+&nbsp;&nbsp;&nbsp;&nbsp;o.Magic == Magic && o.Symbol == ticker).ToList())<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;          		robotContext.SendCloseRequest(protectedContext.MakeProtectedContext(),<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;              			robotContext.accountInfo.ID, order.ID, PositionExitReason.ClosedByRobot);<br />
+            <br />
+&nbsp;&nbsp;&nbsp;        // открыть сделку<br />
+&nbsp;&nbsp;&nbsp;        OpenDeal(candle.close, currentSign);<br />
+&nbsp;    }<br />
+}
+</p>
+    <p>Открытые на текущем торговом счете сделки получим методом <b>GetMarketOrders</b> объекта <b>robotContext</b> (поле базового класса <b class="scClass">BaseRobot</b>). 
+        Объект <b>robotContext</b> используется для получения открытых позиций по счету, размещения и редактирования ордеров.</p>
+    <p>В качестве аргументов в метод передаётся уникальный идентификатор счёта и ссылка на список объектов <b>MarketOrder</b>, который будет заполнен открытыми сделками. 
+        После этого в цикле из этого списка выбираются все сделки текущего робота со знаком, противоположным знаку сделки, которую мы собираемся открыть. 
+        Принадлежность сделки к текущему роботу определяется по полю <b>Magic</b>, а знак сделки по полю <b>Side</b>. Также проверяется торгуемый актив сделки (поле <b>Symbol</b>).</p>
+    <p>Новая сделка открывается методом <b>OpenDeal</b>. Метод принимает значение текущей цены закрытия и направление (BUY, 1 либо SELL, -1) сделки. 
+        Направление входа – значение <b>currentSign</b>. Определим метод <b>OpenDeal</b> позже.</p>
+    <p>Последнее, что нужно сделать в методе <b>OnQuotesReceived</b> – сохранить знак пересечения скользящих средних <b>currentSign</b> в поле 
+        <b>maDifSign</b> для того, что бы при следующем обновлении котировки можно было сравнить его с новым значением <b>currentSign</b>.</p>
+    <p class="excerpt">maDifSign = currentSign;<br />
+return events;
+</p>
+    <p>Теперь рассмотрим реализацию метода <b>CalculateMA</b>. Этот метод будет рассчитывать значение скользящей средней. 
+        При этом в методе будут использованы данные очередей <b>queueSlow, queueFast</b>.</p>
+    <p>В качестве параметров метод принимает:</p>
+
+    <ul>
+        <li><b>queue</b> – очередь, хранящая значения цен закрытия свечей для вычисления текущего значения скользящей средней</li>
+        <li><b>newVal</b> – новое значение цены закрытия свечи</li>
+        <li><b>sum</b> – текущая сумма всех элементов очереди queue</li>
+    </ul>
+
+    <p class="excerpt">
+        private static float CalculateMA(RestrictedQueue&lt;float&gt; queue, float newVal, ref float sum)<br />
+{<br />
+    var firstVal = queue.Length == 0 ? 0 : queue.First;<br />
+    sum = queue.Length == queue.MaxQueueLength ? sum + newVal - firstVal : sum + newVal;<br />
+    queue.Add(newVal);<br />
+    return queue.Length == queue.MaxQueueLength ? sum/queue.MaxQueueLength : 0;<br />
+}
+    </p>
+    <p>В объявленную переменную <b>firstVal</b> записывается значение первого элемента в очереди. В случае если очередь пока пуста, в качестве первого элемента принимается значение 0.</p>
+    <p>Обновляем переданную по ссылке переменную <b>sum</b>. В случае если очередь ещё не заполнена до конца,  значение <b>sum</b> просто увеличивается на величину <b>newVal</b>. 
+        Если же очередь заполнена - значение <b>sum</b> увеличивается на величину <b>newVal</b> и уменьшается на величину <b>firstVal</b>, рассчитанную на предыдущем шаге. 
+        Таким образом, поле sum всегда хранит актуальное значение суммы всех элементов последовательности queue. Остаётся только разделить это значение на количество элементов 
+        в последовательности queue (период скользящей средней). Если же очередь не заполнена (количество элементов в очереди меньше заданного максимального значения), возвращаем 0.</p>
+    <p>Последний метод, который нам понадобиться реализовать - это метод открытия сделки. Метод <b>OpenDeal</b> открывает новую сделку по указанной цене <b>price</b>, 
+        указанного типа <b>dealSide</b> (покупка или продажа).  Перед тем как открыть сделку надо пересчитать, указанные пользователем,  значения 
+        <b>StopLoss</b> и <b>TakeProfit</b> из пунктов в абсолютную величину (конкретную цену). NB! если значения <b>StopLoss</b> и <b>TakeProfit</b> не указываются, 
+        соответствующие цены должны быть равны null, не 0.</p>
+    <p>Запрос на вход в рынок выполняется методом <b>SendNewOrderRequest</b> объекта <b>robotContext</b>. Среди параметров этого метода: 
+        параметр безопасности <b>ProtectedOperationContext</b>, уникальный идентификатор сделки, объект типа <b class="scClass">MarketOrder</b> с параметрами самой сделки, 
+        тип нового ордера <b class="scClass">OrderType</b>, запрашиваемая цена и проскальзывание, которые в нашем роботе будут 0 
+        (указываются для ордеров типа <b class="scClass">OrderType</b><b>.Instant</b>).</p>
+    <p class="excerpt">private void OpenDeal(float price, int dealSide)<br />
+{<br />
+    var stop = StopLossPoints == 0<br />
+&nbsp;        ? (float?)null<br />
+&nbsp;        : price -<br />
+&nbsp;         dealSide * DalSpot.Instance.GetAbsValue(ticker, (float)StopLossPoints);<br />
+    var take = TakeProfitPoints == 0<br />
+&nbsp;        ? (float?)null<br />
+&nbsp;        : price +<br />
+&nbsp;        dealSide * DalSpot.Instance.GetAbsValue(ticker, (float)TakeProfitPoints);<br />
+    <br />
+    robotContext.SendNewOrderRequest(<br />
+&nbsp;        protectedContext.MakeProtectedContext(),<br />
+&nbsp;        RequestUniqueId.Next(),<br />
+&nbsp;        new MarketOrder<br />
+&nbsp;        {<br />
+&nbsp;&nbsp;&nbsp;            AccountID = robotContext.accountInfo.ID,    // Уникальный идентификатор чёта<br />
+&nbsp;&nbsp;&nbsp;            Magic = Magic,       // Этот параметр позволяет отличать сделки разных роботов<br />
+&nbsp;&nbsp;&nbsp;            Symbol = ticker,     // Инструмент по которому совершается сделка<br />
+&nbsp;&nbsp;&nbsp;            Volume = fixedVolume, // Объём средств, на который совершается сделка<br />
+&nbsp;&nbsp;&nbsp;            Side = dealSide,     // Устанавливаем тип сделки - покупка или продажа<br />
+&nbsp;&nbsp;&nbsp;            StopLoss = stop,    // Устанавливаем величину Stop loss для открываемой сделки<br />
+&nbsp;&nbsp;&nbsp;           TakeProfit = take,    // Устанавливаем величину Take profit для открываемой сделки<br />
+&nbsp;&nbsp;&nbsp;           ExpertComment = "MARobot"    // Комментарий по сделке, оставленный роботом<br />
+&nbsp;        },<br />
+&nbsp;        OrderType.Market, 0, 0);<br />
+}
+</p>
+    <p>Пример вычисления цены <b>stop</b>:</p>
+    <ul>
+        <li>StopLossPoints = 200</li>
+        <li>price = 1.5430</li>
+        <li>dealSide = -1 (продажа)</li>
+        <li>ticker = "GBPUSD"</li>
+    </ul>
+    <p>Метод <b class="scClass">DalSpot</b><b>.Instance.GetAbsValue(“GBPUSD”, 200)</b> вернет значение 0.0200 (200 / 10 000). Цена <b>stop</b> будет определена как 1.5430 – (-0.02) или 1.5630.</p>
+
+    <h2>Тестирование робота</h2>
+    <div class="centrAling"><img src="picts\api\robot_ma\schedule.png"  alt="" /><br/>Рисунок - На закрытии свечи (1) "быстрая" скользящая средняя пересекла "медленную" среднюю снизу-вверх. Вход в рынок (покупка) осуществлен по цене открытия свечи (2).</div>
+<br /><br /><br />
+</body>
+</html>

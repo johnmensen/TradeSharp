@@ -1,0 +1,14 @@
+Id,Name,Criteria,ParticipantCount,DescendingOrder,MarginValue,ManagedAccount,OwnerUser
+1,"Сбалансированный","AYP*(DD<20)",3,True,,57,
+2,"Сбалансированный","AYP*(DD<30)",5,True,,75,
+3,"Сбалансированный","AYP*(DD<30)",10,True,,22,
+4,"Сбалансированный","AYP*(DD<30)",15,True,,235,
+5,"Консервативный","AYP",3,True,,3,
+6,"TOP gfjgfuyre","AYP/DD*(ML<10)",10,True,0,,70
+8,"TOP Andrey123","AYP",100,True,0,,1
+12,"Консервативный","AYP",5,True,,224,
+13,"Консервативный","AYP",10,False,,225,
+14,"Консервативный","AYP",15,False,,226,
+19,"TOP AlexeyK","P",2,True,,,17
+20,"TOP Oleg12345","P",10,True,,,192
+21,"TOP vselenaya","P",10,True,,,249

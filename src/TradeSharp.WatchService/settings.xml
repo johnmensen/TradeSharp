@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<settings>
+  <units>
+    <unit binding="IModuleStatusServer" name="Server" severity="3" />
+    <unit binding="IModuleStatusQuoteServer" name="QuoteServer" severity="3" />
+    <unit binding="IModuleStatusEmail" name="EmailDelivery" severity="3" />
+    <unit binding="IModuleStatusSignalExecutor" name="TradeSignalExecutor" severity="3" />
+  </units>
+
+  <processes>
+    <proc name="TradeSharp.Server" file="TradeSharp.Server" title="Сервер TRADE#" />
+    <proc name="TradeSharp.QuoteServer" file="TradeSharp.QuoteService" title="Котировки" />
+    <proc name="TradeSharp.SiteBridge" file="TradeSharp.SiteBridge.Service" title="Мост WEB-сайта" />
+    <proc name="TradeSharp.TradeSignal" file="TradeSharp.TradeSignal" title="Торг. сигналы" />
+    <proc name="TradeSharp.UpdateServer" file="TradeSharp.UpdateServer" title="Сервер обновлений" />
+    <proc name="TradeSharp Provider Proxy" file="TradeSharp.ProviderProxy" title="Связь с провайдером (FIX)" />
+    <proc name="TradeSharp Chat" file="TradeSharp.Chat.Service" title="Чат" />
+    <proc name="TradeSharp.TradeSignalExecutor" file="TradeSharp.TradeSignalExecutor" title="Исполнитель сигналов" />
+  </processes>
+</settings>

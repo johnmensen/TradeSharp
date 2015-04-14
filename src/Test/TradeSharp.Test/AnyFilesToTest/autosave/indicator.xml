@@ -1,0 +1,5 @@
+<indicators>
+  <chart Id="EURUSD_63fdbb8f-3">
+    <indicator ClassName="Candlechart.Indicator.IndicatorIchimoku" CreateOwnPanel="False" PeriodS="9" PeriodM="26" PeriodL="52" ColorTencan="-65536" ColorKijyn="-16776961" ColorSenkouA="-2987746" ColorSenkouB="-9868951" ColorChikou="-14513374" ColorCloudA="-65536" ColorCloudB="-12490271" DrawShadow="False" ShadowWidth="3" ShadowAlpha="70" SeriesSourcesDisplay="" DrawPaneDisplay="Курс" IsPanelVisible="True" UniqueName="Индикатор Ишимоку" />
+  </chart>
+</indicators>

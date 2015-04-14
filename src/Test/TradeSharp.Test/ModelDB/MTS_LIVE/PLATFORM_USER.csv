@@ -1,0 +1,145 @@
+ID,Title,Name,Surname,Patronym,Description,Email,Phone1,Phone2,Login,Password,RoleMask,RegistrationDate
+1,"Андрей","Андрей","Ситаев","","","asitaev@forexinvest.ru","89201784569","","Andrey123","12345678",2,04/20/2012 12:00:00
+3,"Алексей","Алексей","Денисов","Николаевич",,"adenisov@forexinvest.ru","","","Alexey","12345",2,04/20/2012 12:00:00
+4,"г-н","Трейдер","","",,"","","","12345","12345",0,04/20/2012 12:00:00
+5,"Mr","Forexinvest","Private","Account",,"","","","ForexinvestPrivate","Vjkjnbkrf",0,04/20/2012 12:00:00
+6,"mr","Victor","Rybalko","Petrovych",,,,,"VictorRybalko","Genby.utyl",1,04/20/2012 12:00:00
+7,"ms","Evgenyia","Selezneva",,,,,,"EvgenyiaSelezneva","<ecbyrf",1,04/20/2012 12:00:00
+9,"mr","Trader","Forex","FX","Signal Manager","adenisov@forexinvest.ru",,,"SignalManager","Sm12345",1,04/20/2012 12:00:00
+12,"Miss","Yulia","Kozorez",,,"adenisov@forexinvest.ru",,,"YuliaKz","Invest01",1,04/20/2012 12:00:00
+13,"Mr","Alexey","Bezdenezhnykh",,,"alextvcom@yandex.ru",,,"AlexeyBz","Invest01",1,04/20/2012 12:00:00
+15,"Mr","Minor","Signaller",,,,,,"MinSignal","MinSignal",1,04/20/2012 12:00:00
+16,"Mr","Mini","Signaller",,,,,,"SignalMini","SignalMini",1,04/20/2012 12:00:00
+17,"Mr","Alexey","Denisov","","статистика на сайты","asitaev@forexinvest.ru","","","AlexeyK","Invest01",1,04/20/2012 12:00:00
+19,"Andrey!","","","","","xander77@rambler.ru","","","Andrey!","Sa12345",0,04/20/2012 12:00:00
+21,"SigMgr50","SigMgr50",,,"signal manager for 50K","adenisov@forexinvest.ru",,,"SigMgr50","SigMgr50",1,05/21/2012 00:00:00
+22,"AndreyPopov","Андрей","Попов","Георгиевич",,"","","","AndreyPopov","Muaitai",0,12/11/2012 19:16:52
+23,"ValeryD","","","","","vdolgov@forexinvest.ru","","","ValeryD","Twesitch",0,12/27/2012 14:34:44
+24,"Валерий","Валерий","","","","hide.fx@gmail.com","","","ValeryD2","bozost",0,12/28/2012 18:50:58
+25,"Nataliva","","","","","iva.natali@bk.ru","","","Nataliva","Munogume",0,01/11/2013 17:25:31
+28,"Investor","Investor",,"","","xander77@rambler.ru","","","Investor","Investor",1,02/21/2013 00:00:00
+30,"Kagan","Дмитрий","Kagan","","","dkagan@mail.ru","","","DmKagan","Invest01",1,03/05/2013 00:00:00
+40,"Vinny","Vinny","","","","andrey.sitaev@gmail.ru","","","Vinnetu","otrisp",0,03/11/2013 10:37:32
+41,"Ольга","Ольга","Безденежных","","","olga@mail.ru","","","OlgaBez","Invest01",0,03/12/2013 10:51:53
+42,"Имран","Имран","Вяльшакаев","","","imran@mail.ru","","","ImranVl","Invest01",0,03/12/2013 11:08:55
+43,"Руслан","Руслан","Сумерин","","","sumerin@mail.ru","","","Sumerin","Invest01",0,03/12/2013 11:09:47
+44,"Богдан","Богдан","Абросимов","","","abrosimov@mail.ru","","","Abrosimov","Invest01",0,03/12/2013 11:10:31
+45,"Виктор","Виктор","Николаев","Андреевич","Трейдер на рынке Forex","nikko84@list.ru","","","ForexTrader01","ForexTrader01",0,03/13/2013 11:46:08
+46,"AlexeyDen","","","","","adenisova@forexinvest.ru","","","AlexeyDen","12345678",0,03/13/2013 17:47:28
+47,"Андрей","Андрей","","","","andreyk@mail.ru","","","andreyk","123454321",0,03/15/2013 10:40:03
+48,"Алексей","Алексей","","","","alexeydenisov@mail.ru","","","alexeydenisov","Ad1234567",0,03/15/2013 10:41:35
+49,"GeorgeBush","","","","","bush@us.gov","","","GeorgeBush","GeorgeBush",0,03/15/2013 11:26:38
+50,"OscarBenton","","","","","oscar@mail.ru","","","OscarBenton","O1234567",0,03/15/2013 12:41:32
+51,"temporary","","","","","temporary@mail.ru","","","temporary","12345678",0,03/15/2013 15:10:39
+52,"Иван","Иван","Алексеев","","","elf-uego@hotmail.com","","","besttrade","12345678",0,04/02/2013 11:36:09
+53,"Niklaus","Niklaus","Virt","","","niklaus_virt@gmail.com","","","Niklaus","N12345678",0,04/02/2013 18:56:15
+54,"Carl","Carl","","","","carlpopper@postpozitiv.org","","","CarlPopper","Popper12345",0,04/02/2013 19:14:53
+55,"Bertran","Bertran","","","","bertrussel@postpositive.org","","","SirRussel","Russel1234",0,04/02/2013 19:22:02
+56,"Илья ","Илья ","","","","ilya_tvc@bk.ru","","","Ilya_tvc","87654321",0,04/03/2013 11:05:45
+57,"Тамара","Тамара","Томина","Сергеевна","","sunday1975@yandex.ru","567890","+79056785678","Tamarochka","NfyzDfyz",0,04/03/2013 19:34:38
+58,"EvaSelezneva","","","","","maximus4951@mail.ru","","","EvaSelezneva","gerkules",0,04/08/2013 11:17:47
+59,"DiStefano","","","","","distefano@hotmail.com","","","DiStefano","12345678",0,05/08/2013 16:39:44
+60,"AlenBombar","","","","","alenbombar@hotmail.com","","","AlenBombar","12345678",0,05/08/2013 17:05:58
+61,"esakirkin","","","","","www.sfx@gmail.com","","","esakirkin","varvar71",0,05/13/2013 21:00:21
+62,"vladimir","vladimir","porfiridov","evgenevich","","porfiridov.vladi@mail.ru","","","gorynyh","li1951ga",0,05/18/2013 13:44:18
+63,"NewsRobot","","","","","dnews@mail.ru","","","NewsRobot","12345678",0,05/27/2013 15:02:58
+64,"Roman","Roman","Strong","","","strong281@yandex.ru","+79263249259","","Roman_Strong","12345678",0,06/04/2013 12:54:28
+65,"NewsRobotNT","","","","","newsrobotnt@mail.ru","","","NewsRobotNT","12345678",0,06/07/2013 18:34:10
+66,"william","","","","","william@hotmail.com","","","william","Will12345",0,06/27/2013 15:32:05
+67,"willshock","","","","","willshockley@hotmail.com","","","willshock","Ws123456",0,06/27/2013 16:25:20
+68,"tradesharp","","","","","tradesharp@hotmail.ru","","","tradesharp","Trade123123",0,06/27/2013 16:45:21
+69,"Алексей","Алексей","","","","andrey.sitaev@gmail.com","","","Alextvcom","Alex1980",0,07/18/2013 11:14:20
+70,"gfjgfuyre","","","","","suselu@checknew.pw","","","gfjgfuyre","hgj6tyu56",0,08/07/2013 00:56:20
+71,"Иванов","Иванов","Иван","Иванович","","ivanovi@forexinvestmail.ru","","","ivanovi","zaq12wsx",0,08/23/2013 12:24:34
+72,"Константин","Константин","Скоков","Петрович","","skokovk@forexinvestmail.ru","","","skokovk","zaq12wsx",0,08/23/2013 12:29:05
+73,"Дмитрий","Дмитрий","Карпенков","Алексеевич","","karpenkovd@forexinvestmail.ru","","","karpenkovd","zaq12wsx",0,08/23/2013 12:31:53
+74,"Ольга","Ольга","Андреевская","Владимировна","","andreevskaao@forexinvestmail.ru","","","andreevskaao","zaq12wsx",0,08/23/2013 12:34:31
+75,"Евгений","Евгений","Киселёв","Сергеевич","","kiseleve@forexinvestmail.ru","","","kiseleve","zaq12wsx",0,08/23/2013 12:36:22
+76,"Никина","Никина","Просолов","Николаевич","","prosolovn@forexinvestmail.ru","","","prosolovn","prosolovn",0,08/23/2013 12:38:13
+77,"Игорь","Игорь","Жучков","Владимирович","","juchkovi@forexinvestmail.ru","","","juchkovi","zaq12wsx",0,08/23/2013 12:39:44
+78,"Виталий","Виталий","Сергеевич","Иолев","","iolevv@forexinvestmail.ru","","","iolevvit","zaq12wsx",0,08/23/2013 12:40:59
+79,"TatyanaT","","","","","t@mail.ru","","","TatyanaT","12345678",0,08/26/2013 12:55:18
+80,"man2201","","","","","man2201@i.ua","","","man2201","rhtfnbdyjcnm",0,08/28/2013 12:44:06
+148,"Mr","Максим","Власов",,,"maksimvlasov@mail.com",,,"MaksimVlasov","12345678",0,08/30/2013 14:32:20
+149,"Mr","Татьяна","Воронова",,,"tatyanavoronova@mail.ru",,,"TatyanaVoronova","12345678",0,08/30/2013 14:32:22
+150,"Mr","Ольга","Фёдорова",,,"olgafyodorova@ucoz.net",,,"OlgaFyodorova","12345678",0,08/30/2013 14:32:24
+151,"Mr","Валентина","Мишина",,,"valentinamishina@mail.ru",,,"ValentinaMishina","12345678",0,08/30/2013 14:32:25
+152,"Mr","Григорий","Гусев",,,"grigorijgusev@mail.ru",,,"GrigorijGusev","12345678",0,08/30/2013 14:32:27
+153,"Mr","Виктория","Суворова",,,"viktoriyasuvorova@rambler.ru",,,"ViktoriyaSuvorova","12345678",0,08/30/2013 14:32:29
+154,"Mr","Сергей","Давыдов",,,"sergejdavydov@ucoz.net",,,"SergejDavydov","12345678",0,08/30/2013 14:32:30
+155,"Mr","Надежда","Комиссарова",,,"nadezhdakomissarova@ucoz.net",,,"NadezhdaKomissarova","12345678",0,08/30/2013 14:32:32
+156,"Mr","Алексей","Крюков",,,"aleksejkryukov@mail.ru",,,"AleksejKryukov","12345678",0,08/30/2013 14:32:33
+157,"Mr","Надежда","Игнатьева",,,"nadezhdaignateva@ucoz.net",,,"NadezhdaIgnateva","12345678",0,08/30/2013 14:32:35
+158,"Mr","Александр","Красильников",,,"aleksandrkrasilnikov@gmail.com",,,"AleksandrKrasilnikov","12345678",0,08/30/2013 14:32:37
+159,"Mr","Леонид","Зуев",,,"leonidzuev@ucoz.net",,,"LeonidZuev","12345678",0,08/30/2013 14:32:38
+160,"Investor K","Investor K","Investik","","","trytogues@mail.org","89118058060","","Investor K","12345678",0,09/12/2013 16:56:06
+161,"AccountTest","sd","Иванович","Иван","Пробный счёт","gfjg@fuy.re","1234567","7654321","AccountTest","1234567",1,09/14/2013 14:32:28
+163,"dmaksimov","Investor K","Investik","","","dmaksimov@aforex.ru","89118058060","","dmaksimov","12345678",0,09/27/2013 14:22:42
+164,"InvestorKagan","Dmitry","Kagan","","Dm Kagan account","dmkagan@mail.org","","","InvestorKagan","Investor12345",0,10/02/2013 12:10:11
+165,"InvestorBezdenz","Alexey","Bezdeneznyh","","A Bezdenz account","abz@mail.org","","","InvestorBezdenz","Investor12345",0,10/02/2013 12:11:50
+166,"ggg","ggg","hhhh","uiuh","","alextvcom@mail.ru","","","alextvcom1","alex1980",0,10/10/2013 20:06:07
+167,"AAAAAAsssssss","AAAAAAsssssss","","","","aaaaaaaaaaaa@mail.ru","","","Jjjjjjjjjjjjjjjjjjjjjj","12345678",0,10/11/2013 12:34:17
+168,"Николай","Николай","Гусев","Сергеевич","","camey@yandex.ru","","","camay67","aforex17Z",0,10/11/2013 12:39:29
+169,"AndreyP","","","","","xan@rambler.ru","","","AndreyP","Andrey12345",0,11/03/2013 16:37:06
+171,"Moris","Moris","","","","moristores@mail.net","","","MorisTores","12345678",0,11/06/2013 11:21:42
+172,"ErwinRommel","","Rommel","","","erwinrommel@reich.de","","","ErwinRommel","12345678",0,11/06/2013 11:29:52
+173,"taras_kov","","","","","taras_kov@hotbox.ru","","","taras_kov","F7p0hK$%",0,11/08/2013 14:34:13
+174,"ValeryDolgov","","","","","vipmail2000@pisem.net","","","ValeryDolgov","invest01",0,11/13/2013 23:17:31
+175,"SergeyK","","","","","kovzharov@gmail.com","","","SergeyK","tuvalu17",0,11/22/2013 16:01:19
+176,"Artur","Artur","Ibragimov","Midhatovich","","2008diablo@mail.ru","","","Diablo258","258258asd258",0,11/26/2013 00:14:40
+177,"skfh","skfh","fh","fhth","","dfgfhh@hghf.ru","","","12345678","12345678",0,11/30/2013 16:26:31
+178,"DasKtulhu","","","","","dasktulhu@mail.com","","","DasKtulhu","DasKtulhu",0,12/03/2013 12:53:28
+179,"TipaInvestor","","","","","tipainvestor@mail.com","","","TipaInvestor","TipaInvestor",0,12/04/2013 14:05:06
+180,"AdreyTester","","","","","za@ra.ru","","","AdreyTester","A1234567890",0,12/04/2013 15:40:26
+181,"Bender","Bender","Rodrigez","Bending","","bender@ru.ru","","","RobotBender","BendaBender",0,12/04/2013 16:51:48
+182,"JustinBeaber","","","","","justinbeaber@gov.no","","","JustinBeaber","JustinBeaber",0,12/04/2013 16:56:12
+183,"denis","denis","boltov","","","denis_90@ukr.net","","","denisboltov","boltov90",0,12/19/2013 22:07:37
+184,"Марина","Марина","Хлыбова","Вячеславовна","","mari-khlybo@yandex.ru","","","series17","17101969",0,12/20/2013 12:57:58
+185,"Марина","Марина","","","","mar-khlybo@yandex.ru","","","series171","17101969",0,12/20/2013 14:18:30
+186,"Арина","Арина","","","","mfojgui@mail.ru","","","dkltt1-0","18376е4340",0,12/20/2013 14:30:28
+187,"Read22",,,,,,,,"Read22","87654321",0,12/20/2013 18:12:20
+188,"максим","максим","кашин","викторович","","sagiems@gmail.com","","","sagiems","12171975",0,12/24/2013 07:02:15
+189,"Елена","Елена","","","","cds@yndex.ru","","","sadashiva23","series17",0,12/24/2013 22:28:12
+190,"Алексей ","Алексей ","Алферов ","Сергеевич ","","leha99rus@gmail.com","","+79250983039","leha99rus","zx04830483",0,12/25/2013 22:16:17
+192,"Oleg12345","","","","","leftaddr@rambler.ru","","","Oleg12345","Oleg12345",0,01/15/2014 12:53:35
+193,"Андрей","Андрей","Шабунов","Владимирович","","shabunov.a@mail.ru","","","chipdale","chipdale12",0,01/15/2014 17:54:16
+203,"RealInvestor","","","","","real.investor@gmail.com","","","RealInvestor","RealInvestor",0,01/24/2014 12:18:35
+204,"Михаил","Михаил"," Сурков","","","gulshal06@yandex.ru","","+77078393520","gulshal","rudisem06",0,01/26/2014 12:21:55
+205,"Галина","Галина","Каштанова","Викторовна","","galinak@mail.ru","444444","","GalinaK","zaq12wsx",0,01/27/2014 17:30:58
+206,"Юра","Юра","Данилкин","Иванович","","urad@mail.ru","4444444","","UraDanil","zaq12wsx",0,01/27/2014 17:33:21
+207,"Марина","Марина","Степановна","Васильева","","marinav@mail.ru","444444444","","MarinaV","zaq12wsx",0,01/27/2014 17:35:36
+208,"Генадий","Генадий","Иванович","Камейко","","genakam@mail.ru","4747474","","GenaKam","zaq12wsx",0,01/27/2014 17:37:23
+209,"Светлана","Светлана","Константиновна","Круглова","","svetakrug@mail.ru","215896","","SvetaKrug","zaq12wsx",0,01/27/2014 17:39:12
+210,"Дмитрий","Дмитрий","Дмитриевич","Андреев","","dmitrya@mail.ru","987456","","DmitryA","zaq12wsx",0,01/27/2014 17:41:04
+211,"Elena","Elena","Ushakevich","Bronislavovna","Я, трейдер, предпочитаю СМС (плохо слышу)","eushakevich@gmail.com","+375336004873","+375336004873","eushakevich","25more53",0,01/28/2014 21:18:37
+212,"Максим","Максим","","Сергеевич","","maxy89@mail.ru","","","Tamitaki","Swww2222",0,01/30/2014 12:34:35
+213,"Сергей","Сергей","Копылов","Валерьевич","","sergey.korylov@rambler.ru","","","Sergeyk","bakamitai",0,02/04/2014 16:40:48
+214,"Александр","Александр","Дементьев","Семенович","","dementev.aleksandr83@ro.ru","","","Alexdem","ikamusume",0,02/04/2014 16:47:52
+215,"Алексей","Алексей","Куприн","Алексеевич","","kuprin-aleksej@yandex.ru","+79163367701","","Avt775595","Avt775595",0,02/23/2014 16:00:18
+218,"Konservator","Владимир","Моржов","","","vladimirtest@y.ru","","","Konservator5","Etalon01",0,03/03/2014 17:50:39
+219,"Konservator","Сергей","Степанов","","","vladimirtest@cy.ru","","","Konservator10","Etalon01",0,03/04/2014 10:09:30
+220,"Konservator","Андрей","Качалов","","","vladimirtest@cyi.ru","","","Konservator15","Etalon01",0,03/04/2014 10:11:38
+221,"seregadom","","","","","nba_73@mail.ru","","","seregadom","az05061973",0,03/04/2014 21:23:28
+223,"SomeLogin","Ivan","Sergey","","A Bezdenz account","a_bz@mail.org","","","SomeLogin","Investor12345",0,03/07/2014 10:40:25
+224,"Трейдер","Трейдер","Трейдер","Трейдер","","newtrader@mail.ru","","","Newtrader","NfyzDfyz",0,03/11/2014 15:00:44
+225,"Konservator","Konservator","","","","konservator3@mail.ru","","","Konservator3","Etalon01",0,03/17/2014 13:21:48
+226,"Balanced","Balanced","","","","balanced3@mail.ru","","","Balanced3","Etalon01",0,03/17/2014 13:23:46
+227,"Balanced","Balanced","","","","balanced5@mail.ru","","","Balanced5","Etalon01",0,03/17/2014 13:25:06
+228,"Balanced","Balanced","","","","balanced10@mail.ru","","","Balanced10","Etalon01",0,03/17/2014 13:27:03
+229,"Balanced","Balanced","","","","balanced@mail.ru","","","Balanced15","Etalon01",0,03/17/2014 13:28:01
+235,"Boris007","","","","","boryanych@mail.ru","","","Boris007","Boris007",0,03/24/2014 17:48:40
+236,"MasterBlaster","","","","","master@blaster.ru","","","MasterBlaster","MasterBlaster",0,03/24/2014 18:40:34
+237,"HumanFlesh","","","","","humanflesh@mail.com","","","HumanFlesh","HumanFlesh",0,03/24/2014 19:01:09
+238,"UnBacioAncora","","","","","unbacioancora@mail.ru","","","UnBacioAncora","UnBacioAncora",0,03/24/2014 19:11:39
+239,"Endeavour","","","","","endeavour@mail.ru","","","Endeavour","Endeavour",0,03/24/2014 22:07:39
+240,"JohnDeer","","","","","johndeer@gmail.com","","","JohnDeer","JohnDeer",0,03/24/2014 23:57:48
+241,"Василий","Василий","Тихонов","","","vasiliy.tihonov@inbox.lv","","","VasiliyTihon","Shinsekaiyori",0,03/25/2014 22:21:55
+242,"Пётр","Пётр","Хоренко","","","petr.horenko@qip.ru","","","Petrhorek","Sengokubasara",0,03/25/2014 22:48:41
+243,"Gee","Gee","Goords","",,"gee01@gurda.com","",,"GeeGoorda","GeeGoorda",0,03/26/2014 12:31:04
+244,"govno1234","","","",,"govno1234@govno.ru","",,"govno1234","govno1234",0,03/26/2014 15:23:45
+245,"Serg","Serg","Tsykalo","Serg",,"sergeicykalo@yandex.ru","89206922301",,"dolceVita","sergeicykalo",0,03/26/2014 15:24:11
+246,"govno1212","","","",,"govno1212@govno.com","",,"govno1212","govno1212",0,03/26/2014 15:52:21
+247,"MaxRaabe","","","","","maxraabe@gmail.com","","","MaxRaabe","MaxRaabe",0,03/26/2014 18:19:34
+248,"Александр","Александр","Телис","Романович","","krasavshik90@gmail.com","","","krasavshik","9767100m",0,03/27/2014 01:28:34
+249,"Elena","Elena","Ushakevich","Bronislavovna","Trader","eushakevich@hotmail.com","+375336004873","+375336004873","vselenaya","superx12",0,03/27/2014 18:52:42
+250,"Дамир","Дамир","Тимербаев","Фанилевич",,"ienglishstyle@gmail.com","",,"Biomax1","londonmoscow338",0,03/31/2014 17:05:21

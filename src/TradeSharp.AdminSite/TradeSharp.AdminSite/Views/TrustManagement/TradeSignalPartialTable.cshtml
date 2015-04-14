@@ -1,0 +1,195 @@
+﻿@using TradeSharp.Contract.Entity
+@using TradeSharp.SiteAdmin.App_GlobalResources
+@model TradeSharp.SiteAdmin.Models.TradeSignalListModel
+
+@using (Ajax.BeginForm("TradeSignal", "TrustManagement", new AjaxOptions {HttpMethod = "Post"}, new {id = "TableForm", name = "TableForm"}))
+{
+    <table id="content_table">
+        <tr>
+            <th rowspan="3" class="sized">
+                <img src="/images/shared/side_shadowleft.jpg" width="20" class="shadow" alt="" />
+            </th>
+            <th class="topleft"></th>
+            <td id="tbl-border-top">&nbsp;</td>
+            <th class="topright"></th>
+            <th rowspan="3" class="sized">
+                <img src="/images/shared/side_shadowright.jpg" width="20" class="shadow" alt="" /></th>
+        </tr>
+        <tr>
+            <td id="tbl-border-left"></td>
+            <td>
+                <!--  start content_table_inner ...................................................................... START -->
+                <div id="content_table_inner">
+                    <div>
+                        <a href="javascript:void(0);" class="ml-button-3" style="float:none; display:inline; padding:8px;" onclick="showNewItemWindow();">@Resource.TitleAdd</a>
+                        
+                        <span style="float:right">
+                        @Html.LabelFor(x => x.SignallerFilterText) &nbsp;&nbsp;
+                        @Html.TextBoxFor(x => x.SignallerFilterText, new { @class = "login-inp" })
+                        <a id="FiltrateSignaller" href="javascript:void(0);" class="ml-button-3" style="float:none; display:inline; padding:8px;">@Resource.TitleFiltrateSignaller</a>
+                        </span>
+                        
+                    </div>
+                    <br />
+                    <br />
+                    <table id="product_table">
+                        <tr>
+                            <th style="width: 50px; min-width: 50px;" class="table-header-repeat line-left minwidth-1"><span>#</span></th>
+                            <td class="table-header-repeat line-left minwidth-1"><span>@Resource.TitleSignaller</span></td>
+                            <td style="width: 200px; min-width: 100px;" class="table-header-repeat line-left minwidth-1"><span>@Resource.TitleDescription</span></td>
+                            <td style="width: 100px; min-width: 100px;" class="table-header-repeat line-left minwidth-1"><span>@Resource.TitleFixedPrice</span></td>
+                            <td style="width: 200px; min-width: 200px;" class="table-header-repeat line-left minwidth-1"><span>@Resource.TitleAccount / @Resource.TitleCurrency</span></td>
+                            <td style="width: 150px; min-width: 150px;" class="table-header-repeat line-left minwidth-1"><span>@Resource.TitleTradeSignalType</span></td>
+                            <td style="width: 300px; min-width: 300px;" class="table-header-repeat line-left"><span>@Resource.TitleDelete</span></td>
+                        </tr>
+                        @foreach (var item in Model.CurrentPageItems)
+                        {
+                            <tr data-rowId="@item.ID">
+                                <td>
+                                    <a href="javascript:void(0);" class="table-item" data-td="Title" onclick=" showEditWindow(event); ">@item.ID</a>
+                                </td>
+                                <td data-td="User" data-value="@item.User">
+                                    @item.UserLogin
+                                </td>
+                                <td data-td="Comment">
+                                    @item.Comment
+                                </td>
+                                <td data-td="FixedPrice">
+                                    @item.FixedPrice
+                                </td>
+                                <td data-td="AccountId">
+                                    @item.AccountId / @item.Currency
+                                </td>
+                                <td data-td="ServiceType" data-value="@item.ServiceType">
+                                    @((PaidServiceType) item.ServiceType)
+                                </td> 
+                                <td>
+                
+                                    @if (item.СountSubscriber > 0)
+                                    {
+                                        <a href="javascript:void(0);" onclick=" delItem(@item.ID); ">
+                                            <img title="@Resource.ConfirmDellTradeSignal" style="height: 15px;" src="../../images/shared/ico_remove.png" alt="@Resource.TitleDelete"/>
+                                        </a>
+
+                                        <span style="color: red">@Resource.MessageNowSignedSignals @item.СountSubscriber @Resource.ConfirmAllSubscriptionsWillBeDel</span>
+                                    }
+                                    else
+                                    {
+                                        <a href="javascript:void(0);" onclick=" delItem(@item.ID); ">
+                                            <img title="@Resource.ConfirmDellTradeSignal" style="height: 15px;" src="../../images/shared/ico_remove.png" alt="@Resource.TitleDelete"/>
+                                        </a>
+                                    }
+                                </td>                        
+                            </tr>
+                        }  
+                    </table>
+                    <div style="color: #807C7D; vertical-align: middle;">
+                        @Html.HiddenFor(x => x.PageNomber)
+                        &nbsp;
+                        @if (Model.CurrentPageItems.HasPreviousPage)
+                        {
+                            <a id="PagingFirst" data-item="0" href="javascript:void(0);">
+                                <img src="~/images/table/firstPage.png" alt="" /></a>
+                            @Html.Raw("&nbsp;")
+                            <a id="PagingPrev" data-item="@(Model.CurrentPageItems.PageIndex - 1)" href="javascript:void(0);">
+                                <img src="~/images/table/previousPage.png" alt="" /></a>
+                        }
+                        else
+                        {
+                            <img src="~/images/table/paging_far_left.gif" />
+                            @Html.Raw("&nbsp;")
+                            <img src="~/images/table/paging_left.gif" />
+                        }
+                        &nbsp;
+                        @Resource.TitlePage @(Model.CurrentPageItems.PageNumber) @Resource.TitleOf @Model.CurrentPageItems.PageCount
+                        &nbsp;
+                        @if (Model.CurrentPageItems.HasNextPage)
+                        {
+                            <a id="PagingNext" data-item="@(Model.CurrentPageItems.PageIndex + 1)" href="javascript:void(0);">
+                                <img src="~/images/table/nextPage.png" alt="" /></a>
+                            @Html.Raw("&nbsp;")
+                            <a id="PagingLast" data-item="@(Model.CurrentPageItems.PageCount - 1)" href="javascript:void(0);">
+                                <img src="~/images/table/lastPage.png" alt="" /></a>
+                        }
+                        else
+                        {
+                            <img src="~/images/table/paging_right.gif" />
+                            @Html.Raw("&nbsp;")
+                            <img src="~/images/table/paging_far_right.gif" />
+                        }
+
+                        <div style="float: right; vertical-align: middle;">
+                            @Resource.TitleRecordPage
+                            @Html.DropDownListFor(x => x.CurrentPageSize, new SelectList(Model.PageSizeItems),
+                                                  new { @id = "CurrentPageSize", @class = "chzn-select", @style = "width:150px;" })
+                        </div>
+                    </div>
+                </div>
+            </td>
+            <td id="tbl-border-right"></td>         
+        </tr>
+        <tr>
+            <th class="sized bottomleft"></th>
+            <td id="tbl-border-bottom">&nbsp;</td>
+            <th class="sized bottomright"></th>
+        </tr>
+    </table>
+}
+
+<script type="text/javascript">
+    function AsyncSubmitForm() {
+        $("#imgLoading").show(500);
+        $("#TableForm").fadeTo(0, 0.7);
+        $.ajax({
+            url: '@Url.Action("TradeSignal", "TrustManagement")',
+            type: "POST",
+            data: $("#TableForm").serialize(),
+            success: function (data) {
+                $("#imgLoading").hide();
+                $("#TableForm").fadeTo(0, 1);
+                $('#tradeSignalTableContainer').html(data);
+            },
+            error: function (result) {
+                $("#TableForm").fadeTo(0, 1);
+                $("#imgLoading").hide();
+            }
+        });
+    }
+
+    $(document).ready(function () {
+        $("#imgLoading").hide();
+        $("#CurrentPageSize").change(function (e) {
+            e.preventDefault();
+            AsyncSubmitForm();
+        });
+
+        $('a[id^="Paging"]').click(function (e) {
+            var arg = $(this).attr('data-item');
+            var actionParam = $("<input>").attr("type", "hidden").attr("name", "pageUserAction").val("Paging");
+            var argParam = $("<input>").attr("type", "hidden").attr("name", "pageUserArg").val(arg);
+            $("#TableForm").append($(actionParam));
+            $("#TableForm").append($(argParam));
+
+            e.preventDefault();
+            AsyncSubmitForm();
+        });
+
+        $('a#FiltrateSignaller').click(function (e) {
+            e.preventDefault();
+            AsyncSubmitForm();
+        });
+    });
+
+
+    var config = {
+        '.chzn-select': {},
+        '.chzn-select-deselect': { allow_single_deselect: true },
+        '.chzn-select-no-single': { disable_search_threshold: 10 },
+        '.chzn-select-no-results': { no_results_text: '@Resource.MessageNoAccounts' },
+        '.chzn-select-width': { width: "95%" }
+    };
+    for (var selector in config) {
+        $(selector).chosen(config[selector]);
+    }
+    $('.chzn-search').hide();
+</script>

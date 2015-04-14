@@ -1,0 +1,218 @@
+﻿@using TradeSharp.SiteAdmin.App_GlobalResources
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @RenderSection("Header")
+</head>
+<body>
+    <div class="clear">
+        &nbsp;</div>
+    <!-- Start: page-top-outer -->
+    <div id="page-top-outer">
+        <!-- Start: page-top -->
+        <div id="page-top">
+            <!-- start logo -->
+            <div id="logo">
+                <a href="">
+                    <img src="/images/shared/logo.png" width="156" height="40" alt="" /></a>
+            </div>
+            <!-- end logo -->
+            <div class="clear">
+            </div>
+        </div>
+        <!-- End: page-top -->
+    </div>
+    <!-- End: page-top-outer -->
+    <div class="clear">
+        &nbsp;</div>
+    <!--  start nav-outer-repeat................................................................................................. START -->
+    <div class="nav-outer-repeat">
+        <!--  start nav-outer -->
+        <div class="nav-outer">
+            <!-- start nav-right -->
+            <div id="nav-right">
+                <div class="nav-divider">
+                    &nbsp;</div>
+                <div class="showhide-account">
+                    <a href="">@User.Identity.Name</a></div>
+                <div class="nav-divider">
+                    &nbsp;</div>
+                <div class="logout-account">
+                    @Html.ActionLink(Resource.LogOut, "Logout", "User")</div>
+                <div class="clear">
+                    &nbsp;</div>
+            </div>
+            <!-- end nav-right -->
+            
+            <!--  start nav ...................................................................................................... -->
+            @{ var currentAction = (string) ViewContext.Controller.ValueProvider.GetValue("action").RawValue;}
+            
+            @{
+                var currentController = (string) ViewContext.Controller.ValueProvider.GetValue("controller").RawValue;
+                var adminPageActive = currentController == "Admin";
+                var managePageActive = currentController == "Management";
+                var halpPageActive = currentController == "Help";
+                var trustManagementPageActiv = currentController == "TrustManagement";
+            }
+
+            <div class="nav">
+                <div class="table">
+                    <ul class="@if (adminPageActive) {<text>current</text>} else {<text>select</text>}">
+                        <li><a href="#nogo"><b>@Resource.MainMenuAdministration</b><!--[if IE 7]><!--></a><!--<![endif]-->
+                            <!--[if lte IE 6]><table><tr><td><![endif]-->
+                            <div class="select_sub show">
+                                <ul class="sub">
+                                    <li>@if (currentAction == "ServerUnit")
+                                            {<text><a class="sub_current" href="javascript:void(0);">@Resource.MainMenuServerStatus</a></text>}
+                                        else    
+                                            {@Html.ActionLink(Resource.MainMenuServerStatus, "ServerUnit", "Admin")}
+                                    </li>
+                                    <li>@if (currentAction == "TerminalUsers")
+                                        {<text><a class="sub_current" href="javascript:void(0);">@Resource.MainMenuUsers</a></text>}
+                                        else    
+                                        {@Html.ActionLink(Resource.MainMenuUsers, "TerminalUsers", "Admin")}
+                                    </li>
+                                    
+                                    <li>@if (currentAction == "UpdateManager")
+                                        {<text><a class="sub_current" href="javascript:void(0);">@Resource.MainMenuUpdateManager</a></text>}
+                                        else    
+                                        {@Html.ActionLink(Resource.MainMenuUpdateManager, "UpdateManager", "Admin")}
+                                    </li>
+                                </ul>
+                            </div>
+                            <!--[if lte IE 6]></td></tr></table></a><![endif]-->
+                        </li>
+                    </ul>
+                    <div class="nav-divider">
+                        &nbsp;</div>
+                    <ul class="@if (managePageActive) {<text>current</text>} else {<text>select</text>}">
+                        <li><a href="#nogo"><b>@Resource.MainMenuManagement</b><!--[if IE 7]><!--></a><!--<![endif]-->
+                            <!--[if lte IE 6]><table><tr><td><![endif]-->
+                            <div class="select_sub show">
+                                <ul class="sub">
+                                    <li>@if (currentAction == "Accounts")
+                                        {<text><a class="sub_current" href="javascript:void(0);">@Resource.MainMenuAccounts</a></text>}
+                                        else    
+                                        {@Html.ActionLink(Resource.MainMenuAccounts, "Accounts", "Management")}
+                                    </li>
+                                    <li>@if (currentAction == "AccountGroups")
+                                        {<text><a class="sub_current" href="javascript:void(0);">@Resource.MainMenuAccountGroups</a></text>}
+                                        else    
+                                        {@Html.ActionLink(Resource.MainMenuAccountGroups, "AccountGroups", "Management")}
+                                    </li>
+                                    <li>@if (currentAction == "PositionList")
+                                        {<text><a class="sub_current" href="javascript:void(0);">@Resource.MainMenuPositionList</a></text>}
+                                        else    
+                                        {@Html.ActionLink(Resource.MainMenuPositionList, "PositionList", "Management")}
+                                    </li>
+                                    <li>@if (currentAction == "UserList")
+                                        {<text><a class="sub_current" href="javascript:void(0);">@Resource.MainMenuUsers</a></text>}
+                                        else    
+                                        {@Html.ActionLink(Resource.MainMenuUsers, "UserList", "Management")}
+                                    </li>
+                                    <li>@if (currentAction == "PaymentTransfer")
+                                        {<text><a class="sub_current" href="javascript:void(0);">@Resource.MainMenuPaumentTransfer</a></text>}
+                                        else    
+                                        {@Html.ActionLink(Resource.MainMenuPaumentTransfer, "PaymentTransfer", "Management")}
+                                    </li>
+                                    <li>@if (currentAction == "MetadataManagement")
+                                        {<text><a class="sub_current" href="javascript:void(0);">@Resource.MainMenuMetadata</a></text>}
+                                        else    
+                                        {@Html.ActionLink(Resource.MainMenuMetadata, "MetadataManagement", "Management")}
+                                    </li>
+                                </ul>
+                            </div>
+                            <!--[if lte IE 6]></td></tr></table></a><![endif]-->
+                        </li>
+                    </ul>
+                    <div class="nav-divider">
+                        &nbsp;</div>
+                    <ul class="@if (trustManagementPageActiv){<text>current</text>} else {<text>select</text>}">
+                        <li><a href="#nogo"><b>@Resource.MainMenuTrustManagement</b><!--[if IE 7]><!--></a><!--<![endif]-->
+                            <!--[if lte IE 6]><table><tr><td><![endif]-->
+                            <div class="select_sub show">
+                                <ul class="sub">
+                                    <li>@if (currentAction == "TopPortfolios")
+                                        {<text><a class="sub_current" href="javascript:void(0);">@Resource.MainMenuTopPortfalio</a></text>}
+                                        else    
+                                        {@Html.ActionLink(Resource.MainMenuTopPortfalio, "TopPortfolios", "TrustManagement")}
+                                    </li>
+                                    <li>@if (currentAction == "Pamm")
+                                        {<text><a class="sub_current" href="javascript:void(0);">@Resource.MainMenuPamm</a></text>}
+                                        else    
+                                        {@Html.ActionLink(Resource.MainMenuPamm, "Pamm", "TrustManagement")}
+                                    </li>
+                                    <li>@if (currentAction == "TradeSignal")
+                                        {<text><a class="sub_current" href="javascript:void(0);">@Resource.MainMenuTradeSignal</a></text>}
+                                        else    
+                                        {@Html.ActionLink(Resource.MainMenuTradeSignal, "TradeSignal", "TrustManagement")}
+                                    </li>
+                                </ul>
+                            </div>
+                            <!--[if lte IE 6]></td></tr></table></a><![endif]-->
+                        </li>
+                    </ul>
+                    <div class="nav-divider">
+                        &nbsp;</div>
+                    <ul class="@if (halpPageActive){<text>current</text>} else {<text>select</text>}">
+                        <li><a href="#nogo"><b>@Resource.MainMenuOptions</b><!--[if IE 7]><!--></a><!--<![endif]-->
+                            <!--[if lte IE 6]><table><tr><td><![endif]-->
+                            <div class="select_sub show">
+                                <ul class="sub">
+                                    <li>@if (currentAction == "BrokerReport")
+                                        {<text><a class="sub_current" href="javascript:void(0);">@Resource.MainMenuBrokerReport</a></text>}
+                                        else    
+                                        {@Html.ActionLink(Resource.MainMenuBrokerReport, "BrokerReport", "Help")}
+                                    </li>
+                                    <li>@if (currentAction == "AdminSiteHelp" || currentAction == "NavigationDiagram")
+                                        {<text><a class="sub_current" href="javascript:void(0);">@Resource.MainMenuHelp</a></text>}
+                                        else    
+                                        {@Html.ActionLink(Resource.MainMenuHelp, "AdminSiteHelp", "Help")}
+                                    </li>
+                                    <li>@if (currentAction == "Feedback")
+                                        {<text><a class="sub_current" href="javascript:void(0);">@Resource.MainMenuFeedBack</a></text>}
+                                        else    
+                                        {@Html.ActionLink(Resource.MainMenuFeedBack, "Feedback", "Help")}
+                                    </li>
+                                </ul>
+                            </div>
+                            <!--[if lte IE 6]></td></tr></table></a><![endif]-->
+                        </li>
+                    </ul>
+                    <div class="clear">
+                    </div>
+                </div>
+                <div class="clear">
+                </div>
+            </div>
+            <!--  start nav -->
+            
+
+        </div>
+        <div class="clear">
+        </div>
+        <!--  start nav-outer -->
+    </div>
+    <!--  start nav-outer-repeat................................................... END -->
+    <div class="clear">
+    </div>
+ 
+    @RenderBody()
+
+
+    <div class="clear">
+        &nbsp;</div>
+    <!-- start footer -->
+    <div id="footer">
+        <!--  start footer-left -->
+        <div id="footer-left">
+            TRADE# &copy; All rights reserved.</div>
+        <!--  end footer-left -->
+        <div class="clear">
+            &nbsp;</div>
+    </div>
+    <!-- end footer -->
+</body>
+</html>

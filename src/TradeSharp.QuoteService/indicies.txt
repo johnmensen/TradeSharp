@@ -1,0 +1,4 @@
+﻿<indicies>
+    <MultiplicativeIndex ticker="USDX" multiplier="50.14348112" 
+	  formula="eurusd -0.576 usdjpy 0.136 gbpusd -0.119 usdcad 0.091 usdchf 0.036" />
+</indicies>

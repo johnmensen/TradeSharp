@@ -1,0 +1,154 @@
+﻿@{
+    ViewBag.Title = Resource.PageTitleBaseActive;
+    Layout = "~/Views/Pages/_PageLayout.cshtml";
+}
+
+@using TradeSharp.SiteAdmin.App_GlobalResources
+@model TradeSharp.Linq.COMMODITY
+
+@section Header {
+    <link rel="stylesheet" href="/css/screen.css" type="text/css" media="screen" title="default" />
+    <link rel="stylesheet" href="/css/button.css" type="text/css" media="screen" title="default" />
+    
+    <!--  jquery core -->
+    <script src="/js/jquery_1_10_3/jquery-1.9.1.js" type="text/javascript"></script>
+    <script src="~/js/jquery_1_10_3/jquery-ui-1.10.3.custom.min.js" type="text/javascript"></script>
+    <script src="~/js/uiscripts.js" type="text/javascript"></script>
+    <link href="~/css/jquery_1_10_3_Theme/jquery-ui-1.10.3.custom.min.css" rel="stylesheet" />   
+    <script src="@Url.Content("~/js/jquery_1_10_3/jquery.unobtrusive-ajax.min.js")" type="text/javascript"></script>
+    
+    <script src="~/js/chosen.jquery.min.js" type="text/javascript"></script>
+    
+    <!--[if IE]>
+        <link rel="stylesheet" media="all" type="text/css" href="/css/pro_dropline_ie.css" />
+    <![endif]-->
+}
+
+    <!-- Заполнение таблицы -->
+<script type="text/javascript">
+    function refreshTable() {
+        $('#progress').css("display", "block");
+        var filterText = encodeURIComponent($('#filterText').val());
+        $.get('@Url.Action("ListBaseActive", "Management")' + '?filter=' + filterText, function (data) {
+            $("#content_table_inner").replaceWith(data);
+            $('#progress').css("display", "none");
+        });
+    }
+    function getSender(e) { return (e && e.target) || (window.event && window.event.srcElement); }
+    
+    function getUrlEncodedRowValues(e, editFieldIdArray) {
+        var senderItem = $(getSender(e));
+        var $row = senderItem.closest('tr');
+        var $columns = $row.find('td');
+
+        for (var i = 0; i < $columns.length; i++) {
+            var editField = $('#' + editFieldIdArray[i]);
+            if (!editField) continue;
+            editField.val($columns[i].innerText);
+        }
+
+        // запретить редактирование поля - Название
+        $("#editFieldTitle").prop("disabled", true);
+
+        letDivBeSticked('editDiv', $row);
+    }
+    
+    function onNewActivePressed() {
+        // позиционировать окно посередине видимой части экрана
+        letDivFloat('editDiv');
+        // очистить поля ввода
+        $('#editDiv').find('input').val('');
+        // разрешить редактирование поля - Название
+        $("#editFieldTitle").prop("disabled", false);
+
+    }
+    
+    function postActiveChangesOnServer() {
+        var titleUncoded = $('#editFieldTitle').val();
+        var actTitle = encodeURIComponent(titleUncoded);
+        var actDescr = encodeURIComponent($('#editFieldDescription').val());
+        var actCode = encodeURIComponent($('#editFieldCode').val());
+        $('#editDiv').css('display', 'none');
+
+        var serverUrl = '@Url.Action("EditActive", "Management")';
+            var shouldEdit = $('#editFieldTitle').attr('disabled');
+           if (!shouldEdit) {
+               if (!confirm('@Resource.ConfirmNewBaseActive  "' + titleUncoded + '". @Resource.ConfirmContinue'))
+                    return;
+                serverUrl = '@Url.Action("CreateActive", "Management")';
+            }
+
+            $.get(serverUrl + '?title=' + actTitle +
+                '&description=' + actDescr + '&code=' + actCode, function (data) {
+                    if (data.status)
+                        refreshTable();
+                    else
+                        showModalDialog('@Resource.ErrorMessage', '<p>' + data.errorString + '</p>');
+                });
+            }
+</script>
+
+<!-- start content-outer .....................START -->
+<div id="content-outer">
+    <!-- start content -->
+    <div id="content">
+        <!--  start page-heading -->
+        
+        <div id="page-heading">
+            <h1>@Resource.TitleBaseActive</h1>
+        </div>
+        
+        <!-- Всплывающие окошки диалогов -->
+        <div id="dialog-modal" title="Empty" style="display: none">
+        </div>
+        
+        <span>
+            @Resource.TitleFilterByName&nbsp;&nbsp;<input type="text" value="" id="filterText" /> &nbsp;&nbsp;
+            <a href="javascript:void(0);" class="ml-button-3" style="float:none; display:inline; padding:8px;" onclick="refreshTable()">@Resource.TitleFiltrate</a>
+        </span>
+        
+        <br />
+        <div id="content_table_inner">
+        </div>
+        
+        <!-- Таблица, описанная в BaseActiveList.cshtml и зыполняемая jQuery -->
+        <div id="progress" style="display: none;">
+            <img src="../../images/shared/loading.gif" alt="loader" />
+        </div>
+        
+        <script>
+            refreshTable();
+        </script>
+        
+        <!-- Кнопка добавления -->
+        <a href="javascript:void(0);" onclick="onNewActivePressed()">
+            <img src="../../images/shared/ico_add.png" alt="@Resource.TitleBaseActiveNew"/>
+        </a>
+        
+        <!-- "Окно" редактирования элемента таблицы -->
+        <div id="editDiv" class="item_edit_div">
+            <table>
+                <tr>
+                    <td>@Resource.TitleName</td>
+                    <td><input type="text" style="width:70px" id="editFieldTitle" disabled="disabled" /></td>
+                </tr>
+                <tr>
+                    <td>@Resource.TitleDescription</td>
+                    <td><input type="text" style="width:200px" id="editFieldDescription"/></td>
+                </tr>
+                <tr>
+                    <td>@Resource.TitleCode</td>
+                    <td><input type="text" style="width:70px" id="editFieldCode"/></td>
+                </tr>
+            </table>
+            <br />
+            <a href="javascript:void(0);" class="ml-button-3" style="float:none; display:inline; padding:8px;" onclick="postActiveChangesOnServer()">@Resource.TitleAccept</a>
+            &nbsp;&nbsp;
+            <a href="javascript:void(0);" class="ml-button-3" style="float:none; display:inline; padding:8px;" onclick="$('#editDiv').css('display', 'none')">@Resource.TitleCancel</a>
+        </div>
+    
+        <!--  end content -->
+        <div class="clear">&nbsp;</div>
+    </div>
+</div>
+<!--  end content-outer........................................................END -->

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e8ec2839cb834a708573f76c4c955937" Name="Diagram1">
+        <EntityTypeShape EntityType="TradeSharp.ACCOUNT" Width="1.5" PointX="3" PointY="26.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TradeSharp.ACCOUNT_GROUP" Width="1.5" PointX="0.75" PointY="22.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TradeSharp.ACCOUNT_SHARE" Width="1.5" PointX="5.25" PointY="25.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TradeSharp.ACCOUNT_SHARE_HISTORY" Width="1.5" PointX="8.25" PointY="28" IsExpanded="true" />
+        <EntityTypeShape EntityType="TradeSharp.BALANCE_CHANGE" Width="1.5" PointX="5.25" PointY="34.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="TradeSharp.BROKER_ORDER" Width="1.5" PointX="8.25" PointY="22" IsExpanded="true" />
+        <EntityTypeShape EntityType="TradeSharp.BROKER_RESPONSE" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TradeSharp.CHANNEL" Width="1.5" PointX="1.5" PointY="19.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TradeSharp.COMMODITY" Width="1.5" PointX="0.75" PointY="28" IsExpanded="true" />
+        <EntityTypeShape EntityType="TradeSharp.DEALER" Width="1.5" PointX="6" PointY="17.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TradeSharp.DEALER_GROUP" Width="1.5" PointX="11.25" PointY="14.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TradeSharp.DEALER_PARAMETER" Width="1.5" PointX="8.25" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TradeSharp.ENGINE_METADATA" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TradeSharp.FILE" Width="1.5" PointX="6" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TradeSharp.LOT_BY_GROUP" Width="1.5" PointX="8.25" PointY="18.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TradeSharp.MARKUP_BY_GROUP" Width="1.5" PointX="11.25" PointY="18.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="TradeSharp.ORDER_BILL" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TradeSharp.PAYMENT_SYSTEM_TRANSFER" Width="1.5" PointX="15.75" PointY="33.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TradeSharp.PENDING_ORDER" Width="1.5" PointX="11.25" PointY="26.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TradeSharp.PENDING_ORDER_CLOSED" Width="1.5" PointX="10.25" PointY="33.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TradeSharp.PLATFORM_USER" Width="1.5" PointX="3" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TradeSharp.PLATFORM_USER_ACCOUNT" Width="1.5" PointX="5.25" PointY="31.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TradeSharp.POSITION" Width="1.5" PointX="18.5" PointY="33.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="TradeSharp.POSITION_CLOSED" Width="1.5" PointX="16.5" PointY="26.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TradeSharp.POSITION_MARKUP" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TradeSharp.SchemaInfo" Width="1.5" PointX="4.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TradeSharp.SERVICE" Width="1.5" PointX="11.25" PointY="21.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TradeSharp.SERVICE_RATE" Width="1.5" PointX="13.5" PointY="22.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TradeSharp.SPOT" Width="1.5" PointX="6" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TradeSharp.SUBSCRIPTION" Width="1.5" PointX="13.5" PointY="19.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TradeSharp.SUBSCRIPTION_SIGNAL" Width="1.5" PointX="15.75" PointY="21.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TradeSharp.TOP_PORTFOLIO" Width="1.5" PointX="5.25" PointY="20.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TradeSharp.TRANSFER" Width="1.5" PointX="7.5" PointY="34.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TradeSharp.USER_EVENT" Width="1.5" PointX="13.25" PointY="34" IsExpanded="true" />
+        <EntityTypeShape EntityType="TradeSharp.USER_INFO" Width="1.5" PointX="8.25" PointY="14" IsExpanded="true" />
+        <EntityTypeShape EntityType="TradeSharp.USER_PAYMENT_SYSTEM" Width="1.5" PointX="13.5" PointY="38.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TradeSharp.USER_TOP_PORTFOLIO" Width="1.5" PointX="13.5" PointY="25.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="TradeSharp.WALLET" Width="1.5" PointX="6" PointY="28.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TradeSharp.SUBSCRIPTION_V" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="TradeSharp.FK__ACCOUNT__Account__58D1301D" ManuallyRouted="false" />
+        <AssociationConnector Association="TradeSharp.FK__ACCOUNT__Currenc__57DD0BE4" ManuallyRouted="false" />
+        <AssociationConnector Association="TradeSharp.FK__BALANCE_C__Accou__6EC0713C" ManuallyRouted="false" />
+        <AssociationConnector Association="TradeSharp.FK__BROKER_OR__Accou__5A846E65" ManuallyRouted="false" />
+        <AssociationConnector Association="TradeSharp.FK__PENDING_O__Accou__5BAD9CC8" ManuallyRouted="false" />
+        <AssociationConnector Association="TradeSharp.FK__PENDING_O__Accou__756D6ECB" ManuallyRouted="false" />
+        <AssociationConnector Association="TradeSharp.FK__PLATFORM___Accou__11158940" ManuallyRouted="false" />
+        <AssociationConnector Association="TradeSharp.FK__POSITION___Accou__6AEFE058" ManuallyRouted="false" />
+        <AssociationConnector Association="TradeSharp.FK__POSITION__Accoun__662B2B3B" ManuallyRouted="false" />
+        <AssociationConnector Association="TradeSharp.FK_ACCOUNT_SHARE_ACCOUNT" ManuallyRouted="false" />
+        <AssociationConnector Association="TradeSharp.FK_SERVICE_ACCOUNT" ManuallyRouted="false" />
+        <AssociationConnector Association="TradeSharp.FK_SUBSCRIPTION_SIGNAL_ACCOUNT" ManuallyRouted="false" />
+        <AssociationConnector Association="TradeSharp.FK_TOP_PORTFOLIO_ACCOUNT" ManuallyRouted="false" />
+        <AssociationConnector Association="TradeSharp.FK_USER_EVENT_ACCOUNT" ManuallyRouted="false" />
+        <AssociationConnector Association="TradeSharp.FK_USER_TOP_PORTFOLIO_ACCOUNT" ManuallyRouted="false" />
+        <AssociationConnector Association="TradeSharp.FkACCOUNT_SHARE_HISTORYAccount" ManuallyRouted="false" />
+        <AssociationConnector Association="TradeSharp.FK__DEALER_GR__Accou__2F9A1060" ManuallyRouted="false" />
+        <AssociationConnector Association="TradeSharp.FK__LOT_BY_GR__Group__503BEA1C" ManuallyRouted="false" />
+        <AssociationConnector Association="TradeSharp.FK__MARKUP_BY__Group__30592A6F" ManuallyRouted="false" />
+        <AssociationConnector Association="TradeSharp.FK_ACCOUNT_SHARE_PLATFORM_USER" ManuallyRouted="false" />
+        <AssociationConnector Association="TradeSharp.FkACCOUNT_SHARE_HISTORYUser" ManuallyRouted="false" />
+        <AssociationConnector Association="TradeSharp.FK_TRANSFER_BALANCE_CHANGE" ManuallyRouted="false" />
+        <AssociationConnector Association="TradeSharp.FK__BROKER_OR__Deale__59904A2C" ManuallyRouted="false" />
+        <AssociationConnector Association="TradeSharp.FK__BROKER_OR__Ticke__589C25F3" ManuallyRouted="false" />
+        <AssociationConnector Association="TradeSharp.FK_PAYMENT_SYSTEM_TRANSFER_COMMODITY" ManuallyRouted="false" />
+        <AssociationConnector Association="TradeSharp.FK_SERVICE_COMMODITY" ManuallyRouted="false" />
+        <AssociationConnector Association="TradeSharp.FK_WALLET_COMMODITY" ManuallyRouted="false" />
+        <AssociationConnector Association="TradeSharp.FK__DEALER_GR__Deale__2EA5EC27" ManuallyRouted="false" />
+        <AssociationConnector Association="TradeSharp.FK__DEALER_PA__Deale__29AC2CE0" ManuallyRouted="false" />
+        <AssociationConnector Association="TradeSharp.FK_About" ManuallyRouted="false" />
+        <AssociationConnector Association="TradeSharp.FK_AvatarBig" ManuallyRouted="false" />
+        <AssociationConnector Association="TradeSharp.FK_AvatarSmall" ManuallyRouted="false" />
+        <AssociationConnector Association="TradeSharp.FK__LOT_BY_GRO__Spot__51300E55" ManuallyRouted="false" />
+        <AssociationConnector Association="TradeSharp.FK__MARKUP_BY___Spot__2F650636" ManuallyRouted="false" />
+        <AssociationConnector Association="TradeSharp.FK_PAYMENT_SYSTEM_TRANSFER_TRANSFER" ManuallyRouted="false" />
+        <AssociationConnector Association="TradeSharp.FK_PAYMENT_SYSTEM_TRANSFER_USER_PAYMENT_SYSTEM" ManuallyRouted="false" />
+        <AssociationConnector Association="TradeSharp.FK__PENDING_O__Symbo__5CA1C101" ManuallyRouted="false" />
+        <AssociationConnector Association="TradeSharp.FK__POSITION___Pendi__6BE40491" ManuallyRouted="false" />
+        <AssociationConnector Association="TradeSharp.FK__PENDING_O__Posit__7849DB76" ManuallyRouted="false" />
+        <AssociationConnector Association="TradeSharp.FK__PENDING_O__Symbo__76619304" ManuallyRouted="false" />
+        <AssociationConnector Association="TradeSharp.FK__POSITION__Pendin__793DFFAF" ManuallyRouted="false" />
+        <AssociationConnector Association="TradeSharp.FK__PLATFORM___Platf__10216507" ManuallyRouted="false" />
+        <AssociationConnector Association="TradeSharp.FK_SERVICE_PLATFORM_USER" ManuallyRouted="false" />
+        <AssociationConnector Association="TradeSharp.FK_SUBSCRIPTION_PLATFORM_USER" ManuallyRouted="false" />
+        <AssociationConnector Association="TradeSharp.FK_TRANSFER_PLATFORM_USER" ManuallyRouted="false" />
+        <AssociationConnector Association="TradeSharp.FK_USER_EVENT_PLATFORM_USER" ManuallyRouted="false" />
+        <AssociationConnector Association="TradeSharp.FK_USER_INFO_PLATFORM_USER" ManuallyRouted="false" />
+        <AssociationConnector Association="TradeSharp.FK_USER_PAYMENT_SYSTEM_PLATFORM_USER" ManuallyRouted="false" />
+        <AssociationConnector Association="TradeSharp.FK_USER_PORTFOLIO" ManuallyRouted="false" />
+        <AssociationConnector Association="TradeSharp.FK_USER_TOP_PORTFOLIO_PLATFORM_USER" ManuallyRouted="false" />
+        <AssociationConnector Association="TradeSharp.FK_WALLET_PLATFORM_USER" ManuallyRouted="false" />
+        <AssociationConnector Association="TradeSharp.FK__POSITION__Symbol__65370702" ManuallyRouted="false" />
+        <AssociationConnector Association="TradeSharp.FK__POSITION___Symbo__69FBBC1F" ManuallyRouted="false" />
+        <AssociationConnector Association="TradeSharp.FK_SERVICE_RATE_SERVICE" ManuallyRouted="false" />
+        <AssociationConnector Association="TradeSharp.FK_SUBSCRIPTION_SERVICE" ManuallyRouted="false" />
+        <AssociationConnector Association="TradeSharp.FK_SUBSCRIPTION_SIGNAL" ManuallyRouted="false" />
+        <AssociationConnector Association="TradeSharp.FK_USER_TOP_PORTFOLIO_TOP_PORTFOLIO" ManuallyRouted="false" />
+        <AssociationConnector Association="TradeSharp.CHANNEL_GROUP" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

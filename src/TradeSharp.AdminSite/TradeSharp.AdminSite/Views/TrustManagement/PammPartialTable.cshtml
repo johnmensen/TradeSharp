@@ -1,0 +1,164 @@
+﻿@using TradeSharp.SiteAdmin.App_GlobalResources
+@using TradeSharp.SiteAdmin.Controllers
+@using TradeSharp.SiteAdmin.Models
+@using TradeSharp.SiteAdmin.Models.CommonClass
+@model PammModel
+
+<script src="~/js/PammPartialTablePageSettings.js"></script>
+
+<img id="imgLoading" class="ui-progressbar" style="width: 64px; height: 64px; background-position:center; position: fixed" src="~/images/table/loading.gif" />
+@using (Ajax.BeginForm("Pamm", "TrustManagement", new AjaxOptions { HttpMethod = "Post" }, new { id = "TableForm", name = "TableForm" }))
+{
+    @Html.HiddenFor(x => x.PageNomber)   
+    
+    if (!string.IsNullOrEmpty(TrustManagementController.ResultMessage))
+    {
+        <div id="dialogResult" title="@Resource.TitleHeaderDialogResult">
+            <p>@TrustManagementController.ResultMessage</p>
+        </div>
+        @(TrustManagementController.ResultMessage = string.Empty)
+    }
+    <table id="content_table">
+        <tr>
+            <th rowspan="3" class="sized">
+                <img src="/images/shared/side_shadowleft.jpg" width="20" class="shadow" alt="" /></th>
+            <th class="topleft"></th>
+            <td id="tbl-border-top">&nbsp;</td>
+            <th class="topright"></th>
+            <th rowspan="3" class="sized">
+                <img src="/images/shared/side_shadowright.jpg" width="20" class="shadow" alt="" /></th>
+        </tr>
+        <tr>
+            <td id="tbl-border-left"></td>
+            <td>
+                <!--  start content_table_inner ...................................................................... START -->
+                <div id="content_table_inner">
+                    <div style="">
+                        @Html.CheckBoxFor(x => x.AnyInvestor) @Html.LabelFor(x => x.AnyInvestor, new {@style = "color: #333;"})                        
+                        <br/><br/>
+                        <table id="product_table">
+                            <tr>
+                                <th  class="table-header-repeat line-left minwidth-1">
+                                    <span>@Resource.TitleAccount</span>
+                                </th>
+                                <th  class="table-header-repeat line-left minwidth-1">
+                                    <span>@Resource.TitleBalance</span>
+                                </th>
+                                <th class="table-header-repeat line-left minwidth-1">
+                                    <span>@Resource.TitleInvestorCount</span>
+                                </th>
+                                <td class="table-header-repeat line-left"><span>@Resource.TitleAccountHistory</span></td>
+                            </tr>
+                            @foreach (var item in Model.CurrentPageItems)
+                            {
+                                <tr >
+                                    <td>@Html.ActionLink(item.ID.ToString(), "PammDetails", new { id = item.ID }, new { @class = "table-item" })</td>
+                                    <td>@item.Balance @item.Currency</td>
+                                    <td>@item.OwnerCount</td>
+                                    <td>@Html.ActionLink(Resource.TitleAccountHistoryChart + " " + @item.ID.ToString(), 
+                                                         "PammHistory", 
+                                                         new { id = item.ID }, 
+                                                         new { @class = "table-item", @target="_blank" })
+                                    </td>
+                                </tr>
+                            }
+                        </table>
+                        <div style="color: #807C7D; vertical-align:middle;">
+                            &nbsp;
+                            @if (Model.CurrentPageItems.HasPreviousPage)
+                            {
+                                <a id="PagingFirst" data-item="0" href="/TrustManagement/Pamm">
+                                    <img src="~/images/table/firstPage.png" alt=""/></a>
+                                @Html.Raw("&nbsp;")
+                                <a id="PagingPrev" data-item="@(Model.CurrentPageItems.PageIndex - 1)" href="/TrustManagement/Pamm">
+                                    <img src="~/images/table/previousPage.png" alt=""/></a> 
+                            }
+                            else
+                            {
+                                <img src="~/images/table/paging_far_left.gif" />
+                                @Html.Raw("&nbsp;")
+                                <img src="~/images/table/paging_left.gif" />
+                            }
+                            &nbsp;
+                            @Resource.TitlePage @(Model.CurrentPageItems.PageNumber) @Resource.TitleOf @Model.CurrentPageItems.PageCount
+                            &nbsp;
+                            @if (Model.CurrentPageItems.HasNextPage)
+                            { 
+                                <a id="PagingNext" data-item="@(Model.CurrentPageItems.PageIndex + 1)" href="/TrustManagement/Pamm">
+                                    <img src="~/images/table/nextPage.png" alt=""/></a>
+                                @Html.Raw("&nbsp;")
+                                <a id="PagingLast" data-item="@(Model.CurrentPageItems.PageCount - 1)" href="/TrustManagement/Pamm">
+                                    <img src="~/images/table/lastPage.png" alt=""/></a>
+                            }
+                            else
+                            {
+                                <img src="~/images/table/paging_right.gif" />
+                                @Html.Raw("&nbsp;")
+                                <img src="~/images/table/paging_far_right.gif" />
+                            }
+                            
+                            <div style="float: right;vertical-align:middle;">
+                                @Resource.TitleRecordPage
+                                @Html.DropDownListFor(x => x.CurrentPageSize, new SelectList(Model.PageSizeItems),
+                                                      new { @id = Model.GetPropertyName(x => x.CurrentPageSize), @class = "chzn-select", @style = "width:150px;" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <!--  end content_table_inner ............................................END  -->
+            </td>
+            <td id="tbl-border-right"></td>
+        </tr>
+        <tr>
+            <th class="sized bottomleft"></th>
+            <td id="tbl-border-bottom">&nbsp;</td>
+            <th class="sized bottomright"></th>
+        </tr>
+    </table>
+}@* Закрытие формы*@
+    
+
+<!-- Всплывающие окошки диалогов -->
+<div id="dialog-modal" title="Empty" style="display: none">
+</div>
+
+<script type="text/javascript">   
+    $(document).ready(function () {
+        $("#imgLoading").hide();
+        
+        $("#@Model.GetPropertyName(x => x.CurrentPageSize)").change(function (e) {
+            e.preventDefault ? e.preventDefault() : (e.returnValue = false);       
+            var arg = $("#@Model.GetPropertyName(x => x.CurrentPageSize)").val();
+            SetSettings(window.pageSizeName, arg);
+            window.AsyncSubmitForm();
+        });
+        
+        $("#@Model.GetPropertyName(x => x.AnyInvestor)").change(function (e) {
+            e.preventDefault ? e.preventDefault() : (e.returnValue = false);
+            var arg = $("#@Model.GetPropertyName(x => x.AnyInvestor)").prop('checked');
+            SetSettings(window.anyInvestorName, arg);
+            window.AsyncSubmitForm();
+        });
+        
+        $('a[id^="Paging"]').click(function (e) { 
+            e.preventDefault ? e.preventDefault() : (e.returnValue = false);
+            var arg = $(this).attr('data-item');
+            $("#@Model.GetPropertyName(x => x.PageNomber)").val(arg);
+            SetSettings(window.pageNumberName, arg);
+            window.AsyncSubmitForm();
+        });
+    });
+    
+    var config = {
+        '.chzn-select': {},
+        '.chzn-select-deselect': { allow_single_deselect: true },
+        '.chzn-select-no-single': { disable_search_threshold: 10 },
+        '.chzn-select-no-results': { no_results_text: '@Resource.MessageNoAccounts' },
+        '.chzn-select-width': { width: "95%" }
+    };
+    for (var selector in config) {
+        $(selector).chosen(config[selector]);
+    }
+    $('.chzn-search').hide();
+</script>

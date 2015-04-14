@@ -1,0 +1,105 @@
+﻿@using TradeSharp.SiteAdmin.App_GlobalResources
+@using TradeSharp.Contract.Entity
+@using TradeSharp.Util
+@model TradeSharp.SiteAdmin.Models.AccountOwnerModel
+
+<div class="simpleTableContainer">
+    <table id="TableForm" class="tableWithoutBorders">
+        <tr>
+            <th>@Resource.TitleUser
+            </th>
+            <th>@Resource.TitleAccount - @Resource.TitleRights             
+            </th>
+        </tr>
+        <tr>
+            <td style="border-width: 0">
+                @Html.DropDownListFor(x => x.CurrentOwner.UserId, new SelectList((System.Collections.IEnumerable)ViewBag.listOwners, "Value", "Text"),
+                                      new { @class = "chzn-select", @style = "width:220px;", @onchange = "getAccountOwnerModelData(null, $(this).val());" })
+            </td>
+            <td style="border-width: 0">
+                @Html.DropDownListFor(x => x.CurrentAccount.ID, new SelectList((System.Collections.IEnumerable)ViewBag.listAccounts, "Value", "Text"),
+                                      new { @class = "chzn-select", @style = "width:220px;", @onchange = "getAccountOwnerModelData($(this).val(), null);" })
+            </td>
+        </tr>
+        @if (@Model.ForUser != null)
+        {
+            <tr>
+                <td>
+                    <span>@Model.ForUser.Item1.Title</span><br />
+                </td>
+                <td>
+
+                    @foreach (var item in Model.ForUser.Item2)
+                    {
+                        <a class="table-item" onclick=" getAccountOwnerModelData(@item.Item1.ID, null); " href="javascript:void(0);">@Resource.TitleAccount @item.Item1.ID.ToString() -        
+                                    @switch ((int)item.Item2)
+                                    {
+                                        case 0:
+                                            <span style="color: #008000; font-size: 12px; font-weight: bold">
+                                                @(EnumFriendlyName<UserAccountRights>.GetString(item.Item2))
+                                            </span>
+                                        <br />
+                                            break;
+                                        case 1:
+                                            <span style="color: #8b0000; font-size: 12px; font-weight: bold">
+                                                @(EnumFriendlyName<UserAccountRights>.GetString(item.Item2))
+                                            </span>
+                                        <br />
+                                            break;
+                                        default:
+                                            <span style="color: #a9a9a9; font-size: 12px; font-weight: bold">
+                                                @(EnumFriendlyName<UserAccountRights>.GetString(item.Item2))
+                                            </span>
+                                        <br />
+                                            break;
+                                    }
+                        </a>
+                        <a style="color: #ff0000; font-size: 12px; font-weight: bold; float: right" onclick=" if (confirm('Удалить?')) delItem(@item.Item1.ID, @Model.ForUser.Item1.UserId, 2); " href="javascript:void(0);">@Resource.TitleDelete</a>
+                        <br />
+                    }
+                    <a style="color: #2e8b57; font-size: 12px; font-weight: bold; float: right" href="javascript:void(0);" onclick=" showNewItemWindow() ">@Resource.TitleAddAccount</a>
+                </td>
+            </tr>
+        }
+        else
+        {
+            <tr>
+                <td>
+                    <span style="color: #ff0000; font-size: 14px; font-weight: bold;">@Resource.ErrorMessageServer @Resource.ErrorMessageUserNotFind</span>
+                </td>
+            </tr>
+        }
+    </table>
+</div>
+
+@if (@Model.ForUser != null)
+{
+    <!-- "Окно" добавления / редактирования элемента таблицы -->
+    <div id="editDiv" class="item_edit_div">
+        <input type="hidden" id="editOwnerId" value="@Model.ForUser.Item1.UserId" />
+
+        <span style="float: right;">@Resource.TitleAccount</span>
+
+        @Html.DropDownList("editAccountId",
+                           new SelectList((System.Collections.IEnumerable)ViewBag.listAccountsForEdit, "Value", "Text"),
+                           new { @class = "chzn-select", @style = "width:220px;" })
+        <br />
+        <br />
+        <span style="float: right;">@Resource.TitleRights</span>
+
+        <select id="editRight" class="chzn-select">
+            <option value="0">@Resource.TitleReview</option>
+            <option value="1">@Resource.TitleTrade</option>
+        </select>
+
+
+
+        <br />
+        <br />
+        <a href="javascript:void(0);" class="ml-button-3" style="float: none; display: inline; padding: 8px;"
+            onclick=" postChangesOnServer($('#editAccountId').val(), $('#editOwnerId').val(), $('#editRight').val(), 2); ">@Resource.TitleAccept</a>
+        &nbsp;&nbsp;
+        <a href="javascript:void(0);" class="ml-button-3" style="float: none; display: inline; padding: 8px;"
+            onclick=" $('#editDiv').hide(); ">@Resource.TitleCancel</a>
+    </div>
+}

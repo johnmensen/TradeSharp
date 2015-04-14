@@ -1,0 +1,578 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7753653B-2D5D-4FBB-80A7-5B643127DCDC}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Candlechart</RootNamespace>
+    <AssemblyName>Candlechart</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>../../Libraries/tradesharp.pfx</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FastChart">
+      <HintPath>..\..\Libraries\FastChart.dll</HintPath>
+    </Reference>
+    <Reference Include="FastGrid, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Libraries\FastGrid.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CandleChartControl.Animation.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CandleChartControl.ChartIcon.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CandleChartControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CandleChartControl.Designer.cs">
+      <DependentUpon>CandleChartControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CandleChartControl.Image.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CandleChartControl.Indicators.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CandleChartControl.Interactive.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CandleChartControl.MenuHandlers.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CandleChartControl.Publishing.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CandleChartControl.Series.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ChartGraphics\BitmapDecorator.cs" />
+    <Compile Include="ChartGraphics\BitmapProcessor.cs" />
+    <Compile Include="ChartGraphics\MemGraphics.cs" />
+    <Compile Include="ChartIcon\ChartIcon.cs" />
+    <Compile Include="ChartIcon\ChartIconDealTableRow.cs" />
+    <Compile Include="ChartIcon\ChartIconDropDown.cs" />
+    <Compile Include="ChartIcon\ChartIconDropDownDialog.cs" />
+    <Compile Include="ChartIcon\ChartIconDropDownRow.cs" />
+    <Compile Include="ChartIcon\DropDownList.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ChartIcon\ChartIconCheckBox.cs" />
+    <Compile Include="ChartIcon\DropDownWindowPopup.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ChartIcon\SummaryPositionDropWindow.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ChartIcon\SummaryPositionDropWindow.Designer.cs">
+      <DependentUpon>SummaryPositionDropWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChartMath\Geometry.Extension.cs" />
+    <Compile Include="ChartMath\ZigZag.cs" />
+    <Compile Include="Chart\ChartControl.ChartIcon.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Chart\ChartControl.Indicators.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Chart\ChartControl.VisualSettings.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\CandleMenuWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\CandleMenuWindow.Designer.cs">
+      <DependentUpon>CandleMenuWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ChartCommentEditDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\ChartCommentEditDialog.Designer.cs">
+      <DependentUpon>ChartCommentEditDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ChartObjectSelectForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\ChartObjectSelectForm.Designer.cs">
+      <DependentUpon>ChartObjectSelectForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ChooseIndicatorDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\ChooseIndicatorDialog.Designer.cs">
+      <DependentUpon>ChooseIndicatorDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\CrossChartDivergenciesSettingsWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\CrossChartDivergenciesSettingsWindow.Designer.cs">
+      <DependentUpon>CrossChartDivergenciesSettingsWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\FastPropertyGrid.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\GoToForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\GoToForm.Designer.cs">
+      <DependentUpon>GoToForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\IndicatorSettingsWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\IndicatorSettingsWindow.Designer.cs">
+      <DependentUpon>IndicatorSettingsWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\IndicatorsGridForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\IndicatorsGridForm.Designer.cs">
+      <DependentUpon>IndicatorsGridForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\MarkerWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\MarkerWindow.Designer.cs">
+      <DependentUpon>MarkerWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ObjectGridForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\ObjectGridForm.Designer.cs">
+      <DependentUpon>ObjectGridForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ObjectPropertyWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\ObjectPropertyWindow.Designer.cs">
+      <DependentUpon>ObjectPropertyWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\PopupListBox.cs" />
+    <Compile Include="Controls\PublishForecastWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\PublishForecastWindow.Designer.cs">
+      <DependentUpon>PublishForecastWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\PublishOpenPositionWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\PublishOpenPositionWindow.Designer.cs">
+      <DependentUpon>PublishOpenPositionWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\PublishPreSignalWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\PublishPreSignalWindow.Designer.cs">
+      <DependentUpon>PublishPreSignalWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SelectScriptDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\SelectScriptDialog.Designer.cs">
+      <DependentUpon>SelectScriptDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SetupChartSeriesDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\SetupChartSeriesDlg.Designer.cs">
+      <DependentUpon>SetupChartSeriesDlg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\TrendLineStyleUIEditor.cs" />
+    <Compile Include="Controls\TrendLineTypeDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\TrendLineTypeDialog.Designer.cs">
+      <DependentUpon>TrendLineTypeDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Core\ChartObjectMarker.cs" />
+    <Compile Include="Core\CrossTool.cs" />
+    <Compile Include="Core\CustomXmlSerializationAttribute.cs" />
+    <Compile Include="Core\ICustomEditDialogChartObject.cs" />
+    <Compile Include="Core\Pane.CursorCross.cs" />
+    <Compile Include="Core\PaneIconStrip.cs" />
+    <Compile Include="Core\PaneMoveArgs.cs" />
+    <Compile Include="Core\Period.cs" />
+    <Compile Include="Core\PluginManager.cs" />
+    <Compile Include="Indicator\BaseChartIndicator.cs" />
+    <Compile Include="Indicator\CheckedListBoxSeriesUITypeEditor.cs" />
+    <Compile Include="Indicator\ComboBoxDrawPaneUITypeEditor.cs" />
+    <Compile Include="Indicator\ComboBoxSeriesUITypeEditor.cs" />
+    <Compile Include="Indicator\CrossChartDiverUITypeEditor.cs" />
+    <Compile Include="Indicator\FiboForkIndicator.cs" />
+    <Compile Include="Indicator\IChartQueryIndicator.cs" />
+    <Compile Include="Indicator\IndicatorAccelerator.cs" />
+    <Compile Include="Indicator\IndicatorAlert.cs" />
+    <Compile Include="Indicator\IndicatorBollinger.cs" />
+    <Compile Include="Indicator\IndicatorDaysRuler.cs" />
+    <Compile Include="Indicator\IChartIndicator.cs" />
+    <Compile Include="Indicator\IHistoryQueryIndicator.cs" />
+    <Compile Include="Indicator\IndicatorCCI.cs" />
+    <Compile Include="Indicator\IndicatorColorScheme.cs" />
+    <Compile Include="Indicator\IndicatorDiver.cs" />
+    <Compile Include="Indicator\IndicatorEdgeRatio.cs" />
+    <Compile Include="Indicator\IndicatorExtremum.cs" />
+    <Compile Include="Indicator\IndicatorFiboBars.cs" />
+    <Compile Include="Indicator\IndicatorFiboDiver.cs" />
+    <Compile Include="Indicator\IndicatorFiboProjections.cs" />
+    <Compile Include="Indicator\IndicatorFractal.cs" />
+    <Compile Include="Indicator\IndicatorFuturesVolume.cs" />
+    <Compile Include="Indicator\IndicatorIchimoku.cs" />
+    <Compile Include="Indicator\IndicatorIndexFunction.cs" />
+    <Compile Include="Indicator\IndicatorIndexFunction.Tickers.cs" />
+    <Compile Include="Indicator\IndicatorIndexVector.cs" />
+    <Compile Include="Indicator\IndicatorMA.cs" />
+    <Compile Include="Indicator\IndicatorCrossChartDivergencies.cs" />
+    <Compile Include="Indicator\IndicatorMACD.cs" />
+    <Compile Include="Indicator\IndicatorOrders.cs" />
+    <Compile Include="Indicator\IndicatorOptionDom.cs" />
+    <Compile Include="Indicator\IndicatorOptionDom.WebRequest.cs" />
+    <Compile Include="Indicator\IndicatorOrders.DisplayedOrder.cs" />
+    <Compile Include="Indicator\IndicatorOrders.Interaction.cs" />
+    <Compile Include="Indicator\IndicatorParabolic.cs" />
+    <Compile Include="Indicator\IndicatorRandomWalk.cs" />
+    <Compile Include="Indicator\IndicatorRenco.cs" />
+    <Compile Include="Indicator\IndicatorRSI.cs" />
+    <Compile Include="Indicator\IndicatorSigma.cs" />
+    <Compile Include="Indicator\IndicatorSladeChannel.cs" />
+    <Compile Include="Indicator\IndicatorStohastic.cs" />
+    <Compile Include="Indicator\IndicatorTradeSharpVolumes.cs" />
+    <Compile Include="Indicator\IndicatorTrendFlat.cs" />
+    <Compile Include="Indicator\IndicatorTurtle.cs" />
+    <Compile Include="Indicator\IndicatorVolatility.cs" />
+    <Compile Include="Indicator\IndicatorZigZag.cs" />
+    <Compile Include="Indicator\OptionLevelIndicator.cs" />
+    <Compile Include="Indicator\IndicatorEllipse.cs" />
+    <Compile Include="ProbabilityCore.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Series\ChannelSeriesData.cs" />
+    <Compile Include="ChartMath\ChartMath.cs" />
+    <Compile Include="ChartMath\Conversion.cs" />
+    <Compile Include="ChartMath\DataArray.cs" />
+    <Compile Include="ChartMath\Formula.cs" />
+    <Compile Include="ChartMath\Geometry.cs" />
+    <Compile Include="ChartMath\PointD.cs" />
+    <Compile Include="ChartMath\SeriesData.cs" />
+    <Compile Include="ChartMath\StockSeriesData.cs" />
+    <Compile Include="Chart\ChartControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Chart\ChartControl.Data.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Chart\WaitForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Chart\WaitForm.Designer.cs">
+      <DependentUpon>WaitForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Core\Axis.cs" />
+    <Compile Include="Core\CandleRange.cs" />
+    <Compile Include="Core\ChartFrame.cs" />
+    <Compile Include="Core\ChartScrollBar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Core\DateTimeArray.cs" />
+    <Compile Include="Core\DragTool.cs" />
+    <Compile Include="Core\ExponentLabel.cs" />
+    <Compile Include="Core\ExtraAxis.cs" />
+    <Compile Include="Core\CoreTypes.cs" />
+    <Compile Include="Core\InteractivityTool.cs" />
+    <Compile Include="Core\InteractivityToolCollection.cs" />
+    <Compile Include="Core\Pane.cs" />
+    <Compile Include="Core\PaneCollection.cs" />
+    <Compile Include="Core\Window.cs" />
+    <Compile Include="Series\CandlestickSeries.cs" />
+    <Compile Include="Series\ChannelSeries.cs" />
+    <Compile Include="Series\ChartComment.Drawing.cs" />
+    <Compile Include="Series\ChartComment.GraphicSymbols.cs" />
+    <Compile Include="Series\HistogramSeries.cs" />
+    <Compile Include="Core\IChartInteractiveObject.cs" />
+    <Compile Include="Core\InfoTool.cs" />
+    <Compile Include="Series\InteractiveObjectSeries.cs" />
+    <Compile Include="Series\IPriceQuerySeries.cs" />
+    <Compile Include="Series\LevelSeries.cs" />
+    <Compile Include="Core\PaneFrame.cs" />
+    <Compile Include="Core\PaneFrameTool.cs" />
+    <Compile Include="Core\PaneMoveTool.cs" />
+    <Compile Include="Core\PaneResizeTool.cs" />
+    <Compile Include="Series\LineSeries.cs" />
+    <Compile Include="Series\OhlcBarSeries.cs" />
+    <Compile Include="Series\PartSeries.cs" />
+    <Compile Include="Series\PolygonSeries.cs" />
+    <Compile Include="Series\ProjectionSeries.cs" />
+    <Compile Include="Series\RegionSeries.cs" />
+    <Compile Include="Core\Renderer.cs" />
+    <Compile Include="Core\ScrollTool.cs" />
+    <Compile Include="Series\Series.cs" />
+    <Compile Include="Series\SeriesAsteriks.cs" />
+    <Compile Include="Series\SeriesCollection.cs" />
+    <Compile Include="Series\SeriesComment.cs" />
+    <Compile Include="Series\ChartComment.cs" />
+    <Compile Include="Series\SeriesEllipse.cs" />
+    <Compile Include="Series\SeriesFiboChannel.cs" />
+    <Compile Include="Series\SeriesFiboSpan.cs" />
+    <Compile Include="Series\SeriesMarker.cs" />
+    <Compile Include="Series\SeriesParams.cs" />
+    <Compile Include="Series\SeriesPopup.cs" />
+    <Compile Include="Series\SeriesSettings.cs" />
+    <Compile Include="Series\SeriesSpanWithText.cs" />
+    <Compile Include="Series\SeriesToolButtonAttribute.cs" />
+    <Compile Include="Series\StockLineSeries.cs" />
+    <Compile Include="Series\StockSeries.cs" />
+    <Compile Include="Series\TrendLine.cs" />
+    <Compile Include="Series\TrendLineSeries.cs" />
+    <Compile Include="Series\TurnBarSeries.cs" />
+    <Compile Include="Core\TurnDayTool.cs" />
+    <Compile Include="Core\VectorGraphObject.cs" />
+    <Compile Include="Series\DealSeries.cs" />
+    <Compile Include="Series\VolumeSeries.cs" />
+    <Compile Include="Core\XAxis.cs" />
+    <Compile Include="Core\YAxis.cs" />
+    <Compile Include="Core\ZoomTool.cs" />
+    <Compile Include="Interface\ObjectGridBind.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Theme\Styles.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\TradeSharp.Contract.Util\TradeSharp.Contract.Util.csproj">
+      <Project>{7DA33D58-6B7A-4551-93D6-488D31369D7A}</Project>
+      <Name>TradeSharp.Contract.Util</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\TradeSharp.Contract\TradeSharp.Contract.csproj">
+      <Project>{168F1CAC-77C9-4847-B6C1-138E4373CCEA}</Project>
+      <Name>TradeSharp.Contract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\TradeSharp.Util\TradeSharp.Util.csproj">
+      <Project>{4B406C3D-89C3-4C9F-A677-C3114D93B8F9}</Project>
+      <Name>TradeSharp.Util</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Entity\Entity.csproj">
+      <Project>{A737363C-1064-4E1E-91B5-6D24E78A8CF1}</Project>
+      <Name>Entity</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CandleChartControl.resx">
+      <DependentUpon>CandleChartControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChartIcon\SummaryPositionDropWindow.resx">
+      <DependentUpon>SummaryPositionDropWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Chart\ChartControl.ChartIcon.resx">
+      <DependentUpon>ChartControl.ChartIcon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Chart\WaitForm.resx">
+      <DependentUpon>WaitForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\CandleMenuWindow.resx">
+      <DependentUpon>CandleMenuWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ChartCommentEditDialog.resx">
+      <DependentUpon>ChartCommentEditDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ChartObjectSelectForm.resx">
+      <DependentUpon>ChartObjectSelectForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ChooseIndicatorDialog.resx">
+      <DependentUpon>ChooseIndicatorDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\CrossChartDivergenciesSettingsWindow.resx">
+      <DependentUpon>CrossChartDivergenciesSettingsWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\GoToForm.resx">
+      <DependentUpon>GoToForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\IndicatorSettingsWindow.resx">
+      <DependentUpon>IndicatorSettingsWindow.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\IndicatorsGridForm.resx">
+      <DependentUpon>IndicatorsGridForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\MarkerWindow.resx">
+      <DependentUpon>MarkerWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ObjectGridForm.resx">
+      <DependentUpon>ObjectGridForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ObjectPropertyWindow.resx">
+      <DependentUpon>ObjectPropertyWindow.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\PublishForecastWindow.resx">
+      <DependentUpon>PublishForecastWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\PublishOpenPositionWindow.resx">
+      <DependentUpon>PublishOpenPositionWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\PublishPreSignalWindow.resx">
+      <DependentUpon>PublishPreSignalWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\SelectScriptDialog.resx">
+      <DependentUpon>SelectScriptDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\SetupChartSeriesDlg.resx">
+      <DependentUpon>SetupChartSeriesDlg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\TrendLineTypeDialog.resx">
+      <DependentUpon>TrendLineTypeDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ico delete.png" />
+    <None Include="tradesharp.pfx" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ico delete1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ico edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="images\pane_strip.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="images\terminal_logo_main.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="images\terminal_logo_main_contrast.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="images\ico_black_archive.png" />
+    <EmbeddedResource Include="images\ico_black_dollar.png" />
+    <EmbeddedResource Include="images\ico_black_down.png" />
+    <EmbeddedResource Include="images\ico_black_favourite.png" />
+    <EmbeddedResource Include="images\ico_black_forward.png" />
+    <EmbeddedResource Include="images\ico_black_indicator.png" />
+    <EmbeddedResource Include="images\ico_black_pause.png" />
+    <EmbeddedResource Include="images\ico_black_synch.png" />
+    <EmbeddedResource Include="images\ico_black_up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="images\ico_black_orders.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="images\ico_calculator.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="images\ico_makeup.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="images\ico_profit_ticker.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="images\ico_robot.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,34 @@
+﻿@using TradeSharp.SiteAdmin.App_GlobalResources
+@{
+    ViewBag.Title = Resource.PageTitleNavigationDiagram;
+    Layout = "~/Views/Pages/_PageLayout.cshtml";
+}
+@section Header {
+    <link rel="stylesheet" href="~/css/screen.css" type="text/css" media="screen" title="default" />
+    <link rel="stylesheet" href="/css/button.css" type="text/css" media="screen" title="default" />
+    <script src="~/js/SiteNavigationDiagram.js"></script>
+    <script src="~/js/jquery_1_10_3/jquery-1.9.1.js"></script>
+
+    <!--[if IE]>
+        <link rel="stylesheet" media="all" type="text/css" href="/css/pro_dropline_ie.css" />
+    <![endif]-->
+    
+   
+    <script type="text/javascript">
+        $(function () {
+            drawSitemap();
+            $('#sitemapCanvas').height($(document).height() - 600);
+        });
+    </script>
+}
+<div id="content-outer">
+    <div id="content">
+        <div id="sitemapCanvas" style="overflow: auto; width: 800px; float: left">
+        </div>        
+        <div id="tooltipContaner" style="margin-top: 20px; font-size: 17px; text-align: justify">
+            <img id="imgAvatar" src="" alt="" style="padding-left: 20px; margin-bottom: 20px;" />
+            <div id="tooltipText" style="padding-left: 20px; overflow: auto; margin-left: 15px"></div>
+        </div>
+        
+    </div>
+</div>

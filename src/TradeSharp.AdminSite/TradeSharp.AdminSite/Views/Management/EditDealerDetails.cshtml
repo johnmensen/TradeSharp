@@ -1,0 +1,67 @@
+﻿@using TradeSharp.SiteAdmin.App_GlobalResources
+@model TradeSharp.Contract.Entity.DealerDescription
+
+@{
+    ViewBag.Title = Resource.PageTitleDealerAccountGroupEdit;
+    Layout = "~/Views/Pages/_PageLayout.cshtml";
+}
+
+@section Header {
+    <link rel="stylesheet" href="/css/screen.css" type="text/css" media="screen" title="default" />
+    <link rel="stylesheet" href="/css/button.css" type="text/css" media="screen" title="default" />
+    <!--  jquery core -->
+    <script src="/js/jquery_1_10_3/jquery-1.9.1.js"></script>
+    <!--[if IE]>
+    <link rel="stylesheet" media="all" type="text/css" href="/css/pro_dropline_ie.css" />
+    <![endif]-->
+}
+<div id="content-outer">
+    <!-- start content -->
+    <div id="content" style="width: 380px; margin:0 auto; min-width: 380px;">
+        <!--  start page-heading -->
+        <div id="page-heading">
+            <h1>@Resource.TitleDealer</h1>
+        </div>
+
+        @using (Html.BeginForm())
+        {
+            @Html.ValidationSummary(true)
+            <table class="tableWithoutBorders">
+                <tr>
+                    <th style="text-align: right; padding: 10px">
+                        @Html.LabelFor(model => model.Code)
+                    </th>
+                    <td>
+                        @Html.TextBoxFor(model => model.Code, new { @class = "login-inp" })
+                        @Html.ValidationMessageFor(model => model.Code)
+                    </td>
+                </tr>
+                <tr>
+                    <th style="text-align: right; padding: 10px">
+                        @Html.LabelFor(model => model.FileName)
+                    </th>
+                    <td>
+                        @Html.TextBoxFor(model => model.FileName, new { @class = "login-inp" })
+                        @Html.ValidationMessageFor(model => model.FileName)
+                    </td>
+                </tr>
+                <tr>
+                    <th style="text-align: right; padding: 10px">
+                        @Html.LabelFor(model => model.DealerEnabled)
+                    </th>
+                    <td>
+                        @Html.EditorFor(model => model.DealerEnabled)
+                        @Html.ValidationMessageFor(model => model.DealerEnabled)
+                    </td>
+                </tr>
+            </table>
+                <p>
+                    <input type="submit" class='ml-button-3' value="@Resource.TitleSave" />
+                </p>
+        }
+
+        <div class="clear">&nbsp;</div>
+    </div>
+    <!--  end content -->
+    <div class="clear">&nbsp;</div>
+</div>

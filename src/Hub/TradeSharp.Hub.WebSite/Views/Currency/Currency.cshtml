@@ -1,0 +1,136 @@
+﻿@{
+    ViewBag.Title = "Валюты";
+}
+
+<style type="text/css">
+    table.editFormTable td {
+        padding: 8px;
+    }
+
+    span label {
+        color: white;
+    }
+</style>
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script src="@Url.Content("~/Scripts/autocomplete.js")" type="text/javascript"></script>
+    
+       <script type="text/javascript">
+           $(function () {
+               $(function () {
+                   $("#dialogEditItem").dialog({ width: 450, height: 260 });
+                   openOrCloseDialog(false);
+               });
+           });
+
+           function openOrCloseDialog(shouldOpen) {
+               var cmd = 'open';
+               if (!shouldOpen)
+                   cmd = 'close';
+               $("#dialogEditItem").dialog(cmd);
+           }
+
+           function getCurrencyToEdit(currencyCode) {
+               $.ajax({
+                   url: '@Url.Action("FillCurrencyEditForm", "Currency")',
+                type: "GET",
+                data: { code: currencyCode },
+                success: function (data) {
+                    $('div#currencyEditContainer').html(data);
+                },
+                error: function (result) {
+                    console.log(result);
+                }
+            });
+        }
+
+        function saveChanges() {
+            $.ajax({
+                url: '@Url.Action("SaveCurrency", "Currency")',
+                type: "POST",
+                data: $("#EditForm").serialize(),
+                success: function (data) {
+                    if (!data.status) {
+                        alert(data.errorString);
+                    }
+                    openOrCloseDialog(false);
+                },
+                error: function (result) {
+                    console.log(result);
+                }
+            });
+        }
+
+           function deleteCurrency(currencyCode) {
+               if (!confirm('Подтверждаете удаление "' + currencyCode + '"?')) return;
+
+            $.ajax({
+                url: '@Url.Action("DeleteCurrency", "Currency")',
+                type: "POST",
+                data: { code: currencyCode },
+                success: function (data) {
+                    if (!data.status) {
+                        alert(data.errorString);
+                        return;
+                    }
+                },
+                error: function (result) {
+                    console.log(result);
+                }
+            });
+        }
+
+    </script>
+}
+
+<div class="content">
+    <table border="0" width="100%" cellpadding="0" cellspacing="0" class="content_table">
+        <tr>
+            <th rowspan="3" class="sized">
+                <img src="/images/shared/side_shadowleft.jpg" width="20" class="shadow" alt="" /></th>
+            <th class="topleft"></th>
+            <td id="tbl-border-top">&nbsp;</td>
+            <th class="topright"></th>
+            <th rowspan="3" class="sized">
+                <img src="/images/shared/side_shadowright.jpg" width="20" class="shadow" alt="" /></th>
+        </tr>
+        <tr>
+            <td id="tbl-border-left"></td>
+            <td>
+                <div id="content_table_inner">
+                    <div style="">
+                        <br/>
+                        <h2>Валюты</h2>
+                        <br/>
+                    
+                        <div id="pagedGridContainer">@Html.Partial("SortAndPage")</div>
+                    
+                        <br/>
+                        <a href="javascript:;" onclick="openOrCloseDialog(true); getCurrencyToEdit();">
+                            <img src="../../images/shared/ico_add.png" title="Добавить валюту" alt="Добавить валюту"/>
+                        </a>
+                    </div>
+                </div>
+            </td>
+            <td id="tbl-border-right"></td>
+        </tr>
+        <tr>
+            <th class="sized bottomleft"></th>
+            <td id="tbl-border-bottom">&nbsp;</td>
+            <th class="sized bottomright"></th>
+        </tr>
+    </table>
+</div>
+
+<!-- Редактировать / создать валюту -->
+<div id="dialogEditItem" title="Валюта">
+    <div id="currencyEditContainer"></div>
+    <br/>
+    <input type="button" value="Принять" onclick="saveChanges();"/> &nbsp; &nbsp; &nbsp; &nbsp;
+    <input type="button" value="Отмена" onclick="openOrCloseDialog(false);"/>
+</div>

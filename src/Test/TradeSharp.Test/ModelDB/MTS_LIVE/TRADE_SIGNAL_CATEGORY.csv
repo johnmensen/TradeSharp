@@ -1,0 +1,43 @@
+Id,Title,Description,IsFreeSignal,IsHidden
+1,"Сигналы УК","Торговые сигналы управляющего трейдера, портфель из 4-х основных валютных пар",True,False
+2,"Тестовые сигналы","Тестовые сигналы",True,True
+3,"Сигналы мини","Сигналы для депозитов до 50 000 USD",True,True
+4,"Сигналы 50К","Сигналы для счетов от 50К",True,True
+6,"Сигналы YK","Сигналы для счета YK",True,True
+7,"Сигналы ABD","Сигналы для счета ABD",True,True
+8,"Signals For Kagan","Signals For Kagan",True,True
+9,"ТС Алексея Денисова","Торговые сигналы Алексея Денисова",True,False
+10,"ТС А.Короткова сред.с.","Торговые сигналы Андрея Короткова, среднесрочные",True,False
+11,"ТС А.Короткова д.с.","Торговые сигналы Андрея Короткова, долгосрочные",True,False
+12,"SurfRider BOT","Surf Rider robot",True,False
+13,"Fastball","Forex robot",True,False
+14,"TechSkill","TechSkill",True,False
+15,"JPattern","Japanese",True,False
+16,"Salieri","long term trading",True,False
+17,"Francis Drake","All or nothing",True,False
+18,"Nelson","Fore-sight",True,False
+19,"NewsTrader","Trade on news",True,False
+20,"Alpha Forex","Торговля волатильностью",True,False
+21,"Прайм-трейдер","Автоматизированная торговля 6 валютными парами",True,False
+22,"Theta, Delta, Epsilon","Анализ опционных данных",True,False
+23,"Omegatrade","",True,False
+24,"Nassim Taleb","",True,False
+25,"Eliott wave","Торговля по волнам Элиота",True,False
+26,"aSignal","",True,False
+27,"MasterT","Интрадей трейдинг",True,False
+28,"Divinatio",,True,False
+29,"Tesseris",,True,False
+30,"Alerator",,True,False
+31,"Tortoris",,True,False
+32,"Ascendere",,True,False
+33,"Humanus",,True,False
+34,"Veni Vidi Vici",,True,False
+35,"Багратион",,True,False
+36,"Ермолов",,True,False
+37,"Сигналы Игнатьева Н.",,True,False
+38,"Сигналы Красильников А.",,True,False
+39,"Сигналы Зуев Л.",,True,False
+40,"Futaba",,True,False
+41,"Manko",,True,False
+42,"TradeExtra",,True,False
+43,"EdgeSurfer",,True,False

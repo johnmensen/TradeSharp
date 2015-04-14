@@ -1,0 +1,133 @@
+﻿@model TradeSharp.Hub.WebSite.Models.PagerModel
+
+<style type="text/css">
+    .product_table th a {
+        color: white;
+        font-size: 13px;
+        font-weight: bolder;
+        padding-left: 7px;
+    }
+
+    .product_table th a.sort_asc {
+        padding-right: 25px;
+        background-image: url(../../images/table/sort_ascending.png);
+        background-repeat: no-repeat;
+        background-position: right;
+        background-size: 16px 16px;
+    }
+
+    .product_table th a.sort_desc {
+        padding-right: 25px;
+        background-image: url(../../images/table/sort_descending.png);
+        background-repeat: no-repeat;
+        background-position: right;
+        background-size: 16px 16px;
+    }
+</style>
+
+<script type="text/javascript">
+    @{
+        <text>var pageNum = @Model.CurrentPageIndex;</text>
+        <text>var maxPageNum = @Model.PagesCount;</text>
+    }
+
+    function gotToFirstOrLastPage(gotoFirst) {
+        if (!gotoFirst) {
+            jumpToPage(maxPageNum);
+            return;
+        }
+        jumpToPage(1);
+    }
+
+    function changePage(shift) {
+        pageNum += shift;
+        jumpToPage(pageNum);
+    }
+    
+    function jumpToPage(pageNum) {
+        $('input#CurrentPageIndex').val(pageNum);
+        asyncSubmitForm();
+    }
+
+    function updateSortCriteria(columnName, sender) {
+        var link = $(sender);
+
+        var headerRow = link.closest('tr');
+        $.each(headerRow.find('th a'), function(index, value) {
+            $(value).removeClass();
+        });
+
+        var sortAsc = getBljadAttributeValue(link, 'data-order_asc') == '1';
+        
+        if (!sortAsc) {
+            $('input#SortAscending').val('True');
+            $('input#SortAscending').attr('data-val', 'true');
+            $(link).attr('class', 'sort_asc');            
+        } else {
+            $('input#SortAscending').val('False');
+            $('input#SortAscending').attr('data-val', 'false');
+            $(link).attr('class', 'sort_desc');
+        }
+
+        var hiddenSortBy = $('input#SortBy');
+        hiddenSortBy.val(columnName);
+                
+        asyncSubmitForm();
+    }
+    
+    function getBljadAttributeValue(link, attrName) {
+        var markup = link.parent().html();
+        var patternStr = attrName + '="';
+        var index = markup.indexOf(patternStr);
+        if (index < 0) return '';
+        
+        var indexQuote = markup.indexOf('"', index + patternStr.length + 1);
+        if (indexQuote < 0) return '';
+        return markup.substr(index + patternStr.length, indexQuote - (index + patternStr.length));
+    }
+    
+    function asyncSubmitForm() {
+        $.ajax({
+            url: postUrl,
+            type: "POST",
+            data: $("#TableForm").serialize(),
+            success: function (data) {
+                $('div#pagedGridContainer').html(data);
+            },
+            error: function (result) {
+                console.log('ajax error: ' + result);
+            }
+        });
+    }
+</script>
+
+<div>
+    @Html.HiddenFor(m => m.SortBy)
+    @Html.HiddenFor(m => m.SortAscending)
+    @Html.HiddenFor(m => m.CurrentPageIndex)
+    @Html.HiddenFor(m => m.PageSize)
+    
+    @if (@Model.CurrentPageIndex > 1)
+    {
+        <a href="javascript:;" onclick="gotToFirstOrLastPage(true)">
+            <img src="~/images/table/paging_far_left.gif" />
+        </a>
+        <a href="javascript:;" onclick="changePage(-1)">
+            <img src="~/images/table/paging_left.gif" />
+        </a>
+    }
+
+    &nbsp;&nbsp;&nbsp;
+    Страница @Model.CurrentPageIndex из @Model.PagesCount    
+    &nbsp;&nbsp;&nbsp;
+
+    @if (@Model.CurrentPageIndex < @Model.PagesCount)
+    {
+        <a href="javascript:;" onclick="changePage(1)">
+            <img src="~/images/table/paging_right.gif" />
+        </a>
+        <a href="javascript:;" onclick="gotToFirstOrLastPage(false)">
+            <img src="~/images/table/paging_far_right.gif" />
+        </a>
+    }
+</div>

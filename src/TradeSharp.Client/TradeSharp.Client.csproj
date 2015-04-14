@@ -1,0 +1,1299 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7E6447BD-1928-40C8-8944-37F0C5D86FC9}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TradeSharp.Client</RootNamespace>
+    <AssemblyName>TradeSharp.Client</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>TradeSharp.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>../Libraries/tradesharp.pfx</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FastChart">
+      <HintPath>..\Libraries\FastChart.dll</HintPath>
+    </Reference>
+    <Reference Include="FastGrid">
+      <HintPath>..\Libraries\FastGrid.dll</HintPath>
+    </Reference>
+    <Reference Include="FastMultiChart">
+      <HintPath>..\Libraries\FastMultiChart.dll</HintPath>
+    </Reference>
+    <Reference Include="KRBTabControl">
+      <HintPath>..\Libraries\KRBTabControl.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\Libraries\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="TradeSharp.Chat.Client">
+      <HintPath>..\TradeSharp.Chat\Client\bin\Debug\TradeSharp.Chat.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="TradeSharp.Chat.Contract">
+      <HintPath>..\TradeSharp.Chat\Contract\bin\Debug\TradeSharp.Chat.Contract.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BL\AccountEventSettings.cs" />
+    <Compile Include="BL\AccountStatistics.cs" />
+    <Compile Include="BL\AccountStatusSummaryTable.cs" />
+    <Compile Include="BL\ChartTemplate.cs" />
+    <Compile Include="BL\ChartToolButtonSettings.cs" />
+    <Compile Include="BL\ChartWindowSettings.cs" />
+    <Compile Include="BL\BaseWindowSettings.cs" />
+    <Compile Include="BL\GridSettings.cs" />
+    <Compile Include="BL\HistoryOrderStorage.cs" />
+    <Compile Include="BL\IMdiNonChartWindow.cs" />
+    <Compile Include="BL\MainWindowTitle.cs" />
+    <Compile Include="BL\MarketOrdersStorage.cs" />
+    <Compile Include="BL\NewsCache.cs" />
+    <Compile Include="BL\NewsLocalStorage.cs" />
+    <Compile Include="BL\MessageDateFileStorage.cs" />
+    <Compile Include="BL\PaymentSystem\WebMoneyValidator.cs" />
+    <Compile Include="BL\PendingOrderSummary.cs" />
+    <Compile Include="BL\PositionSummary.cs" />
+    <Compile Include="BL\QuoteCellShape.cs" />
+    <Compile Include="BL\QuoteTableCellSettings.cs" />
+    <Compile Include="BL\QuoteTableSettings.cs" />
+    <Compile Include="BL\Report\ReportRender.cs" />
+    <Compile Include="BL\Report\ReportRenderClassic.cs" />
+    <Compile Include="BL\RichTextBoxEx.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="BL\RobotFarm.cs" />
+    <Compile Include="BL\Script\ChartTickerStatTerminalScript.cs" />
+    <Compile Include="BL\Script\CopyDealsInMt4Script.cs" />
+    <Compile Include="BL\Script\MakeOpenPosSql.cs" />
+    <Compile Include="BL\Script\PriceDistributionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BL\Script\PriceDistributionForm.Designer.cs">
+      <DependentUpon>PriceDistributionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BL\Script\PriceProbabilityScript.cs" />
+    <Compile Include="BL\Script\PriceProbForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BL\Script\PriceProbForm.Designer.cs">
+      <DependentUpon>PriceProbForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BL\Script\RestoreFxDealCommentScript.cs" />
+    <Compile Include="BL\Script\ScriptAlert.cs" />
+    <Compile Include="BL\Script\ScriptManager.cs" />
+    <Compile Include="BL\Script\ScriptPartDepoFormDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BL\Script\ScriptPartDepoFormDialog.Designer.cs">
+      <DependentUpon>ScriptPartDepoFormDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BL\Script\ScriptTradeFromSL.cs" />
+    <Compile Include="BL\Script\ScriptTradePartDepo.cs" />
+    <Compile Include="BL\Script\ScriptTriggerUIEditor.cs" />
+    <Compile Include="BL\Script\SetFiboLevelRobotPoint.cs" />
+    <Compile Include="BL\Script\SetStopRobotPrice.cs" />
+    <Compile Include="BL\Script\SetupStopRobotDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BL\Script\SetupStopRobotDlg.Designer.cs">
+      <DependentUpon>SetupStopRobotDlg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BL\Script\ShowRobotOrdersScript.cs" />
+    <Compile Include="BL\Script\ShowRobotSummaryScript.cs" />
+    <Compile Include="BL\Script\SummaryPositionCommentScript.cs" />
+    <Compile Include="BL\Script\TerminalScript.cs" />
+    <Compile Include="BL\Script\TerminalScriptTrigger.cs" />
+    <Compile Include="BL\Script\TerminalTriggerSet.cs" />
+    <Compile Include="BL\Script\TradeFromSLDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BL\Script\TradeFromSLDlg.Designer.cs">
+      <DependentUpon>TradeFromSLDlg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BL\Script\TriggerSetupDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BL\Script\TriggerSetupDialog.Designer.cs">
+      <DependentUpon>TriggerSetupDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BL\SettingsAutosaver.cs" />
+    <Compile Include="BL\SignalProfitReport.cs" />
+    <Compile Include="BL\Sound\SoundPlayer.cs" />
+    <Compile Include="BL\Sound\SoundSettings.cs" />
+    <Compile Include="BL\TabSettings.cs" />
+    <Compile Include="BL\TerminalEnvironment.cs" />
+    <Compile Include="BL\TerminalLiveRobotContext.cs" />
+    <Compile Include="BL\TickerCorrelationCalculator.cs" />
+    <Compile Include="BL\ToolSettingsStorageFile.cs" />
+    <Compile Include="BL\TradeSignalMonitorStream.cs" />
+    <Compile Include="BL\TradeSignalReceiver.cs" />
+    <Compile Include="BL\TradeSignalUpdate.cs" />
+    <Compile Include="BL\UserServiceRegistrator.cs" />
+    <Compile Include="BL\UserSettings.cs" />
+    <Compile Include="BL\UserSettings.Logins.cs" />
+    <Compile Include="BL\UserSettings.Risk.cs" />
+    <Compile Include="Controls\AboutCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\AboutCtrl.Designer.cs">
+      <DependentUpon>AboutCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\AccountHistoryControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\AccountHistoryControl.Designer.cs">
+      <DependentUpon>AccountHistoryControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Bookmark\BookmarkControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\Bookmark\BookmarkForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\Bookmark\BookmarkForm.Designer.cs">
+      <DependentUpon>BookmarkForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Bookmark\BookmarkStorage.cs" />
+    <Compile Include="Controls\Bookmark\BookmarkStripControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\Bookmark\BookmarkStripControl.Designer.cs">
+      <DependentUpon>BookmarkStripControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Bookmark\NewBookmarkDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\Bookmark\NewBookmarkDlg.Designer.cs">
+      <DependentUpon>NewBookmarkDlg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Bookmark\TerminalBookmark.cs" />
+    <Compile Include="Controls\ConnectionStatusImageControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ConnectionStatusImageControl.Designer.cs">
+      <DependentUpon>ConnectionStatusImageControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\DropTargetControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\DropTargetControl.Designer.cs">
+      <DependentUpon>DropTargetControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\HotKeysTableControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\HotKeysTableControl.Designer.cs">
+      <DependentUpon>HotKeysTableControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ChartIconSetupControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ChartIconSetupControl.Designer.cs">
+      <DependentUpon>ChartIconSetupControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\CustomTextButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\GenericObjectEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\GenericObjectEditor.Designer.cs">
+      <DependentUpon>GenericObjectEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\NavPanel\INavPageContent.cs" />
+    <Compile Include="Controls\NavPanel\NavPageAccountControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\NavPanel\NavPageAccountControl.Designer.cs">
+      <DependentUpon>NavPageAccountControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\NavPanel\NavPageIndicatorsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\NavPanel\NavPageIndicatorsControl.Designer.cs">
+      <DependentUpon>NavPageIndicatorsControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\NavPanel\NavPageQuoteControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\NavPanel\NavPageQuoteControl.Designer.cs">
+      <DependentUpon>NavPageQuoteControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\NavPanel\NavPanelControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\NavPanel\NavPanelControl.Designer.cs">
+      <DependentUpon>NavPanelControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\NavPanel\NavPageDealsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\NavPanel\NavPageDealsControl.Designer.cs">
+      <DependentUpon>NavPageDealsControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\NavPanel\NavPanelPageControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\NavPanel\NavPaneScriptControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\NavPanel\NavPaneScriptControl.Designer.cs">
+      <DependentUpon>NavPaneScriptControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\PreValuedTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\QuoteCellControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\QuoteHistoryFillLineControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\QuoteTableControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\QuoteTableControl.Designer.cs">
+      <DependentUpon>QuoteTableControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\QuoteTradeControls\ButtonClass\ArrowTrend.cs" />
+    <Compile Include="Controls\QuoteTradeControls\ButtonClass\BuySellIndicator.cs" />
+    <Compile Include="Controls\QuoteTradeControls\ButtonClass\QuotePartButton.cs" />
+    <Compile Include="Controls\QuoteTradeControls\ButtonClass\QuotePartButtonFigure.cs" />
+    <Compile Include="Controls\QuoteTradeControls\ButtonClass\SpreadIndicator.cs" />
+    <Compile Include="Controls\QuoteTradeControls\DropDownListControls\QuoteTradeDropDownList.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\QuoteTradeControls\DropDownListControls\QuoteTradeListItem.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\QuoteTradeControls\QuoteTradeControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\QuoteTradeControls\QuoteTradeEnums.cs" />
+    <Compile Include="Controls\RiskSetupControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\RiskSetupControl.Designer.cs">
+      <DependentUpon>RiskSetupControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\RobotPortfolioSetupControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\RobotPortfolioSetupControl.Designer.cs">
+      <DependentUpon>RobotPortfolioSetupControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\TickersSelectForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\TickersSelectForm.Designer.cs">
+      <DependentUpon>TickersSelectForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\TimeIntervalControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\ToolButtonSettingsPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ToolButtonSettingsPanel.Designer.cs">
+      <DependentUpon>ToolButtonSettingsPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ToolButtonSettingsPanel.Drag.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UserInfoControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UserInfoControl.Designer.cs">
+      <DependentUpon>UserInfoControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\WebMoneyPurseControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\WebMoneyPurseControl.Designer.cs">
+      <DependentUpon>WebMoneyPurseControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\WebMoneyPursePanelControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\WebMoneyPursePanelControl.Designer.cs">
+      <DependentUpon>WebMoneyPursePanelControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AboutDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AboutDlg.Designer.cs">
+      <DependentUpon>AboutDlg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AccountMonitorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AccountMonitorForm.Designer.cs">
+      <DependentUpon>AccountMonitorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AccountShareHistoryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AccountShareHistoryForm.Designer.cs">
+      <DependentUpon>AccountShareHistoryForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AccountTradeResultsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AccountTradeResultsForm.Designer.cs">
+      <DependentUpon>AccountTradeResultsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ApplyChartTemplate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ApplyChartTemplate.Designer.cs">
+      <DependentUpon>ApplyChartTemplate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AutoUploadHistoryTickersForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AutoUploadHistoryTickersForm.Designer.cs">
+      <DependentUpon>AutoUploadHistoryTickersForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\BrowserForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\BrowserForm.Designer.cs">
+      <DependentUpon>BrowserForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ChangeBalanceDemoAccountForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ChangeBalanceDemoAccountForm.Designer.cs">
+      <DependentUpon>ChangeBalanceDemoAccountForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ChartForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ChartForm.Designer.cs">
+      <DependentUpon>ChartForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ChartSettingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ChartSettingsForm.Designer.cs">
+      <DependentUpon>ChartSettingsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ChartToolsSetupForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ChartToolsSetupForm.Designer.cs">
+      <DependentUpon>ChartToolsSetupForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ChartToolsSetupForm.Script.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ChatForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ChatForm.Designer.cs">
+      <DependentUpon>ChatForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ChronometerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ChronometerForm.designer.cs">
+      <DependentUpon>ChronometerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ClearGapMapDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ClearGapMapDialog.Designer.cs">
+      <DependentUpon>ClearGapMapDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ClosePositionsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ClosePositionsForm.Designer.cs">
+      <DependentUpon>ClosePositionsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CloseTargetDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CloseTargetDlg.Designer.cs">
+      <DependentUpon>CloseTargetDlg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ContactInputForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ContactInputForm.Designer.cs">
+      <DependentUpon>ContactInputForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\DealCollectionPointsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DealCollectionPointsForm.Designer.cs">
+      <DependentUpon>DealCollectionPointsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\DownloadQuotesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DownloadQuotesForm.Designer.cs">
+      <DependentUpon>DownloadQuotesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\DurationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DurationForm.designer.cs">
+      <DependentUpon>DurationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\EditAccountDataForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EditAccountDataForm.Designer.cs">
+      <DependentUpon>EditAccountDataForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ExportSetupForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ExportSetupForm.Designer.cs">
+      <DependentUpon>ExportSetupForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FilterPropertiesDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FilterPropertiesDlg.Designer.cs">
+      <DependentUpon>FilterPropertiesDlg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\HotKeySetForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\HotKeySetForm.Designer.cs">
+      <DependentUpon>HotKeySetForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\LogsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\LogsForm.Designer.cs">
+      <DependentUpon>LogsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ManageAccountForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ManageAccountForm.Designer.cs">
+      <DependentUpon>ManageAccountForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ManageTemplate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ManageTemplate.Designer.cs">
+      <DependentUpon>ManageTemplate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MultyOrdersEditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MultyOrdersEditForm.Designer.cs">
+      <DependentUpon>MultyOrdersEditForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\NavPanelForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\NavPanelForm.Designer.cs">
+      <DependentUpon>NavPanelForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\NewChartForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\NewChartForm.Designer.cs">
+      <DependentUpon>NewChartForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\NewTextSignalForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\NewTextSignalForm.Designer.cs">
+      <DependentUpon>NewTextSignalForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\NewTradeSignalForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\NewTradeSignalForm.Designer.cs">
+      <DependentUpon>NewTradeSignalForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\OpenPAMMForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\OpenPAMMForm.Designer.cs">
+      <DependentUpon>OpenPAMMForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\OptionsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\OptionsForm.Designer.cs">
+      <DependentUpon>OptionsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\OrderDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\OrderDlg.Designer.cs">
+      <DependentUpon>OrderDlg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\OrderDlg.Trailing.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\OverallEditPositionsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\OverallEditPositionsForm.Designer.cs">
+      <DependentUpon>OverallEditPositionsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\PortfolioRiskCalcSettingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PortfolioRiskCalcSettingsForm.Designer.cs">
+      <DependentUpon>PortfolioRiskCalcSettingsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\PortfolioRiskForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PortfolioRiskForm.Designer.cs">
+      <DependentUpon>PortfolioRiskForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ProfitByTickerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ProfitByTickerForm.Designer.cs">
+      <DependentUpon>ProfitByTickerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\PropertiesDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PropertiesDlg.Designer.cs">
+      <DependentUpon>PropertiesDlg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\QuoteBaseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\QuoteBaseForm.Designer.cs">
+      <DependentUpon>QuoteBaseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\QuoteTableForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\QuoteTableForm.Designer.cs">
+      <DependentUpon>QuoteTableForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ReadOnlyAccountForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ReadOnlyAccountForm.Designer.cs">
+      <DependentUpon>ReadOnlyAccountForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\RemindPasswordForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\RemindPasswordForm.Designer.cs">
+      <DependentUpon>RemindPasswordForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\RenameTabDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\RenameTabDlg.Designer.cs">
+      <DependentUpon>RenameTabDlg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ResultDisplaySettingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ResultDisplaySettingsForm.Designer.cs">
+      <DependentUpon>ResultDisplaySettingsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\RiskCalculationPopupForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\RiskCalculationPopupForm.Designer.cs">
+      <DependentUpon>RiskCalculationPopupForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\RiskSetupForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\RiskSetupForm.Designer.cs">
+      <DependentUpon>RiskSetupForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\RobotBindChartForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\RobotBindChartForm.Designer.cs">
+      <DependentUpon>RobotBindChartForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\RoboTesterForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\RoboTesterForm.Designer.cs">
+      <DependentUpon>RoboTesterForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\RobotPortfolioForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\RobotPortfolioForm.Designer.cs">
+      <DependentUpon>RobotPortfolioForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\RobotStateDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\RobotStateDialog.Designer.cs">
+      <DependentUpon>RobotStateDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SaveChartTemplate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SaveChartTemplate.Designer.cs">
+      <DependentUpon>SaveChartTemplate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SelectAccountForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SelectAccountForm.Designer.cs">
+      <DependentUpon>SelectAccountForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SelectItemsDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SelectItemsDlg.Designer.cs">
+      <DependentUpon>SelectItemsDlg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SelectPictureForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SelectPictureForm.Designer.cs">
+      <DependentUpon>SelectPictureForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SelectTickerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SelectTickerForm.Designer.cs">
+      <DependentUpon>SelectTickerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ServiceDetailForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ServiceDetailForm.Designer.cs">
+      <DependentUpon>ServiceDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SoundSetupForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SoundSetupForm.Designer.cs">
+      <DependentUpon>SoundSetupForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SplashMessagesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SplashMessagesForm.Designer.cs">
+      <DependentUpon>SplashMessagesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\StartupForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\StartupForm.Designer.cs">
+      <DependentUpon>StartupForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\StatInfoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\StatInfoForm.Designer.cs">
+      <DependentUpon>StatInfoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SubscriptionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SubscriptionForm.Designer.cs">
+      <DependentUpon>SubscriptionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\TimeIntervalsDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\TimeIntervalsDlg.Designer.cs">
+      <DependentUpon>TimeIntervalsDlg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\TrailingsFrom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\TrailingsFrom.Designer.cs">
+      <DependentUpon>TrailingsFrom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\UpdatePasswordForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\UpdatePasswordForm.Designer.cs">
+      <DependentUpon>UpdatePasswordForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\WalletForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\WalletForm.Designer.cs">
+      <DependentUpon>WalletForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\WalletWithdrawForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\WalletWithdrawForm.Designer.cs">
+      <DependentUpon>WalletWithdrawForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.Authenticate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Autosave.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Chat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.CheckUpdate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.DragDrop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BL\FingerPrint.cs" />
+    <Compile Include="MainForm.Gap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Layout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Order.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.QuoteCache.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Robot.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Script.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.StatusPanel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Tab.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.TradeSignal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.TrayIcon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Templates.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BL\NonChartWindowSettings.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="BL\Script\PriceDistributionForm.resx">
+      <DependentUpon>PriceDistributionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BL\Script\PriceProbForm.resx">
+      <DependentUpon>PriceProbForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BL\Script\ScriptPartDepoFormDialog.resx">
+      <DependentUpon>ScriptPartDepoFormDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BL\Script\SetupStopRobotDlg.resx">
+      <DependentUpon>SetupStopRobotDlg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BL\Script\TradeFromSLDlg.resx">
+      <DependentUpon>TradeFromSLDlg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BL\Script\TriggerSetupDialog.resx">
+      <DependentUpon>TriggerSetupDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\AboutCtrl.resx">
+      <DependentUpon>AboutCtrl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\AccountHistoryControl.resx">
+      <DependentUpon>AccountHistoryControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Bookmark\BookmarkControl.resx">
+      <DependentUpon>BookmarkControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Bookmark\BookmarkForm.resx">
+      <DependentUpon>BookmarkForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Bookmark\BookmarkStripControl.resx">
+      <DependentUpon>BookmarkStripControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Bookmark\NewBookmarkDlg.resx">
+      <DependentUpon>NewBookmarkDlg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ConnectionStatusImageControl.resx">
+      <DependentUpon>ConnectionStatusImageControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\DropTargetControl.resx">
+      <DependentUpon>DropTargetControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\HotKeysTableControl.resx">
+      <DependentUpon>HotKeysTableControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ChartIconSetupControl.resx">
+      <DependentUpon>ChartIconSetupControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\GenericObjectEditor.resx">
+      <DependentUpon>GenericObjectEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\NavPanel\NavPageAccountControl.resx">
+      <DependentUpon>NavPageAccountControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\NavPanel\NavPageIndicatorsControl.resx">
+      <DependentUpon>NavPageIndicatorsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\NavPanel\NavPageQuoteControl.resx">
+      <DependentUpon>NavPageQuoteControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\NavPanel\NavPanelControl.resx">
+      <DependentUpon>NavPanelControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\NavPanel\NavPageDealsControl.resx">
+      <DependentUpon>NavPageDealsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\NavPanel\NavPaneScriptControl.resx">
+      <DependentUpon>NavPaneScriptControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\QuoteTableControl.resx">
+      <DependentUpon>QuoteTableControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\RiskSetupControl.resx">
+      <DependentUpon>RiskSetupControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\RobotPortfolioSetupControl.resx">
+      <DependentUpon>RobotPortfolioSetupControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\TickersSelectForm.resx">
+      <DependentUpon>TickersSelectForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ToolButtonSettingsPanel.resx">
+      <DependentUpon>ToolButtonSettingsPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UserInfoControl.resx">
+      <DependentUpon>UserInfoControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\WebMoneyPurseControl.resx">
+      <DependentUpon>WebMoneyPurseControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\WebMoneyPursePanelControl.resx">
+      <DependentUpon>WebMoneyPursePanelControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AboutDlg.resx">
+      <DependentUpon>AboutDlg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AccountMonitorForm.resx">
+      <DependentUpon>AccountMonitorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AccountShareHistoryForm.resx">
+      <DependentUpon>AccountShareHistoryForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AccountTradeResultsForm.resx">
+      <DependentUpon>AccountTradeResultsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ApplyChartTemplate.resx">
+      <DependentUpon>ApplyChartTemplate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AutoUploadHistoryTickersForm.resx">
+      <DependentUpon>AutoUploadHistoryTickersForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\BrowserForm.resx">
+      <DependentUpon>BrowserForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ChangeBalanceDemoAccountForm.resx">
+      <DependentUpon>ChangeBalanceDemoAccountForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ChartForm.resx">
+      <DependentUpon>ChartForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ChartSettingsForm.resx">
+      <DependentUpon>ChartSettingsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ChartToolsSetupForm.resx">
+      <DependentUpon>ChartToolsSetupForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ChatForm.resx">
+      <DependentUpon>ChatForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ChronometerForm.resx">
+      <DependentUpon>ChronometerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ClearGapMapDialog.resx">
+      <DependentUpon>ClearGapMapDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ClosePositionsForm.resx">
+      <DependentUpon>ClosePositionsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CloseTargetDlg.resx">
+      <DependentUpon>CloseTargetDlg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ContactInputForm.resx">
+      <DependentUpon>ContactInputForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DealCollectionPointsForm.resx">
+      <DependentUpon>DealCollectionPointsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DownloadQuotesForm.resx">
+      <DependentUpon>DownloadQuotesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DurationForm.resx">
+      <DependentUpon>DurationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EditAccountDataForm.resx">
+      <DependentUpon>EditAccountDataForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ExportSetupForm.resx">
+      <DependentUpon>ExportSetupForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FilterPropertiesDlg.resx">
+      <DependentUpon>FilterPropertiesDlg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\HotKeySetForm.resx">
+      <DependentUpon>HotKeySetForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\LogsForm.resx">
+      <DependentUpon>LogsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ManageAccountForm.resx">
+      <DependentUpon>ManageAccountForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ManageTemplate.resx">
+      <DependentUpon>ManageTemplate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MultyOrdersEditForm.resx">
+      <DependentUpon>MultyOrdersEditForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\NavPanelForm.resx">
+      <DependentUpon>NavPanelForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\NewChartForm.resx">
+      <DependentUpon>NewChartForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\NewTextSignalForm.resx">
+      <DependentUpon>NewTextSignalForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\NewTradeSignalForm.resx">
+      <DependentUpon>NewTradeSignalForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\OpenPAMMForm.resx">
+      <DependentUpon>OpenPAMMForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\OptionsForm.resx">
+      <DependentUpon>OptionsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\OrderDlg.resx">
+      <DependentUpon>OrderDlg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\OverallEditPositionsForm.resx">
+      <DependentUpon>OverallEditPositionsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PortfolioRiskCalcSettingsForm.resx">
+      <DependentUpon>PortfolioRiskCalcSettingsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PortfolioRiskForm.resx">
+      <DependentUpon>PortfolioRiskForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ProfitByTickerForm.resx">
+      <DependentUpon>ProfitByTickerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PropertiesDlg.resx">
+      <DependentUpon>PropertiesDlg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\QuoteBaseForm.resx">
+      <DependentUpon>QuoteBaseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\QuoteTableForm.resx">
+      <DependentUpon>QuoteTableForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ReadOnlyAccountForm.resx">
+      <DependentUpon>ReadOnlyAccountForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\RemindPasswordForm.resx">
+      <DependentUpon>RemindPasswordForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\RenameTabDlg.resx">
+      <DependentUpon>RenameTabDlg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ResultDisplaySettingsForm.resx">
+      <DependentUpon>ResultDisplaySettingsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\RiskCalculationPopupForm.resx">
+      <DependentUpon>RiskCalculationPopupForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\RiskSetupForm.resx">
+      <DependentUpon>RiskSetupForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\RobotBindChartForm.resx">
+      <DependentUpon>RobotBindChartForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\RoboTesterForm.resx">
+      <DependentUpon>RoboTesterForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\RobotPortfolioForm.resx">
+      <DependentUpon>RobotPortfolioForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\RobotStateDialog.resx">
+      <DependentUpon>RobotStateDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SaveChartTemplate.resx">
+      <DependentUpon>SaveChartTemplate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SelectAccountForm.resx">
+      <DependentUpon>SelectAccountForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SelectItemsDlg.resx">
+      <DependentUpon>SelectItemsDlg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SelectPictureForm.resx">
+      <DependentUpon>SelectPictureForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SelectTickerForm.resx">
+      <DependentUpon>SelectTickerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ServiceDetailForm.resx">
+      <DependentUpon>ServiceDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SoundSetupForm.resx">
+      <DependentUpon>SoundSetupForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SplashMessagesForm.resx">
+      <DependentUpon>SplashMessagesForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\StartupForm.resx">
+      <DependentUpon>StartupForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\StatInfoForm.resx">
+      <DependentUpon>StatInfoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SubscriptionForm.resx">
+      <DependentUpon>SubscriptionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\TimeIntervalsDlg.resx">
+      <DependentUpon>TimeIntervalsDlg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\TrailingsFrom.resx">
+      <DependentUpon>TrailingsFrom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\UpdatePasswordForm.resx">
+      <DependentUpon>UpdatePasswordForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\WalletForm.resx">
+      <DependentUpon>WalletForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\WalletWithdrawForm.resx">
+      <DependentUpon>WalletWithdrawForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="app.manifest" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="tradesharp.pfx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Common\Candlechart\Candlechart.csproj">
+      <Project>{7753653B-2D5D-4FBB-80A7-5B643127DCDC}</Project>
+      <Name>Candlechart</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common\Entity\Entity.csproj">
+      <Project>{33517AEB-576A-429E-B651-EA87B54242E7}</Project>
+      <Name>Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SiteBridge\TradeSharp.SiteBridge.Lib\TradeSharp.SiteBridge.Lib.csproj">
+      <Project>{98e58858-6473-49a2-bcfb-902221de66c8}</Project>
+      <Name>TradeSharp.SiteBridge.Lib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TradeSharp.Client.Subscription\TradeSharp.Client.Subscription.csproj">
+      <Project>{1D43B7A3-D499-4624-B5E3-70D6196C67E4}</Project>
+      <Name>TradeSharp.Client.Subscription</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TradeSharp.Client.Util\TradeSharp.Client.Util.csproj">
+      <Project>{85913aa3-b955-46d1-9719-09b371e4db7a}</Project>
+      <Name>TradeSharp.Client.Util</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TradeSharp.Contract.Util\TradeSharp.Contract.Util.csproj">
+      <Project>{7DA33D58-6B7A-4551-93D6-488D31369D7A}</Project>
+      <Name>TradeSharp.Contract.Util</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TradeSharp.Contract\TradeSharp.Contract.csproj">
+      <Project>{168F1CAC-77C9-4847-B6C1-138E4373CCEA}</Project>
+      <Name>TradeSharp.Contract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TradeSharp.Localisation\TradeSharp.Localisation.csproj">
+      <Project>{e0348c81-a1c5-47fa-8d2d-dd0c7be201a4}</Project>
+      <Name>TradeSharp.Localisation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TradeSharp.QuoteHistory\TradeSharp.QuoteHistory.csproj">
+      <Project>{52570351-41d0-48db-b3cd-6c7fbdbeacf9}</Project>
+      <Name>TradeSharp.QuoteHistory</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TradeSharp.Robot\TradeSharp.Robot.csproj">
+      <Project>{4A03E10A-86E8-4E73-8536-0969F30B803D}</Project>
+      <Name>TradeSharp.Robot</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TradeSharp.UI.Util\TradeSharp.UI.Util.csproj">
+      <Project>{386DDB6B-D707-4ADC-A0BC-08448D144A8D}</Project>
+      <Name>TradeSharp.UI.Util</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TradeSharp.UpdateContract\TradeSharp.UpdateContract.csproj">
+      <Project>{c2b97926-c5e0-443b-b446-24a1b670b597}</Project>
+      <Name>TradeSharp.UpdateContract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TradeSharp.Util\TradeSharp.Util.csproj">
+      <Project>{4B406C3D-89C3-4C9F-A677-C3114D93B8F9}</Project>
+      <Name>TradeSharp.Util</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Images\connection_state01.gif" />
+    <EmbeddedResource Include="Images\connection_state02.gif" />
+    <EmbeddedResource Include="Images\connection_state04.gif" />
+    <EmbeddedResource Include="Images\connection_state03.gif" />
+    <Content Include="TradeSharp.ico" />
+    <Content Include="Resources\icon_refresh.png" />
+    <Content Include="Resources\splash.png" />
+    <EmbeddedResource Include="Resources\SubversionInfo.txt" />
+    <Content Include="Resources\terminal_logo_100.png" />
+    <Content Include="SubversionInfoTemplate.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.4.5">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 4.5</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>SubWCRev.exe $(SolutionDir) $(ProjectDir)SubversionInfoTemplate.txt $(ProjectDir)Resources\SubversionInfo.txt  2&gt;nul 1&gt;nul
+EXIT 0</PreBuildEvent>
+  </PropertyGroup>
+  <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,109 @@
+﻿@using TradeSharp.SiteAdmin.App_GlobalResources
+@using TradeSharp.Util
+@model IEnumerable<TradeSharp.Linq.SPOT>          
+
+
+        <!-- Кнопка добавления -->
+        <br/>
+        <a href="javascript:void(0);" onclick="showNewItemWindow();">
+            <img src="../../images/shared/ico_add.png" alt="Добавить"/>
+        </a>   
+<br/><br/>
+<table id="TableForm">
+    <tr>
+        <th >
+            @Resource.TitleName
+        </th>
+        <th >
+            @Resource.TitleBaseCurrency
+        </th>
+        <th>
+            @Resource.TitleCounterCurrency
+        </th>
+        <th>
+            @Resource.TitleSwapBuy
+        </th>
+        <th>
+            @Resource.TitleSwapSell
+        </th>
+        <th>
+            @Resource.TitleMinVolumeShort
+        </th>
+        <th>
+            @Resource.TitleMinStepChangeVolumeShort
+        </th>
+        <th>
+            @Resource.TitleDescription
+        </th>
+        <th>
+            @Resource.TitlePrecision
+        </th>
+        <th>
+            @Resource.TitleCode
+        </th>
+        <th>
+            @Resource.TitleDelete
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr data-rowId="@item.Title">
+            <td>
+                <a href="javascript:void(0);" class="table-item" onclick="showEditWindow(event);">@item.Title</a>
+            </td>
+            <td data-td="ComBase">
+                @item.ComBase
+            </td>
+            <td data-td="ComCounter">
+                @item.ComCounter
+            </td>
+            <td data-td="SwapBuy">
+               @if (item.SwapBuy == null)
+               {
+                   <text></text>
+               }
+               else
+               {
+                   <text>@item.SwapBuy.Value.ToString("f2")</text>
+               }
+            </td>
+            <td data-td="SwapSell">
+               @if (item.SwapSell == null)
+               {
+                   <text></text>
+               }
+               else
+               {
+                   <text>@item.SwapSell.Value.ToString("f2")</text>
+               }
+            </td>   
+            <td data-td="MinVolume">
+               @if (item.MinVolume == null)
+               {
+                   <text></text>
+               }
+               else
+               {
+                   <text>@item.MinVolume.Value.ToStringUniformMoneyFormat()</text>
+               }
+            </td>
+            <td data-td="MinStepVolume">
+                @item.MinStepVolume
+            </td>  
+            <td data-td="Description">
+                @item.Description
+            </td>
+            <td data-td="Precise">
+                @item.Precise
+            </td> 
+            <td data-td="CodeFXI">
+                @item.CodeFXI
+            </td> 
+            <td>
+                <a href="javascript:void(0);" onclick="delItem('@item.Title');">
+                    <img src="../../images/shared/ico_remove.png" style="width: 15px; height: 15px;" alt="@Resource.TitleDelete">
+                </a>
+            </td>                             
+        </tr>
+    }
+</table>

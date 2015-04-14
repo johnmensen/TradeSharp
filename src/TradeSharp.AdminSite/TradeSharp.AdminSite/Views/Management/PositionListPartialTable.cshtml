@@ -1,0 +1,266 @@
+﻿@using System.Collections
+@using System.Globalization
+@using TradeSharp.SiteAdmin.App_GlobalResources
+@using TradeSharp.Contract.Entity
+@using TradeSharp.SiteAdmin.Controllers
+@using TradeSharp.Util
+@model TradeSharp.SiteAdmin.Models.PositionListModel
+
+<style type="text/css">
+    table.imagetable
+    {
+        font-family: verdana,arial,sans-serif;
+        font-size: 11px;
+        width: 100%;
+        color: #333333;
+        border-width: 1px;
+        border-color: #999999;
+        border-collapse: collapse;
+    }
+
+        table.imagetable th
+        {
+            cursor: pointer;
+            background: #b5cfd2 url('/images/table/cell-blue.jpg');
+            border-width: 1px;
+            padding: 8px;
+            border-style: solid;
+            border-color: #999999;
+        }
+
+        table.imagetable td
+        {
+            background: #dcddc0 url('/images/table/cell-grey.jpg');
+            border-width: 1px;
+            padding: 8px;
+            border-style: solid;
+            border-color: #999999;
+        }
+</style>
+
+@if (!string.IsNullOrEmpty(ManagementController.ResultMessage))
+{
+    <div id="dialogResult" title="@Resource.TitleHeaderDialogResult">
+        <p>@ManagementController.ResultMessage</p>
+    </div>
+    @(ManagementController.ResultMessage = string.Empty)
+}
+
+
+<table id="content_table">
+    <tr>
+        <th rowspan="3" class="sized">
+            <img src="/images/shared/side_shadowleft.jpg" width="20" class="shadow" alt="" /></th>
+        <th class="topleft"></th>
+        <td id="tbl-border-top">&nbsp;</td>
+        <th class="topright"></th>
+        <th rowspan="3" class="sized">
+            <img src="/images/shared/side_shadowright.jpg" width="20" class="shadow" alt="" /></th>
+    </tr>
+    <tr>
+        <td id="tbl-border-left">
+        <td>
+            <!--  start content_table_inner ...................................................................... START -->
+            <div id="content_table_inner">
+                @Html.ActionLink(Resource.TitleOpenOrder, "AddDeal", "Management", new
+                    {
+                        id = "addPositiontLink", style = "float:none; display:inline; padding:8px;", @class="ml-button-3"
+                    })
+                <br/><br/>
+                <div style="">
+                    @using (Html.BeginForm("PositionList", "Management", FormMethod.Post, new { id = "SubmitForm", name = "SubmitForm", onsubmit = "return subForm();" }))
+                    {
+                        <table class="imagetable">
+                            <tr>
+                                <th colspan="4" onclick="$('#filterTableBody').toggle(0);">@Resource.TitleFilters</th>
+                            </tr>
+                            <tbody id="filterTableBody">
+                                <tr>
+                                    <td>@Resource.TitleAccount                
+                                    </td>
+                                    <td>
+                                        @Html.DropDownListFor(x => x.AccountId, new SelectList((IEnumerable)ViewBag.listAccountId, "Value", "Text"),
+                                                              new { @class = "chzn-select", @style = "width:150px;" })
+                                    </td>
+                                    <td>@Resource.TitleTradingInstrument                
+                                    </td>
+                                    <td>
+                                        @Html.DropDownListFor(x => x.Symbol, new SelectList((IEnumerable)ViewBag.listSymbol, "Value", "Text"),
+                                                              new { @class = "chzn-select", @style = "width:150px;" })
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>@Resource.TitleStatus                
+                                    </td>
+                                    <td>
+                                        @Html.DropDownListFor(x => x.Status, new SelectList((IEnumerable)ViewBag.listStatus, "Value", "Text"),
+                                                              new { @class = "chzn-select", @style = "width:150px;" })
+                                    </td>
+                                    <td>@Resource.TitleBuy / @Resource.TitleSell
+                                    </td>
+                                    <td>
+                                        @Html.DropDownListFor(x => x.Side, new SelectList((IEnumerable)ViewBag.listDealType, "Value", "Text"),
+                                                              new { @class = "chzn-select", @style = "width:150px;" })
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>@Resource.TitleAccountType
+                                    </td>
+                                    <td>
+                                        @Html.DropDownListFor(x => x.IsRealAccount, new SelectList((IEnumerable)ViewBag.isRealAccountList, "Value", "Text"),
+                                                              new { @class = "chzn-select", @style = "width:150px;" })
+                                    </td>
+                                    <td>@Resource.TitleTimeOpen              
+                                    </td>
+                                    <td>
+                                        <img src="~/images/shared/calendar.png" title="@Resource.TitleSetSamplingTime" alt="" />
+                                        @* ReSharper disable Html.IdNotResolved *@
+                                        <label for="TimeOpenFrom">@Resource.TitleFrom</label>
+
+                                        @Html.TextBoxFor(x => x.TimeOpenFrom, new { @style = "width:120px;" })
+                                        <label for="TimeOpenTo">@Resource.TitleTo</label>
+                                        @Html.TextBoxFor(x => x.TimeOpenTo, new { @style = "width:120px;" })
+                                        <a href="javascript:void(0);" title="@Resource.TitleClean" onclick="$('#TimeOpenFrom').val('');$('#TimeOpenTo').val('');">
+                                            <img src="~/images/shared/DeleteRed.png" alt="@Resource.TitleClean" /></a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>@Resource.TitleRecordPage
+                                    </td>
+                                    <td>
+                                        @Html.TextBoxFor(x => x.CountItemShow, new { @style = "width:120px;" })
+                                    </td>
+                                    <td>@Resource.TitleTimeExit             
+                                    </td>
+                                    <td>
+                                        <img src="~/images/shared/calendar.png" title="@Resource.TitleSetSamplingTime" alt="" />
+                                        <label for="TimeExitFrom">@Resource.TitleFrom</label>
+                                        @Html.TextBoxFor(x => x.TimeExitFrom, new { @style = "width:120px;" })
+                                        <label for="TimeExitTo">@Resource.TitleTo</label>
+                                        @Html.TextBoxFor(x => x.TimeExitTo, new { @style = "width:120px;" })
+                                        <a href="javascript:void(0);" title="@Resource.TitleClean" onclick="$('#TimeExitFrom').val('');$('#TimeExitTo').val('');">
+                                            <img src="~/images/shared/DeleteRed.png" alt="@Resource.TitleClean" /></a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="4">
+                                        @Html.ActionLink(@Resource.TitleFiltrate, "PositionList", FormMethod.Post, new { @class = "ml-button-3", @id = "linkUpdate", @onclick="$('#SubmitForm').submit();return false;"  })
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    }
+
+                    <table id="product_table">
+                        <thead>
+                            <tr>
+                                <th rowspan="2"  style="height: 22px" class="table-header-repeat line-left"><span> </span>
+                                    <input id="SelectAll" name="SelectAll" type="checkbox" value="true" onchange="$(':checkbox').prop('checked', $(this).prop('checked'));">
+                                </th>
+                                <th rowspan="2" style="height: 22px" class="table-header-repeat line-left"><span>@Resource.TitleAccount</span></th>
+                                <th rowspan="2" style="height: 22px" class="table-header-repeat line-left"><span>@Resource.TitleMarketOrder</span></th>
+                                <th rowspan="2" style="height: 22px" class="table-header-repeat line-left"><span>@Resource.TitleTradingInstrument</span></th>
+                                <th rowspan="2" style="height: 22px" class="table-header-repeat line-left"><span>@Resource.TitleStatus</span></th>
+                                <th colspan="2" style="height: 22px" class="table-header-repeat line-left"><span>@Resource.TitleEntry</span></th>
+                                <th colspan="2" style="height: 22px" class="table-header-repeat line-left"><span>@Resource.TitleExit</span></th>
+                                <th colspan="2" style="height: 22px" class="table-header-repeat line-left"><span>@Resource.TitleProfit</span></th>
+                            </tr>
+                            <tr>
+                                <th style="height: 22px" class="table-header-repeat line-left"><span>@Resource.TitlePrice</span></th>
+                                <th style="height: 22px" class="table-header-repeat line-left"><span>@Resource.TitleTime</span></th>
+                                <th style="height: 22px" class="table-header-repeat line-left"><span>@Resource.TitlePrice</span></th>
+                                <th style="height: 22px" class="table-header-repeat line-left"><span>@Resource.TitleTime</span></th>
+                                <th style="height: 22px" class="table-header-repeat line-left"><span>@Resource.TitleInPoint</span></th>
+                                <th style="height: 22px" class="table-header-repeat line-left"><span>@Resource.TitleInCurrency</span></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (Model.Positions != null)
+                            {
+                                foreach (var row in Model.Positions)
+                                {
+                                    <tr>
+                                        <td><span><input id="@row.ID.ToString(CultureInfo.InvariantCulture)" name="@row.ID.ToString(CultureInfo.InvariantCulture)" type="checkbox" value="true"></span></td>
+                                        <td><span>@row.AccountID</span></td>
+                                        <td><span>@Html.ActionLink(row.ID.ToString(CultureInfo.InvariantCulture), "PositionDetails", new { positionId = row.ID }, new { @class = "table-item" })</span></td>
+                                        <td><span>@row.Symbol</span></td>
+                                        <td>
+                                            @switch (row.State)
+                                            {
+                                                case PositionState.Opened:
+                                                    <span style="color: #008000">@(EnumFriendlyName<PositionState>.GetString(row.State))</span>
+                                                    break;
+                                                case PositionState.Closed:
+                                                    <span style="color: #0000cd">@(EnumFriendlyName<PositionState>.GetString(row.State))</span>
+                                                    break;
+                                                case PositionState.StartClosed:
+                                                    <span style="color: #999999">@(EnumFriendlyName<PositionState>.GetString(row.State))</span>
+                                                    break;
+                                                case PositionState.StartOpened:
+                                                    <span style="color: #999999">@(EnumFriendlyName<PositionState>.GetString(row.State))</span>
+                                                    break; 
+                                            }
+                                        </td>
+                                        <td><span>@row.PriceEnter</span></td>
+                                        <td><span>@row.TimeEnter</span></td>
+                                        <td>
+                                            @if (row.PriceExit != null)
+                                            {
+                                                <span>@row.PriceExit</span>
+                                            }
+                                        </td>
+                                        <td>
+                                            @if (row.TimeExit != null)
+                                            {
+                                                <span>@row.TimeExit</span>
+                                            }
+                                        </td>
+                                        <td>
+                                            @if (row.ResultDepo != null)
+                                            {
+                                                <span>@row.ResultDepo</span>
+                                            }
+                                        </td>
+                                        <td>
+                                            @if (row.ResultPoints != null)
+                                            {
+                                                <span>@row.ResultPoints</span>
+                                            }
+                                        </td>
+                                    </tr>
+                                }
+                            }
+                            else
+                            {
+                                <tr>
+                                    <td colspan="10">
+                                        <div style="color: red">@Resource.ErrorMessageDataAccess</div>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                    @if (Model.TotalCountItems != null && Model.TotalCountItems > Model.CountItemShow)
+                    {
+                        <div style="color: #999999; font-size: 14px; font-style: italic; margin-bottom: 30px">
+                            + @(Model.TotalCountItems - Model.CountItemShow) @Resource.TitleNotShownItem</div>
+                    }
+                    @using (Html.BeginForm("GetPositionEditView", "Management", FormMethod.Post))
+                    {
+                        <input type="hidden" id="positionId" name="positionId"/>
+                        <a id="editPositionLink" style="color: #0000ff; font-size: 14px; font-style: italic; font-weight: bold; cursor: pointer;" onclick="editPositionFillArray();$(this).parents('form:first').submit();">@Resource.TitleEditSelectedOrders</a>
+                    }
+                </div>
+                <div class="clear"></div>
+            </div>
+        </td>
+        <td id="tbl-border-right"></td>
+    </tr>
+    <tr>
+        <th class="sized bottomleft"></th>
+        <td id="tbl-border-bottom">&nbsp;</td>
+        <th class="sized bottomright"></th>
+    </tr>
+</table>
+<br />
+<br />

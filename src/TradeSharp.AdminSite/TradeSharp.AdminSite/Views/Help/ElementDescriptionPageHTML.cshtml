@@ -1,0 +1,33 @@
+﻿@using TradeSharp.SiteAdmin.App_GlobalResources
+@{
+    ViewBag.Title = Resource.PageTitleHelp;
+    Layout = "~/Views/Pages/_PageLayout.cshtml";
+}
+
+@section Header {
+    <link rel="stylesheet" href="~/css/screen.css" type="text/css" media="screen" title="default" />
+    <link rel="stylesheet" href="/css/button.css" type="text/css" media="screen" title="default" />
+    <script src="~/js/jquery_1_10_3/jquery-1.9.1.js"></script>
+
+    <!--[if IE]>
+        <link rel="stylesheet" media="all" type="text/css" href="/css/pro_dropline_ie.css" />
+    <![endif]-->
+    
+    
+}
+
+
+<script type="text/javascript">
+    $(function () {
+        $.each($('#content').find('a[data-item]'), function (key, value) {
+            $(this).attr('href', '/Help/ElementDescriptionPageHTML?pageName=' + $(this).attr("data-item"));
+        });
+
+    });
+</script>
+
+<div id="content-outer">
+    <div id="content" style="font-size: 15px">
+        @Html.Raw(Model.MainContent)
+    </div>
+</div>

@@ -1,0 +1,117 @@
+﻿@{
+    ViewBag.Title = Resource.PageTitleChartAccountHistory;
+    Layout = "~/Views/Pages/_PageLayout.cshtml";
+}
+@section Header {
+    <link rel="stylesheet" href="/css/screen.css" type="text/css" media="screen" title="default" />
+    <link rel="stylesheet" href="/css/button.css" type="text/css" media="screen" title="default" />
+    <!--  jquery core -->
+    <script src="/js/jquery_1_10_3/jquery-1.9.1.js" type="text/javascript"></script>
+    <script src="~/js/PammPartialTablePageSettings.js"></script>
+       
+    <script src="~/js/RGraph/RGraph.bar.js"></script>
+    <script src="~/js/RGraph/RGraph.common.core.js"></script>
+    <script src="~/js/RGraph/RGraph.common.effects.js"></script>
+    <script src="~/js/RGraph/RGraph.common.dynamic.js"></script>
+    <script src="~/js/RGraph/RGraph.common.tooltips.js" ></script>
+    <script src="~/js/RGraph/RGraph.line.js"></script>
+    
+
+    <!--[if IE]>
+    <link rel="stylesheet" media="all" type="text/css" href="/css/pro_dropline_ie.css" />
+    <![endif]-->
+}
+
+@using TradeSharp.SiteAdmin.App_GlobalResources
+@model TradeSharp.SiteAdmin.Models.PammHistoryModel
+
+<style>
+    body {
+        font-family: Arial;
+    }
+
+    pre.code {
+        padding: 5px;
+        background-color: #eee;
+        border: 2px dashed gray
+    }
+</style>
+
+<div id="content-outer">
+    <!-- start content -->
+    <div id="content">
+        <!--  start page-heading -->
+        <div id="page-heading">
+            <h1>@Resource.TitleChartAccountHistory</h1>
+        </div>
+        <h2>@Resource.TitleHistoryChanges</h2>
+        <h3>@Resource.TitlePercent</h3>
+        <canvas id="cvsShare" width="800" height="250">[No canvas support]</canvas>
+        <br/>
+        <br/>
+        <h3>HWM</h3>
+        <canvas id="cvsHtm" width="800" height="250">[No canvas support]</canvas>
+
+        <script>
+            var labelsShare = new Array();
+            var labelsHtm = new Array();
+            var tooltipShare = new Array();
+            var tooltipHtm = new Array();
+            var shareData = new Array();
+            var htmData = new Array();
+            @foreach (var item in Model.CurrentItems)
+            {
+                @Html.Raw("tooltipShare.push('" + item.Date.ToShortDateString() + " - "+ item.NewShare  +"');")
+                @Html.Raw("tooltipHtm.push('" + item.Date.ToShortDateString() + " - "+ item.NewHWM  +"');")
+                @Html.Raw("shareData.push(" + item.NewShare + ");") 
+                @Html.Raw("htmData.push(" + item.NewHWM + ");") 
+            }
+            
+            @if (Model.CurrentItems.Any())
+            {
+                @Html.Raw("labelsShare.push(" + Model.CurrentItems.First().NewShare + ");") 
+                @Html.Raw("labelsShare.push(" + Model.CurrentItems.Last().NewShare + ");")  
+                
+                @Html.Raw("labelsHtm.push(" + Model.CurrentItems.First().NewHWM + ");") 
+                @Html.Raw("labelsHtm.push(" + Model.CurrentItems.Last().NewHWM + ");") 
+            }
+
+            
+
+            $(document).ready(function() {
+                var xaxisposShare = 'bottom';
+                if ('@Model.OneCharacterShare' == 'False' || '@Model.OneCharacterShare' == 'false') xaxisposShare = 'center';
+
+                var xaxisposHtm = 'bottom';
+                if ('@Model.OneCharacterHtm' == 'False' || '@Model.OneCharacterHtm' == 'false') xaxisposHtm = 'center';
+
+                if (labelsShare.length > 0)
+                    var lineShare = new RGraph.Line('cvsShare', shareData)
+                        .set('labels', labelsShare)
+                        .set('tooltips', tooltipShare)
+                        .set('linewidth', 3)
+                        .set('xaxispos', xaxisposShare)
+                        .set('scale.decimals', 4)
+                        .set('gutter.left', 85)
+                        .set('ymin', @Model.MinShareY + 0)
+                        .set('ymax', @Model.MaxShareY + 0)
+                        .trace2();
+
+                if (labelsHtm.length > 0)
+                    var lineHtm = new RGraph.Line('cvsHtm', htmData)
+                        .set('labels', labelsHtm)
+                        .set('tooltips', tooltipHtm)
+                        .set('linewidth', 3)
+                        .set('xaxispos', xaxisposHtm)
+                        .set('scale.decimals', 4)
+                        .set('gutter.left', 85)
+                        .set('ymin', @Model.MinHtmY + 0)
+                        .set('ymax', @Model.MaxHtmY + 0)
+                        .trace2();
+            });
+        </script>
+        <div class="clear">&nbsp;</div>
+    </div>
+    <!--  end content -->
+    <div class="clear">&nbsp;</div>
+</div>

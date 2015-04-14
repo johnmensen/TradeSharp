@@ -1,0 +1,203 @@
+﻿@using TradeSharp.SiteAdmin.App_GlobalResources
+@using TradeSharp.Contract.Entity
+@using TradeSharp.Util
+@model AccountGroup
+
+@{
+    ViewBag.Title = Resource.PageTitleEditAccountGroupsDetails;
+    Layout = "~/Views/Pages/_PageLayout.cshtml";
+}
+
+@section Header {
+    <link rel="stylesheet" href="~/css/screen.css" type="text/css" media="screen" title="default" />
+    <link rel="stylesheet" href="/css/button.css" type="text/css" media="screen" title="default" />
+    
+    <!--  jquery core -->
+    <script src="~/js/jquery_1_10_3/jquery-1.9.1.js"></script>
+    <script src="@Url.Content("~/js/jquery/jquery.validate.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/js/jquery/jquery.validate.unobtrusive.js")" type="text/javascript"></script>
+    <script src="~/js/chosen.jquery.min.js" type="text/javascript"></script>
+    <link href="~/css/chosen.min.css" rel="stylesheet" />
+    <!--[if IE]>
+    <link rel="stylesheet" media="all" type="text/css" href="/css/pro_dropline_ie.css" />
+    <![endif]-->
+    <style>
+        td {
+            text-align: right;
+            padding: 5px;
+        }
+    </style>
+}
+
+@Html.ValidationSummary(true)
+<div id="content-outer">
+    <div id="content" style="width: 380px; margin: 0 auto; min-width: 380px;">
+        @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "SubmitForm", name = "SubmitForm" }))
+        {
+            <h2>@Resource.TitleEditAccountGroupsDetails</h2>
+            <h3>@Resource.TitleAccountGroup</h3>
+            <table class="tableWithoutBorders">
+                <tr>
+                    <td>
+                        @Html.LabelFor(model => model.Code)
+                    </td>
+                    <td style="font-weight:bold; font-size: 16px;">
+                        @Html.DisplayTextFor(model => model.Code)
+                        @Html.HiddenFor(model => model.Code)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.LabelFor(model => model.Name)
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(model => model.Name, new { @class = "login-inp" })
+                        @Html.ValidationMessageFor(model => model.Name)
+                    </td></tr>
+                <tr>
+                    <td>
+                        @Html.LabelFor(model => model.IsReal)
+                    </td>
+                    <td>
+                        @Html.DropDownListFor(model => model.IsReal, 
+                                              new List<SelectListItem>{ 
+                                                  new SelectListItem{ Text = Resource.TitleReal, Value="True"}, 
+                                                  new SelectListItem{ Text = Resource.TitleVirtual, Value="False"}}, new { @class = "chzn-select", @style = "width:220px;" })
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.LabelFor(model => model.DefaultVirtualDepo)
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(model => model.DefaultVirtualDepo, new { @class = "login-inp" })
+                        @Html.ValidationMessageFor(model => model.DefaultVirtualDepo)
+                    </td></tr>
+                <tr>
+                    <td>
+                        @Html.LabelFor(model => model.BrokerLeverage)
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(model => model.BrokerLeverage, new { @class = "login-inp" })
+                        @Html.ValidationMessageFor(model => model.BrokerLeverage)
+                    </td></tr>
+                <tr>
+                    <td>
+                        @Html.LabelFor(model => model.MarginCallPercentLevel)
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(model => model.MarginCallPercentLevel, new { @class = "login-inp" })
+                        @Html.ValidationMessageFor(model => model.MarginCallPercentLevel)
+                    </td></tr>
+                <tr>
+                    <td>
+                        @Html.LabelFor(model => model.StopoutPercentLevel)
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(model => model.StopoutPercentLevel, new { @class = "login-inp" })
+                        @Html.ValidationMessageFor(model => model.StopoutPercentLevel)
+                    </td></tr>
+                <tr>
+                    <td>
+                        @Html.LabelFor(model => model.DefaultMarkupPoints)
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(model => model.DefaultMarkupPoints, new { @class = "login-inp" })
+                        @Html.ValidationMessageFor(model => model.DefaultMarkupPoints)
+                    </td></tr>
+                <tr>
+                    <td>
+                        @Html.LabelFor(model => model.Markup) 
+                    </td>
+                    <td>
+                        @Html.DropDownListFor(x => x.Markup, Enum.GetValues(typeof (AccountGroup.MarkupType)).Cast<AccountGroup.MarkupType>().Select(
+                            markupType => new SelectListItem {
+                                Text = EnumFriendlyName<AccountGroup.MarkupType>.GetString(markupType), 
+                                Value = markupType.ToString()}), new {@class = "chzn-select", @style = "width:220px;"})
+                    </td>
+                </tr>
+                <tr><td>
+                        @Html.LabelFor(model => model.SwapFree)
+                    </td>
+                    <td>
+                        @Html.DropDownListFor(model => model.SwapFree,
+                                              new List<SelectListItem>
+                                                  {
+                                                      new SelectListItem {Text = Resource.TitleFreePrice, Value = "True"},
+                                                      new SelectListItem {Text = Resource.TitlePaid, Value = "False"}
+                                                  }, new {@class = "chzn-select", @style = "width:220px;"})
+                    </td>
+                </tr>
+            </table>
+            <h3>@Resource.TitleHedging</h3>
+            if (Model.Dealer != null && Model.Dealer.Code != null)
+            {
+                <table class="tableWithoutBorders">
+                    <tr><td>
+                            @Html.LabelFor(model => model.MessageQueue)
+                        </td>
+                        <td>
+                            @Html.TextBoxFor(model => model.MessageQueue, new { @class = "login-inp" })
+                            @Html.ValidationMessageFor(model => model.MessageQueue)
+                        </td>
+                    </tr>
+                    <tr><td>
+                            @Html.LabelFor(model => model.SessionName)
+                        </td>
+                        <td>
+                            @Html.TextBoxFor(model => model.SessionName, new { @class = "login-inp" })
+                            @Html.ValidationMessageFor(model => model.SessionName)
+                        </td>
+                    </tr>
+                    <tr><td>
+                            @Html.LabelFor(model => model.HedgingAccount)
+                        </td>
+                        <td>
+                            @Html.TextBoxFor(model => model.HedgingAccount, new { @class = "login-inp" })
+                            @Html.ValidationMessageFor(model => model.HedgingAccount)
+                        </td>
+                    </tr>
+                    <tr><td>
+                            @Html.LabelFor(model => model.SenderCompId)
+                        </td>
+                        <td>
+                            @Html.TextBoxFor(model => model.SenderCompId, new { @class = "login-inp" })
+                            @Html.ValidationMessageFor(model => model.SenderCompId)
+                        </td>
+                    </tr>
+                </table>
+                @Html.HiddenFor(x => x.Dealer.Code)
+            }
+            else
+            {
+                <span style="color: red; font-style: italic;">@Resource.ErrorMessageDealerNotSelected</span>
+            }
+            
+            <br/>
+            <p>
+                <input type="submit" class='ml-button-3' style="margin-top: 35px" value="@Resource.TitleSave" /> 
+                @Html.ActionLink(Resource.TitleCancel, "EditAccountGroupsDetailsCancel", null, new {@class="ml-button-3", @style = "float : right; margin-top: 35px"})
+            </p>
+        }
+        <div class="clear">&nbsp;</div>
+    </div>
+    <!--  end content -->
+    <div class="clear">&nbsp;</div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.chzn-search').hide();
+    });
+    
+    // Кастомизируем выпадающие списки
+    var config = {
+        '.chzn-select': {},
+        '.chzn-select-deselect': { allow_single_deselect: true },
+        '.chzn-select-no-single': { disable_search_threshold: 10 },
+        '.chzn-select-no-results': { no_results_text: '@Resource.ErrorMassageNothingFound' },
+        '.chzn-select-width': { width: "95%" }
+    };
+    for (var selector in config) {
+        $(selector).chosen(config[selector]);
+    }
+</script>

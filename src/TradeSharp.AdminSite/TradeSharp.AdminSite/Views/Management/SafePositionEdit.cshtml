@@ -1,0 +1,544 @@
+﻿@{
+    ViewBag.Title = Resource.PageTitlePositionEdit;
+    Layout = "~/Views/Pages/_PageLayout.cshtml";
+}
+
+@using TradeSharp.SiteAdmin.App_GlobalResources
+@model TradeSharp.SiteAdmin.Models.PositionsEditModel
+
+@section Header {
+    <link rel="stylesheet" href="~/css/screen.css" type="text/css" media="screen" title="default" />
+    <link rel="stylesheet" href="/css/button.css" type="text/css" media="screen" title="default" />
+    <!--  jquery core -->
+    <script src="~/js/jquery_1_10_3/jquery-1.9.1.js"></script>
+    <script src="~/js/chosen.jquery.min.js" type="text/javascript"></script>
+    <script src="~/js/jquery_1_10_3/jquery-ui.js"></script>
+    <link href="http://code.jquery.com/ui/1.10.3/themes/eggplant/jquery-ui.css" rel="stylesheet" />
+
+    <link href="~/css/chosen.min.css" rel="stylesheet" />
+
+    <!--[if IE]>
+        <link rel="stylesheet" media="all" type="text/css" href="/css/pro_dropline_ie.css" />
+    <![endif]-->
+    
+    <style type="text/css">
+        .tftable {font-size:12px;color:#333333;width:100%;border-width: 1px;border-color: #a9a9a9;border-collapse: collapse;}
+        .tftable th {font-size:12px;background-color:#b8b8b8;border-width: 1px;padding: 8px;border-style: solid;border-color: #a9a9a9;text-align:left;}
+        .tftable tr {background-color:#cdcdcd;}
+        .tftable td {font-size:12px;border-width: 1px;padding: 8px;border-style: solid;border-color: #a9a9a9;}
+        .tftable tr:hover {background-color:#ffffff;}
+    </style>
+}
+
+@Html.Partial("localizationVariableDatapicker")
+
+<script type="text/javascript">
+    $(function() {
+        // инициализируем диалоговое окно
+        $("#CloseDealDialog").dialog({
+            autoOpen: false,
+            height: 300,
+            width: 350,
+            modal: true
+        });
+
+        $("#EditDangerDealDialog").dialog({
+            autoOpen: false,
+            height: 400,
+            width: 700,
+            modal: true
+        });
+
+        $("#txtbxTimeExit").datepicker();
+
+        $("#Cancel_OpenDeal").attr("href", "/Management/CancelDeal?strId=" +  $('#ItemsId_Open').first().val() + "&dealType=Open");
+        $("#Cancel_CloseDeal").attr("href", "/Management/CancelDeal?strId=" + $('#ItemsId_Close').first().val() + "&dealType=Close");           
+    });
+
+    function EditDangerDeal(dealType) {
+        switch (dealType) {
+        case 'Open':
+            $("#editDangerDealId").val($("#ItemsId_Open").val());
+            $("#editDangerDealType").val('Open');
+                
+            $("#txtCurrentToolOpen").show();
+            $("#txtCurrentToolClose").hide();
+                
+            $("#txtCurrentSideOpen").show();
+            $("#txtCurrentSideClose").hide();
+                
+            $("#txtCurrentVolumeOpen").show();
+            $("#txtCurrentVolumeClose").hide();
+                
+            $("#txtCurrentEnterPriceOpen").show();
+            $("#txtCurrentEnterPriceClose").hide();
+                
+            $("#txtCurrentExitPriceOpen").show();
+            $("#txtCurrentExitPriceClose").hide();
+            break;
+        case 'Close':
+            $("#editDangerDealId").val($("#ItemsId_Close").val());
+            $("#editDangerDealType").val('Close');
+                
+            $("#txtCurrentToolOpen").hide();
+            $("#txtCurrentToolClose").show();
+
+            $("#txtCurrentSideOpen").hide();
+            $("#txtCurrentSideClose").show();
+
+            $("#txtCurrentVolumeOpen").hide();
+            $("#txtCurrentVolumeClose").show();
+
+            $("#txtCurrentEnterPriceOpen").hide();
+            $("#txtCurrentEnterPriceClose").show();
+
+            $("#txtCurrentExitPriceOpen").hide();
+            $("#txtCurrentExitPriceClose").show();
+            break;
+        }
+        $("#EditDangerDealDialog").dialog("open");
+    }
+        
+
+    function CloseDealDialogOpen() {
+        var id = $('#ItemsId_Open').first().val();
+        $.ajax({
+            url: '@Url.Action("FillCloseDealForm", "Management")',
+            type: 'POST',
+            data: JSON.stringify({ strId: id }),
+            dataType: 'json',
+            contentType: 'application/json; charset=utf-8',
+            success: function(data) {
+                var tblEntryPrice = $("#tblEntryPrice");
+                tblEntryPrice.empty();
+
+                $("#closeDealId").val($("#ItemsId_Open").val());
+
+                $.each(data, function(index, value) {
+
+                    var side = 'Ask';
+                    if (value.split('_')[1] == 'Buy') side = 'Bid';
+
+                    var row = '<tr>';
+                    row = row + '<td style="padding:5px;">' + value.split('_')[0] + '</td>';
+                    row = row + '<td style="padding:5px;">' + side + '</td>';
+                    row = row + '<td style="padding:5px;"><input id="' + value + '" name="' + value + '" type="text"/></td>';
+                    row = row + '</tr>';
+
+                    tblEntryPrice.append(row);
+                });
+                    
+                $("#tblEntryPrice").hide();
+                $("#CloseDealDialog").dialog("open");
+            },
+            error: function(request, status, error) {
+                alert(@Resource.ErrorMessage + ': ' + request + '  ' + status + '  ' + error);
+            }
+        });
+    }
+
+    function chbxTimeExitChecked() {
+        if ($("#txtbxTimeExit").prop('disabled')) {
+            $("#txtbxTimeExit").prop('disabled', false);
+            $("#tblEntryPrice").show("fast");
+        } else {
+            $("#txtbxTimeExit").val('');
+            $("#txtbxTimeExit").prop('disabled', true);
+            $("#tblEntryPrice").hide("fast");
+        }
+    }
+
+    function ReOpenDeal() {
+        if (!confirm('@Resource.ConfirmPositionEdit')) return;
+        var id = $('#ItemsId_Close').first().val();
+
+        $("#imgLoading").show();
+        $(".ajaxTableContainer").fadeTo(0, 0.5);
+
+        $.ajax({
+            url: '@Url.Action("ReOpenDeal", "Management")',
+            type: 'POST',
+            data: JSON.stringify({ id: id }),
+            dataType: 'json',
+            contentType: 'application/json; charset=utf-8',
+            success: function(data) {
+                $('#imgLoading').hide();
+                $(".ajaxTableContainer").fadeTo(0, 1.0);
+                alert('@Resource.TitleOperationComplet');
+            },
+            error: function(request, status, error) {
+                $('#imgLoading').hide();
+                $(".ajaxTableContainer").fadeTo(0, 1.0);
+                alert('@Resource.ErrorMessage ' + request + '  ' + status + '  ' + error);
+            }
+        });
+    }
+
+</script>
+
+<div id="content-outer">
+    <div id="content">
+        <div id="page-heading">
+            <div id="validationSummary">
+                @if (Model.validationErrorList != null)
+                {
+                    foreach (var item in Model.validationErrorList)
+                    {
+                        <span style="color: #8b0000" >@item</span>
+                    }
+                }
+                @if (ViewBag.ErrorList != null)
+                {
+                    foreach (var item in ViewBag.ErrorList)
+                    {
+                        <span style="color: #8b0000" >@item</span>
+                    }
+                }
+                @if (ViewBag.WarningList != null)
+                {
+                    foreach (var item in ViewBag.WarningList)
+                    {
+                        <span style="color: #8b0000" >@item</span>
+                    }
+                }
+            </div>
+            
+            
+            <h1>@Resource.TitleMarketOrderEdit @string.Join(", ", Model.OpenIdList) @string.Join(", ", Model.CloseIdList)</h1>
+            <img id="imgLoading" class="ui-progressbar" style="width: 128px; height: 128px; display: none; background-position:center; position: fixed" src="~/images/table/loading.gif" alt=""/>
+            <div class="ajaxTableContainer">
+                @using (Html.BeginForm("SafePositionEdit", "Management", FormMethod.Post, new { id = "SubmitForm", name = "SubmitForm" }))
+                {
+                    if (Model.OpenIdList.Count > 0)
+                    {
+                        <table id="TableFormOpen" class="tableWithoutBorders">
+                            <tr>
+                                <th colspan="4">
+                                    @Resource.TextMarketOrderOpenInSample
+                                </th>
+                            </tr>
+                            <tr>
+                                <th colspan="4">
+                                    @Resource.TextEmptyStringIgnor
+                                </th>
+                            </tr>
+                            @foreach (var item in Model.OpenPositionValues.Where(x => !x.IsDanger))
+                            {
+                                <tr>
+                                    <td>
+                                        <div title="@item.Title"  style="color: blue; font-weight: bold">@item.Title</div>
+                                    </td>
+                                    <td>
+                                        @Html.TextBox("Open_" + item.SystemName, item.Tag, new { @style = "font-style: italic;" }) 
+                                        <span style="font-weight: bold; padding:0 10px;">@item.PropertyTypeName</span><br/>
+                                        <span style="font-style: italic; padding:0 10px;">@item.PropertyTypeComment</span>&nbsp;
+                                        <span>@item.Description</span>
+                                    </td>
+                                    <td>
+                                        <b>@item.Comment</b>
+                                        @for (var i = 0; i < item.Value.Split(',').Count(); i++)
+                                        {
+                                            if (i > 2)
+                                            {
+                                                <br/><span style="font-style: italic;">...</span>
+                                                break;
+                                            }
+                                            <br/><span style="font-style: italic;">@item.Value.Split(',')[i]</span>
+                                        } 
+                                    </td>
+                                </tr>
+                            }
+                            <tr>
+                                <th colspan="4">
+                                    @Resource.TextMarketOrderOpenAdditionalActions
+                                </th>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    @Resource.TextMarketOrderCloseSelectedComment
+                                </td>
+                                <td>
+                                    <div title="@Resource.TitleMarketOrderCloseSelected" style="color: #ff0000; font-weight: bold; font-size: 15px">
+                                        <a href="javascript:void(0);" onclick="CloseDealDialogOpen(); return false;" style="float: left;">
+                                            @Resource.TitleClose
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    @Resource.TextMarketOrderCancelSelectedComment 
+                                </td>
+                                <td>
+                                    <div title="@Resource.TitleMarketOrderCancelSelected" style="color: #ff0000; font-weight: bold; font-size: 15px">
+                                        @Html.ActionLink(Resource.TitleCancel, "CancelDeal", null, new {  @onclick="if(!confirm('"+ Resource.ConfirmTitleMarketOrderCancelSelected +"')) return false;", @id = "Cancel_OpenDeal", @Name = "Cancel_OpenDeal"})
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    @Resource.TextMarketOrderEditSelectedComment
+                                </td>
+                                <td>
+                                    <div title="@Resource.TitleMarketOrderEditSelected" style="color: #ff0000; font-weight: bold; font-size: 15px">
+                                        <a href="javascript:void(0);" id="EditDangerOpen" onclick="EditDangerDeal('Open'); return false;" style="float: left;">
+                                            @Resource.TitleEdit
+                                        </a>
+                                    </div>  
+                                </td>
+                            </tr>
+                        </table>
+                        @Html.Hidden("ItemsId_Open", string.Join(",", Model.OpenIdList))
+                    
+                    }
+                    if (Model.CloseIdList.Count > 0)
+                    {
+                        <table id="TableFormClose" class="tableWithoutBorders">
+                            <tr>
+                                <th colspan="4">
+                                    @Resource.TextMarketOrderCloseInSample
+                                </th>
+                            </tr>
+                            @foreach (var item in Model.ClosePositionValues.Where(x => !x.IsDanger))
+                            {
+                                <tr>
+                                    <td>
+                                        <div title="@item.Title"  style="color: blue; font-weight: bold">@item.Title</div>
+                                    </td> 
+                                    <td>
+                                        @Html.TextBox("Close_" + item.SystemName, item.Tag, new { @style = "font-style: italic;" }) 
+                                        <span style="font-weight: bold; padding:0 10px;">@item.PropertyTypeName</span><br/>
+                                        <span style="font-style: italic; padding:0 10px;">@item.PropertyTypeComment</span>&nbsp;
+                                        <span>@item.Description</span>
+                                    </td>
+                                    <td>
+                                        <b>@item.Comment</b>
+                                        @for (var i = 0; i < item.Value.Split(',').Count(); i++)
+                                        {
+                                            if (i > 2)
+                                            {
+                                                <br/><span style="font-style: italic;">...</span>
+                                                break;
+                                            }
+                                            <br/><span style="font-style: italic;">@item.Value.Split(',')[i]</span>
+                                        } 
+                                    </td>
+                                </tr>
+                            }
+                            <tr>
+                                <th colspan="4">
+                                    @Resource.TextMarketOrderCloseAdditionalActions
+                                </th>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    @Resource.TextMarketOrderOpenSelectedComment
+                                </td>
+                                <td>
+                                    <div title="Переоткрыть выбранные сделки" style="color: #ff0000; font-weight: bold; font-size: 15px">
+                                        <a href="javascript:void(0);" onclick="ReOpenDeal(); return false;" style="float:none; display:inline;">
+                                            @Resource.TitleReopen
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    @Resource.TextMarketOrderCancelSelectedComment 
+                                </td>
+                                <td>
+                                    <div title="Отменить выбранные сделки" style="color: #ff0000; font-weight: bold; font-size: 15px">
+                                        @Html.ActionLink(Resource.TitleCancel, "CancelDeal", null, new {  @onclick="if(!confirm('" + Resource.ConfirmTitleMarketOrderCancelSelected + "')) return false;", @id = "Cancel_CloseDeal", @Name = "Cancel_CloseDeal"})
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    @Resource.TitleMarketOrderEditSelected
+                                </td>
+                                <td>
+                                    <div title="@Resource.TitleChangeType" style="color: #ff0000; font-weight: bold; font-size: 15px">
+                                        <a href="javascript:void(0);" id="EditDangerClose" onclick="EditDangerDeal('Close'); return false;" style="float: left;">
+                                            @Resource.TitleEdit
+                                        </a>
+                                    </div>  
+                                </td>
+                            </tr>
+                        </table>
+                        
+                        @Html.Hidden("ItemsId_Close", string.Join(",", Model.CloseIdList))
+                    }
+
+                    if (Model.OpenIdList.Count > 0 || Model.CloseIdList.Count > 0)
+                    {
+                        <a href="javascript:void(0);" onclick=" $('#SubmitForm').submit(); return false;" style="float: right;">
+                            <img src="../../images/table/save.png" alt="@Resource.TitleEdit"  style="margin-top: 25px;"/>
+                        </a>
+                    }
+                }
+            </div>
+        </div>
+        <div class="clear">&nbsp;</div>
+    </div>
+    <div class="clear">&nbsp;</div>
+</div>
+
+
+<div id="CloseDealDialog" title="@Resource.TitleMarketOrderClose">
+    @using (Html.BeginForm("CloseDeal", "Management", FormMethod.Post, new { id = "CloseDealSubmitForm", name = "CloseDealSubmitForm" }))
+    {
+        <span>@Resource.TitleTimeExit</span>
+        <input id="chbxTimeExit" name="chbxTimeExit" type="checkbox" onchange="chbxTimeExitChecked();"/>
+        <input id="txtbxTimeExit" name="txtbxTimeExit" disabled type="text"/><br/>
+           
+        <table id="tblEntryPrice" title="@Resource.TitlePriceEntry" >
+        </table>
+        
+        <table>
+            <tr>
+                <td>@Resource.TitleReasonExit</td>
+                <td>@Html.DropDownList("ddlExitReason", (IEnumerable<SelectListItem>)ViewBag.ListOfExitReason)</td>
+            </tr>
+        </table>
+    
+        <br />
+        <input type="submit" title="@Resource.TitleClose" value="@Resource.TitleClose" />
+        <input type="hidden" id="closeDealId" name="closeDealId" />
+    } 
+</div>
+
+<div id="EditDangerDealDialog" title="@Resource.TitleMarketOrdersEdit">
+    @using (Html.BeginForm("EditDangerDeal", "Management", FormMethod.Post, new { id = "EditDealSubmitForm", name = "EditDealSubmitForm" }))
+    {
+        <table class="tftable">
+            <tr>
+                <th>@Resource.TitleField</th> 
+                <th>@Resource.TitleCurrentValue</th> 
+                <th>@Resource.TitleNewValue</th> 
+            </tr>
+            <tr>
+                <td>@Resource.TitleTradingInstrument</td>
+                <td>
+                    <span id="txtCurrentToolOpen">@{
+                                                      var toolOpen = Model.OpenPositionValues.FirstOrDefault(x => x.SystemName == "Symbol");
+                                                      if (toolOpen != null)
+                                                      {
+                                                          <b>@toolOpen.Value</b>
+                                                      }
+                                                  }</span>
+                    <span id="txtCurrentToolClose">@{
+                                                       var toolClose = Model.ClosePositionValues.FirstOrDefault(x => x.SystemName == "Symbol");
+                                                       if (toolClose != null)
+                                                       {
+                                                           <b>@toolClose.Value</b>
+                                                       }
+                                                   }</span>
+                </td>
+                <td>
+                    @Html.DropDownList("ddlChangeTicker", (IEnumerable<SelectListItem>)ViewBag.listSymbol)
+                </td>
+            </tr>
+            <tr>
+                <td>@Resource.TitleMarketOrderType (Sell: -1 / Buy: 1)</td>
+                <td>
+                    <span id="txtCurrentSideOpen">
+                        @{
+                            var sideOpen = Model.OpenPositionValues.FirstOrDefault(x => x.SystemName == "Side");
+                            if (sideOpen != null)
+                            {
+                                <b>@sideOpen.Value</b>
+                            }
+                        }</span>
+
+                    <span id="txtCurrentSideClose">
+                        @{
+                            var sideClose = Model.ClosePositionValues.FirstOrDefault(x => x.SystemName == "Side");
+                            if (sideClose != null)
+                            {
+                                <b>@sideClose.Value</b>
+                            }
+                        }</span>
+                </td>
+                <td>
+                    <input type="text" id="txtbxNewSide" name="txtbxNewSide"/>
+                </td>
+            </tr>
+            <tr>
+                <td>@Resource.TitleVolume</td>
+                <td>
+                    <span id="txtCurrentVolumeOpen">
+                        @{
+                            var volumeOpen = Model.OpenPositionValues.FirstOrDefault(x => x.SystemName == "Volume");
+                            if (volumeOpen != null)
+                            {
+                                <b>@volumeOpen.Value</b>
+                            }
+                        }</span>
+
+                    <span id="txtCurrentVolumeClose">
+                        @{
+                            var volumeClose = Model.ClosePositionValues.FirstOrDefault(x => x.SystemName == "Volume");
+                            if (volumeClose != null)
+                            {
+                                <b>@volumeClose.Value</b>
+                            }
+                        }</span>
+                </td>
+                <td>
+                    <input type="text" id="txtbxNewVolume" name="txtbxNewVolume"/>
+                </td>
+            </tr>
+            <tr>
+                <td>@Resource.TitlePriceEntry</td>
+                <td>
+                    <span id="txtCurrentEnterPriceOpen">
+                        @{
+                            var enterPriceOpen = Model.OpenPositionValues.FirstOrDefault(x => x.SystemName == "PriceEnter");
+                            if (enterPriceOpen != null)
+                            {
+                                <b>@enterPriceOpen.Value</b>
+                            }
+                        }</span>
+                    <span id="txtCurrentEnterPriceClose">
+                        @{
+                            var enterPriceClose = Model.ClosePositionValues.FirstOrDefault(x => x.SystemName == "PriceEnter");
+                            if (enterPriceClose != null)
+                            {
+                                <b>@enterPriceClose.Value</b>
+                            }
+                        }</span>
+                </td>
+                <td>
+                    <input type="text" id="txtbxNewEnterPrice" name="txtbxNewEnterPrice"/>
+                </td>
+            </tr>
+            <tr>
+                <td>@Resource.TitlePriceExit</td>
+                <td>
+                    <span id="txtCurrentExitPriceOpen">
+                        @{
+                            var exitPriceOpen = Model.OpenPositionValues.FirstOrDefault(x => x.SystemName == "PriceExit");
+                            if (exitPriceOpen != null)
+                            {
+                                <b>@exitPriceOpen.Value</b>
+                            }
+                        }</span>
+                    <span id="txtCurrentExitPriceClose">
+                        @{
+                            var exitPriceClose = Model.ClosePositionValues.FirstOrDefault(x => x.SystemName == "PriceExit");
+                            if (exitPriceClose != null)
+                            {
+                                <b>@exitPriceClose.Value</b>
+                            }
+                        }</span>
+                </td>
+                <td>
+                    <input type="text" id="txtbxNewExitPrice" name="txtbxNewExitPrice"/>
+                </td>
+            </tr>
+        </table>
+        <input type="submit" title="@Resource.TitleSave" value="@Resource.TitleSave" />
+        <input type="hidden" id="editDangerDealId" name="editDangerDealId" />
+        <input type="hidden" id="editDangerDealType" name="editDangerDealType" />
+    }
+</div>

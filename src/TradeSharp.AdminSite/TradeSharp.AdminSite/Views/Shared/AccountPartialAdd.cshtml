@@ -1,0 +1,214 @@
+﻿@using TradeSharp.SiteAdmin.App_GlobalResources
+@model TradeSharp.SiteAdmin.Models.AddAccountModel
+
+<h3>@Resource.TitleClientPersonalData</h3>
+<table class="tableWithoutBorders">
+    <tr>
+        <td>
+            @Html.LabelFor(x => x.UserLogin)
+        </td>
+        <td>
+            @Html.TextBoxFor(x => x.UserLogin, new { @class = "login-inp" })
+        </td>
+        <td class="ValidationMessage">   
+            <span style="color: red" id="LoginExistValidator"></span>
+            @Html.ValidationMessageFor(x => x.UserLogin)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.LabelFor(x => x.UserPassword)
+        </td>
+        <td>
+            @Html.TextBoxFor(x => x.UserPassword, new { @class = "login-inp" }) @*, @type = "password", @autocomplete = "off"*@
+        </td>
+        <td class="ValidationMessage">
+            @Html.ValidationMessageFor(x => x.UserPassword)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.LabelFor(x => x.UserName)
+        </td>
+        <td>
+            @Html.TextBoxFor(x => x.UserName, new { @class = "login-inp" })
+        </td>
+        <td class="ValidationMessage">
+            @Html.ValidationMessageFor(x => x.UserName)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.LabelFor(x => x.UserSurname)
+        </td>
+        <td>
+            @Html.TextBoxFor(x => x.UserSurname, new { @class = "login-inp" })
+
+        </td>
+        <td class="ValidationMessage">
+            @Html.ValidationMessageFor(x => x.UserSurname)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.LabelFor(x => x.UserPatronym)
+        </td>
+        <td>
+            @Html.TextBoxFor(x => x.UserPatronym, new { @class = "login-inp" })
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.LabelFor(x => x.UserDescription)
+        </td>
+        <td>
+            @Html.TextBoxFor(x => x.UserDescription, new { @class = "login-inp" })
+        </td>
+        <td class="ValidationMessage">
+            @Html.ValidationMessageFor(x => x.UserDescription)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.LabelFor(x => x.UserEmail)
+        </td>
+        <td>
+            @Html.TextBoxFor(x => x.UserEmail, new { @class = "login-inp" })
+        </td>
+        <td class="ValidationMessage">
+            <span style="color: red" id="UserEmailExistValidator"></span>
+            @Html.ValidationMessageFor(x => x.UserEmail)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.LabelFor(x => x.UserPhone1)
+        </td>
+        <td>
+            @Html.TextBoxFor(x => x.UserPhone1, new { @class = "login-inp" })
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.LabelFor(x => x.UserPhone2)
+        </td>
+        <td>
+            @Html.TextBoxFor(x => x.UserPhone2, new { @class = "login-inp" })
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.LabelFor(x => x.UserRightsMask)
+        </td>
+        <td>
+            @Html.DropDownListFor(x => x.UserRightsMask, new SelectList((System.Collections.IEnumerable)ViewBag.listUserRights, "Value", "Text"), new { @class = "chzn-select", @style = "width:220px;" })
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.LabelFor(x => x.UserRoleMask)
+        </td>
+        <td>
+            @Html.DropDownListFor(x => x.UserRoleMask, new SelectList((System.Collections.IEnumerable)ViewBag.listUserRoles, "Value", "Text"), new { @class = "chzn-select", @style = "width:220px;" })
+        </td>
+    </tr>
+</table>
+
+<br />
+<br />
+<br />
+
+<h3>@Resource.TitleAccount</h3>
+<table class="tableWithoutBorders">
+    <tr>
+        <td>
+            @Html.LabelFor(x => x.AccountCurrency)
+        </td>
+        <td>
+            @Html.DropDownListFor(x => x.AccountCurrency, new SelectList((System.Collections.IEnumerable)ViewBag.listTickers, "Value", "Text"), new { @class = "chzn-select", @style = "width:220px;" })
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.LabelFor(x => x.AccountGroup)
+        </td>
+        <td>
+            @Html.DropDownListFor(x => x.AccountGroup, new SelectList((System.Collections.IEnumerable)ViewBag.listGroups, "Value", "Text"), new { @class = "chzn-select", @style = "width:220px;" })
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.LabelFor(x => x.AccountBalance)
+        </td>
+        <td>
+            @Html.TextBoxFor(x => x.AccountBalance, new { @class = "login-inp" })
+        </td>
+        <td class="ValidationMessage">@Html.ValidationMessageFor(x => x.AccountBalance) </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.LabelFor(x => x.WalletBalance)
+        </td>
+        <td>
+            @Html.TextBoxFor(x => x.WalletBalance, new { @class = "login-inp" })
+        </td>
+        <td class="ValidationMessage">@Html.ValidationMessageFor(x => x.WalletBalance) </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.LabelFor(x => x.AccountMaxLeverage)
+        </td>
+        <td>
+            @Html.TextBoxFor(x => x.AccountMaxLeverage, new { @class = "login-inp" })
+        </td>
+        <td class="ValidationMessage">@Html.ValidationMessageFor(x => x.AccountMaxLeverage)</td>
+    </tr>
+</table>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        var inputUserEmail = $('#UserEmail');
+        inputUserEmail.on('input', function () {
+            var text = inputUserEmail.val();
+            $.ajax({
+                url: '@Url.Action("EmailCheckExistAjaxUpdate", "Management")',
+                type: 'POST',
+                data: JSON.stringify({ userEmail: text }),
+                dataType: 'json',
+                contentType: 'application/json; charset=utf-8',
+                success: function(data) {
+                    if (data.userEmailExistHTML == null || data.userEmailExistHTML == '') {
+                        $('#UserEmailExistValidator').html('');
+                    } else {
+                        $('#UserEmailExistValidator').html(data.userEmailExistHTML);
+                    }
+                },
+                error: function(data, textStatus, errorThrown) {
+                    alert(@Resource.ErrorMessage + ' ' + errorThrown);
+                }
+            });
+        });
+        
+        var inputUserLogin = $('#UserLogin');
+        inputUserLogin.on('input', function () {
+            var text = inputUserLogin.val();
+            $.ajax({
+                url: '@Url.Action("LoginCheckExistAjaxUpdate", "Management")',
+                type: 'POST',
+                data: JSON.stringify({ login: text }),
+                dataType: 'json',
+                contentType: 'application/json; charset=utf-8',
+                success: function (data) {
+                    if (data.loginExistHTML == null || data.loginExistHTML == '') {
+                        $('#LoginExistValidator').html('');
+                    } else {
+                        $('#LoginExistValidator').html(data.loginExistHTML);
+                    }
+                },
+                error: function (data, textStatus, errorThrown) {
+                    alert(@Resource.ErrorMessage + ' ' + errorThrown);
+                }
+            });
+        });
+    });
+</script>

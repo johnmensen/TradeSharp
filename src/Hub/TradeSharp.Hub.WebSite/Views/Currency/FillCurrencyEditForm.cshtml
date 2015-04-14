@@ -1,0 +1,25 @@
+﻿@model TradeSharp.Hub.BL.Model.Currency
+
+@{
+    Layout = null;
+}
+
+@using (Ajax.BeginForm("SaveCurrency", "Currency",
+                       new AjaxOptions {HttpMethod = "Post"},
+                       new { id = "EditForm", name = "EditForm" }))
+{
+
+    <table class="editFormTable">
+        <tr>
+            <td>@Html.LabelFor(m => m.Code):</td>
+            <td>@Html.TextBoxFor(m => m.Code)</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(m => m.CurrencyIndex):</td>
+            <td>@Html.TextBoxFor(m => m.CurrencyIndex)</td>
+        </tr>
+    </table>
+        
+    <br/>
+    <br/>    
+}

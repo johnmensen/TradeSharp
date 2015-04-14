@@ -1,0 +1,73 @@
+﻿@using TradeSharp.SiteAdmin.App_GlobalResources
+@model TradeSharp.Contract.Entity.AccountGroup
+@{
+    ViewBag.Title = Resource.PageTitleDealerAccountGroupEdit;
+    Layout = "~/Views/Pages/_PageLayout.cshtml";
+}
+
+@section Header {
+    <link rel="stylesheet" href="/css/screen.css" type="text/css" media="screen" title="default" />
+    <link rel="stylesheet" href="/css/button.css" type="text/css" media="screen" title="default" />
+    <!--  jquery core -->
+    <script src="/js/jquery/jquery-1.4.1.min.js" type="text/javascript"></script>
+    <!--[if IE]>
+    <link rel="stylesheet" media="all" type="text/css" href="/css/pro_dropline_ie.css" />
+    <![endif]-->
+    
+    <style>
+        td {
+            text-align: right;
+            padding: 5px;
+        }
+    </style>
+}
+
+<div id="content-outer">
+    <div id="content" style="width: 380px; margin: 0 auto; min-width: 380px;">
+        @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "SubmitForm", name = "SubmitForm" }))
+        {
+            <h3>@Resource.TitleDealerAccountGroupEdit</h3>
+            <table class="tableWithoutBorders">
+                <tr><td>
+                        @Html.LabelFor(model => model.MessageQueue)
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(model => model.MessageQueue, new { @class = "login-inp" })
+                        @Html.ValidationMessageFor(model => model.MessageQueue)
+                    </td>
+                </tr>
+                <tr><td>
+                        @Html.LabelFor(model => model.SessionName)
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(model => model.SessionName, new { @class = "login-inp" })
+                        @Html.ValidationMessageFor(model => model.SessionName)
+                    </td>
+                </tr>
+                <tr><td>
+                        @Html.LabelFor(model => model.HedgingAccount)
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(model => model.HedgingAccount, new { @class = "login-inp" })
+                        @Html.ValidationMessageFor(model => model.HedgingAccount)
+                    </td>
+                </tr>
+                <tr><td>
+                        @Html.LabelFor(model => model.SenderCompId)
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(model => model.SenderCompId, new { @class = "login-inp" })
+                        @Html.ValidationMessageFor(model => model.SenderCompId)
+                    </td>
+                </tr>
+            </table>
+                
+            @Html.HiddenFor(x => x.Code)
+            @Html.HiddenFor(x => x.Name)
+            <input type="submit" class="ml-button-3" value="@Resource.TitleSave"/>
+        }
+    </div>
+    <div class="clear">&nbsp;</div>
+</div>
+<!--  end content -->
+<div class="clear">&nbsp;</div>

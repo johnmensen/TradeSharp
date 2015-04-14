@@ -1,0 +1,6 @@
+ID,AccountID,Symbol,Volume,PriceFrom,PriceTo,TimeFrom,TimeTo,Side,Comment,Magic,Stoploss,Takeprofit,PairOCO,ExpertComment,PriceSide,TrailLevel1,TrailTarget1,TrailLevel2,TrailTarget2,TrailLevel3,TrailTarget3,TrailLevel4,TrailTarget4
+249,7,"AUDCAD",10000,1.10000,,,,1,,0,,,,"",1,,,,,,,,
+418,3,"EURUSD",10000,1.30000,,,,1,"",,1.20000,,,"",2,100.00000,5.00000,200.00000,20.00000,,,,
+419,3,"EURUSD",10000,1.32000,,,,1,"",,,,,"",2,50.00000,5.00000,100.00000,10.00000,200.00000,25.00000,300.00000,50.00000
+420,3,"EURUSD",260000,1.32000,,,,1,,,,,,,2,99.99991,10.00000,,,,,,
+451,48,"EURUSD",50000,1.35600,,,,-1,"",,,,,"",1,,,,,,,,

@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Currency>
+  <Table Header="FX AMERICAN &amp; EURO CALLS &amp; PUTS **SETT. PRICE**">
+    <OptionName x="18">
+      <Item>
+        <OpenPrice x="53"></OpenPrice>
+        <High></High>
+        <Low></Low>
+        <ClosingRange></ClosingRange>
+        <SettPrice_Pt_Chge></SettPrice_Pt_Chge>
+        <Rth_Volume></Rth_Volume>
+        <Eth_Volume></Eth_Volume>
+        <Open_Interest></Open_Interest>
+        <Contract_High></Contract_High>
+        <Contract_Low></Contract_Low>
+      </Item>
+    </OptionName>
+  </Table>
+</Currency>

@@ -1,0 +1,43 @@
+﻿@using System.ServiceProcess
+@using TradeSharp.SiteAdmin.App_GlobalResources
+
+@model List<TradeSharp.SiteAdmin.Models.ServiceUnitStatusViewModel>
+
+    <div id="content_table_inner">
+        <table border="0" width="100%" cellpadding="0" cellspacing="0" id="product_table">
+            <tr>
+                <th class="table-header-repeat line-left" style="width:22%"><span>@Resource.TitleService</span></th>
+                <th class="table-header-repeat line-left" style="width:22%"><span>@Resource.TitleState</span></th>
+                <th class="table-header-repeat line-left"><span>@Resource.TitleChoose</span></th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr data-host="@item.HostEndpoint" data-service="@item.ServiceName">
+                    <!-- Название -->
+                    <td>
+                        <a href="#" onclick="return false;" 
+                           title="@(item.dependsOn == null ? "" : "Зависит от: " + string.Join(", ", item.dependsOn))">
+                            @item.ServiceName</a>
+                    </td>
+                    
+                    <!-- Иконки состояния -->
+                    <td class="options-width" 
+                        @(item.Status == ServiceControllerStatus.Running 
+                            ? "style=color:green;" 
+                            : "style=color:red;")>
+                        @if (item.IsInUpdateList)
+                        {
+                            <img src="../../images/shared/ico_download.png" title="Обновление..." />
+                            <span>@item.FilesLeft из @item.FilesUpdated обновлено</span>
+                        }
+                        @item.StatusName
+                    </td>
+                    
+                    <!-- Управление -->
+                    <td>
+                        <input type="checkbox" value="Выбрать" />
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>

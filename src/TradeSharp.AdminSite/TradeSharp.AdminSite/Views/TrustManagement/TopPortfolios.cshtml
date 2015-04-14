@@ -1,0 +1,178 @@
+﻿@{
+    ViewBag.Title = Resource.PageTitleTopPortfolio;
+    Layout = "~/Views/Pages/_PageLayout.cshtml";
+}
+
+@using TradeSharp.SiteAdmin.App_GlobalResources
+@using TradeSharp.SiteAdmin.Controllers
+@model List<TradeSharp.Contract.Entity.TopPortfolio>
+
+@section Header {
+    <link rel="stylesheet" href="/css/screen.css" type="text/css" media="screen" title="default" />
+    <link rel="stylesheet" href="/css/button.css" type="text/css" media="screen" title="default" />
+    <!--  jquery core -->
+    <script src="/js/jquery_1_10_3/jquery-1.9.1.js" type="text/javascript"></script>
+    <script src="~/js/jquery_1_10_3/jquery-ui-1.10.3.custom.min.js" type="text/javascript"></script>
+    <script src="@Url.Content("~/js/jquery_1_10_3/jquery.unobtrusive-ajax.min.js")" type="text/javascript"></script>
+    <script src="~/js/TableAccount.js" type="text/javascript"></script>
+    <script src="~/js/uiscripts.js" type="text/javascript"></script>
+    <link href="~/css/jquery_1_10_3_Theme/jquery-ui-1.10.3.custom.min.css" rel="stylesheet" />   
+           
+    <script src="~/js/chosen.jquery.min.js" type="text/javascript"></script>
+    <link href="~/css/chosen.min.css" rel="stylesheet" />
+    <!--[if IE]>
+    <link rel="stylesheet" media="all" type="text/css" href="/css/pro_dropline_ie.css" />
+    <![endif]-->
+}
+
+@if (!string.IsNullOrEmpty(TrustManagementController.ResultMessage))
+    {
+        <div id="dialogResult" title="@Resource.TitleHeaderDialogResult">
+            <p>@TrustManagementController.ResultMessage</p>
+        </div>
+        @(TrustManagementController.ResultMessage = string.Empty)
+    }
+
+<!-- start content-outer ........................................................................................................................START -->
+<div id="content-outer">
+    <!-- start content -->
+    <div id="content">
+        <!--  start page-heading -->
+        <div id="page-heading">
+            <h1>@Resource.TitleTopPortfolio</h1>
+        </div>
+
+        <!-- end page-heading -->
+
+        <table id="content_table">
+            <tr>
+                <th rowspan="3" class="sized">
+                    <img src="/images/shared/side_shadowleft.jpg" width="20" class="shadow" alt="" /></th>
+                <th class="topleft"></th>
+                <td id="tbl-border-top">&nbsp;</td>
+                <th class="topright"></th>
+                <th rowspan="3" class="sized">
+                    <img src="/images/shared/side_shadowright.jpg" width="20" class="shadow" alt="" /></th>
+            </tr>
+            <tr>
+            <td id="tbl-border-left"></td>
+            <td>
+            <!--  start content_table_inner ...................................................................... START -->
+            <div id="content_table_inner">
+                <div style=""></div>                        
+                @Html.ActionLink(Resource.TitleNewPortfolio, "AddTopPortfolio", null, new
+                    {
+                        id = "addAccountLink",
+                        style = "float:none; display:inline; padding:8px;",
+                        @class = "ml-button-3"
+                    })
+                <br/><br/>
+                <table id="product_table">
+                    <tr>
+                        <th style="width: 50px; min-width: 50px;" class="table-header-repeat line-left minwidth-1"><span>#</span></th>
+                        <td class="table-header-repeat line-left minwidth-1"><span>@Resource.TitlePortfolioName</span></td>
+                        <td class="table-header-repeat line-left minwidth-1"><span>@Resource.TitleFormula</span></td>
+                        <td class="table-header-repeat line-left minwidth-1"><span>@Resource.TitleAccount</span></td>
+                        <td style="width: 100px; min-width: 100px;" class="table-header-repeat line-left"><span>@Resource.TitleDelete</span></td>
+                    </tr>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@Html.ActionLink(item.Id.ToString(), "TopPortfolioDetails",
+                                new { topPortfolioId = item.Id }, 
+                                new { @class = "table-item", @style="width: 50px; min-width: 50px;", @title= Resource.TitleReview + " / " + Resource.TitleEdit })
+                            </td>
+                            <td>@item.Name  /  @item.ParticipantCount</td>
+                            <td>
+                                <span id="Criteria@(item.Id)">
+                                    @item.Criteria @if(item.MarginValue.HasValue){ <span>  /  @item.MarginValue</span> } 
+                                </span>
+                                <a style="margin-left: 10px" href="javascript:void(0);" onclick="OpenEditWindow('@item.Id', '@item.Criteria', '@item.MarginValue')">
+                                    <img src="/images/buttons/fast_edit.png" style="width: 15px; height: 15px" title="@Resource.TextEditPortfolioFormula" alt="">
+                                </a>
+                            </td>
+                            <td>@(item.ManagedAccount.HasValue ? item.ManagedAccount.Value.ToString() : " - ")</td>
+                            <td style="width: 100px; min-width: 100px;">
+                                <a style="margin-left: 10px" href="javascript:void(0);" onclick="if (confirm('@Resource.ConfirmDellPortfolio')) window.location.href = '/TrustManagement/DeleteTopPortfolio?id=' + @item.Id;">
+                                    <img src="/images/shared/DeleteRed.png" style="width: 15px; height: 15px" title="@Resource.TextDellPortfolio">
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </table>
+            </div> 
+                
+            </td>  
+            <td id="tbl-border-right"></td> 
+            <tr>
+            <th class="sized bottomleft"></th>
+            <td id="tbl-border-bottom">&nbsp;</td>
+            <th class="sized bottomright"></th>
+        </tr> 
+        </table>
+        <div class="clear">&nbsp;</div>
+    </div>
+    <!--  end content -->
+    <div class="clear">&nbsp;</div>
+    <!--  end content-outer........................................................END -->
+</div>
+
+<div id="dialogFastEditCriteria" style="display: none" title="@Resource.TitleEdit">
+    <table >
+        <tr>
+            <th>@Resource.TitleFormula</th>
+            <td><input id="Criteria" type="text" /></td>
+        </tr>
+        <tr>
+            <th>@Resource.TitleBoundaryValue</th>
+            <td><input id="MarginValue" type="text" /></td>
+        </tr>
+    </table>
+</div>
+
+<script type="text/javascript">   
+    $("#dialogResult").dialog({
+        modal: true,
+        buttons: {
+            Ok: function () {
+                $(this).dialog("close");
+            }
+        }
+    });
+
+
+    function OpenEditWindow(id, criteria, marginValue) {
+        $("#Criteria").val(criteria);
+        $("#MarginValue").val(marginValue);
+
+        $("#dialogFastEditCriteria").dialog({
+            height: 220,
+            width: 350,
+            modal: true,
+            buttons: {
+                Ok: function () {
+                    var newCriteria = $("#Criteria").val();
+                    var newMarginValue = $("#MarginValue").val();
+
+                    $(this).dialog("close");
+                    
+                    $.ajax({
+                        url: '@Url.Action("FastEditCriteria", "TrustManagement")',
+                        type: 'POST',
+                        data: JSON.stringify({ strId: id, newCriteria: newCriteria, newMarginValue: newMarginValue }),
+                        dataType: 'json',
+                        contentType: 'application/json; charset=utf-8',
+                        success: function (data) {
+                            $("#Criteria" + id).html(data.html);
+
+
+                        },
+                        error: function (request, status, error) {
+                            alert(@Resource.ErrorMessage + ' ' + request + '  ' + status + '  ' + error);
+                        }
+                    });
+                }
+            }
+        });
+    };
+</script>

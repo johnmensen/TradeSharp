@@ -1,0 +1,184 @@
+﻿@{
+    ViewBag.Title = Resource.PageTitleAccountGroupAdd;
+    Layout = "~/Views/Pages/_PageLayout.cshtml";
+}
+
+
+@using TradeSharp.SiteAdmin.App_GlobalResources
+@using TradeSharp.Contract.Entity
+@using TradeSharp.SiteAdmin.Models.Report
+@using TradeSharp.Util
+@model TradeSharp.SiteAdmin.Models.Items.AccountGroupItem
+
+@section Header {
+    <link rel="stylesheet" href="~/css/screen.css" type="text/css" media="screen" title="default" />
+    <link rel="stylesheet" href="/css/button.css" type="text/css" media="screen" title="default" />
+    <!--  jquery core -->
+    <script src="~/js/jquery_1_10_3/jquery-1.9.1.js"></script>
+    <script src="~/js/chosen.jquery.min.js" type="text/javascript"></script>
+    <script src="@Url.Content("~/js/jquery/jquery.validate.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/js/jquery/jquery.validate.unobtrusive.js")" type="text/javascript"></script>
+    <link href="~/css/chosen.min.css" rel="stylesheet" />
+ 
+    <!--[if IE]>
+    <link rel="stylesheet" media="all" type="text/css" href="/css/pro_dropline_ie.css" />
+    <![endif]-->
+    
+    <style>
+        td {
+            text-align: right;
+            padding: 5px;
+        }
+    </style>
+}
+
+<div id="content-outer">
+    <div id="content" style="width: 380px; margin:0 auto; min-width: 380px;">
+        <div id="page-heading">
+            @using (Html.BeginForm(null, null, FormMethod.Post, new {id = "SubmitForm", name = "SubmitForm"}))
+            {
+                <h3>@Resource.TitleAccountGroupAdd</h3>
+                <table class="tableWithoutBorders">
+                    <tr><td>
+                            @Html.LabelFor(model => model.Code)
+                        </td>
+                        <td>
+                            @Html.TextBoxFor(model => model.Code, new {@class = "login-inp"})
+                            <span style="color: red" id="AccountGroupCodeExistValidator"></span>
+                            @Html.ValidationMessageFor(model => model.Code)
+                        </td>
+                    </tr>
+                    <tr><td>
+                            @Html.LabelFor(model => model.Name)
+                        </td>
+                        <td>
+                            @Html.TextBoxFor(model => model.Name, new {@class = "login-inp"})
+                            @Html.ValidationMessageFor(model => model.Name)
+                        </td>
+                    </tr>
+                    <tr><td>
+                            @Html.LabelFor(model => model.IsReal)
+                        </td>
+                        <td>
+                            @Html.DropDownListFor(model => model.IsReal,
+                                                  new List<SelectListItem>
+                                                      {
+                                                          new SelectListItem {Text = Resource.TitleReal, Value = "True"},
+                                                          new SelectListItem {Text = Resource.TitleVirtual, Value = "False"}
+                                                      }, new {@class = "chzn-select", @style = "width:220px;"})
+                        </td>
+                    </tr>
+                    <tr><td>
+                            @Html.LabelFor(model => model.DefaultVirtualDepo)
+                        </td>
+                        <td>
+                            @Html.TextBoxFor(model => model.DefaultVirtualDepo, new {@class = "login-inp"})
+                            @Html.ValidationMessageFor(model => model.DefaultVirtualDepo)
+                        </td>
+                    </tr>
+                    <tr><td>
+                            @Html.LabelFor(model => model.BrokerLeverage)
+                        </td>
+                        <td>
+                            @Html.TextBoxFor(model => model.BrokerLeverage, new {@class = "login-inp"})
+                            @Html.ValidationMessageFor(model => model.BrokerLeverage)
+                        </td>
+                    </tr>
+                    <tr><td>
+                            @Html.LabelFor(model => model.MarginCallPercentLevel)
+                        </td>
+                        <td>
+                            @Html.TextBoxFor(model => model.MarginCallPercentLevel, new {@class = "login-inp"})
+                            @Html.ValidationMessageFor(model => model.MarginCallPercentLevel)
+                        </td>
+                    </tr>
+                    <tr><td>
+                            @Html.LabelFor(model => model.StopoutPercentLevel)
+                        </td>
+                        <td>
+                            @Html.TextBoxFor(model => model.StopoutPercentLevel, new {@class = "login-inp"})
+                            @Html.ValidationMessageFor(model => model.StopoutPercentLevel)
+                        </td>
+                    </tr>
+                    <tr><td>
+                            @Html.LabelFor(model => model.Markup)
+                        </td>
+                        <td>
+                            @Html.DropDownListFor(x => x.Markup, Enum.GetValues(typeof (AccountGroup.MarkupType)).Cast<AccountGroup.MarkupType>().Select(
+                                markupType => new SelectListItem {
+                                    Text = EnumFriendlyName<AccountGroup.MarkupType>.GetString(markupType), 
+                                    Value = markupType.ToString()}), new {@class = "chzn-select", @style = "width:220px;"})
+                        </td>
+                    </tr>
+                    <tr><td>
+                            @Html.LabelFor(model => model.DefaultMarkupPoints)
+                        </td>
+                        <td>
+                            @Html.TextBoxFor(model => model.DefaultMarkupPoints, new {@class = "login-inp"})
+                            @Html.ValidationMessageFor(model => model.DefaultMarkupPoints)
+                        </td>
+                    </tr>
+                    <tr><td>
+                            @Html.LabelFor(model => model.SwapFree)
+                        </td>
+                        <td>
+                            @Html.DropDownListFor(model => model.SwapFree,
+                                                  new List<SelectListItem>
+                                                      {
+                                                          new SelectListItem {Text = Resource.TitleFreePrice, Value = "True"},
+                                                          new SelectListItem {Text = Resource.TitlePaid, Value = "False"}
+                                                      }, new {@class = "chzn-select", @style = "width:220px;"})
+                        </td>
+                    </tr>
+                    <tr><td colspan="2" style="text-align: justify">
+                            <span style="font-style: italic; color: darkgray;">
+                                @Resource.TextFillingAccountGroup
+                            </span>
+                        </td>
+                    </tr>
+                </table>
+                <input type="submit" class="ml-button-3" value="@Resource.TitleSave"/>
+                @Html.ActionLink(Resource.TitleCancel, "EditAccountGroupsDetailsCancel", null, new {@class="ml-button-3", @style = "float : right"})
+            }
+        </div>
+    </div>      
+</div>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('.chzn-search').hide();
+
+        var inputCodeGroupDiv = $('#Code');
+        inputCodeGroupDiv.on('input', function() {
+            var text = inputCodeGroupDiv.val();
+            $.ajax({
+                url: '@Url.Action("AccountGroupCheckCodeExistAjaxUpdate", "Management")',
+                type: 'POST',
+                data: JSON.stringify({ accountGroupCode: text }),
+                dataType: 'json',
+                contentType: 'application/json; charset=utf-8',
+                success: function (data) {
+                    if (data.AccountGroupCodeExistHTML == null || data.AccountGroupCodeExistHTML == '') {
+                        $('#AccountGroupCodeExistValidator').html('');
+                    } else {
+                        $('#AccountGroupCodeExistValidator').html(data.AccountGroupCodeExistHTML);
+                        //inputCodeGroupDiv.val(text); //что бы введённый пользователем текст не пропадал после updated
+                    }
+                },
+                error: function(data, textStatus, errorThrown) {
+                    alert(@Resource.ErrorMessage + ' ' + errorThrown);
+                }
+            });
+        });
+    });
+    // Кастомизируем выпадающие списки
+    var config = {
+        '.chzn-select': {},
+        '.chzn-select-deselect': { allow_single_deselect: true },
+        '.chzn-select-no-single': { disable_search_threshold: 10 },
+        '.chzn-select-no-results': { no_results_text: '@Resource.ErrorMassageNothingFound' },
+        '.chzn-select-width': { width: "95%" }
+    };
+    for (var selector in config) {
+        $(selector).chosen(config[selector]);
+    }
+</script>

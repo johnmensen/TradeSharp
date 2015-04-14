@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Header>
+  <Title>Настройки для получения списка бюллетеней валютных опционов с CME</Title>
+  <StartPage URI="http://www.cmegroup.com/daily_bulletin/Section39_Euro_FX_And_Cme$Index_Options_2011028.pdf"/>
+</Header>
+

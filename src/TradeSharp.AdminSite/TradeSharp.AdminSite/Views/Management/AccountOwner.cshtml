@@ -1,0 +1,149 @@
+﻿@{
+    ViewBag.Title = Resource.PageTitleAccountOwner;
+    Layout = "~/Views/Pages/_PageLayout.cshtml";
+}
+
+@using TradeSharp.SiteAdmin.App_GlobalResources
+@using TradeSharp.SiteAdmin.Models
+@model AccountOwnerModel
+
+@section Header {
+    <link rel="stylesheet" href="~/css/screen.css" type="text/css" media="screen" title="default" />
+    <link rel="stylesheet" href="/css/button.css" type="text/css" media="screen" title="default" />
+    <!--  jquery core -->
+    <script src="~/js/jquery_1_10_3/jquery-1.9.1.js"></script>
+    <script src="~/js/chosen.jquery.min.js" type="text/javascript"></script>
+    <script src="@Url.Content("~/js/jquery/jquery.validate.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/js/jquery/jquery.validate.unobtrusive.js")" type="text/javascript"></script>
+    <script src="~/js/uiscripts.js" type="text/javascript"></script>
+    <link href="~/css/chosen.min.css" rel="stylesheet" />
+
+    <!--[if IE]>
+    <link rel="stylesheet" media="all" type="text/css" href="/css/pro_dropline_ie.css" />
+    <![endif]-->
+}
+
+<div id="content-outer">
+    <div id="content" style="width: 380px; margin: 0 auto; min-width: 380px;">
+        <h3>@Resource.TitleAccounts / @Resource.TitleAccountOwners</h3>
+        <img id="imgLoading" class="ui-progressbar" style="width: 64px; height: 64px; display: none; background-position:center; position: fixed" src="~/images/table/loading.gif" alt=""/>
+        <div class="ajaxTableContainer" id="ajaxTableContainer">
+            @switch (Model.AccountOwnerPartialViewType)
+            {
+                case AccountOwnerPartialViewType.ForAccount:
+                    @Html.Partial("AccountOwnerPartialForAccount")
+                    break;
+                case AccountOwnerPartialViewType.ForOwner:
+                    @Html.Partial("AccountOwnerPartialForUser")
+                    break;
+                case AccountOwnerPartialViewType.Undefined:
+                    break;
+            }
+            <br />
+            <br />
+        </div>
+    </div>
+    
+
+</div>
+
+<script type="text/javascript">   
+    function selectorConfig() {
+        var config = {
+            '.chzn-select': {},
+            '.chzn-select-deselect': { allow_single_deselect: true },
+            '.chzn-select-no-single': { disable_search_threshold: 10 },
+            '.chzn-select-no-results': { no_results_text: '@Resource.ErrorMassageNothingFound' },
+            '.chzn-select-width': { width: "95%" }
+        };
+        for (var selector in config) {
+            $(selector).chosen(config[selector]);
+        }
+    }
+    
+
+    function getAccountOwnerModelData(accountId, ownerId) {
+        var url = '@Url.Action("AccountOwner", "Management")';
+
+        if (accountId != null) {
+            url = url + '?accountId=' + accountId;
+        } else {
+            if (ownerId != null) url = url + '?ownerId=' + ownerId;
+        }
+
+
+        $("#TableForm").fadeTo(0, 0.5);
+        $("#imgLoading").show();
+        $.ajax({
+            url: url,
+            type: 'GET',
+            contentType: 'application/json; charset=utf-8',
+            success: function (data) {
+                $('#ajaxTableContainer').html(data);
+                selectorConfig();
+                $('#imgLoading').hide();
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert(thrownError);
+                $('#imgLoading').hide();
+            }
+        });
+
+        return true;
+    }
+    
+    function postChangesOnServer(accountId, ownerId, right, modeAccountOwner) {
+        var url = '@Url.Action("AccountOwnerEdit", "Management")' + '?accountId=' + accountId + '&ownerId=' + ownerId + '&right=' + right + '&act=add' + '&accountOwnerPartialViewType=' + modeAccountOwner;
+        
+        $("#imgLoading").show();
+        $("#TableForm").fadeTo(0, 0.5);
+
+        $.ajax({
+            url: url,
+            type: 'GET',
+            contentType: 'application/json; charset=utf-8',
+            success: function (data) {
+                $('#ajaxTableContainer').html(data);
+                selectorConfig();
+                $('#imgLoading').hide();
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert(thrownError);
+                $('#imgLoading').hide();
+            }
+        });
+        return true;
+    }
+
+    function showNewItemWindow() {
+        letDivFloat('editDiv');
+        $('#editAccountId_chzn').width(220);
+        $('#editOwnerId_chzn').width(220);   
+        $('#editRight_chzn').width(220);
+    }
+    
+    function delItem(accountId, ownerId, modeAccountOwner) {
+        var url = '@Url.Action("AccountOwnerEdit", "Management")' + '?accountId=' + accountId + '&ownerId=' + ownerId + '&right=-1&act=del&AccountOwnerPartialViewType=' + modeAccountOwner;
+
+        $("#imgLoading").show();
+        $("#TableForm").fadeTo(0, 0.5);
+
+        $.ajax({
+            url: url,
+            type: 'GET',
+            contentType: 'application/json; charset=utf-8',
+            success: function (data) {
+                $('#ajaxTableContainer').html(data);
+                selectorConfig();
+                $('#imgLoading').hide();
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert(thrownError);
+                $('#imgLoading').hide();
+            }
+        });
+        return true;
+    }
+    
+    selectorConfig();
+</script>

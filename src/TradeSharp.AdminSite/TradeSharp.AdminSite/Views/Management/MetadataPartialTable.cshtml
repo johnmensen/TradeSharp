@@ -1,0 +1,58 @@
+﻿@using TradeSharp.SiteAdmin.App_GlobalResources
+@using TradeSharp.Linq 
+@model IEnumerable<ENGINE_METADATA>          
+
+@foreach (var category in Model.GroupBy(c => c.Category))
+{
+    <div data-category="@category.Key">
+        <div class="table-header-repeat" 
+             style="line-height: 32px; font-size: 16px; padding: 8px; color: white; border-width: 1px;">
+            <a href="javascript:void(0)" class="toggleLink" onclick="$(this).parent().parent().find('table').toggle();">@category.Key</a>
+        </div>
+        <table id="TableForm" style="margin-top: 0">
+            <tr>
+                <th>
+                    @Resource.TitleName
+                </th>
+                <th>
+                    @Resource.TitleDataType
+                </th>
+                <th>
+                    @Resource.TitleValue
+                </th>
+                <th>
+                    @Resource.TitleDelete
+                </th>
+            </tr>
+            @foreach (var item in category)
+            {
+                <tr data-rowId="@item.ID">
+                    <td style="max-width: 318px;">
+                        <a href="javascript:void(0);" class="table-item" onclick="showEditWindow('@item.Category', '@item.Name.Replace("'", "&quot;")', '@item.ParamType', '@item.Value');">@item.Name</a>
+                    </td>
+                    <td style="max-width: 200px;">
+                        @item.ParamType
+                    </td>
+                    <td style="max-width: 500px;">
+                        @item.Value
+                    </td>   
+                    <td style="max-width: 100px;">
+                        <a href="javascript:void(0);" onclick="delItem('@item.ID');">
+                            <img src="../../images/shared/ico_remove.png" style="width: 15px; height: 15px;" alt="@Resource.TitleDelete">
+                        </a>
+                    </td>                             
+                </tr>
+            }
+            <tr >
+                <td colspan="4">
+                    <!-- Кнопка добавления в текущую категорию -->
+                    <a href="javascript:void(0);" onclick="onNewMetadataPressed(event);">
+                        <img src="../../images/shared/ico_add.png" alt="@Resource.TitleAdd"/>
+                    </a> 
+                </td>  
+            </tr>
+        </table>     
+    </div>
+    <br/>
+}
+            

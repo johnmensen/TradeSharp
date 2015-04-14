@@ -1,0 +1,42 @@
+﻿@{
+    Layout = null;
+}
+
+@using TradeSharp.Hub.WebSite.Helper
+@model List<TradeSharp.Hub.BL.Model.TickerAlias>
+
+@using (Ajax.BeginForm("TickerAliasEdit", "Ticker", new AjaxOptions {HttpMethod = "Post"}, new {id = "TableForm", name = "TableForm"}))
+{
+    <table border="0" width="100%" cellpadding="0" cellspacing="0" class="product_table">
+        <tr>
+            <th class="table-header-repeat line-left minwidth-1">
+                <span>Тикер</span>
+            </th>
+            <th class="table-header-repeat line-left minwidth-1">
+                <span>Псевдоним</span>
+            </th>
+            <th class="table-header-repeat line-left minwidth-1">
+                <span>Удалить</span>
+            </th>
+        </tr>  
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td class="left">
+                    @Html.ActionLink(item.Ticker, "AddTickerAlias", new { brokerCodeArg = ViewBag.BrokerCode, tickerNameArg = item.Ticker }, new { @class = "table-item" })                   
+                </td>
+                <td class="left">@Html.TextBox(HelpViewCharacter.TextPrefix + item.Ticker, item.Alias, 
+                    new Dictionary<string, Object> { {"data-Server", item.Server}, {"data-Ticker", item.Ticker} })</td>
+                <td class="left">                   
+                    <a href="/Ticker/DeleteTickerAlias?brokerCodeArg=@item.Server&tickerNameArg=@item.Ticker">
+                        <img src="../../images/shared/DeleteRed.png" title="Удалить" alt=""/>
+                    </a>
+                </td>
+            </tr>
+        }
+    </table>
+    
+    <a href="javascript:void(0);" class="ml-button-3" onclick="UpdateTickerAlias();">Сохранить</a>
+    
+    @Html.ActionLink("Добавить", "AddTickerAlias", new { brokerCodeArg = ViewBag.BrokerCode}, new{@class = "ml-button-3"})
+}

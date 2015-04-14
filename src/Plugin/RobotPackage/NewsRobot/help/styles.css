@@ -1,0 +1,41 @@
+body
+{
+    font-family:Calibri
+}
+h3
+{
+    color:#000030
+}
+a:link
+{
+	text-decoration:none
+	color:#000050
+}
+a:visited
+{
+	text-decoration:none      
+	color:#000050
+}
+a img 
+{
+    border:none;
+    cursor:pointer;
+}
+div.collapsbl
+{
+	background-color:#F6F6F6;
+	border: solid 1 Black;
+	padding: 8px;
+}
+p.excerpt
+{
+	border:solid 1 Black;
+	background-color:#FAFAE0;
+	font-family:Monospace
+}
+p.pictitle
+{
+   color:#101010;
+   font-size:small;
+   font-weight:bold;
+}

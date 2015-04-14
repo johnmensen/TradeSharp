@@ -1,0 +1,158 @@
+﻿@{
+    ViewBag.Title = Resource.PageTitleAccountDetails;
+    Layout = "~/Views/Pages/_PageLayout.cshtml";
+}
+
+@using TradeSharp.SiteAdmin.App_GlobalResources
+@using TradeSharp.Util
+@model TradeSharp.SiteAdmin.Models.Items.AccountItem
+
+@section Header {
+    <link rel="stylesheet" href="~/css/screen.css" type="text/css" media="screen" title="default" />
+    <link rel="stylesheet" href="/css/button.css" type="text/css" media="screen" title="default" />
+    <!--  jquery core -->
+    <script src="~/js/jquery_1_10_3/jquery-1.9.1.js"></script>
+    <script src="~/js/chosen.jquery.min.js" type="text/javascript"></script>
+    <script src="@Url.Content("~/js/jquery/jquery.validate.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/js/jquery/jquery.validate.unobtrusive.js")" type="text/javascript"></script>
+    <link href="~/css/chosen.min.css" rel="stylesheet" />
+    <!--[if IE]>
+    <link rel="stylesheet" media="all" type="text/css" href="/css/pro_dropline_ie.css" />
+    <![endif]-->
+}
+
+<!-- start content-outer ........................................................................................................................START -->
+<div id="content-outer">
+    <div id="content" style="width: 380px; margin:0 auto; min-width: 380px;">
+        <h3>@Resource.TitleAccountDetails</h3>
+        <br/>
+        @Html.ActionLink(Resource.TitleAccountOwnersRights, "AccountOwner", new {accountId = Model.ID}, new { @style="color:#0000cd; font-size: 14px; font-weight: bold"})<br/>
+        @Html.ActionLink(Resource.TitleAccountOrders, "PositionList", new {accountId = Model.ID}, new { @style="color:#0000cd; font-size: 14px; font-weight: bold"})
+
+        @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "SubmitForm", name = "SubmitForm" }))
+        {
+            @Html.ValidationSummary(true)
+            <table class="tableWithoutBorders">
+                <tr>
+                    <th style="text-align: right; padding: 10px">
+                        @Html.LabelFor(x => x.ID)
+                    </th>
+                    <td>
+                        @Html.DisplayTextFor(x => x.ID)
+                        @Html.HiddenFor(x => x.ID) 
+                    </td>
+                </tr>
+                <tr>
+                    <th style="text-align: right; padding: 10px">
+                        @Html.LabelFor(x => x.Currency)
+                    </th>
+                    <td>
+                        @Html.DropDownListFor(x => x.Currency, new SelectList((System.Collections.IEnumerable)ViewBag.listTickers, "Value", "Text"), new { @class = "chzn-select", @style = "width:220px;" })          
+                    </td>
+                </tr>
+                <tr>
+                    <th style="text-align: right; padding: 10px">
+                        @Html.LabelFor(x => x.Group)
+                    </th>
+                    <td>
+                        @Html.DropDownListFor(x => x.Group, new SelectList((System.Collections.IEnumerable)ViewBag.listGroups, "Value", "Text"), new { @class = "chzn-select", @style = "width:220px;" })       
+                    </td>
+                </tr>
+                <tr>
+                    <th style="text-align: right; padding: 10px">
+                        @Html.LabelFor(x => x.Balance)
+                    </th>
+                    <td>
+                        @Html.TextBoxFor(x => x.Balance, new { @class = "login-inp" })     
+                    </td>
+                    <td class="ValidationMessage">
+                        @Html.ValidationMessageFor(x => x.Balance)
+                    </td>
+                </tr>
+                <tr>
+                    <th style="text-align: right; padding: 10px">
+                        @Html.LabelFor(x => x.MaxLeverage)
+                    </th>
+                    <td>
+                        @Html.TextBoxFor(x => x.MaxLeverage, new { @class = "login-inp" })          
+                    </td>
+                    <td class="ValidationMessage">
+                        @Html.ValidationMessageFor(x => x.MaxLeverage)
+                    </td>
+                </tr>
+                <tr>
+                    <th style="text-align: right; padding: 10px">
+                        @Html.LabelFor(x => x.CountOpenPosition)
+                    </th>
+                    <td style="font-weight:bold; font-size: 16px;">
+                        @Model.CountOpenPosition          
+                    </td>
+                </tr>
+                <tr>
+                    <th style="text-align: right; padding: 10px">
+                        @Resource.TitleMoneyAtMoment @DateTime.Now.ToShortDateString()  @DateTime.Now.ToShortTimeString()
+                    </th>
+                    <td style="font-weight:bold; font-size: 16px;">
+                        @Model.Equity.ToStringUniformMoneyFormat()            
+                    </td>
+                </tr>
+                <tr>
+                    <th style="text-align: right; padding: 10px">
+                        @Resource.TitleProfitAtMoment @DateTime.Now.ToShortDateString()  @DateTime.Now.ToShortTimeString()
+                    </th>
+                    <td style="font-weight:bold; font-size: 16px;">
+                        @((Model.Equity - Model.Balance).ToStringUniformMoneyFormat())         
+                    </td>
+                </tr>
+                <tr>
+                    <th style="text-align: right; padding: 10px">
+                        @Html.LabelFor(x => x.Exposure)
+                    </th>
+                    <td style="font-weight:bold; font-size: 16px;">
+                        @Model.Exposure.ToStringUniformMoneyFormat()
+                    </td>
+                </tr>
+                <tr>
+                    <th style="text-align: right; padding: 10px">
+                        @Resource.TitleMargin
+                    </th>
+                    <td style="font-weight:bold; font-size: 16px;">
+                        @Model.UsedMargin.ToStringUniformMoneyFormat()
+                    </td>
+                </tr>
+                <tr>
+                    <td style="padding: 10px">
+                        @Html.ActionLink(Resource.TitleSave, "AccountDetails", "Management", FormMethod.Post, new {@class="ml-button-3", @id="linkUpdate"})
+                    </td>
+                    <td >
+                        @Html.ActionLink(Resource.TitleCancel, "AccountActionCancel", null, new {@class="ml-button-3"})
+                    </td>
+                    <td >
+                    </td>
+                </tr>
+            </table>
+        }
+    </div>      
+</div>
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#linkUpdate').click(function () {
+            $('#SubmitForm').submit();
+            return false; 
+        });
+    });
+    
+    var config = {
+        '.chzn-select': {},
+        '.chzn-select-deselect': { allow_single_deselect: true },
+        '.chzn-select-no-single': { disable_search_threshold: 10 },
+        '.chzn-select-no-results': { no_results_text: '@Resource.ErrorMassageNothingFound' },
+        '.chzn-select-width': { width: "95%" }
+    };
+    for (var selector in config) {
+        $(selector).chosen(config[selector]);
+    }
+
+</script>
