@@ -39,3 +39,5 @@ _ReSharper*/
 src/Libraries/*.dll
 src/Libraries/*.exe
 !src/Report/TradeSharp.Reports.Lib/
+!src/Processing/TradeSharp.Processing.Lib
+!src/SiteBridge/TradeSharp.SiteBridge.Lib
