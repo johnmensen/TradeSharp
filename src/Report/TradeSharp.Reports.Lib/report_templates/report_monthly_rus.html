@@ -1,0 +1,198 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<html>
+<head>
+<style type="text/css">
+ .rowCaption
+ {
+    color:#FFFFFF;
+    font-family: "Times New Roman";
+    font-size: 100%;
+    font-weight:800;
+    text-align:center;
+    background-color:#105008;
+    padding-top:0;
+    margin-top:0;
+ }
+ .monthlyTableEvenRow
+ {
+    background-color:#D2D2D2;
+ }
+ table
+ {
+    border:0px;
+    border-collapse:collapse;
+ }
+ tr
+ {
+    border-width:1px;
+ }
+ td
+ {
+    font-family: "Times New Roman";
+    font-size: 90%;
+    padding:0px;    
+ }
+ h1
+ {
+    font-size: 140%;
+ }
+</style>      
+</head>
+
+<body>
+
+<table width="100%" callpadding="0" cellspacing="0" border="0">
+  <tr>
+    <td style="font-size:20px">
+      Управляющая компания FOREXINVEST
+    </td>    
+    <td style="text-align:right">
+      <img src="img\logo_forexinvest.png" />
+    </td>
+  </tr>
+  <tr colspan="1">
+    <td>Дата</td>
+    <td style="text-align:left" name="timestamp"></td>
+  </tr>
+</table>
+
+<table callpadding="0" cellspacing="0" border="0">
+  <tr class="rowCaption">
+    <td colspan="5"><b>Стратегия Компании</b></td>
+  </tr>
+  <tr>
+   <td colspan="5">
+      Инвестиционная стратегия сочетает высокодоходные рискованные спекуляции с менее доходными долгосрочными инвестициями, характеризующимися низкой степенью риска. 
+      Процесс принятия решения о входе и выходе из рынка строго формализован. Каждой торговой операции предшествует анализ мирового финансового рынка. В строгом 
+      определении торговая стратегия Компании относится к разряду фундаментальных. В то же время применяются технические методы анализа рыночной котировки, 
+      производных инструментов (валютные фьючерсы и опционы), коррелированных ценных бумаг и макроэкономических индексов.
+   </td>    
+  </tr>
+  <tr class="rowCaption">
+    <td><b>Доход на $1000</b></td>
+    <td><b>Исторические показатели</b></td>
+    <td><b>УК</b></td>
+    <td><b>#Benchmark1#</b></td>
+    <td><b>#Benchmark2#</b></td>
+  </tr>
+  <tr name="rowHistoricalData">
+   <td rowspan="5"><img name="imgChartProfit1000" height="330" width="540" border="0" style="border-width:0"
+	src=""/></td>
+   <td style="padding:0px;margin:0px;">Совокупный доход<br/>Доход на $1000<br/>Средний доход<br/>Сгеом. приращение<br/>Лучший р-т за мес.<br/>Худший р-т за мес.<br/>% доходных мес.</td>
+   <td style="padding:0px;margin:0px;">#val01<br/>#val02<br/>#val03<br/>#val04<br/>#val05<br/>#val06<br/>#val07<br/></td>
+   <td style="padding:0px;margin:0px;">#val11<br/>#val12<br/>#val13<br/>#val14<br/>#val15<br/>#val16<br/>#val17<br/></td>
+   <td style="padding:0px;margin:0px;">#val21<br/>#val22<br/>#val23<br/>#val24<br/>#val25<br/>#val26<br/>#val27<br/></td>
+  </tr>
+
+  <tr class="rowCaption">
+    <td><b>Риск</b></td>
+    <td><b>УК</b></td>
+    <td><b>#Benchmark1#</b></td>
+    <td><b>#Benchmark2#</b></td>
+  </tr>
+  <tr name="rowRisk">
+   <td>Ст. отклонение<br/>К-т Шарпа<br/>Нисх. отклонение (8%)<br/>К-т Сортино (8%)<br/>Макс. проседание<br/>Мес. проседания</td>
+   <td>#val01<br/>#val02<br/>#val03<br/>#val04<br/>#val05<br/>#val06<br/>#val07<br/></td>
+   <td>#val11<br/>#val12<br/>#val13<br/>#val14<br/>#val15<br/>#val16<br/>#val17<br/></td>
+   <td>#val21<br/>#val22<br/>#val23<br/>#val24<br/>#val25<br/>#val26<br/>#val27<br/></td>
+  </tr>
+  <tr class="rowCaption">
+    <td colspan="2"><b>Корреляция с индексами</b></td>
+    <td><b>#Benchmark1#</b></td>
+    <td><b>#Benchmark2#</b></td>
+  </tr>
+  <tr name="rowCorrelation">
+   <td colspan="2">К-т Alpha<br/>К-т Beta<br/>Годовой к-т Alpha<br/>К-т корреляции<br/>R-squared</td>
+   <td>#val01<br/>#val02<br/>#val03<br/>#val04<br/>#val05<br/>#val06<br/>#val07<br/></td>
+   <td>#val11<br/>#val12<br/>#val13<br/>#val14<br/>#val15<br/>#val16<br/>#val17<br/></td>
+  </tr>
+
+  <tr class="rowCaption">
+    <td><b>Доходность по месяцам</b></td>
+    <td><b>Доходность</b></td>
+    <td><b>УК</b></td>
+    <td><b>#Benchmark1#</b></td>
+    <td><b>#Benchmark2#</b></td>
+  </tr>
+  <tr name="rowLatestReturns">
+   <td rowspan="3"><img name="imgChartProfitHistogram" height="300" width="540" 
+         src="" style="border-width:0" /></td>
+   <td style="padding:0px;margin:0px;">1 месяц<br/>3 месяца<br/>6 месяцев<br/>1 год<br/>2 года<br/>3 года</td>
+   <td style="padding:0px;margin:0px;">#val01<br/>#val02<br/>#val03<br/>#val04<br/>#val05<br/>#val06<br/>#val07<br/></td>
+   <td style="padding:0px;margin:0px;">#val11<br/>#val12<br/>#val13<br/>#val14<br/>#val15<br/>#val16<br/>#val17<br/></td>
+   <td style="padding:0px;margin:0px;">#val21<br/>#val22<br/>#val23<br/>#val24<br/>#val25<br/>#val26<br/>#val27<br/></td>
+  </tr>
+  <tr class="rowCaption">
+    <td><b>Доход по годам</b></td>
+    <td><b>УК</b></td>
+    <td><b>#Benchmark1#</b></td>
+    <td><b>#Benchmark2#</b></td>
+  </tr>
+  <tr name="rowRetByYear">
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+
+  <!-- Перформанс по годам / по месяцам -->
+  <tr class="rowCaption">
+     <td colspan="5">Доходность по месяцам</td>
+  </tr>
+  <tr>
+     <td colspan="5">
+       <table style="width:100%" name="tabMonthProfit">
+         <tr style="font-weight:bolder;background-color:#CACACA;">
+           <td>Год</td>
+           <td>Янв</td>
+           <td>Фев</td>
+           <td>Мар</td>
+           <td>Апр</td>
+           <td>Май</td>
+           <td>Июн</td>
+           <td>Июл</td>
+           <td>Авг</td>
+           <td>Сен</td>
+           <td>Окт</td>
+           <td>Ноя</td>
+           <td>Дек</td>
+           <td>Год</td>
+         </tr>
+       </table>
+     </td>
+  </tr>
+</table>
+
+<!-- Disclaimer -->
+<br/>
+<table cellpadding="0" cellspacing="0" border="0" style="width:100%">
+  <tr>
+     <td>Min Investment: 10'000 USD</td>
+     <td></td>
+  </tr>
+  <tr>
+     <td>Broker: CFH Markets Limited</td>
+     <td></td>
+  </tr>
+  <tr>
+     <td><br/><br/>Forex Invest Ltd</td>
+     <td><br/><br/>Registered address:</td>
+  </tr>
+  <tr>
+     <td>Asset Management Services</td>
+     <td>P.O.Box 556, Main Street, Charlestown, Nevis</td>
+  </tr>
+  <tr>
+     <td>www.forexinvest.ru www.forexsignal.ru</td> 
+     <td>© 2002 — 2010 Управляющая компания "Forex Invest Ltd"</td>
+  </tr>
+  <tr>
+     <td>E-mail: invest@forexinvest.ru</td> 
+     <td>© Программное обеспечение — "Forex Invest Ltd"</td>
+  </tr>
+  <tr>
+     <td colspan="2" style="text-align:justify"><br/><br/>Инвестирование на валютном рынке сопряжено с высоким уровнем  риска. Инвестору следует понимать  степень вероятности возникновения обстоятельств, при которых может произойти потеря средств. Инвестируемые средства должны являться свободными средствами, не находящимися под какими-либо обязательствами, а так же не являться средствами, покрывающими затраты первой необходимости.  Следует понимать, что имеющийся результат не является свидетельством будущего успеха. Настоящий документ не является подтверждением того, что последующая инвестиционная деятельность  Компании будет иметь схожий результат.</td> 
+  </tr>
+   </table>
+</body>
+</html>

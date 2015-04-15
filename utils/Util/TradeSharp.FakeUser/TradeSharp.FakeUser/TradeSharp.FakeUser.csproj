@@ -35,10 +35,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Candlechart">
-      <HintPath>..\..\..\..\..\tradesharp\trunk\src\TradeSharp.Client\bin\Debug\Candlechart.dll</HintPath>
+      <HintPath>..\..\..\..\src\TradeSharp.Robot\bin\Debug\Candlechart.dll</HintPath>
     </Reference>
     <Reference Include="Entity">
-      <HintPath>..\..\..\..\..\tradesharp\trunk\src\TradeSharp.Server\bin\Debug\Entity.dll</HintPath>
+      <HintPath>..\..\..\..\src\TradeSharp.Server\bin\Debug\Entity.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -56,10 +56,10 @@
       <HintPath>..\packages\EntityFramework.6.0.2\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="ICSharpCode.SharpZipLib">
-      <HintPath>..\..\..\..\..\tradesharp\trunk\src\TradeSharp.Server\bin\Debug\ICSharpCode.SharpZipLib.dll</HintPath>
+      <HintPath>..\..\..\..\src\TradeSharp.Server\bin\Debug\ICSharpCode.SharpZipLib.dll</HintPath>
     </Reference>
     <Reference Include="log4net">
-      <HintPath>..\..\..\..\..\tradesharp\trunk\src\TradeSharp.Server\bin\Debug\log4net.dll</HintPath>
+      <HintPath>..\..\..\..\src\TradeSharp.Server\bin\Debug\log4net.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -78,22 +78,22 @@
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="TradeSharp.Contract">
-      <HintPath>..\..\..\..\..\tradesharp\trunk\src\TradeSharp.Server\bin\Debug\TradeSharp.Contract.dll</HintPath>
+      <HintPath>..\..\..\..\src\TradeSharp.Server\bin\Debug\TradeSharp.Contract.dll</HintPath>
     </Reference>
     <Reference Include="TradeSharp.Contract.Util">
-      <HintPath>..\..\..\..\..\tradesharp\trunk\src\TradeSharp.Server\bin\Debug\TradeSharp.Contract.Util.dll</HintPath>
+      <HintPath>..\..\..\..\src\TradeSharp.Server\bin\Debug\TradeSharp.Contract.Util.dll</HintPath>
     </Reference>
     <Reference Include="TradeSharp.Linq">
-      <HintPath>..\..\..\..\..\tradesharp\trunk\src\TradeSharp.Server\bin\Debug\TradeSharp.Linq.dll</HintPath>
+      <HintPath>..\..\..\..\src\TradeSharp.Server\bin\Debug\TradeSharp.Linq.dll</HintPath>
     </Reference>
     <Reference Include="TradeSharp.QuoteHistory">
-      <HintPath>..\..\..\..\..\tradesharp\trunk\src\TradeSharp.Server\bin\Debug\TradeSharp.QuoteHistory.dll</HintPath>
+      <HintPath>..\..\..\..\src\TradeSharp.Client\bin\Debug\TradeSharp.QuoteHistory.dll</HintPath>
     </Reference>
     <Reference Include="TradeSharp.Robot">
-      <HintPath>..\..\..\..\..\tradesharp\trunk\src\TradeSharp.Client\bin\Debug\TradeSharp.Robot.dll</HintPath>
+      <HintPath>..\..\..\..\src\TradeSharp.Robot\bin\Debug\TradeSharp.Robot.dll</HintPath>
     </Reference>
     <Reference Include="TradeSharp.Util">
-      <HintPath>..\..\..\..\..\tradesharp\trunk\src\TradeSharp.Server\bin\Debug\TradeSharp.Util.dll</HintPath>
+      <HintPath>..\..\..\..\src\TradeSharp.Server\bin\Debug\TradeSharp.Util.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

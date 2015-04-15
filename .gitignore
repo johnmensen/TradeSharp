@@ -38,3 +38,4 @@ _ReSharper*/
 [Tt]est[Rr]esult*
 src/Libraries/*.dll
 src/Libraries/*.exe
+!src/Report/TradeSharp.Reports.Lib/
