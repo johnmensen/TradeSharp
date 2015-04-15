@@ -52,7 +52,7 @@ namespace DemoPlugin.Dialog
             foreach (var candle in candles)
             {
                 if (candle.timeOpen < dpTimeCalc.Value) continue;
-                if (candle.timeClose > )
+                //if (candle.timeClose > )
                 if (optionType == OptionType.Touch)
                 {
                     var touched = optionSide > 0 ? (candle.high > strike) : (candle.low < strike);

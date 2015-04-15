@@ -127,6 +127,7 @@
     <Compile Include="Robot\SimpleTrendRobot.cs" />
     <Compile Include="Robot\SlideChannelRobot.cs" />
     <Compile Include="Robot\StopRobot.cs" />
+    <Compile Include="Robot\TornPatternRobot.cs" />
     <Compile Include="Robot\UserIndexFilter.cs" />
     <Compile Include="Robot.Debug\IchimokuRobot.Debug.cs" />
   </ItemGroup>
