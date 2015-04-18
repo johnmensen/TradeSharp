@@ -123,6 +123,7 @@
     <Compile Include="Robot\RobotMark.cs" />
     <Compile Include="Robot\RobotMarkClear.cs" />
     <Compile Include="Robot\RoundPriceRobot.cs" />
+    <Compile Include="Robot\RsiDiverRobot.cs" />
     <Compile Include="Robot\SimpleTradeMachineRobot.cs" />
     <Compile Include="Robot\SimpleTrendRobot.cs" />
     <Compile Include="Robot\SlideChannelRobot.cs" />
