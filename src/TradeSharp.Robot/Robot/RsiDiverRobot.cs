@@ -18,8 +18,8 @@ namespace TradeSharp.Robot.Robot
 
         public Pair(T first, U second)
         {
-            this.First = first;
-            this.Second = second;
+            First = first;
+            Second = second;
         }
 
         public T First { get; set; }
@@ -131,15 +131,8 @@ namespace TradeSharp.Robot.Robot
         #endregion
 
         #region Переменные
-        private CandlePacker packer;
-        private string ticker;
-        private float U { get; set; }
-        private float D { get; set; }
-
-        /// <summary>
-        /// Очередь с вытеснением из значений цен закрытия свечей
-        /// </summary>
-        private RestrictedQueue<Pair<float, double?>> closePrices; //TODO rename
+        private Dictionary<string, RestrictedQueue<Pair<float, double?>>> rsiClosePairs;
+        private Dictionary<string, CandlePacker> packers;       
         #endregion
 
         private List<string> events;
@@ -165,13 +158,9 @@ namespace TradeSharp.Robot.Robot
         {
             base.Initialize(robotContext, protectedContext);
 
-            if (Graphics.Count != 1)
-                return;
+            packers = Graphics.ToDictionary(g => g.a, g => new CandlePacker(g.b));
+            rsiClosePairs = Graphics.ToDictionary(g => g.a, g => new RestrictedQueue<Pair<float, double?>>(period));
 
-            packer = new CandlePacker(Graphics[0].b);
-            ticker = Graphics[0].a;
-
-            closePrices = new RestrictedQueue<Pair<float, double?>>(period);
             lastMessages = new List<string>();
         }
 
@@ -182,7 +171,7 @@ namespace TradeSharp.Robot.Robot
 
             try
             {
-                return new Dictionary<string, DateTime> { { Graphics[0].a, Graphics[0].b.GetDistanceTime(period, -1, startTrade) } };
+                return Graphics.ToDictionary(g => g.a, g => g.b.GetDistanceTime(period, -1, startTrade));
             }
             catch (Exception ex)
             {
@@ -195,34 +184,49 @@ namespace TradeSharp.Robot.Robot
             events = lastMessages.ToList();
             lastMessages.Clear();
 
-            #region Получение текущей свечи
-            var tickerIndex = -1;
-            for (var i = 0; i < names.Length; i++)
-                if (names[i] == ticker)
-                {
-                    tickerIndex = i;
-                    break;
-                }
-            if (tickerIndex < 0)
+            if (packers == null) 
                 return events;
 
-            var quote = quotes[tickerIndex];
+            for (var i = 0; i < quotes.Length; i++)
+            {
+                CandlePacker packer;
+                if (!packers.TryGetValue(names[i], out packer))
+                    continue;
 
-            var candle = packer.UpdateCandle(quote);
-            if (candle == null)
+                var candle = packer.UpdateCandle(quotes[i]);
+                if (candle == null)
+                    continue;
+
+                var enterSign = CheckEnterCondition(names[i], candle.close);
+
+                if (enterSign == 0)
+                    continue;
+
+                if (CloseOpposite)
+                    CloseCounterOrders(enterSign, names[i]);
+
+                OpenOrder(enterSign, names[i], quotes[i]);
                 return events;
-            #endregion
+            }
+   
 
-            var currentPair = new Pair<float, double?>(candle.close, null);
-            closePrices.Add(currentPair);
-            if (closePrices.Length < closePrices.MaxQueueLength) return events;
+            return events;
+        }
 
-            currentPair.Second = CalcRsi();
+        private int CheckEnterCondition(string name, float candleClose)
+        {
+            var currentPair = new Pair<float, double?>(candleClose, null);
+            var currentPairs = rsiClosePairs[name];
+            currentPairs.Add(currentPair);
+            if (currentPairs.Length < currentPairs.MaxQueueLength) 
+                return 0;
+
+            currentPair.Second = CalculateRsi(currentPairs);
 
 
             for (var i = M; i < N; i++)
             {
-                var previousPair = closePrices.ElementAt(closePrices.MaxQueueLength - i - 1);
+                var previousPair = currentPairs.ElementAt(currentPairs.MaxQueueLength - i - 1);
                 if (!previousPair.Second.HasValue)
                     continue;
 
@@ -232,23 +236,19 @@ namespace TradeSharp.Robot.Robot
                 if (diffClose == diffRsi || diffRsi == 0)
                     continue;
 
-                if (CloseOpposite)
-                    CloseCounterOrders(diffRsi, ticker);
-
-                OpenOrder(diffRsi, ticker, quote);
-                break;
+                return diffRsi;
             }
 
-            return events;
+            return 0;
         }
 
-        private double CalcRsi()
+        private double CalculateRsi(RestrictedQueue<Pair<float, double?>> currentPairs)
         {
-            U = 0;
-            D = 0;
-            for (var i = 1; i < closePrices.MaxQueueLength; i++)
+            var U = 0f;
+            var D = 0f;
+            for (var i = 1; i < currentPairs.MaxQueueLength; i++)
             {
-                var closePrice = closePrices.ElementAt(i - 1).First - closePrices.ElementAt(i).First;
+                var closePrice = currentPairs.ElementAt(i - 1).First - currentPairs.ElementAt(i).First;
                 if (closePrice < 0)
                     D -= closePrice;
                 else
