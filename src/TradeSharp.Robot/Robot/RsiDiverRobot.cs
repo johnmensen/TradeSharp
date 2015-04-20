@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
-using System.Text;
 using Entity;
 using TradeSharp.Contract.Entity;
 using TradeSharp.Contract.Util.BL;
@@ -10,29 +9,14 @@ using TradeSharp.Robot.BacktestServerProxy;
 
 namespace TradeSharp.Robot.Robot
 {
-    public class Pair<T, U>
-    {
-        public Pair()
-        {
-        }
-
-        public Pair(T first, U second)
-        {
-            First = first;
-            Second = second;
-        }
-
-        public T First { get; set; }
-        public U Second { get; set; }
-    };
-
     ///<summary>
     /// характеристики робота:
     /// 1) интенсивность торговли - при дефолтовых настройках на EURUSD:H1 порядка 1 сделки на 1.5 - 2 свечи 
     /// 
     /// варьируемые параметры:
     /// 1) Period: не меньше 1. Если 2, 3 - не эффективно. Обычно 15,  ..
-    /// 2) N, M: Левая и Правая граници временного лага. Предполагается, что чем дальше "коридор" N - M от текущей свечи и чем от уже, тем меньше интенчивность сделок. 
+    /// 2) N, M: Левая и Правая граници временного лага. Предполагается, что чем дальше "коридор" N - M от текущей свечи и чем от уже, 
+    /// тем меньше интенсивность сделок. 
     /// Но на практике это пока не подтвердилось. 
     /// Примерно одинаковые результаты дают измерения на временном лаге 
     /// N = 10 M = 5  и Period = 15 
@@ -42,9 +26,27 @@ namespace TradeSharp.Robot.Robot
     /// 3) CloseOpposite: true, false
     /// 4) StopLoss, TakeProfit: 15 ... 800
     ///</summary>
+    // ReSharper disable LocalizableElement
     [DisplayName("Индекс относительной силы")]
     public class RsiDiverRobot : BaseRobot 
     {
+        public class PriceRsi
+        {
+            public float Price { get; set; }
+
+            public double? Rsi { get; set; }
+
+            public PriceRsi()
+            {
+            }
+
+            public PriceRsi(float price, double? rsi)
+            {
+                Price = price;
+                Rsi = rsi;
+            }
+        };
+
         #region Настройки
         private int stopLossPoints = 250;
         [PropertyXMLTag("Robot.StopLossPoints")]
@@ -131,7 +133,7 @@ namespace TradeSharp.Robot.Robot
         #endregion
 
         #region Переменные
-        private Dictionary<string, RestrictedQueue<Pair<float, double?>>> rsiClosePairs;
+        private Dictionary<string, RestrictedQueue<PriceRsi>> rsiClosePairs;
         private Dictionary<string, CandlePacker> packers;       
         #endregion
 
@@ -159,7 +161,7 @@ namespace TradeSharp.Robot.Robot
             base.Initialize(robotContext, protectedContext);
 
             packers = Graphics.ToDictionary(g => g.a, g => new CandlePacker(g.b));
-            rsiClosePairs = Graphics.ToDictionary(g => g.a, g => new RestrictedQueue<Pair<float, double?>>(period));
+            rsiClosePairs = Graphics.ToDictionary(g => g.a, g => new RestrictedQueue<PriceRsi>(period));
 
             lastMessages = new List<string>();
         }
@@ -215,23 +217,22 @@ namespace TradeSharp.Robot.Robot
 
         private int CheckEnterCondition(string name, float candleClose)
         {
-            var currentPair = new Pair<float, double?>(candleClose, null);
+            var currentPair = new PriceRsi(candleClose, null);
             var currentPairs = rsiClosePairs[name];
             currentPairs.Add(currentPair);
             if (currentPairs.Length < currentPairs.MaxQueueLength) 
                 return 0;
 
-            currentPair.Second = CalculateRsi(currentPairs);
-
+            currentPair.Rsi = CalculateRsi(currentPairs);
 
             for (var i = M; i < N; i++)
             {
                 var previousPair = currentPairs.ElementAt(currentPairs.MaxQueueLength - i - 1);
-                if (!previousPair.Second.HasValue)
+                if (!previousPair.Rsi.HasValue)
                     continue;
 
-                var diffClose = Math.Sign(currentPair.First - previousPair.First);
-                var diffRsi = Math.Sign(currentPair.Second.Value - previousPair.Second.Value);
+                var diffClose = Math.Sign(currentPair.Price - previousPair.Price);
+                var diffRsi = Math.Sign(currentPair.Rsi.Value - previousPair.Rsi.Value);
 
                 if (diffClose == diffRsi || diffRsi == 0)
                     continue;
@@ -242,25 +243,21 @@ namespace TradeSharp.Robot.Robot
             return 0;
         }
 
-        private double CalculateRsi(RestrictedQueue<Pair<float, double?>> currentPairs)
+        private static double CalculateRsi(RestrictedQueue<PriceRsi> currentPairs)
         {
-            var U = 0f;
-            var D = 0f;
+            var u = 0f;
+            var d = 0f;
             for (var i = 1; i < currentPairs.MaxQueueLength; i++)
             {
-                var closePrice = currentPairs.ElementAt(i - 1).First - currentPairs.ElementAt(i).First;
-                if (closePrice < 0)
-                    D -= closePrice;
+                var deltaPrice = currentPairs.ElementAt(i).Price - currentPairs.ElementAt(i - 1).Price;
+                if (deltaPrice < 0)
+                    d -= deltaPrice;
                 else
-                    U += closePrice;
+                    u += deltaPrice;
             }
 
-            double RSI;
-            if (U == D && U == 0) RSI = 50;
-            else if (D == 0) RSI = 100;
-            else
-                RSI = 100 - 100.0/(1 + U/D);
-            return RSI;
+            var rsi = (u == 0 && d == 0) ? 50 : 100 * u / (u + d);
+            return rsi;
         }
 
 
@@ -307,4 +304,5 @@ namespace TradeSharp.Robot.Robot
                     dealSign > 0 ? "BUY" : "SELL", symbol, status));
         }
     }
+    // ReSharper restore LocalizableElement
 }
