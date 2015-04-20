@@ -44,6 +44,7 @@
             this.panelCheckLogin = new System.Windows.Forms.Panel();
             this.btnCheckLogins = new System.Windows.Forms.Button();
             this.panelUser = new System.Windows.Forms.Panel();
+            this.btnCreateAccount = new System.Windows.Forms.Button();
             this.tbNewAccountOpenTime = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -114,7 +115,6 @@
             this.btnMakeHistoryOperations = new System.Windows.Forms.Button();
             this.btnPickFarmSetsFile = new System.Windows.Forms.Button();
             this.tbFarmSetsPath = new System.Windows.Forms.TextBox();
-            this.btnCreateAccount = new System.Windows.Forms.Button();
             this.panelBottom.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -283,6 +283,17 @@
             this.panelUser.Size = new System.Drawing.Size(233, 343);
             this.panelUser.TabIndex = 0;
             // 
+            // btnCreateAccount
+            // 
+            this.btnCreateAccount.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnCreateAccount.Location = new System.Drawing.Point(8, 238);
+            this.btnCreateAccount.Name = "btnCreateAccount";
+            this.btnCreateAccount.Size = new System.Drawing.Size(144, 23);
+            this.btnCreateAccount.TabIndex = 16;
+            this.btnCreateAccount.Text = "Открыть счет...";
+            this.btnCreateAccount.UseVisualStyleBackColor = true;
+            this.btnCreateAccount.Click += new System.EventHandler(this.btnCreateAccount_Click);
+            // 
             // tbNewAccountOpenTime
             // 
             this.tbNewAccountOpenTime.Location = new System.Drawing.Point(5, 193);
@@ -336,7 +347,7 @@
             // 
             // btnCopyIds
             // 
-            this.btnCopyIds.Location = new System.Drawing.Point(5, 267);
+            this.btnCopyIds.Location = new System.Drawing.Point(8, 276);
             this.btnCopyIds.Name = "btnCopyIds";
             this.btnCopyIds.Size = new System.Drawing.Size(144, 23);
             this.btnCopyIds.TabIndex = 8;
@@ -346,7 +357,7 @@
             // 
             // btnCreate
             // 
-            this.btnCreate.Location = new System.Drawing.Point(5, 238);
+            this.btnCreate.Location = new System.Drawing.Point(8, 305);
             this.btnCreate.Name = "btnCreate";
             this.btnCreate.Size = new System.Drawing.Size(144, 23);
             this.btnCreate.TabIndex = 7;
@@ -971,16 +982,6 @@
             this.tbFarmSetsPath.Name = "tbFarmSetsPath";
             this.tbFarmSetsPath.Size = new System.Drawing.Size(438, 20);
             this.tbFarmSetsPath.TabIndex = 0;
-            // 
-            // btnCreateAccount
-            // 
-            this.btnCreateAccount.Location = new System.Drawing.Point(5, 296);
-            this.btnCreateAccount.Name = "btnCreateAccount";
-            this.btnCreateAccount.Size = new System.Drawing.Size(144, 23);
-            this.btnCreateAccount.TabIndex = 16;
-            this.btnCreateAccount.Text = "Открыть счет...";
-            this.btnCreateAccount.UseVisualStyleBackColor = true;
-            this.btnCreateAccount.Click += new System.EventHandler(this.btnCreateAccount_Click);
             // 
             // MainForm
             // 
