@@ -480,7 +480,7 @@ namespace TradeSharp.Robot.Robot
         }
 
         /// <summary>
-        /// Расчёт объёма сделки в волюте депозита с учётом наличия или отсутствия фиксированного объёма
+        /// Расчёт объёма сделки в валюте депозита с учётом наличия или отсутствия фиксированного объёма
         /// </summary>
         protected int CalculateVolume(string ticker, decimal? calculateLeverage = null)
         {

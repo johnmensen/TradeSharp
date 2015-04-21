@@ -115,6 +115,7 @@
     <Compile Include="Robot\Mt4Robot.cs" />
     <Compile Include="Robot\MultiIndexRobot.cs" />
     <Compile Include="Robot\OptionTraderRobot.cs" />
+    <Compile Include="Robot\OptionUpDownMartinRobot.cs" />
     <Compile Include="Robot\RandomRobot.cs" />
     <Compile Include="Robot\RencoRobot.cs" />
     <Compile Include="Robot\RobotHint.cs" />

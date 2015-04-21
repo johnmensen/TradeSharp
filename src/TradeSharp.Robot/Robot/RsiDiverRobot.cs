@@ -6,6 +6,7 @@ using Entity;
 using TradeSharp.Contract.Entity;
 using TradeSharp.Contract.Util.BL;
 using TradeSharp.Robot.BacktestServerProxy;
+using TradeSharp.Util;
 
 namespace TradeSharp.Robot.Robot
 {
@@ -150,15 +151,19 @@ namespace TradeSharp.Robot.Robot
                 RoundType = RoundType,
                 NewsChannels = NewsChannels,
                 RoundMinVolume = RoundMinVolume,
-                RoundVolumeStep = RoundVolumeStep
+                RoundVolumeStep = RoundVolumeStep,
+                M = M,
+                N = N,
+                Period = Period,
+                CloseOpposite = CloseOpposite
             };
             CopyBaseSettings(bot);
             return bot;
         }
 
-        public override void Initialize(RobotContext robotContext, CurrentProtectedContext protectedContext)
+        public override void Initialize(RobotContext grobotContext, CurrentProtectedContext gprotectedContext)
         {
-            base.Initialize(robotContext, protectedContext);
+            base.Initialize(grobotContext, gprotectedContext);
 
             packers = Graphics.ToDictionary(g => g.a, g => new CandlePacker(g.b));
             rsiClosePairs = Graphics.ToDictionary(g => g.a, g => new RestrictedQueue<PriceRsi>(period));
@@ -208,9 +213,7 @@ namespace TradeSharp.Robot.Robot
                     CloseCounterOrders(enterSign, names[i]);
 
                 OpenOrder(enterSign, names[i], quotes[i]);
-                return events;
             }
-   
 
             return events;
         }
@@ -259,8 +262,7 @@ namespace TradeSharp.Robot.Robot
             var rsi = (u == 0 && d == 0) ? 50 : 100 * u / (u + d);
             return rsi;
         }
-
-
+        
         private void CloseCounterOrders(int dealSign, string symbol)
         {
             List<MarketOrder> orders;
@@ -276,8 +278,8 @@ namespace TradeSharp.Robot.Robot
             var volume = CalculateVolume(symbol, base.Leverage);
             if (volume == 0)
             {
-                events.Add(string.Format("{0} {1} отменена - объем равен 0",
-                    dealSign > 0 ? "покупка" : "продажа", symbol));
+                events.Add(string.Format("{0} {1} отменена - объем равен 0 (L:{2:f3}, #{3})",
+                    dealSign > 0 ? "покупка" : "продажа", symbol, base.Leverage, robotContext.AccountInfo.ID));
                 return;
             }
 
@@ -294,14 +296,16 @@ namespace TradeSharp.Robot.Robot
                 Side = dealSign,                            // Устанавливаем тип сделки - покупка или продажа
                 StopLoss = stopLoss,                        // Устанавливаем величину Stop loss для открываемой сделки
                 TakeProfit = takeProfit,                    // Устанавливаем величину Take profit для открываемой сделки
-                ExpertComment = "TornAssholeRobot"          // Комментарий по сделке, оставленный роботом
+                ExpertComment = "RsiDiverRobot"             // Комментарий по сделке, оставленный роботом
             };
             var status = NewOrder(order,
-                OrderType.Market, // исполнение по рыночной ценец - можно везде выбирать такой вариант
+                OrderType.Market, // исполнение по рыночной цене - можно везде выбирать такой вариант
                 0, 0); // последние 2 параметра для OrderType.Market не имеют значения
             if (status != RequestStatus.OK)
-                events.Add(string.Format("Ошибка добавления ордера {0} {1}: {2}",
-                    dealSign > 0 ? "BUY" : "SELL", symbol, status));
+                events.Add(string.Format("Ошибка добавления ордера {0} {1}: {2} (#{3} bal: {4})",
+                    dealSign > 0 ? "BUY" : "SELL", symbol, status,
+                    robotContext.AccountInfo.ID, 
+                    robotContext.AccountInfo.Balance.ToStringUniformMoneyFormat(true)));
         }
     }
     // ReSharper restore LocalizableElement

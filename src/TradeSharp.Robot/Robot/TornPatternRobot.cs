@@ -328,7 +328,7 @@ namespace TradeSharp.Robot.Robot
                 ExpertComment = "TornAssholeRobot"          // Комментарий по сделке, оставленный роботом
             };
             var status = NewOrder(order,
-                OrderType.Market, // исполнение по рыночной ценец - можно везде выбирать такой вариант
+                OrderType.Market, // исполнение по рыночной цене - можно везде выбирать такой вариант
                 0, 0); // последние 2 параметра для OrderType.Market не имеют значения
             if (status != RequestStatus.OK)
                 events.Add(string.Format("Ошибка добавления ордера {0} {1}: {2}",
