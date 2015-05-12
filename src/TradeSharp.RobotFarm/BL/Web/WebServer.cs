@@ -332,7 +332,8 @@ namespace TradeSharp.RobotFarm.BL.Web
                 if (ac.AccountId == selectedAccount)
                     sb.AppendLine("      <li style=\"color:White;font-weight:bold;background-color:Silver\">");
                 else
-                    sb.AppendLine("      <li><a href=\"?account=" + ac.AccountId + "\">");
+                    sb.AppendLine("      <li><a href=\"?account=" + ac.AccountId + "\" " +
+                        (ac.TradeEnabled && ac.Robots.Count > 0 ? "" : "style=\"color:#FF0000\" ") + ">");
 
                 sb.Append("Счет #" + ac.AccountId + " /" + ac.UserLogin);
                 if (ac.AccountId != selectedAccount) sb.Append("</a>");

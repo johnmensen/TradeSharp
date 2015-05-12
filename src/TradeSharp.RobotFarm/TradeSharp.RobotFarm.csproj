@@ -85,6 +85,7 @@
     <Compile Include="BL\MultipartParser.cs" />
     <Compile Include="BL\RobotContextLiveFarm.cs" />
     <Compile Include="BL\RobotFarm.cs" />
+    <Compile Include="BL\RobotFarmOffTime.cs" />
     <Compile Include="BL\TradeServerCallbackProcessor.cs" />
     <Compile Include="BL\TradeSignalProcessor.cs" />
     <Compile Include="BL\Web\WebServer.AccountTable.cs" />

@@ -426,6 +426,7 @@ namespace TradeSharp.RobotFarm.BL
         public void OnQuotesReceived(string[] names, QuoteData[] quotes)
         {
             if (State != FarmState.Started) return;
+            // if (RobotFarmOffTime.IsTimeOff()) return;
             var candles = packerPool.MakeCandles(quotes, ref names);
             foreach (var account in Accounts)
             {

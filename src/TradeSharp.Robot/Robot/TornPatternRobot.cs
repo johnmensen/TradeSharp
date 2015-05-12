@@ -318,8 +318,6 @@ namespace TradeSharp.Robot.Robot
             var takeProfit = enterPrice + dealSign * (float)point * TakeProfitPoints;
             var order = new MarketOrder
             {
-                AccountID = robotContext.AccountInfo.ID,    // Уникальный идентификатор счёта
-                Magic = Magic,                              // Этот параметр позволяет отличать сделки разных роботов
                 Symbol = symbol,                            // Инструмент по которому совершается сделка
                 Volume = volume,                            // Объём средств, на который совершается сделка
                 Side = dealSign,                            // Устанавливаем тип сделки - покупка или продажа
@@ -331,8 +329,8 @@ namespace TradeSharp.Robot.Robot
                 OrderType.Market, // исполнение по рыночной цене - можно везде выбирать такой вариант
                 0, 0); // последние 2 параметра для OrderType.Market не имеют значения
             if (status != RequestStatus.OK)
-                events.Add(string.Format("Ошибка добавления ордера {0} {1}: {2}",
-                    dealSign > 0 ? "BUY" : "SELL", symbol, status));
+                events.Add(string.Format("Ошибка добавления ордера ({0}): {1}",
+                    order.ToStringShort(), status));
         }
     }
 

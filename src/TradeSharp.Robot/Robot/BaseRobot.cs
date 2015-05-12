@@ -229,7 +229,8 @@ namespace TradeSharp.Robot.Robot
         {
             this.protectedContext = protectedContext;
             this.robotContext = robotContext;
-            TerminalLog.Instance.SaveRobotLog(string.Format("Запущен робот {0}", GetUniqueName()));
+            TerminalLog.Instance.SaveRobotLog(string.Format("Запущен робот {0} #{1}", 
+                GetUniqueName(), robotContext.AccountInfo.ID));
             if ((FixedVolume ?? 0) <= 0 && (Leverage ?? 0) <= 0)
                 if (lastMessages != null)
                     lastMessages.Add("Не указаны ни плечо сделки, ни фиксированный объем входа. Торговля осуществляться не будет");
