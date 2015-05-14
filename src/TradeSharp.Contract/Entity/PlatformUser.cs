@@ -114,5 +114,15 @@ namespace TradeSharp.Contract.Entity
         {
             get { return MakeNameWithInitials(); }
         }
+
+        public static bool IsManager(int roleMask)
+        {
+            return (roleMask & (int) UserRole.Manager) != 0;
+        }
+
+        public static bool IsAdmin(int roleMask)
+        {
+            return (roleMask & (int)UserRole.Administrator) != 0;
+        }
     }
 }

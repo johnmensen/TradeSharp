@@ -716,8 +716,10 @@ namespace TradeSharp.Server.Contract
                     if (userHash != hash)
                         return null;
 
-                    if (!ctx.PLATFORM_USER_ACCOUNT.Any(pa => pa.PlatformUser == user.ID && pa.Account == accountId))
-                        return null;
+                    // авторизован?
+                    if (!PlatformUser.IsManager(user.RoleMask) && !PlatformUser.IsAdmin(user.RoleMask))
+                        if (!ctx.PLATFORM_USER_ACCOUNT.Any(pa => pa.PlatformUser == user.ID && pa.Account == accountId))
+                            return null;
 
                     var account = LinqToEntity.DecorateAccount(ctx.ACCOUNT.First(a => a.ID == accountId));
                     if (!calculateEquity) return account;
@@ -738,7 +740,7 @@ namespace TradeSharp.Server.Contract
             }
             catch (Exception ex)
             {
-                Logger.Error("Ошибка в GetClosedOrders()", ex);
+                Logger.Error("Ошибка в GetAccountDetail()", ex);
                 return null;
             }
         }
@@ -911,6 +913,70 @@ namespace TradeSharp.Server.Contract
             return false;
         }
 
+        public bool SetBalance(string hash, string userLogin, long localTime,
+            int accountId, decimal newBalance, string comment, out string errorString)
+        {
+            errorString = string.Empty;
+            try
+            {
+                using (var ctx = DatabaseContext.Instance.Make())
+                {
+                    var user = ctx.PLATFORM_USER.FirstOrDefault(u => u.Login == userLogin);
+                    if (user == null)
+                    {
+                        errorString = "Unauthorised (not found)";
+                        return false;
+                    }
+
+                    var userHash = CredentialsHash.MakeCredentialsHash(userLogin, user.Password, localTime);
+                    if (userHash != hash)
+                    {
+                        errorString = "Unauthorised (wrong credentials)";
+                        return false;
+                    }
+
+                    if (!PlatformUser.IsAdmin(user.RoleMask) &&
+                        !PlatformUser.IsManager(user.RoleMask))
+                    {
+                        errorString = "Unauthorised (insufficient rights)";
+                        return false;
+                    }
+
+                    var account = ctx.ACCOUNT.FirstOrDefault(a => a.ID == accountId);
+                    if (account == null)
+                    {
+                        errorString = "Account " + accountId + " was not found";
+                        return false;
+                    }
+
+                    var delta = newBalance - account.Balance;
+                    if (delta == 0)
+                        return true;
+
+                    // сформировать транзакцию и поправить баланс
+                    var sign = Math.Sign(delta);
+                    var amount = Math.Abs(delta);
+                    var trans = new BALANCE_CHANGE
+                    {
+                        AccountID = accountId,
+                        ChangeType = sign > 0 ? (int) BalanceChangeType.Deposit : (int) BalanceChangeType.Withdrawal,
+                        Amount = amount,
+                        ValueDate = DateTime.Now,
+                        Description = comment
+                    };
+                    account.Balance = newBalance;
+                    ctx.BALANCE_CHANGE.Add(trans);
+                    ctx.SaveChanges();
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Logger.Error("Ошибка в SetBalance()", ex);
+            }
+            return false;
+        }
+
         private bool ModifyOpenedPosition(MarketOrder order, TradeSharpConnection ctx, POSITION pos, 
             out string errorString)
         {
@@ -1018,6 +1084,6 @@ namespace TradeSharp.Server.Contract
             pos.Swap = (decimal) (order.Swap ?? 0);
             ctx.SaveChanges();
             return true;
-        }
+        }        
     }
 }

@@ -70,6 +70,7 @@
   <ItemGroup>
     <Compile Include="BL\FarmAccountArg.cs" />
     <Compile Include="BL\FarmAccount.cs" />
+    <Compile Include="BL\FarmDayOff.cs" />
     <Compile Include="BL\FarmScheduler.cs" />
     <Compile Include="BL\HistoryTickerStream.cs" />
     <Compile Include="BL\HtmlHelper\AjaxHyperlinkHelper.cs" />

@@ -33,5 +33,35 @@ namespace TradeSharp.RobotFarm.BL
         {
             return accountData.GetActualAccount(needEquity);
         }
+
+        public override RequestStatus SendNewOrderRequest(ProtectedOperationContext secCtx, int requestUniqueId, MarketOrder order,
+            OrderType orderType, decimal requestedPrice, decimal slippagePoints)
+        {
+            if (IsDayOff()) return RequestStatus.WrongTime;
+            return base.SendNewOrderRequest(secCtx, requestUniqueId, order, orderType, requestedPrice, slippagePoints);
+        }
+
+        public override RequestStatus SendEditMarketRequest(ProtectedOperationContext secCtx, MarketOrder pos)
+        {
+            if (IsDayOff()) return RequestStatus.WrongTime;
+            return base.SendEditMarketRequest(secCtx, pos);
+        }
+
+        public override RequestStatus SendCloseRequest(ProtectedOperationContext ctx, int accountId, int orderId, PositionExitReason reason)
+        {
+            if (IsDayOff()) return RequestStatus.WrongTime;
+            return base.SendCloseRequest(ctx, accountId, orderId, reason);
+        }
+
+        public override RequestStatus SendCloseByTickerRequest(ProtectedOperationContext ctx, int accountId, string ticker, PositionExitReason reason)
+        {
+            if (IsDayOff()) return RequestStatus.WrongTime;
+            return base.SendCloseByTickerRequest(ctx, accountId, ticker, reason);
+        }
+
+        private static bool IsDayOff()
+        {
+            return FarmDaysOff.IsDayOff(DateTime.UtcNow);
+        }
     }
 }

@@ -212,5 +212,11 @@ namespace TradeSharp.Contract.Contract
                                    int orderId,
                                    float stopLoss, float takeProfit, int magic, string comment);
         #endregion
+
+        #region Балансовые операции
+        [OperationContract(IsOneWay = false)]
+        bool SetBalance(string hash, string userLogin, long localTime,
+            int accountId, decimal newBalance, string comment, out string errorString);
+        #endregion
     }
 }

@@ -169,6 +169,7 @@
     <Compile Include="Processing\NuWebMoneyTransferCache.cs" />
     <Compile Include="Processing\NuYahooQuoteProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RobotFarm\FarmDaysOffTest.cs" />
     <Compile Include="Robot\FiboLevelRobot.cs" />
     <Compile Include="Robot\NuBaseRobot.cs" />
     <Compile Include="Robot\OptionTraderRobotTest.cs" />
