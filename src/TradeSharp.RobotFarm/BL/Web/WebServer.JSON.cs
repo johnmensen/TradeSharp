@@ -53,6 +53,9 @@ namespace TradeSharp.RobotFarm.BL.Web
             if (req is RequestPositionsClosing)
                 return ProcessRequestPositionsClosing((RequestPositionsClosing)req);
 
+            if (req is RequestAccountActualizing)
+                return ProcessActualizeAccounts();
+
             Logger.Info("not implemented: " + (line.Length > 512 ? line.Substring(0, 512) : line));
             return new JsonResponse(false, "not implemented")
             {
@@ -175,6 +178,12 @@ namespace TradeSharp.RobotFarm.BL.Web
             }
             
             return resp;
+        }
+
+        private JsonResponse ProcessActualizeAccounts()
+        {
+            //RobotFarm.Instance.Accounts.ForEach(a => a.);
+            return new JsonResponse(true, string.Empty);
         }
 
         private JsonRequest DeserializeRequest(string requestJson)

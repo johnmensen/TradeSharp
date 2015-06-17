@@ -483,33 +483,34 @@ namespace TradeSharp.Robot.Robot
         /// <summary>
         /// Расчёт объёма сделки в валюте депозита с учётом наличия или отсутствия фиксированного объёма
         /// </summary>
-        protected int CalculateVolume(string ticker, decimal? calculateLeverage = null)
+        protected int CalculateVolume(string ticker, decimal? calculateLeverage = null, int? fixedVolm = null)
         {
-            if (FixedVolume.HasValue && FixedVolume.Value != 0) return FixedVolume.Value;
-
-            calculateLeverage = calculateLeverage ?? Leverage;
-
-            Account ac;
-            robotContext.GetAccountInfo(robotContext.AccountInfo.ID, true, out ac);
-            if (ac == null || ac.Equity <= 0)
+            int? depoDealVolume = fixedVolm ?? FixedVolume;
+            if (!fixedVolm.HasValue || fixedVolm.Value == 0)
             {
-                var errorStr = ac == null
-                    ? string.Format("Счет {0} не найден", robotContext.AccountInfo.ID)
-                    : string.Format("На счете {0} недостаточно средств ({1})",
-                        robotContext.AccountInfo.ID, ac.Equity.ToStringUniformMoneyFormat());
-                Logger.Info(errorStr);
-                return 0;
-            }
-           
-            string error;
-            var depoDealVolume = DalSpot.Instance.ConvertToTargetCurrency(ticker, true, ac.Currency,
-                (double)(ac.Equity * calculateLeverage), robotContext.QuotesStorage.ReceiveAllData(),
-                out error);
+                calculateLeverage = calculateLeverage ?? Leverage;
+                Account ac;
+                robotContext.GetAccountInfo(robotContext.AccountInfo.ID, true, out ac);
+                if (ac == null || ac.Equity <= 0)
+                {
+                    var errorStr = ac == null
+                        ? string.Format("Счет {0} не найден", robotContext.AccountInfo.ID)
+                        : string.Format("На счете {0} недостаточно средств ({1})",
+                            robotContext.AccountInfo.ID, ac.Equity.ToStringUniformMoneyFormat());
+                    Logger.Info(errorStr);
+                    return 0;
+                }
 
-            if (!depoDealVolume.HasValue)
-            {
-                Logger.InfoFormat("Не удалось перевести средства в валюту депозита. " + error);
-                return 0;
+                string error;
+                depoDealVolume = (int?)DalSpot.Instance.ConvertToTargetCurrency(ticker, true, ac.Currency,
+                    (double) (ac.Equity*calculateLeverage), robotContext.QuotesStorage.ReceiveAllData(),
+                    out error);
+            
+                if (!depoDealVolume.HasValue)
+                {
+                    Logger.InfoFormat("Не удалось перевести средства в валюту депозита. " + error);
+                    return 0;
+                }
             }
 
             var roundMinVolm = RoundMinVolume;

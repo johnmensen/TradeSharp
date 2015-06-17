@@ -17,10 +17,7 @@ namespace Mt4Dealer
 {
     public class Mt4Dealer : SimpleDealer, IDealer, ITradeRequestCallback
     {
-        //private const string Mt4ServiceDefaultBinding = "IMt4Binding";
-        //private volatile bool isStopping;
-
-        private string configFileName;
+        private readonly string configFileName;
 
         private static int RequestUniqueId
         {
@@ -37,8 +34,6 @@ namespace Mt4Dealer
 
         private const int MsgPingServerError = 1;
 
-        //private Thread pingThread;
-
         private RabbitServer rabbitServer;
 
         public List<string> GroupCodes { get; private set; }
@@ -53,10 +48,6 @@ namespace Mt4Dealer
                 {BrokerService.Contract.Entity.RequestStatus.Rejected, RequestStatus.DealerError}
             };
 
-        //private ManagerTradeProxy mt4Executor;
-
-        //private readonly Guid sessionId = Guid.NewGuid();
-
         public Mt4Dealer(DealerDescription desc, List<string> groupCodes)
         {
             errorStorage = new ErrorStorage();
@@ -68,19 +59,13 @@ namespace Mt4Dealer
         public void Initialize()
         {
             var cfg = new DealerConfigParser(typeof(Mt4Dealer), configFileName);
-            //var bindingName = cfg.GetString("Binding", Mt4ServiceDefaultBinding);
-            //mt4Executor = new ManagerTradeProxy(bindingName, this);
             rabbitServer = new RabbitServer(cfg, RequestProcessed);
             rabbitServer.Start();
-            //pingThread = new Thread(PingServerRoutine);
-            //pingThread.Start();
         }
 
         public void Deinitialize()
         {
             rabbitServer.Stop();
-            //isStopping = true;
-            //pingThread.Join();
         }
 
         public string GetErrorString()
@@ -163,9 +148,6 @@ namespace Mt4Dealer
                 RequestStorage.Instance.StoreRequest(new RequestedOrder(request, order));
                 rabbitServer.SendRequest(request);
                 return RequestStatus.OK;
-                //var status = 
-                //var status = mt4Executor.MakeMarketRequest(sessionId, request);
-                //return responseNative[status];
             }
             catch (Exception ex)
             {

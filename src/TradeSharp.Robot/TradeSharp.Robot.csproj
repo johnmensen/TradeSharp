@@ -113,6 +113,7 @@
     <Compile Include="Robot\ForexSignalRobot.DiversByTimeframe.cs" />
     <Compile Include="Robot\IchimokuRobot.cs" />
     <Compile Include="Robot\IndexCalculator.cs" />
+    <Compile Include="Robot\MovAvgMomentumRobot.cs" />
     <Compile Include="Robot\Mt4Robot.cs" />
     <Compile Include="Robot\MultiIndexRobot.cs" />
     <Compile Include="Robot\OptionTraderRobot.cs" />

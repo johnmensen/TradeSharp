@@ -15,12 +15,12 @@ namespace TradeSharp.Robot.Robot
     public class Bollinger : BaseRobot
     {
         #region Настройки
-        private int bollingerCoeff = 2;
+        private decimal bollingerCoeff = 2;
         [PropertyXMLTag("bollingerCoeffs")]
         [DisplayName("Множитель волатильности")]
         [Category("Торговые")]
         [Description("Множитель волатильности")]
-        public int BollingerCoeff
+        public decimal BollingerCoeff
         {
             get { return bollingerCoeff; }
             set { bollingerCoeff = value; }
@@ -228,8 +228,8 @@ namespace TradeSharp.Robot.Robot
             // Вычислений - возведений в квадрат - будет меньше
             var average = candlesList.Average(x => x.close);
             var v = Math.Sqrt(candlesList.Average(x => (x.close - x.open) * (x.close - x.open)));
-            var high = average + v * BollingerCoeff;
-            var low = average - v * BollingerCoeff;
+            var high = average + v * (float)BollingerCoeff;
+            var low = average - v * (float)BollingerCoeff;
 
             var signal = candle.close < low ? 1 : candle.close > high ? -1 : 0;
             bollingerList.Add(signal);

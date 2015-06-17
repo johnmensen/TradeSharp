@@ -18,16 +18,16 @@ namespace Mt4Dealer
         {
             this.processResponse = processResponse;
             rabbitHost = new RabbitMqHost(
-                parser.GetString("MQ.Host", "188.226.214.27"),
+                parser.GetString("MQ.Host", "mq1.amarkets.org"),
                 parser.GetString("MQ.ResponseQueueName", "mt4_dealer_response"),
-                parser.GetString("MQ.User", "local_office"),
-                parser.GetString("MQ.Password", "local_office"),
+                parser.GetString("MQ.User", "deploy"),
+                parser.GetString("MQ.Password", "a6e92c1FEA"),
                 ProcessRabbitResponse);
 
             rabbitSender = new RabbitSender(
-                AppConfig.GetStringParam("MQ.Host", "188.226.214.27"),
-                AppConfig.GetStringParam("MQ.User", "local_office"),
-                AppConfig.GetStringParam("MQ.Password", "local_office"),
+                AppConfig.GetStringParam("MQ.Host", "mq1.amarkets.org"),
+                AppConfig.GetStringParam("MQ.User", "deploy"),
+                AppConfig.GetStringParam("MQ.Password", "a6e92c1FEA"),
                 AppConfig.GetStringParam("MQ.RequestQueueName", "mt4_dealer_request"));
         }
 

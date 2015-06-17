@@ -297,6 +297,7 @@
     <Compile Include="Indicator\IndicatorMA.cs" />
     <Compile Include="Indicator\IndicatorCrossChartDivergencies.cs" />
     <Compile Include="Indicator\IndicatorMACD.cs" />
+    <Compile Include="Indicator\IndicatorMomentum.cs" />
     <Compile Include="Indicator\IndicatorOrders.cs" />
     <Compile Include="Indicator\IndicatorOptionDom.cs" />
     <Compile Include="Indicator\IndicatorOptionDom.WebRequest.cs" />

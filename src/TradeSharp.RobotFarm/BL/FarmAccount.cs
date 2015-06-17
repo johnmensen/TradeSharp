@@ -7,7 +7,6 @@ using TradeSharp.Contract.Contract;
 using TradeSharp.Contract.Entity;
 using TradeSharp.Contract.Util.BL;
 using TradeSharp.Contract.Util.Proxy;
-using TradeSharp.Localisation;
 using TradeSharp.Robot.BacktestServerProxy;
 using TradeSharp.Robot.Robot;
 using TradeSharp.Util;
@@ -63,25 +62,18 @@ namespace TradeSharp.RobotFarm.BL
         private const int LogMsgPingError = 2;
         #endregion
 
-        private long termId;
         [PropertyXMLTag("TerminalId")]
-        public long TerminalId
-        {
-            get
-            {
-                if (termId == 0)
-                    return termId = LongRandom(0, long.MaxValue, new Random());
-                return termId;
-            }
-            set { termId = value; }
-        }
+        public long TerminalId { get; private set; }
 
         private readonly ActualAccountData accountData;
+
+        private static readonly Random random = new Random();
 
         public FarmAccount()
         {
             callbackProcessor = new TradeServerCallbackProcessor();
             accountData = new ActualAccountData(0);
+            TerminalId = LongRandom(0, long.MaxValue, random);
         }
 
         public RobotContextLiveFarm GetContext()
@@ -166,7 +158,7 @@ namespace TradeSharp.RobotFarm.BL
             }
             catch (Exception ex)
             {
-                Logger.Error("Ошибка иницииализации защищенного контекста", ex);
+                Logger.Error("Ошибка инициализации защищенного контекста", ex);
                 throw;
             }
             
@@ -208,8 +200,7 @@ namespace TradeSharp.RobotFarm.BL
                         AccountId, opRst));
                     return false;
                 }
-
-                accountData.accountId = AccountId;
+                Logger.InfoFormat("User {0} authenticated on #{1}", UserLogin, AccountId);
             }
             catch (Exception ex)
             {

@@ -59,6 +59,7 @@
     <Compile Include="JsonResponsePositionsClosing.cs" />
     <Compile Include="Position.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RequestAccountActualizing.cs" />
     <Compile Include="RequestAccounts.cs" />
     <Compile Include="RequestLastOrders.cs" />
     <Compile Include="RequestPositionsClosing.cs" />

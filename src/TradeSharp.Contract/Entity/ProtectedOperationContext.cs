@@ -34,5 +34,11 @@ namespace TradeSharp.Contract.Entity
         {
             return CredentialsHash.MakeCredentialsHash(login, pwrd, magic);
         }
+
+        public override string ToString()
+        {
+            return string.Format("terminal: {0}, time: {1}, session: {2}, hash: {3}, machine: {4}",
+                terminalId, clientLocalTime, sessionTag, userMachineName, userMachineName);
+        }
     }
 }

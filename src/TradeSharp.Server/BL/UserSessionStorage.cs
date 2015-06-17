@@ -205,7 +205,12 @@ namespace TradeSharp.Server.BL
             if (ProtectedOperationContext.IsServerContext(ctx)) return true;
 
             var userHash = CredentialsHash.MakeOperationParamsHash(ctx.clientLocalTime, ctx.sessionTag, ctx.terminalId);
-            if (ctx.hash != userHash) return false;
+            if (ctx.hash != userHash)
+            {
+                Logger.InfoFormat("[{0: {1}] - hash is incorrect ({2}, correct hash: {3})",
+                    login, accountId, ctx, userHash);
+                return false;
+            }
             // найти сессию
             try
             {
@@ -222,7 +227,13 @@ namespace TradeSharp.Server.BL
                 sessions.TryGetValue(ctx.terminalId, out session);
                 if (session == null) return false;
                 if (!string.IsNullOrEmpty(login))
-                    if (login != session.login) return false;
+                    if (login != session.login)
+                    {
+                        Logger.InfoFormat("Session #{0}: login ({1}) != session login ({2})",
+                            ctx.terminalId, login, session.login);
+                        return false;
+                    }
+                
                 // обновить сессию
                 try
                 {
@@ -241,6 +252,10 @@ namespace TradeSharp.Server.BL
                     var hasRights = accountRights.HasValue && (accountRights.Value.b || !isTradeOperation);
                     if (!hasRights)
                     {
+                        Logger.InfoFormat("User {0} #{1} has insufficient rights (trade op: {2}, session: {3} / {4})",
+                            login, targetAccount, isTradeOperation, ctx.terminalId,
+                            string.Join(",", session.enabledAccounts.Select(a => string.Format("{0}:{1}",
+                                a.a, a.b ? "en" : "dis"))));
                         //Logger.Error("PermitUserOperation: возврат false, session.enabledAccounts.Contains счет " +
                         //             session.accountId);
                         return false;

@@ -21,7 +21,8 @@ namespace TradeSharp.RobotFarm.Request
             {
                 {JsonRequestType.RequestAccount.ToString(), typeof (RequestAccounts)},
                 {JsonRequestType.LastOrders.ToString(), typeof (RequestLastOrders)},
-                {JsonRequestType.PositionsCLosing.ToString(), typeof (RequestPositionsClosing)}
+                {JsonRequestType.PositionsCLosing.ToString(), typeof (RequestPositionsClosing)},
+                {JsonRequestType.ActualizeAccounts.ToString(), typeof (RequestAccountActualizing)}
             };
 
         private static readonly Dictionary<Type, Type> responseByRequest = new Dictionary<Type, Type>();
@@ -80,7 +81,8 @@ namespace TradeSharp.RobotFarm.Request
     {
         RequestAccount = 0,
         LastOrders = 1,
-        PositionsCLosing = 2
+        PositionsCLosing = 2,
+        ActualizeAccounts = 3
     }
 
     [AttributeUsage(AttributeTargets.Class, AllowMultiple = false)]
